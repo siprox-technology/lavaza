@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+
+//register
+Route::get('/register',[RegisterController::class,'index'])->name('register.index');
+/* Route::post('/register',[RegisterController::class,'store'])->name('register'); */
+//email verification
+/* Route::get('/email/verify/{id}/{hash}',[RegisterController::class,'verifyEmail'])->name('verification.verify'); */
+//resend verification email
+/* Route::post('/email/verification-notification',[RegisterController::class,'sendVerifyEmail'] )->name('verification.send'); */

@@ -1,5 +1,8 @@
 lavaza restaurant
 
+database tables:
+
+User:
 
 
 -user registration and activation with email
