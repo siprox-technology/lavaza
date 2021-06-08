@@ -1,0 +1,6 @@
+lavaza restaurant
+
+
+
+-user registration and activation with email
+-user login and logout with forget password and reset 
