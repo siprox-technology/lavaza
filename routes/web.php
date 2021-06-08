@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 //register
 Route::get('/register',[RegisterController::class,'index'])->name('register.index');
-/* Route::post('/register',[RegisterController::class,'store'])->name('register'); */
+Route::post('/register',[RegisterController::class,'store'])->name('register');
 //email verification
 /* Route::get('/email/verify/{id}/{hash}',[RegisterController::class,'verifyEmail'])->name('verification.verify'); */
 //resend verification email

@@ -18,24 +18,61 @@
               <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
     
                 <div class="content">
-                  <h3>Register<strong>Register</strong></h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                  </p>
-                  <p class="font-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <ul>
-                    <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                  </ul>
-                  <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum
-                  </p>
+                  <h3>Register</h3>
+                  <form class="text-left clearfix" action="{{route('register')}}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" maxlength="50"
+                        class="form-control @error('name') border border-danger @enderror" 
+                        placeholder="Your name" value="{{old('name')}}">
+                        @error('name')
+                        <div class=" text-danger mt-2">
+                            {{$message}}
+                        </div>
+                    @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="email" id="email" maxlength="50" 
+                        class="form-control @error('email') border border-danger @enderror" 
+                        placeholder="Your email" value="{{old('email')}}" >
+                        @error('email')
+                        <div class=" text-danger mt-2">
+                            {{$message}}
+                        </div>
+                    @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" id="phone" maxlength="11" 
+                        class="form-control  @error('phone') border border-danger @enderror" 
+                        placeholder="Your phone" value="{{old('phone')}}">
+                        @error('phone')
+                        <div class=" text-danger mt-2">
+                            {{$message}}
+                        </div>
+                    @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" maxlength="30" 
+                        class="form-control @error('password') border border-danger @enderror" placeholder="Your password">
+                        @error('password')
+                        <div class=" text-danger mt-2">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password_confirmation" id="password_confirmation" maxlength="30" 
+                        class="form-control @error('password_confirmation') border border-danger @enderror" placeholder="Your password again">
+                        @error('password_confirmation')
+                        <div class=" text-danger mt-2">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="text-center">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
                 </div>
     
               </div>

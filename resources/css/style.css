@@ -1205,7 +1205,7 @@ section {
     padding: 10px 12px;
 }
 
-.book-a-table .php-email-form button[type="submit"] {
+button[type="submit"] {
     background: #ffb03b;
     border: 0;
     padding: 10px 24px;
