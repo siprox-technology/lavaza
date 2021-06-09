@@ -40,7 +40,15 @@
           <nav class="nav-menu d-none d-lg-block">
             <ul>
               <li class="active"><a href="index.html">Home</a></li>
-              <li class=""><a href="{{route('register.index')}}">Register</a></li>
+              @guest
+                <li class=""><a href="{{route('register.index')}}">Register</a></li>
+                <li class=""><a href="{{route('login.index')}}">Login</a></li>
+              @endguest
+              @auth
+                <li><a href="{{route('dashboard.index')}}">Dashboard</a></li>
+                <li class=""><a href="{{route('logout')}}">Logout</a></li>
+              @endauth
+
               <li><a href="#about">About</a></li>
               <li><a href="#menu">Menu</a></li>
               <li><a href="#specials">Specials</a></li>

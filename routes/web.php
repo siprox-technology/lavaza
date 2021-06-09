@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 
@@ -17,7 +18,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 
 //register
@@ -28,6 +29,21 @@ Route::get('/email/verify/{id}/{hash}',[RegisterController::class,'verifyEmail']
 //resend verification email
 Route::post('/email/verification-notification',[RegisterController::class,'sendVerifyEmail'] )->name('verification.send');
 
-//dashboard 
+//login logout
+Route::get('/login', [LoginController::class,'index'])->name('login.index');
+Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::get('/logout',[LoginController::class,'logOut'])->name('logout');
 
+//forget password form
+Route::get('/forgetPassword',[ForgetPasswordController::class,'index'] )->name('forgetPassword.index');
+//send reset password email
+Route::post('/forgetPassword',[ForgetPasswordController::class,'sendResetPassEmail'])->name('forgetPassword.email');
+//reset password form
+Route::get('/reset-password/{token}',[ForgetPasswordController::class,'showResetPassForm'])->name('password.reset');
+//reset password
+Route::post('/reset-password',[ForgetPasswordController::class,'resetPass'])->name('password.update');
+
+
+
+//dashboard 
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index');
