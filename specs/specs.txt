@@ -7,4 +7,4 @@ User:
 
 *user registration and activation with email
 *resend activation email if not send
--user login and logout with forget password and reset 
+*user login and logout with forget password and reset 

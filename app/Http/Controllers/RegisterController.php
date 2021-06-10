@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\NewUserRegister;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
+use Illuminate\Auth\Events\Registered;
+
 class RegisterController extends Controller
-{
+{    
+    public function __construct()
+    {
+        $this->middleware(['guest'])->only('index','store');
+        $this->middleware(['auth','signed'])->only('verifyEmail');
+        $this->middleware(['auth','throttle:6,1'])->only('sendVerifyEmail');
+    }
     public function index(){
         return view('register');
     }
