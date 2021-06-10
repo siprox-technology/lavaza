@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('state',30)->nullable();
             $table->string('country',30)->nullable();
             $table->string('post_code',15)->nullable();
+            $table->smallInteger('role')->default('0');
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

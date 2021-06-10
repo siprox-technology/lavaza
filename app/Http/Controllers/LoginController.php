@@ -23,6 +23,11 @@ class LoginController extends Controller
         {
             return back()->withErrors(['status'=>'Invalid login details']);
         }
+        //login for admins
+        if(auth()->user()->role == 1)
+        {
+            return \redirect()->route('admin.index');
+        }
 
         return \redirect()->route('dashboard.index');
     }

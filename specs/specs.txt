@@ -1,8 +1,28 @@
-lavaza restaurant
+Lavaza restaurants website
+------------------------------
 
-database tables:
+Database tables => Products, Brands, Reviews, 
+Users, Orders, order_items,Payments, Admin
+---------------------------------------------
+class (models) diagram => (Class_Model.vsdx)
+---------------------------------------------
 
-User:
+Admin:
+
+
+id,email,name,phone,
+,password,
+
+---------------------------------
+Users:
+
+id,email,name,phone,
+address,city,state,country,post_code
+,password, role
+email_verified_at, remember_token
+created_at,update_at
+
+
 
 
 *user registration and activation with email

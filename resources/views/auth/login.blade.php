@@ -18,7 +18,7 @@
               <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
     
                 <div class="content">
-                  <h3>Register</h3>
+                  <h3>Login</h3>
                   <form class="text-left clearfix" method="POST" action="{{route('login')}}">
                     @csrf
                     <div class="form-group">
