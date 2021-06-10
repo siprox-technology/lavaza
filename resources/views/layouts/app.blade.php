@@ -45,7 +45,12 @@
                 <li class=""><a href="{{route('login.index')}}">Login</a></li>
               @endguest
               @auth
-                <li><a href="{{route('dashboard.index')}}">Dashboard</a></li>
+                @if (auth()->user()->role == 1)
+                  <li><a href="{{route('admin.index')}}">Admin</a></li>
+                @else
+                  <li><a href="{{route('dashboard.index')}}">Dashboard</a></li>
+                @endif
+
                 <li class=""><a href="{{route('logout')}}">Logout</a></li>
               @endauth
 

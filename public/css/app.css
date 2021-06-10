@@ -1946,3 +1946,10 @@ button[type="submit"] {
 #footer .credits {
     font-size: 13px;
 }
+
+
+/* custom style */
+
+.text_yellow {
+    color: #ffb03b !important;
+}
