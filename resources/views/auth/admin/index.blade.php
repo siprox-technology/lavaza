@@ -1,39 +1,111 @@
 @extends('layouts.app')
 @section('content')
 
-
-    
       <main id="main">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-3">
-                    <nav class="nav-menu ">
-                        <ul>
-                            <li><a href="index.html" class="text_yellow">Users</a></li>
-                            <a class="bg-primary text-white p-3" data-toggle="modal"
-                            data-target="#ShowUserModal">Edit
-                            details</a>
-                            <li><a class="text_yellow" href="#about">About</a></li>
-                            <li><a class="text_yellow" href="#menu">Menu</a></li>
-                            <li><a class="text_yellow" href="#specials">Specials</a></li>
-                            <li><a class="text_yellow" href="#events">Events</a></li>
-                            <li><a class="text_yellow" href="#chefs">Chefs</a></li>
-                            <li><a class="text_yellow" href="#gallery">Gallery</a></li>
-                            <li><a class="text_yellow" href="#contact">Contact</a></li>
-                            <li class="book-a-table text-center"><a class="text_yellow" href="#book-a-table">Book a table</a></li>
-                        </ul>
-                      </nav>
+        <div class="row">
+            <div class="col-md-2">
+                <div id="accordion">
+                    <div class="card">
+                    {{-- database menu --}}
+                      <div class="card-header">
+                          <a class="" data-toggle="collapse" data-target="#databaseHeading" aria-expanded="true" aria-controls="collapseOne">
+                           Database
+                          </a>
+                      </div>
+                      <div id="databaseHeading" class="collapse" aria-labelledby="databaseHeading" data-parent="#accordion">
+                        {{-- database tables list --}}
+                        <div class="card-body">
+                            <ul>
+                                {{-- users menu link --}}
+                                <li>
+                                    <a class="" data-toggle="collapse" data-target="#userDatabaseCollapse" aria-expanded="true" aria-controls="collapseOne">Users</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Collapsible Group Item #2
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Collapsible Group Item #3
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-9">
-                      
+
+            <div class="col-md-8">
+                {{-- users list --}}
+                <div class="collapse" id="userDatabaseCollapse">
+                    <div class="card card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Postal code</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Email verified @</th>
+                                <th scope="col">Created @</th>
+                                <th scope="col">Updated @</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>{{$users[0]->name}}</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
                 </div>
-              </div>
-          </div>
+            </div>
+        </div>
       </main>
 
     {{-- modals --}}
 
-    {{-- show users modal --}}
+    {{-- show database modal --}}
       <div class='modal fade show' style="d-block" id="ShowUserModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
