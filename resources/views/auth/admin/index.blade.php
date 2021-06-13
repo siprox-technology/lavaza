@@ -2,17 +2,22 @@
 @section('content')
 
       <main id="main">
-        <div class="row">
-            <div class="col-md-2">
+        <div class="row justify-content-center py-5 w-100 mx-auto">
+            <h1 class="text_yellow">Admin Panel</h1>
+        </div>
+        <div class="row justify-content-center pb-5 w-100 mx-auto">
+            <div class="col-lg-2 ">
+                {{-- main menu --}}
                 <div id="accordion">
                     <div class="card">
                     {{-- database menu --}}
                       <div class="card-header">
-                          <a class="" data-toggle="collapse" data-target="#databaseHeading" aria-expanded="true" aria-controls="collapseOne">
+                          <a class="text-dark" data-toggle="collapse" data-target="#databaseHeading" aria-expanded="true" aria-controls="collapseOne">
                            Database
                           </a>
                       </div>
-                      <div id="databaseHeading" class="collapse" aria-labelledby="databaseHeading" data-parent="#accordion">
+
+                      <div id="databaseHeading" class="collapse {{(session('databaseMenu'))=='users'?'show':''}}" aria-labelledby="databaseHeading" data-parent="#accordion">
                         {{-- database tables list --}}
                         <div class="card-body">
                             <ul>
@@ -53,48 +58,41 @@
                       </div>
                     </div>
                   </div>
-
-            <div class="col-md-8">
+                </div>
+            <div class="col-lg-8 ">
                 {{-- users list --}}
-                <div class="collapse" id="userDatabaseCollapse">
+                <div class="collapse {{(session('databaseMenu'))=='users'?'show':''}}" id="userDatabaseCollapse">
                     <div class="card card-body">
-                        <table class="table table-striped">
+                        <table class="table table-striped table-responsive">
                             <thead>
                                 <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">City</th>
-                                <th scope="col">State</th>
-                                <th scope="col">Country</th>
-                                <th scope="col">Postal code</th>
-                                <th scope="col">Role</th>
-                                <th scope="col">Email verified @</th>
-                                <th scope="col">Created @</th>
-                                <th scope="col">Updated @</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>{{$users[0]->name}}</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <th scope="row">{{$user->id}}</th>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{($user->role)==1? "Admin":"User"}}</td>
+                                        @if ($user->role != 1)
+                                        <td class="row justify-content-center">
+                                            <form action="{{route('admin.user.delete')}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="user_id" value="{{$user->id}}">
+                                                <button class="py-1 px-2 mx-1" type="submit"><i class="icofont-trash"></i></button>
+                                            </form>
+                                            {{-- edit user button --}}
+                                            <button class="py-1 px-2 mx-1" data-toggle="modal" data-target="#editUserModal"><i class="icofont-pencil"></i></button>
+                                        </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>                        
                     </div>
@@ -105,12 +103,12 @@
 
     {{-- modals --}}
 
-    {{-- show database modal --}}
-      <div class='modal fade show' style="d-block" id="ShowUserModal" tabindex="-1" role="dialog" aria-hidden="true">
+    {{-- edit user modal --}}
+      <div class='modal fade show' style="d-block" id="editUserModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="">Users</h5>
+                    <label for="">Update user information</label>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -129,7 +127,7 @@
                                                 <label for="contact_pref"><b>Name:</b></label>
                                                 <input type="text" name="name" id="name" maxlength="50"
                                                 class="form-control @error('name') border border-danger @enderror" 
-                                                placeholder="Your name" value="{{auth()->user()->name}}">
+                                                placeholder="Your name" value="">
                                                 @error('name')
                                                     <div class=" text-danger mt-2">
                                                         {{$message}}
@@ -140,7 +138,7 @@
                                                 <label for="contact_pref"><b>Phone:</b></label>
                                                 <input type="text" name="phone" id="phone" maxlength="11" 
                                                 class="form-control  @error('phone') border border-danger @enderror" 
-                                                placeholder="Your phone" value="{{auth()->user()->phone}}">
+                                                placeholder="Your phone" value="">
                                                 @error('phone')
                                                     <div class=" text-danger mt-2">
                                                         {{$message}}
@@ -148,29 +146,11 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group text-left">
-                                                @if ($errors->any())
-                                                    <script src="{{mix ('js/app.js')}}"></script>
-                                                @endif
-                                                <label for="contact_pref"><b>Contact preference:</b></label>
-                                                <select name="contact_pref" id="contact_pref" 
-                                                 class="w-100 mb-3">
-                                                    <option value="0"
-                                                        @if ((auth()->user()->contact_pref) == '0')
-                                                        selected = "selected"
-                                                        @endif
-                                                    >Phone</option>
-                                                    <option value="1"
-                                                        @if ((auth()->user()->contact_pref) == '1')
-                                                        selected = "selected"
-                                                        @endif>SMS
-                                                    </option>
-                                                    <option value="2"
-                                                        @if ((auth()->user()->contact_pref) == '2')
-                                                            selected = "selected"
-                                                        @endif>Email
-                                                    </option>
-                                                </select>                                
-                                                @error('contact_pref')
+                                                <label for="address"><b>Address:</b></label>
+                                                <input type="text" name="address" id="address" maxlength="150" 
+                                                class="form-control  @error('address') border border-danger @enderror" 
+                                                placeholder="Your address" value="">
+                                                @error('address')
                                                     <div class=" text-danger mt-2">
                                                         {{$message}}
                                                     </div>
@@ -189,5 +169,4 @@
             </div>
         </div>
     </div>
-
 @endsection

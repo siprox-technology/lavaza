@@ -17,4 +17,11 @@ class AdminController extends Controller
         $users = User::all();
         return view('auth.admin.index')->with(['users'=>$users]);
     }
+
+    public function deleteUser(Request $request)
+    {
+        User::find($request->user_id)->delete();
+        $users = User::all();
+        return redirect()->route('admin.index','#main')->with(['users'=>$users, 'databaseMenu'=>'users']);
+    }
 }
