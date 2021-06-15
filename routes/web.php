@@ -54,3 +54,4 @@ Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.
 //admin
 Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
 Route::post('/admin/delete-user',[AdminController::class,'deleteUser'])->name('admin.user.delete');
+Route::post('/admin/update-user',[AdminController::class,'updateUser'])->name('admin.user.update');

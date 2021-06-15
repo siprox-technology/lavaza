@@ -82,13 +82,133 @@
                                         <td>{{($user->role)==1? "Admin":"User"}}</td>
                                         @if ($user->role != 1)
                                         <td class="row justify-content-center">
+                                            {{-- delete user button --}}
                                             <form action="{{route('admin.user.delete')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$user->id}}">
                                                 <button class="py-1 px-2 mx-1" type="submit"><i class="icofont-trash"></i></button>
                                             </form>
                                             {{-- edit user button --}}
-                                            <button class="py-1 px-2 mx-1" data-toggle="modal" data-target="#editUserModal"><i class="icofont-pencil"></i></button>
+                                            <button class="py-1 px-2 mx-1" data-toggle="modal" data-target="#editUserModal{{$user->id}}"><i class="icofont-pencil"></i></button>
+                                            {{-- edit user modal --}}
+                                            <div class='modal fade show' style="d-block" id="editUserModal{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header p-2">
+                                                            <label class="mb-0"for="">Update user information</label>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body p-0">
+                                                            <!-- edit user personal details -->
+                                                            <div class="col-12">
+                                                                <div class="heading-title">
+                                                                    <div class=" flex justify-center">
+                                                                        <div class=" w-6/12 bg-white p-6 rounded-lg">
+                                                                            <div class="block text-center">
+                                                                            {{-- edit user details --}}
+                                                                                <form class="text-left clearfix" action="{{route('admin.user.update')}}" method="POST">
+                                                                                    @csrf
+                                                                                    {{-- name --}}
+                                                                                    <div class="form-group text-left mb-0">
+                                                                                        <label class="mt-2 mb-0" for="contact_pref"><b>Name:</b></label>
+                                                                                        <input type="text" name="name" id="name" maxlength="50"
+                                                                                        class="form-control @error('name') border border-danger @enderror" 
+                                                                                        value="{{$user->name}}">
+                                                                                        @error('name')
+                                                                                            <div class=" text-danger mt-2">
+                                                                                                {{$message}}
+                                                                                            </div>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                    {{-- phone --}}
+                                                                                    <div class="form-group text-left mb-0">
+                                                                                        <label class="mt-2 mb-0" for="contact_pref"><b>Phone:</b></label>
+                                                                                        <input type="text" name="phone" id="phone" maxlength="11" 
+                                                                                        class="form-control  @error('phone') border border-danger @enderror" 
+                                                                                        value="{{$user->phone}}">
+                                                                                        @error('phone')
+                                                                                            <div class=" text-danger mt-2">
+                                                                                                {{$message}}
+                                                                                            </div>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                    {{-- address --}}
+                                                                                    <div class="form-group text-left mb-0">
+                                                                                        <label class="mt-2 mb-0" for="address"><b>Address:</b></label>
+                                                                                        <input type="text" name="address" id="address" maxlength="150" 
+                                                                                        class="form-control  @error('address') border border-danger @enderror" 
+                                                                                        value="{{$user->address}}">
+                                                                                        @error('address')
+                                                                                            <div class=" text-danger mt-2">
+                                                                                                {{$message}}
+                                                                                            </div>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                    {{-- city --}}
+                                                                                    <div class="form-group text-left mb-0">
+                                                                                        <label class="mt-2 mb-0" class="mt-2 mb-0" for="city"><b>City:</b></label>
+                                                                                        <input type="text" name="city" id="city" maxlength="50" 
+                                                                                        class="form-control  @error('city') border border-danger @enderror" 
+                                                                                        value="{{$user->city}}">
+                                                                                        @error('city')
+                                                                                            <div class=" text-danger mt-2">
+                                                                                                {{$message}}
+                                                                                            </div>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                    {{-- state --}}
+                                                                                    <div class="form-group text-left mb-0">
+                                                                                        <label class="mt-2 mb-0" for="state"><b>State:</b></label>
+                                                                                        <input type="text" name="state" id="state" maxlength="30" 
+                                                                                        class="form-control  @error('state') border border-danger @enderror" 
+                                                                                        value="{{$user->state}}">
+                                                                                        @error('state')
+                                                                                            <div class=" text-danger mt-2">
+                                                                                                {{$message}}
+                                                                                            </div>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                    {{-- country --}}
+                                                                                    <div class="form-group text-left mb-0">
+                                                                                        <label class="mt-2 mb-0" for="country"><b>Country:</b></label>
+                                                                                        <input type="text" name="country" id="country" maxlength="30" 
+                                                                                        class="form-control  @error('country') border border-danger @enderror" 
+                                                                                        value="{{$user->country}}">
+                                                                                        @error('country')
+                                                                                            <div class=" text-danger mt-2">
+                                                                                                {{$message}}
+                                                                                            </div>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                    {{-- post_code --}}
+                                                                                    <div class="form-group text-left mb-0">
+                                                                                        <label class="mt-2 mb-0" for="post_code"><b>post_code:</b></label>
+                                                                                        <input type="text" name="post_code" id="post_code" maxlength="15" 
+                                                                                        class="form-control  @error('post_code') border border-danger @enderror" 
+                                                                                        value="{{$user->post_code}}">
+                                                                                        @error('post_code')
+                                                                                            <div class=" text-danger mt-2">
+                                                                                                {{$message}}
+                                                                                            </div>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                    {{-- user id --}}
+                                                                                    <input type="hidden" name="user_id" value="{{$user->id}}">  
+                                                                                    <div class="text-center my-2">
+                                                                                        <button type="submit" class="btn btn-primary">Update</button>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                         @endif
                                     </tr>
@@ -103,70 +223,4 @@
 
     {{-- modals --}}
 
-    {{-- edit user modal --}}
-      <div class='modal fade show' style="d-block" id="editUserModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <label for="">Update user information</label>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- edit user personal details -->
-                    <div class="col-12">
-                        <div class="heading-title">
-                            <div class=" flex justify-center">
-                                <div class=" w-6/12 bg-white p-6 rounded-lg">
-                                    <div class="block text-center">
-                                    {{-- edit user details --}}
-                                        <form class="text-left clearfix" action="" method="POST">
-                                            @csrf
-                                            <div class="form-group text-left">
-                                                <label for="contact_pref"><b>Name:</b></label>
-                                                <input type="text" name="name" id="name" maxlength="50"
-                                                class="form-control @error('name') border border-danger @enderror" 
-                                                placeholder="Your name" value="">
-                                                @error('name')
-                                                    <div class=" text-danger mt-2">
-                                                        {{$message}}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group text-left">
-                                                <label for="contact_pref"><b>Phone:</b></label>
-                                                <input type="text" name="phone" id="phone" maxlength="11" 
-                                                class="form-control  @error('phone') border border-danger @enderror" 
-                                                placeholder="Your phone" value="">
-                                                @error('phone')
-                                                    <div class=" text-danger mt-2">
-                                                        {{$message}}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group text-left">
-                                                <label for="address"><b>Address:</b></label>
-                                                <input type="text" name="address" id="address" maxlength="150" 
-                                                class="form-control  @error('address') border border-danger @enderror" 
-                                                placeholder="Your address" value="">
-                                                @error('address')
-                                                    <div class=" text-danger mt-2">
-                                                        {{$message}}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Update</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
