@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
+
       <main id="main">
         <div class="row justify-content-center py-5 w-100 mx-auto">
             <h1 class="text_yellow">Admin Panel</h1>
         </div>
-        <div class="row justify-content-center pb-5 w-100 mx-auto">
-            <div class="col-lg-2 ">
+        <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
+            <div class="col-12 ">
                 {{-- main menu --}}
                 <div id="accordion">
                     <div class="card">
@@ -17,7 +18,9 @@
                           </a>
                       </div>
 
-                      <div id="databaseHeading" class="collapse {{(session('databaseMenu'))=='users'?'show':''}}" aria-labelledby="databaseHeading" data-parent="#accordion">
+                      <div id="databaseHeading" 
+                      class="collapse @error('phone')show @enderror
+                      {{(session('users-database-list'))=='open'?'show':''}}" aria-labelledby="databaseHeading" data-parent="#accordion">
                         {{-- database tables list --}}
                         <div class="card-body">
                             <ul>
@@ -59,9 +62,18 @@
                     </div>
                   </div>
                 </div>
-            <div class="col-lg-8 ">
+            <div class="col-12 ">
+                {{-- users create update delete status  --}}
+                @if (session('status'))
+                    @if (str_contains(session('status'),'removed'))
+                       <p class="text-danger text-center">{{session('status')}}</p>
+                    @endif   
+                @endif
+{{--                 @error('any')
+                    
+                @enderror --}}
                 {{-- users list --}}
-                <div class="collapse {{(session('databaseMenu'))=='users'?'show':''}}" id="userDatabaseCollapse">
+                <div class="collapse @error('phone')show @enderror {{(session('users-database-list'))=='open'?'show':''}}" id="userDatabaseCollapse">
                     <div class="card card-body">
                         <table class="table table-striped table-responsive">
                             <thead>
@@ -91,7 +103,8 @@
                                             {{-- edit user button --}}
                                             <button class="py-1 px-2 mx-1" data-toggle="modal" data-target="#editUserModal{{$user->id}}"><i class="icofont-pencil"></i></button>
                                             {{-- edit user modal --}}
-                                            <div class='modal fade show' style="d-block" id="editUserModal{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal fade"style="d-block" id="editUserModal{{$user->id}}" 
+                                                tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header p-2">
@@ -222,5 +235,7 @@
       </main>
 
     {{-- modals --}}
-
+    <script type="text/javascript">
+        document.getElementById("admin-panel").scrollIntoView();
+    </script>
 @endsection

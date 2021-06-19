@@ -22,7 +22,10 @@ class AdminController extends Controller
     {
         User::find($request->user_id)->delete();
         $users = User::all();
-        return redirect()->route('admin.index','#main')->with(['users'=>$users, 'databaseMenu'=>'users']);
+        return redirect()->route('admin.index')
+        ->with(['users'=>$users, 
+        'users-database-list'=>'open',
+        'status'=>'User ID: '.$request->user_id.' removed']);
     }
 
     public function updateUser(Request $request){
@@ -36,6 +39,7 @@ class AdminController extends Controller
             'country'=>'max:30',
             'post_code'=>'max:15',
         ]);
+        
             //update user details
 
             $user = User::find($request->user_id);
@@ -45,10 +49,9 @@ class AdminController extends Controller
             $user->city = $request->contact_pref;
             $user->state = $request->contact_pref;
             $user->country = $request->contact_pref;
-            $user_country = $request->country;
+            $user->post_code = $request->post_code;
             $user->save();
             $users = User::all();
-            return redirect()->route('admin.index','#main')->with(['users'=>$users, 'databaseMenu'=>'users']);
-
+            return redirect()->route('admin.index')->with(['users'=>$users, 'users-database-list'=>'users']);
     }
 }
