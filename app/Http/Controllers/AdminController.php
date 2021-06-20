@@ -18,16 +18,13 @@ class AdminController extends Controller
         return view('auth.admin.index')->with(['users'=>$users]);
     }
 
-    public function deleteUser(Request $request)
+    //User model update and delete
+    
+    public function updateUserIndex($userId)
     {
-        User::find($request->user_id)->delete();
-        $users = User::all();
-        return redirect()->route('admin.index')
-        ->with(['users'=>$users, 
-        'users-database-list'=>'open',
-        'status'=>'User ID: '.$request->user_id.' removed']);
+        $user = User::find($userId);
+        return view('auth.admin.updateUser')->with(['user'=>$user]);
     }
-
     public function updateUser(Request $request){
         //validate user inputs
         $this->validate($request,[
@@ -39,19 +36,27 @@ class AdminController extends Controller
             'country'=>'max:30',
             'post_code'=>'max:15',
         ]);
-        
             //update user details
 
             $user = User::find($request->user_id);
             $user->name = $request->name;
             $user->phone = $request->phone;
             $user->address = $request->address;
-            $user->city = $request->contact_pref;
-            $user->state = $request->contact_pref;
-            $user->country = $request->contact_pref;
+            $user->city = $request->city;
+            $user->state = $request->state;
+            $user->country = $request->country;
             $user->post_code = $request->post_code;
             $user->save();
-            $users = User::all();
-            return redirect()->route('admin.index')->with(['users'=>$users, 'users-database-list'=>'users']);
+            return back()->with(['status'=>'User updated successfully']);
     }
+    public function deleteUser(Request $request)
+    {
+        User::find($request->user_id)->delete();
+        $users = User::all();
+        return redirect()->route('admin.index')
+        ->with(['users'=>$users, 
+        'users-database-list'=>'open',
+        'status'=>'User ID: '.$request->user_id.' removed']);
+    }
+
 }

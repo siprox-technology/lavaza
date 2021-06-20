@@ -7,11 +7,6 @@ Users, Orders, order_items,Payments, Admin
 class (models) diagram => (Class_Model.vsdx)
 ---------------------------------------------
 
-Admin:
-
-
-id,email,name,phone,
-,password,
 
 ---------------------------------
 Users:
@@ -28,3 +23,6 @@ created_at,update_at
 *user registration and activation with email
 *resend activation email if not send
 *user login and logout with forget password and reset 
+--admin functions
+*delete users
+*update user details

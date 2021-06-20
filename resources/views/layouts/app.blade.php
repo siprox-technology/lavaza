@@ -79,7 +79,7 @@
             <div class="carousel-inner" role="listbox">
     
               <!-- Slide 1 -->
-              <div class="carousel-item active" style="background: url(assets/img/slide/slide-1.jpg);">
+              <div class="carousel-item active" style="background: url({{asset('assets/img/slide/slide-1.jpg')}});">
                 <div class="carousel-container">
                   <div class="carousel-content">
                     <h2 class="animate__animated animate__fadeInDown"><span>Delicious</span> Restaurant</h2>
@@ -93,7 +93,7 @@
               </div>
     
               <!-- Slide 2 -->
-              <div class="carousel-item" style="background: url(assets/img/slide/slide-2.jpg);">
+              <div class="carousel-item" style="background: url({{asset('assets/img/slide/slide-2.jpg')}});">
                 <div class="carousel-container">
                   <div class="carousel-content">
                     <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
@@ -107,8 +107,8 @@
               </div>
     
               <!-- Slide 3 -->
-              <div class="carousel-item" style="background: url(assets/img/slide/slide-3.jpg);">
-                <div class="carousel-background"><img src="assets/img/slide/slide-3.jpg" alt=""></div>
+              <div class="carousel-item" style="background: url({{asset('assets/img/slide/slide-3.jpg')}});">
+                <div class="carousel-background"><img src="{{asset('assets/img/slide/slide-3.jpg')}}" alt=""></div>
                 <div class="carousel-container">
                   <div class="carousel-content">
                     <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>

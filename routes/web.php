@@ -53,5 +53,7 @@ Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.
 
 //admin
 Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
+Route::get('/admin/add-user',[AdminController::class,'createUserIndex'])->name('admin.user.create');
 Route::post('/admin/delete-user',[AdminController::class,'deleteUser'])->name('admin.user.delete');
+Route::get('/admin/update-user/{user:id}',[AdminController::class,'updateUserIndex'])->name('admin.user.update.index');
 Route::post('/admin/update-user',[AdminController::class,'updateUser'])->name('admin.user.update');
