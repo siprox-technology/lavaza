@@ -21,7 +21,7 @@
                     <h3>Dashboard</h3>
                     <p>Email:</p>
                     @if (!auth()->user()->email_verified_at)
-                        <p class="text-danger">Please verify emails address</p>
+                        <p class="text-danger">Please verify email address</p>
                         <form action="{{route('verification.send')}}" method="POST">
                             @csrf
                             <button type="submit">resend verification email</button>

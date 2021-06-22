@@ -51,7 +51,7 @@
                   <li><a href="{{route('dashboard.index')}}">Dashboard</a></li>
                 @endif
 
-                <li class=""><a href="{{route('logout')}}">Logout</a></li>
+                <li class=""><a dusk="Logout" href="{{route('logout')}}">Logout</a></li>
               @endauth
 
               <li><a href="#about">About</a></li>

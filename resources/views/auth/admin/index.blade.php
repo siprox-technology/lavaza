@@ -13,7 +13,7 @@
                     <div class="card">
                     {{-- database menu --}}
                       <div class="card-header">
-                          <a class="text-dark" data-toggle="collapse" data-target="#databaseHeading" aria-expanded="true" aria-controls="collapseOne">
+                          <a class="text-dark" dusk="AdminDbMenuLink" data-toggle="collapse" data-target="#databaseHeading" aria-expanded="true" aria-controls="collapseOne">
                            Database
                           </a>
                       </div>
@@ -73,15 +73,9 @@
                         </div>
                     @endif   
                 @endif
-                {{-- update user status --}}
-                @error('phone')
-                    <div class="text-center text-danger mt-2">
-                        Update user failed : {{$message}}
-                    </div>
-                @enderror
                 {{-- users list --}}
                 <div class="collapse @error('phone')show @enderror {{(session('users-database-list'))=='open'?'show':''}}" id="userDatabaseCollapse">
-                    <div class="card card-body">
+                  <div class="card card-body">
                         <table class="table table-striped table-responsive">
                             <thead>
                                 <tr>
@@ -105,10 +99,10 @@
                                             <form action="{{route('admin.user.delete')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$user->id}}">
-                                                <button class="py-1 px-2 mx-1" type="submit"><i class="icofont-trash"></i></button>
+                                                <button dusk="@if(($user->email)=='test@gmail.com')deleteUserBtn @endif" class="py-1 px-2 mx-1" type="submit"><i class="icofont-trash"></i></button>
                                             </form>
                                             {{-- edit user link --}}
-                                            <a href="{{route('admin.user.update.index',$user->id)}}" class="py-1 px-2 mx-1"><i class="icofont-pencil"></i></button>
+                                            <a dusk="@if(($user->email)=='test@gmail.com')updateUserLink @endif" href="{{route('admin.user.update.index',$user->id)}}" class="py-1 px-2 mx-1"><i class="icofont-pencil"></i></button>
                                         </td>
                                         @endif
                                     </tr>

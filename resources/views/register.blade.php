@@ -18,7 +18,7 @@
               <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
     
                 <div class="content">
-                  <h3>Register</h3>
+                  <h3>CREATE YOUR ACCOUNT</h3>
                   <form class="text-left clearfix" action="{{route('register')}}" method="post">
                     @csrf
                     <div class="form-group">
@@ -70,7 +70,7 @@
                         @enderror
                     </div>
                     <div class="text-center">
-                        <button type="submit">Register</button>
+                        <button type="submit" dusk="RegisterSubmitBtn">Register</button>
                     </div>
                 </form>
                 </div>

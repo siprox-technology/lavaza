@@ -16,7 +16,7 @@
             <div class="col-12">
                 {{-- update user status --}}
                 @if (session('status'))
-                    @if (session('status')=='User updated')
+                    @if (session('status')=='User updated successfully')
                         <div class="text-center text-success mt-2">
                             {{session('status')}}
                         </div>
