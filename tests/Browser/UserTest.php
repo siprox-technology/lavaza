@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
@@ -10,9 +11,10 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class UserTest extends DuskTestCase
 {
-    //test register user with correct inputs
+    //test register user with correct inputs -1
     public function test_new_user_can_be_registered_and_added_to_db()
     {
+
         $this->browse(function ($browser){
             $browser->visit('/')->visit('/register')
             ->assertPathIs('/register')
@@ -32,8 +34,8 @@ class UserTest extends DuskTestCase
     }
     //test register with incorrect inputs and receive error messages
 
-    //test login with correct credentials
-/*     public function test_login_and_logout_with_correct_credentials()
+    //test login with correct credentials -2
+    public function test_login_and_logout_with_correct_credentials()
     {
         $this->browse(function ($browser){
             $browser->visit('/')->visit('/login')
@@ -42,10 +44,10 @@ class UserTest extends DuskTestCase
                     ->type('password', '1111')
                     ->press('Login')
                     ->assertPathIs('/dashboard')
-                    ->assertSee('Email verified')
+                    ->assertSee('Please verify email address')
                     ->click('@Logout')->assertPathIs('/');
         });
-    } */
+    }
 
     //test login with incorrect credentials and receive error messages
 }
