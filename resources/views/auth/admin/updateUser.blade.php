@@ -101,7 +101,7 @@
         </div>
       </main>
 
-    {{-- modals --}}
+    {{-- scroll to admin panel --}}
     <script type="text/javascript">
         document.getElementById("admin-panel").scrollIntoView();
     </script>

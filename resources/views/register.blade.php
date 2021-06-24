@@ -5,8 +5,8 @@
     
       <main id="main">
     
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about">
+        <!-- ======= Register Section ======= -->
+        <section id="register" class="about">
           <div class="container-fluid">
     
             <div class="row">
@@ -83,6 +83,10 @@
 
     
       </main><!-- End #main -->
-    
+      {{-- scroll to login section --}}
+      <script type="text/javascript">
+          document.getElementById("register").scrollIntoView();
+      </script>
+  
 
 @endsection
