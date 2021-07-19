@@ -113,6 +113,14 @@
                 <div class="menu-ingredients">
                   Lorem, deren, trataro, filede, nerada
                 </div>
+                <div class="menu-image mt-2">
+                  <img src="{{asset('images/menu/burger.jpg')}}" alt="">
+                </div>
+                <div class=" d-flex mt-5 justify-content-between w-100">
+                  <label for="quantity" class="d-none"></label>
+                  <button id="add-to-cart" type="submit" class="btn btn-primary ">+</button>
+                  <input type="number" min="1" max="100" value="1" class="border-warning border-rounded" id="add-cart-quantity">
+                </div>
               </div>
     
               <div class="col-lg-6 menu-item filter-specialty">
