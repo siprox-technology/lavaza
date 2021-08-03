@@ -13442,3 +13442,8 @@ button[type="submit"] {
 .text_yellow {
     color: #ffb03b !important;
 }
+
+#cart_quantity_input_box {
+    width: 50px;
+    border-radius: 50px;
+}

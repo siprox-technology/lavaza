@@ -1,63 +1,88 @@
 Lavaza restaurants website
 ------------------------------
 
-Database tables => Products, Brands, Reviews, 
-Users, Orders, order_items,Payments, Admin
----------------------------------------------
-class (models) diagram => (Class_Model.vsdx)
----------------------------------------------
-
-
----------------------------------
-Users:
-
-id,email,name,phone,
-address,city,state,country,post_code
-,password, role
-email_verified_at, remember_token
-created_at,update_at
-
-
--
-
-
-
-
-
-Lavaza restaurants website
 ------------------------------
 
--Requirements specifications:
+    -Requirements specifications:
+        Features:
+            Tasks:
 
-    -User Requirements
-        1-Users registration and activation with phone number.
+
+        A-Users registration and activation with email.
+            A.1-For the first part of registration, users enter their email, name, phone number.
+            Then they are being directed to account verification page where 
+            if the number was not sent for a given period of time (i.e. 60 seconds), 
+            they can request another one. Users then go to email address and click on activation link,
+            after clicking on activation link their email is verified and they will be directed to their
+            account home page.
+
+        B-Users order food and pay online.
+            
+            B.1-Users add items to their shopping cart, update an item's quantity and delete an item from shopping cart.
+                
+                ***B.1.1-Users see online menu, select an item, set its quantity and add it to their shopping cart. 
+                The user has the option
+                to add notes about the order(i.e. allergies or removing a specific ingredients).
+                B.1.2-Users see their shopping cart summary, they can edit an item's quantity, if they set the quantity to zero
+                the item will be removed from the cart. They can remove an item from shopping cart or delete the whole cart.
+                B.1.3-Users confirm the shopping cart and go to login page. optionally they can continue shopping process
+                as a guest user.
+                
+            B.2-guest users enter their phone number and receive confirmation code via SMS.
+                
+                B.2.1-Guest users confirm shopping card and go to address page, they will enter their name, phone and address. 
+                the system sends a confirmation code to their phone number, they have the option to request another code if not received. 
+                The system saves the guest user name, phone and address in the database after confirming the code. 
+                The system does not let guest user to place an order without confirmation of phone number.
+            
+            B.3-guest users enter an address and bank card details to confirm and pay for order.
+
+                B.3.1-The guest user now must enter bank card details. after this, a confirmation page with order details, 
+                shipping address and bank card information is displayed. 
+                The guest user does not have the option to pay on delivery.
+                The guest user confirms and payment goes through. The system deletes shopping cart, creates an order with order items 
+                and payment details all related to the guest user. the guest user will be given a confirmation page with order number and payment
+                confirmation number.
+            
+            B.4-Logged in users enter an address and bank card details to confirm and pay for order    
+                
+                4.3-Users confirm shopping card and go to address and payment page, they will enter a new address or choose their default
+                address in their profile. The user now must enter bank card details or select to pay at delivery. the system can restrict
+                paying at delivery for a certain users or amounts  (i.e. greater than 200). after this, a confirmation page with order details, 
+                shipping address and optional bank card information is displayed. The user confirms and 
+                payment goes through. The system deletes shopping cart, creates an order with order items and optional payment details 
+                all related to the user. The user will be given a confirmation page with order number and optional payment
+                confirmation number.
+            
+            
+
         2-Users login and logout with forget password.
         3-Users account with following functionalities:
             3.1-Users insert and update their address details.
             3.2-Users update their phone number.
             3.3-Users can see order history and buy their past orders.
-            3.4-Users can see reservation history and cancel them.--
-        4-users order food and pay online.
-            4.1-Users add items to their shopping cart.
-            4.2-Users update an item's quantity in their shopping cart or delete them.
-            4.2.1- Users have an option to register a new account to continue their shopping as a guest user.
-            4.3-Users enter an address and bank card details to confirm and pay for order.
-        5-website provides table reservation for registered users.
-        6-
-        7-
-   -Admin    
-        1-Admin can set a price for reservations.**
-        *delete users
-        *update user details
+            3.4-Users can see reservation history and cancel them.
+
+            
+
+        5-System provides table reservation for registered users.
+        
+        6-Admin reset forgotten password.   
+        7-Admin add or remove a menu.
+        8-Admin create update and remove menu items.
+            8.1- Admin create a menu item.
+            8.2- Admin update a menu item.
+            8.3- Admin removes a menu item.
+        *9-Admin create update and delete reservation slots.
+            8.1- Admin create a reservation slot
+            8.2- Admin edit a reservation slot
+            8.3- Admin remove a reservation slot
+        *10-Admin see, edit users details and delete them
+        *11- Admin add update and remove website's notifications.
 
     -System Requirements
 
-        1-For the first part of registration, users enter their email, name, phone number.Then they are being directed to their account 
-        home page. at this stage of registration, they have to verify their phone number. The system sends an activation code to 
-        the user's phone number. if the number was not sent for a given period of time (i.e. 60 seconds), they can request another one. 
-        After entering the correct activation code, their phone
-        number is verified and the verification time is saved in database. The user has to verify their phone number before
-        having a full access to their user account. 
+
 
         2-Users can login and logout using their email address or phone number and password. If they forget their password, 
         they request a password reset code to be sent to their phone or email address. at this stage if they did not receive the code
@@ -75,33 +100,10 @@ Lavaza restaurants website
 
         3.3-List of orders is displayed in order history, user selects an order and add it to their basket to buy it again.
         
-        3.4-List of reservations is displayed in reservations section, users can cancel any reservations before a set period of time.
+        3.4-List of reservations is displayed in reservations section of user account, 
+        users can cancel any reservations before a set period of time.
         
-        4.1-Users see online menu, select an item, set its quantity and add it to their shopping cart. The user has the option
-        to add notes about the order(i.e. allergies or removing a specific ingredients).
-        4.2-Users see their shopping cart summary, they can edit an item's quantity, if they set the quantity to zero
-        the item will be removed from the cart. They can remove an item from shopping cart or delete the whole cart.
-        4.2.1- Users confirm the shopping cart and go to login page. optionally they can continue shopping process
-        as a guest user.
-
-        4-3-Guest users confirm shopping card and go to address and payment page, they will enter their name, phone and address. 
-        the system sends a confirmation code to their phone number, they have the option to request another code if not received. 
-        The system saves the guest user name, phone and address in the database after confirming the code. 
-        The system does not let guest user to place an order without confirmation of phone number.
-        The guest user now must enter bank card details. after this, a confirmation page with order details, 
-        shipping address and bank card information is displayed. 
-        The guest user does not have the option to pay on delivery.
-        The guest user confirms and payment goes through. The system deletes shopping cart, creates an order with order items 
-        and payment details all related to the guest user. the guest user will be given a confirmation page with order number and payment
-        confirmation number.
-        
-        4-3-Users confirm shopping card and go to address and payment page, they will enter a new address or choose their default
-        address in their profile. The user now must enter bank card details or select to pay at delivery. the system can restrict
-        paying at delivery for a certain users or amounts  (i.e. greater than 200). after this, a confirmation page with order details, 
-        shipping address and optional bank card information is displayed. The user confirms and 
-        payment goes through. The system deletes shopping cart, creates an order with order items and optional payment details 
-        all related to the user. The user will be given a confirmation page with order number and optional payment
-        confirmation number.
+  
 
         5-Users would be able to reserve a table for a set time and date. 
         admin will set an available time, date, table numbers, table description and reservation price(optional).
@@ -116,12 +118,26 @@ Lavaza restaurants website
         the user confirms reservation and the system sends the confirmation to the user's phone and email.The reservation
         details are saved in database.
 
-        7- users can go to menu page and see the available items. the user selects an item and quantity and add them to 
-        a shopping cart. After user has selected all items, they go to shopping card page to review their order.
-        In this page, they have the option to remove any item from basket or edit quantity of an item.
-        They also have the option to go back to menu and add more items. The user has the option
-        to add notes about the order(i.e. allergies or removing a specific ingredients). after the user has confirmed
-        the shopping cart, they are being directed to address page...
+        6-admin can reset forgotten password with email only.If they forget their password, 
+        they request a password reset code to be sent to the email address. at this stage if they did not receive the code
+        after (i.e. 60 seconds), they can request another one. Then admin will be directed to the change password 
+        page where they enter the password reset code and their new password. once their password has been changed successfully,
+        they will be notified and directed to login page to login with their new password. If for any reason this process fails,
+        new user should be added to database and the owner of database must give the new user admin access.
+
+        7-Once admin logs in to account dashboard, he/she can go to menus section and see the online menus.
+        Admin can add a new menu. he/she enters the name, time of availability and clicks save. the menu is saved 
+        to database and will be availabe in the website according to its time of availability. there is an option to 
+        delete a menu from database.
+
+        8-Admin can selects a menu and see its items.
+        8.1- Admin can add a new item to the menu. Admin enters the item's name, ingredients, quantity, price and image 
+        and clicks save.
+        8.2- Admin can edit items name, ingredients, quantity,price and image and clicks save.
+        8.3- Admin can remove an item from the menu.
+
+
+
 
     System Requirements (Admin)
 

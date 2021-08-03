@@ -116,10 +116,11 @@
                 <div class="menu-image mt-2">
                   <img src="{{asset('images/menu/burger.jpg')}}" alt="">
                 </div>
-                <div class=" d-flex mt-5 justify-content-between w-100">
+                <div class=" d-flex mt-5 w-100">
                   <label for="quantity" class="d-none"></label>
                   <button id="add-to-cart" type="submit" class="btn btn-primary ">+</button>
-                  <input type="number" min="1" max="100" value="1" class="border-warning border-rounded" id="add-cart-quantity">
+                  <input type="number" min="1" max="100" value="1" class="pl-2 ml-2" 
+                  id="cart_quantity_input_box">
                 </div>
               </div>
     
