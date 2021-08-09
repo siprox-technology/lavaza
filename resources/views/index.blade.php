@@ -2,7 +2,16 @@
 @section('content')
 
 
-    
+
+{{--     <div class="menu-image mt-2">
+      <img src="{{asset('images/menu/burger.jpg')}}" alt="">
+    </div>
+    <div class=" d-flex mt-5 w-100">
+      <label for="quantity" class="d-none"></label>
+      <button id="add-to-cart" type="submit" class="btn btn-primary ">+</button>
+      <input type="number" min="1" max="100" value="1" class="pl-2 ml-2" 
+      id="cart_quantity_input_box"> --}}
+    </div>
       <main id="main">
     
         <!-- ======= About Section ======= -->
@@ -92,110 +101,34 @@
             <div class="section-title">
               <h2>Check our tasty <span>Menu</span></h2>
             </div>
-    
+            {{-- differnt menus i.e. Starter Main .... --}}
             <div class="row">
               <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="menu-flters">
-                  <li data-filter="*" class="filter-active">Show All</li>
-                  <li data-filter=".filter-starters">Starters</li>
-                  <li data-filter=".filter-salads">Salads</li>
-                  <li data-filter=".filter-specialty">Specialty</li>
+                  <li data-filter="*" class="filter-active">همه</li>
+                  @foreach ($menus as $menu)
+                    <li data-filter={{".filter-".$menu->name}}>{{$menu->name_fa}}</li>
+                  @endforeach
                 </ul>
               </div>
             </div>
     
             <div class="row menu-container">
-    
-              <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                  <a href="#">Lobster Bisque</a><span>$5.95</span>
+            {{-- menu items --}}
+              @foreach ($items as $item)
+                <div class="col-lg-6 menu-item {{'filter-'.$item->menu->name}}">
+                  <div class="menu-content">
+                    <a href="#">{{$item->name}}</a><span>{{$item->price}}</span>
+                  </div>
+                  <div class="menu-ingredients">
+                    {{$item->ingredients}}
+                  </div>
+                  <div class="menu-image mt-2">
+                    <img src="{{asset('images/menu/'.$item->name.'.jpg')}}" alt="">
+                  </div>
                 </div>
-                <div class="menu-ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </div>
-                <div class="menu-image mt-2">
-                  <img src="{{asset('images/menu/burger.jpg')}}" alt="">
-                </div>
-                <div class=" d-flex mt-5 w-100">
-                  <label for="quantity" class="d-none"></label>
-                  <button id="add-to-cart" type="submit" class="btn btn-primary ">+</button>
-                  <input type="number" min="1" max="100" value="1" class="pl-2 ml-2" 
-                  id="cart_quantity_input_box">
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-specialty">
-                <div class="menu-content">
-                  <a href="#">Bread barrel</a><span>$6.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                  <a href="#">Crab Cake</a><span>$7.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  A delicate crab cake served on a toasted roll with lettuce and tartar sauce
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-salads">
-                <div class="menu-content">
-                  <a href="#">Caesar Selections</a><span>$8.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-specialty">
-                <div class="menu-content">
-                  <a href="#">Tuscan Grilled</a><span>$9.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  Grilled chicken with provolone, artichoke hearts, and roasted red pesto
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                  <a href="#">Mozzarella Stick</a><span>$4.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  Lorem, deren, trataro, filede, nerada
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-salads">
-                <div class="menu-content">
-                  <a href="#">Greek Salad</a><span>$9.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  Fresh spinach, crisp romaine, tomatoes, and Greek olives
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-salads">
-                <div class="menu-content">
-                  <a href="#">Spinach Salad</a><span>$9.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
-                </div>
-              </div>
-    
-              <div class="col-lg-6 menu-item filter-specialty">
-                <div class="menu-content">
-                  <a href="#">Lobster Roll</a><span>$12.95</span>
-                </div>
-                <div class="menu-ingredients">
-                  Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
-                </div>
-              </div>
-    
+              @endforeach
+
             </div>
     
           </div>

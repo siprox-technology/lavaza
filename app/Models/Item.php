@@ -11,10 +11,11 @@ class Item extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'name_fa',
         'ingredients',
+        'ingredients_fa',
         'price',
         'stock',
-        'image_link',
         'menu_id'
     ];
 

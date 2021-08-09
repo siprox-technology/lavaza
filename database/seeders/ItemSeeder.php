@@ -27,7 +27,7 @@ class ItemSeeder extends Seeder
         ]);
         Item::create([
             'menu_id' => (DB::table('menus')->where('name', 'Starter')->pluck('id'))[0],
-            'name' => 'Guacamalo_Mexicano',
+            'name' => 'Guacamalo Mexicano',
             'name_fa'=>'گواکامالو مکزیکو',
             'ingredients' => 'Avocado, Tomatos, jalapeno, Coriander, Lime',
             'ingredients_fa'=>'اووکادوو گوجه فرنگی هالوپینو کوریاندر لیمو',
@@ -36,7 +36,7 @@ class ItemSeeder extends Seeder
         ]);
         Item::create([
             'menu_id' => (DB::table('menus')->where('name', 'Starter')->pluck('id'))[0],
-            'name' => 'Buffalo_Wings',
+            'name' => 'Buffalo Wings',
             'name_fa' => 'بوفالو وینگز',
             'ingredients' => 'Chicken wings, Hot sauce, Butter, Vinegar, Paprika, Ground chili',
             'ingredients_fa'=>'بال مرغ سس چیلی سرکه پاپریکا فلفل سیاه',
@@ -46,7 +46,7 @@ class ItemSeeder extends Seeder
 
         Item::create([
             'menu_id' => (DB::table('menus')->where('name', 'Starter')->pluck('id'))[0],
-            'name' => 'Chicken_Fingers',
+            'name' => 'Chicken Fingers',
             'name_fa'=>'چیکن فینگرز',
             'ingredients' => 'Chicken breast, Cheese, Bread crums, eggs',
             'ingredients_fa'=>'سینه مرغ پنیر تخم مرغ پوره تست',

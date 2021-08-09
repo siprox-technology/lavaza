@@ -17,21 +17,25 @@ class MenuSeeder extends Seeder
         Menu::create(
             [
                 'name' => 'Starter',
+                'name_fa'=>'استارتر'
             ],
         );
         Menu::create(
             [
                 'name' => 'Side',
+                'name_fa'=>'ساید'
             ]
         );
         Menu::create(
             [
                 'name' => 'Drinks',
+                'name_fa'=> 'نوشیدنی ها'
             ]
         );
         Menu::create(
             [
                 'name' => 'Main',
+                'name_fa'=>'غذای اصلی'
             ]
         );
     }

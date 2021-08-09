@@ -10,6 +10,7 @@ class Menu extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'name_fa',
         'expiration_date'
     ];
 }
