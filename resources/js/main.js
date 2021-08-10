@@ -202,5 +202,12 @@
         $('.venobox').venobox();
     });
 
+    //  Cart Open
+    $('#cartOpen').on('click', function () {
+        $('.cart-wrapper').addClass('open');
+    });
+    $('#cartClose').on('click', function () {
+        $('.cart-wrapper').removeClass('open');
+    });
 
 })(jQuery);

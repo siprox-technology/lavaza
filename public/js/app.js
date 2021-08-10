@@ -686,5 +686,12 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
         $('.venobox').venobox();
     });
 
+    //  Cart Open
+    $('#cartOpen').on('click', function () {
+        $('.cart-wrapper').addClass('open');
+    });
+    $('#cartClose').on('click', function () {
+        $('.cart-wrapper').removeClass('open');
+    });
 
 })(jQuery);

@@ -3,15 +3,6 @@
 
 
 
-{{--     <div class="menu-image mt-2">
-      <img src="{{asset('images/menu/burger.jpg')}}" alt="">
-    </div>
-    <div class=" d-flex mt-5 w-100">
-      <label for="quantity" class="d-none"></label>
-      <button id="add-to-cart" type="submit" class="btn btn-primary ">+</button>
-      <input type="number" min="1" max="100" value="1" class="pl-2 ml-2" 
-      id="cart_quantity_input_box"> --}}
-    </div>
       <main id="main">
     
         <!-- ======= About Section ======= -->
@@ -125,6 +116,12 @@
                   </div>
                   <div class="menu-image mt-2">
                     <img src="{{asset('images/menu/'.$item->name.'.jpg')}}" alt="">
+                  </div>
+                  <div class=" d-flex mt-5 w-100">
+                    <label for="quantity" class="d-none"></label>
+                    <a href="{{route('cart.add',$item->id)}}" id="add-to-cart"class="btn btn-primary ">+</a>
+                    <input type="number" min="1" max="100" value="1" class="pl-2 ml-2" 
+                    id="item_quantity_input_box">
                   </div>
                 </div>
               @endforeach

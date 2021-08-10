@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -44,6 +45,18 @@ Route::get('/reset-password/{token}',[ForgetPasswordController::class,'showReset
 //reset password
 Route::post('/reset-password',[ForgetPasswordController::class,'resetPass'])->name('password.update');
 
+
+//shopping cart
+Route::get('/cart', [CartController::class,'index'])->name('cart.index');
+//add items to cart
+Route::get('/cart/{id}/add', [CartController::class,'store'])->name('cart.add');
+//remove items from cart
+Route::get('/cart/{id}/remove', [CartController::class,'destroy'])->name('cart.remove');
+//remove all items in cart
+Route::get('/cart/removeAll', function(){
+    Session::forget('cart');
+    return back();
+})->name('cart.removeAll');
 
 
 //dashboard 
