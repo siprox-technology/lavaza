@@ -4,7 +4,7 @@
         <!-- shopping basket-->
         <!-- main wrapper -->
         <div class="main-wrapper">
-            <section class="user-dashboard section">
+            <section class="user-dashboard section" id='cart'>
                     <div class="row justify-content-center px-lg-5 px-md-4 p-3">
                         <div class="col-md-10">
                             <div class="row m-0 w-100 justify-content-center">
@@ -42,10 +42,10 @@
                                                                         <td>
                                                                             <div class="row">
                                                                                     <img class="" style="height:75px;width:75px;"
-                                                                                    src="{{asset('images/product-images/'.$item['item']['model_number'].'/'.$item['item']['model_number'].'-0.jpg')}}"
+                                                                                    src="{{asset('images/menu/'.$item['item']['name'].'.jpg')}}"
                                                                                     alt="product-img">
                                                                                 <div class="col-10 text-left">
-                                                                                    <a class="text-dark" href="{{route('shop.product_details.index',$item['item']['model_number'])}}">{{$item['item']['name']}}</a>
+                                                                                    <a class="text-dark" href="#">{{$item['item']['name']}}</a>
                                                                                 </div>
                                                                             </div>
                                                                         </td>

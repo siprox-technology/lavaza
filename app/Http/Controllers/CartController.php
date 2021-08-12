@@ -7,6 +7,8 @@ use App\Models\Cart;
 use App\Models\Item;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -29,7 +31,7 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($item,$request->id,$request->quantity);
         $request->session()->put('cart',$cart);
-        return back();  
+        return Redirect::to(URL::previous() . "#menu");
     }
     public function destroy($id)
     {   

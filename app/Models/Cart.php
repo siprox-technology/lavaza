@@ -7,6 +7,7 @@ class Cart
     public $items = null;
     public $totalQty = 0;
     public $totalPrice = 0;
+    public $notes = null;
 
     public function __construct($oldCart){
         if($oldCart)
@@ -16,7 +17,8 @@ class Cart
             $this->totalPrice= $oldCart->totalPrice;
         }
     }
-    public function add($item, $id, $quantity){
+    public function add($item, $id, $quantity, $notes=null){
+
         for($i=0; $i<$quantity; $i++)
         {
             $storedItems = ['quantity'=>0, 'price'=>$item->price, 'item'=>$item];
@@ -33,6 +35,11 @@ class Cart
             $this->totalQty++;
             $this->totalPrice += $item->price;   
         }
+        if($notes)
+        {
+            $this->notes = $notes;
+        }
+
     }
     public function remove($item, $id)
     {
