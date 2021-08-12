@@ -3,8 +3,8 @@
 @section('content')
         <!-- shopping basket-->
         <!-- main wrapper -->
-        <div class="main-wrapper">
-            <section class="user-dashboard section" id='cart'>
+        <div class="main-wrapper" id='cart'>
+            <section class="user-dashboard section" >
                     <div class="row justify-content-center px-lg-5 px-md-4 p-3">
                         <div class="col-md-10">
                             <div class="row m-0 w-100 justify-content-center">
@@ -101,4 +101,8 @@
                         </div>
                     </div>
             </section>
+            <script type="text/javascript">
+                document.getElementById("cart").scrollIntoView();
+            </script>
 @endsection
+
