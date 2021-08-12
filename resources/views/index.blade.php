@@ -119,9 +119,13 @@
                   </div>
                   <div class=" d-flex mt-5 w-100">
                     <label for="quantity" class="d-none"></label>
-                    <a href="{{route('cart.add',$item->id)}}" id="add-to-cart"class="btn btn-primary ">+</a>
-                    <input type="number" min="1" max="100" value="1" class="pl-2 ml-2" 
-                    id="item_quantity_input_box">
+                    {{-- add to cart --}}
+                    <form action="{{route('cart.add')}}" method="POST">
+                      @csrf
+                      <input type="hidden" name="id" value="{{$item->id}}">
+                      <input type="number" name="quantity" min="1" max="100" value="1" class="pl-2 ml-2">
+                      <button type="submit" id="add-to-cart"class="btn btn-primary ">+</button>
+                    </form>
                   </div>
                 </div>
               @endforeach

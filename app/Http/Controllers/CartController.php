@@ -16,13 +16,18 @@ class CartController extends Controller
         return view('orders.cart');
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
 
-        $item = Item::find($id);
+        //validate user inputs
+        $this->validate($request,[
+        'id'=>'required|int',
+        'quantity'=>'required|int|min:1|max:100']);  
+
+        $item = Item::find($request->id);
         $oldCart = Session::has('cart') ? Session::get('cart'): null;
         $cart = new Cart($oldCart);
-        $cart->add($item,$id);
+        $cart->add($item,$request->id,$request->quantity);
         $request->session()->put('cart',$cart);
         return back();  
     }

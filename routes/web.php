@@ -49,7 +49,7 @@ Route::post('/reset-password',[ForgetPasswordController::class,'resetPass'])->na
 //shopping cart
 Route::get('/cart', [CartController::class,'index'])->name('cart.index');
 //add items to cart
-Route::get('/cart/{id}/add', [CartController::class,'store'])->name('cart.add');
+Route::post('/cart/add', [CartController::class,'store'])->name('cart.add');
 //remove items from cart
 Route::get('/cart/{id}/remove', [CartController::class,'destroy'])->name('cart.remove');
 //remove all items in cart

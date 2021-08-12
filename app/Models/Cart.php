@@ -16,26 +16,29 @@ class Cart
             $this->totalPrice= $oldCart->totalPrice;
         }
     }
-    public function add($item, $id){
-        $storedItems = ['quantity'=>0, 'price'=>$item->price, 'item'=>$item];
-        if($this->items)
+    public function add($item, $id, $quantity){
+        for($i=0; $i<$quantity; $i++)
         {
-            if(array_key_exists($id,$this->items))
+            $storedItems = ['quantity'=>0, 'price'=>$item->price, 'item'=>$item];
+            if($this->items)
             {
-                $storedItems = $this->items[$id];
+                if(array_key_exists($id,$this->items))
+                {
+                    $storedItems = $this->items[$id];
+                }
             }
+            $storedItems['quantity']++;
+            $storedItems['price'] = $item->price * $storedItems['quantity'];
+            $this->items[$id] = $storedItems;
+            $this->totalQty++;
+            $this->totalPrice += $item->price;   
         }
-        $storedItems['quantity']++;
-        $storedItems['price'] = $item->price * $storedItems['quantity'];
-        $this->items[$id] = $storedItems;
-        $this->totalQty++;
-        $this->totalPrice += $item->price;
     }
     public function remove($item, $id)
     {
         unset($this->items[$id]);
-        $this->totalQty--;
         $this->totalPrice -= $item['price'];
+        $this->totalQty-=$item['quantity'];
     }
 
 }

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
+{{-- {{dd(Session::get('cart'))}} --}}
 <body>
       <!-- ======= Top Bar ======= -->
       <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top topbar-transparent">
@@ -47,10 +48,12 @@
                               <img class="" style="width:50px; height:50px;" 
                               src="{{asset('images/menu/'.$item['item']['name'].'.jpg')}}" alt="product-img">
                               <div class="mx-3">
+                                {{--  --}}
                                   <p class="mb-0 text-dark">{{$item['item']['name']}}</p>
                                   <span class="text-dark">{{$item['quantity']}}</span> 
                                   <span class="text-dark">X</span> 
-                                  <span class="text-dark">${{$item['price']}}</span>
+                                  <span class="text-dark">${{($item['price'])/$item['quantity']}}</span>
+                                  <span class="text-dark">${{($item['price'])}}</span>
                               </div>
                               {{-- remove item --}}
                               <a href ="{{route('cart.remove',$item['item'])}}" class="text-danger">X</a>
@@ -65,7 +68,7 @@
               </ul>
               <div class="mb-3 text-dark">
                   <span>Cart Total</span>
-                  <span class="float-right">{{(Session::has('cart'))?Session::get('cart')->totalPrice:'0'}}</span>
+                  <span class="float-right">{{(Session::has('cart'))?number_format(Session::get('cart')->totalPrice,2):'0'}}</span>
               </div>
               <div class="text-center text-dark">
                   <a href="{{route('cart.index')}}" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">view cart</a>
