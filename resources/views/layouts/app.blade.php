@@ -67,7 +67,7 @@
               <li class="book-a-table text-center"><a href="#book-a-table">Book a table</a></li>
               <div class="cart">
                 <button id="cartOpen" class="cart-btn d-flex">
-                    <i class="fas fa-shopping-cart mt-3"></i><span class="d-xs-none">CART </span>
+                    <i class="fas fa-shopping-cart mt-3"></i><span class="d-xs-none">سبد خرید</span>
       
                         <div class="shopping-cart">
                             <p class="m-0 text-center">
@@ -79,7 +79,7 @@
                 {{-- cart links --}}
                 <div class="cart-wrapper">
                     <i id="cartClose" class="cart-close">X</i>
-                    <h4 class="mb-4 text-dark">Your Cart</h4>
+                    <h4 class="mb-4 text-dark">سبد خرید</h4>
                     <ul class="pl-0 mb-3">
                         @if (Session::has('cart'))
                             @foreach (Session::get('cart')->items as $item)
@@ -88,11 +88,11 @@
                                     src="{{asset('images/menu/'.$item['item']['name'].'.jpg')}}" alt="product-img">
                                     <div class="mx-3">
                                       {{--  --}}
-                                        <p class="mb-0 text-dark">{{$item['item']['name']}}</p>
+                                        <p class="mb-0 text-dark">{{$item['item']['name_fa']}}</p>
                                         <span class="text-dark">{{$item['quantity']}}</span> 
                                         <span class="text-dark">X</span> 
-                                        <span class="text-dark">${{($item['price'])/$item['quantity']}}</span>
-                                        <span class="text-dark">${{($item['price'])}}</span>
+                                        <span class="text-dark">{{($item['price'])/$item['quantity']}}</span>
+                                        <span class="text-dark">{{($item['price'])}}</span>
                                     </div>
                                     {{-- remove item --}}
                                     <a href ="{{route('cart.remove',$item['item'])}}" class="text-danger">X</a>
@@ -100,7 +100,7 @@
                             @endforeach
                             {{-- optional notes --}}
                                 <li class="d-flex border-bottom">
-                                    <span class="text-dark">Optional notes about order:</span>
+                                    <span class="text-dark">توضیح بیشتر راجع به سفارش:</span>
                                       @if (Session::get('cart')->notes)
                                         <span class="text-danger">{{Session::get('cart')->notes}}</span>
                                         <form action="{{route('cart.removeNotes')}}" method="POST">
@@ -111,26 +111,26 @@
                                         <form action="{{route('cart.addNotes')}}" method="POST">
                                           @csrf
                                           <input type="text" class="text-warning border-none"name="notes"
-                                          value="" maxlength="128" placeholder="None">
-                                          <button type="submit">Save</button>
+                                          value="" maxlength="128" placeholder="ندارد">
+                                          <button type="submit">ذخیره</button>
                                         </form>
                                       @endif
                                 </li>
                         @else
       
                         <li class="d-flex border-bottom">
-                            <p class="text-center text-warning">Shopping cart empty !</p>
+                            <p class="text-center text-warning">سبد شما خالی است !</p>
                         </li>
                         @endif
       
                     </ul>
                     <div class="mb-3 text-dark">
-                        <span>Cart Total</span>
+                        <span>جمع سفارش</span>
                         <span class="float-right">{{(Session::has('cart'))?number_format(Session::get('cart')->totalPrice,2):'0'}}</span>
                     </div>
                     <div class="text-center text-dark">
-                        <a href="{{route('cart.index')}}" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">view cart</a>
-                        <a href="#" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">check out</a>
+                        <a href="{{route('cart.index')}}" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">مشاهده سبد خرید</a>
+                        <a href="#" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">پرداخت</a>
                     </div>
                 </div>
               </div>

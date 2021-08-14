@@ -20,7 +20,6 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-
         //validate user inputs
         $this->validate($request,[
         'id'=>'required|int',

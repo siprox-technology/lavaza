@@ -4,8 +4,7 @@ Lavaza restaurants website
 ------------------------------
 
     -Requirements specifications:
-        Features:
-            Tasks:
+
 
 
         A-Users registration and activation with email.
@@ -16,43 +15,17 @@ Lavaza restaurants website
             after clicking on activation link their email is verified and they will be directed to their
             account home page.
 
-        B-Users order food and pay online.
+        B-Users order food and pay online.--
             
-            B.1-Users add items to their shopping cart, update an item's quantity and delete an item from shopping cart.
-                
-                ***B.1.1-Users see online menu, select an item, set its quantity and add it to their shopping cart. 
-                The user has the option
-                to add notes about the order(i.e. allergies or removing a specific ingredients).
-                B.1.2-Users see their shopping cart summary, they can edit an item's quantity, if they set the quantity to zero
-                the item will be removed from the cart. They can remove an item from shopping cart or delete the whole cart.
-                B.1.3-Users confirm the shopping cart and go to login page. optionally they can continue shopping process
+            1-Users add items to their shopping cart*
+            2-Users update an item's quantity 
+            3-Users delete an item from shopping cart*
+            4-Users add notes about the order(i.e. allergies or removing a specific ingredients)*
+            5-Users confirm the shopping cart and go to login page or optionally they can continue shopping process
                 as a guest user.
-                
-            B.2-guest users enter their phone number and receive confirmation code via SMS.
-                
-                B.2.1-Guest users confirm shopping card and go to address page, they will enter their name, phone and address. 
-                the system sends a confirmation code to their phone number, they have the option to request another code if not received. 
-                The system saves the guest user name, phone and address in the database after confirming the code. 
-                The system does not let guest user to place an order without confirmation of phone number.
-            
-            B.3-guest users enter an address and bank card details to confirm and pay for order.
-
-                B.3.1-The guest user now must enter bank card details. after this, a confirmation page with order details, 
-                shipping address and bank card information is displayed. 
-                The guest user does not have the option to pay on delivery.
-                The guest user confirms and payment goes through. The system deletes shopping cart, creates an order with order items 
-                and payment details all related to the guest user. the guest user will be given a confirmation page with order number and payment
-                confirmation number.
-            
-            B.4-Logged in users enter an address and bank card details to confirm and pay for order    
-                
-                4.3-Users confirm shopping card and go to address and payment page, they will enter a new address or choose their default
-                address in their profile. The user now must enter bank card details or select to pay at delivery. the system can restrict
-                paying at delivery for a certain users or amounts  (i.e. greater than 200). after this, a confirmation page with order details, 
-                shipping address and optional bank card information is displayed. The user confirms and 
-                payment goes through. The system deletes shopping cart, creates an order with order items and optional payment details 
-                all related to the user. The user will be given a confirmation page with order number and optional payment
-                confirmation number.
+            6-guest users enter their phone number and receive confirmation code via SMS or email(for testing).
+            7-guest users enter an address and bank card details to confirm and pay for order.
+            8-Logged in users enter an address and bank card details to confirm and pay for order    
             
             
 

@@ -91,6 +91,7 @@
     
             <div class="section-title">
               <h2>Check our tasty <span>Menu</span></h2>
+              <h2>منوی <span>لذیذ</span></h2>
             </div>
             {{-- differnt menus i.e. Starter Main .... --}}
             <div class="row">
@@ -107,12 +108,12 @@
             <div class="row menu-container">
             {{-- menu items --}}
               @foreach ($items as $item)
-                <div class="col-lg-6 menu-item {{'filter-'.$item->menu->name}}">
+                <div class="col-lg-6 menu-item {{'filter-'.$item->menu->name_fa}}">
                   <div class="menu-content">
-                    <a href="#">{{$item->name}}</a><span>{{$item->price}}</span>
+                    <a href="#">{{$item->name_fa}}</a><span>{{$item->price}}</span>
                   </div>
                   <div class="menu-ingredients">
-                    {{$item->ingredients}}
+                    {{$item->ingredients_fa}}
                   </div>
                   <div class="menu-image mt-2">
                     <img src="{{asset('images/menu/'.$item->name.'.jpg')}}" alt="">
