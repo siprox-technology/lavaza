@@ -17,7 +17,6 @@
                                     <div class="col-12 mx-auto">
                                         <div class="block">
                                             <div class="product-list">
-                                                <form method="#">
                                                     <div class="table-responsive">
                                                         <table class="table cart-table">
                                                             <thead>
@@ -60,7 +59,7 @@
                                                                     <td>
                                                                         <p class="text-danger">Shopping cart empty !</p>
                                                                     </td>
-                                                                </tr>
+                                                                </tr>                                                <hr>
                                                                 @endif
                                                             </tbody>
                                                         </table>
@@ -77,6 +76,26 @@
  --}}                                                        </div>
                                                     </div>
                                                     <hr>
+                                                    {{-- optional notes --}}
+                                                    <li class="d-flex border-bottom">
+                                                        @if (Session::has('cart'))
+                                                        <span class="text-dark">Optional notes about order:</span>
+                                                            @if (Session::get('cart')->notes)
+                                                                <span class="text-danger">{{Session::get('cart')->notes}}</span>
+                                                                <form action="{{route('cart.removeNotes')}}" method="POST">
+                                                                    @csrf
+                                                                    <button type="submit">X</button>
+                                                                </form>
+                                                            @else
+                                                                <form action="{{route('cart.addNotes')}}" method="POST">
+                                                                    @csrf
+                                                                    <input type="text" class="text-warning border-none"name="notes"
+                                                                    value="" maxlength="128" placeholder="None">
+                                                                    <button type="submit">Save</button>
+                                                                </form>
+                                                            @endif
+                                                        @endif
+                                                    </li>
                                                     @if (Session::has('cart'))
                                                         <div class="row">
                                                             <div class="col-12">
@@ -89,10 +108,7 @@
                                                             </div>
                                                         </div>
                                                         <hr>
-{{--                                                         <a href="{{route('checkout.index')}}"
-                                                            class="btn btn-primary float-right">Checkout</a> --}}
                                                     @endif
-                                                </form>
                                             </div>
                                         </div>
                                     </div>

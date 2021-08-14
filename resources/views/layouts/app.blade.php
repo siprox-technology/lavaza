@@ -98,10 +98,23 @@
                                     <a href ="{{route('cart.remove',$item['item'])}}" class="text-danger">X</a>
                                 </li>
                             @endforeach
+                            {{-- optional notes --}}
                                 <li class="d-flex border-bottom">
                                     <span class="text-dark">Optional notes about order:</span>
-                                    <input type="text" class="text-warning border-none"name="notes"
-                                    value="{{Session::get('cart')->notes}}">
+                                      @if (Session::get('cart')->notes)
+                                        <span class="text-danger">{{Session::get('cart')->notes}}</span>
+                                        <form action="{{route('cart.removeNotes')}}" method="POST">
+                                          @csrf
+                                          <button type="submit">X</button>
+                                        </form>
+                                      @else
+                                        <form action="{{route('cart.addNotes')}}" method="POST">
+                                          @csrf
+                                          <input type="text" class="text-warning border-none"name="notes"
+                                          value="" maxlength="128" placeholder="None">
+                                          <button type="submit">Save</button>
+                                        </form>
+                                      @endif
                                 </li>
                         @else
       

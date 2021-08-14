@@ -33,6 +33,25 @@ class CartController extends Controller
         $request->session()->put('cart',$cart);
         return Redirect::to(URL::previous() . "#menu");
     }
+    public function addNotes(Request $request)
+    {
+        //validate user inputs
+        $this->validate($request,[
+            'notes'=>'string|max:128']);
+        if(Session::has('cart'))
+        {
+            Session::get('cart')->notes = $request->notes;       
+        }
+        return back();
+    }
+    public function removeNotes()
+    {
+        if(Session::has('cart'))
+        {
+            Session::get('cart')->notes = null;
+        }
+        return back();
+    }
     public function destroy($id)
     {   
         $cart = Session::get('cart');
