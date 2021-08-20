@@ -13,9 +13,9 @@ class shoppingCartTest extends DuskTestCase
      *
      * @return void
      */
-    public function test_item_can_be_added_to_shopping_cart()
+/*     public function test_item_can_be_added_to_shopping_cart()
     {
-/*         $this->browse(function (Browser $browser) {
+        $this->browse(function (Browser $browser) {
             $browser->visit('/')
                     ->assertSee('Laravel');
                     ->assertSee('Login')
@@ -31,6 +31,6 @@ class shoppingCartTest extends DuskTestCase
                     ->type('country', 'test country')->type('post_code', 'test1code1')
                     ->press('Update')->assertSee('User updated successfully')
                     ->click('@Logout')->assertPathIs('/');    
-        }); */
-    }
+        });
+    } */
 }

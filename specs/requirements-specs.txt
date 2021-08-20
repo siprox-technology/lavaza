@@ -7,7 +7,7 @@ Lavaza restaurants website
 
 
 
-        A-Users registration and activation with email.
+        A-Users registration and activation with email/phone.
             A.1-For the first part of registration, users enter their email, name, phone number.
             Then they are being directed to account verification page where 
             if the number was not sent for a given period of time (i.e. 60 seconds), 
@@ -15,17 +15,13 @@ Lavaza restaurants website
             after clicking on activation link their email is verified and they will be directed to their
             account home page.
 
-        B-Users order food and pay online.--
+        B-Users order food and pay online.---
             
-            1-Users add items to their shopping cart*
-            2-Users update an item's quantity 
-            3-Users delete an item from shopping cart*
-            4-Users add notes about the order(i.e. allergies or removing a specific ingredients)*
-            5-Users confirm the shopping cart and go to login page or optionally they can continue shopping process
-                as a guest user.
-            6-guest users enter their phone number and receive confirmation code via SMS or email(for testing).
-            7-guest users enter an address and bank card details to confirm and pay for order.
-            8-Logged in users enter an address and bank card details to confirm and pay for order    
+            -Users add items to their shopping cart*
+            -Users delete an item from shopping cart*
+            -Users add notes about the order(i.e. allergies or removing a specific ingredients)*
+            -guest users enter an email/phone, address and bank card details to confirm and pay for order.--
+            -Logged in users enter an address and bank card details to confirm and pay for order    
             
             
 

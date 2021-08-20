@@ -72,8 +72,8 @@
                                                             </div>
                                                         @endif
                                                         <div class="col-lg-4 col-md-6 col-12 ">
-{{--                                                             <a href="{{route('shop.index')}}" class="btn btn-dark w-100">Continue shopping</a>
- --}}                                                        </div>
+                                                            <a href="/#menu" class="btn btn-dark w-100">اضافه کردن موارد بیشتر</a>
+                                                        </div>
                                                     </div>
                                                     <hr>
                                                     {{-- optional notes --}}
