@@ -35,7 +35,7 @@
                                                                     <tr>
                                                                         {{-- delete icon --}}
                                                                         <td>
-                                                                            <a class="product-remove text-danger" href="{{route('cart.remove',$item['item'])}}">X</a>
+                                                                            <a class="product-remove text-danger" dusk="product-remove-link" href="{{route('cart.remove',$item['item'])}}">X</a>
                                                                         </td>
                                                                         {{-- images and name --}}
                                                                         <td>
@@ -68,7 +68,7 @@
                                                     <div class="d-flex flex-column flex-md-row align-items-center justify-content-md-between ">
                                                         @if (Session::has('cart'))
                                                             <div class="col-lg-4 col-md-6 col-12 mb-2 mb-md-0">
-                                                                <a href="{{route('cart.removeAll')}}" class="btn btn-danger w-100">حذف سبد خرید</a>
+                                                                <a href="{{route('cart.removeAll')}}" dusk="delete_whole_cart_link" class="btn btn-danger w-100">حذف سبد خرید</a>
                                                             </div>
                                                         @endif
                                                         <div class="col-lg-4 col-md-6 col-12 ">
@@ -84,14 +84,14 @@
                                                                 <span class="text-danger">{{Session::get('cart')->notes}}</span>
                                                                 <form action="{{route('cart.removeNotes')}}" method="POST">
                                                                     @csrf
-                                                                    <button type="submit">X</button>
+                                                                    <button type="submit" dusk="remove-notes-btn">X</button>
                                                                 </form>
                                                             @else
                                                                 <form action="{{route('cart.addNotes')}}" method="POST">
                                                                     @csrf
                                                                     <input type="text" class="text-warning border-none"name="notes"
-                                                                    value="" maxlength="128" placeholder="ندارد">
-                                                                    <button type="submit">ذخیره</button>
+                                                                    value="" maxlength="128"  dusk="add-notes-input" placeholder="ندارد">
+                                                                    <button type="submit" dusk="add-notes-btn">ذخیره</button>
                                                                 </form>
                                                             @endif
                                                         @endif

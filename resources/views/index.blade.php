@@ -123,8 +123,8 @@
                     {{-- add to cart --}}
                     <form action="{{route('cart.add')}}" method="GET">
                       <input type="hidden" name="id" value="{{$item->id}}">
-                      <input type="number" name="quantity" min="1" max="100" value="1" class="pl-2 ml-2">
-                      <button type="submit" id="add-to-cart"class="btn btn-primary ">+</button>
+                      <input type="number" dusk="{{'quantity-input-'.$item->id}}" name="quantity" min="1" max="100" value="1" class="pl-2 ml-2">
+                      <button type="submit" dusk="{{'submit-btn-'.$item->id}}"  id="add-to-cart"class="btn btn-primary ">+</button>
                     </form>
                   </div>
                 </div>

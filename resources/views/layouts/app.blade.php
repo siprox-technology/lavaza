@@ -66,7 +66,7 @@
               
               <li class="book-a-table text-center"><a href="#book-a-table">Book a table</a></li>
               <div class="cart">
-                <button id="cartOpen" class="cart-btn d-flex">
+                <button id="cartOpen" dusk="cartOpen" class="cart-btn d-flex">
                     <i class="fas fa-shopping-cart mt-3"></i><span class="d-xs-none">سبد خرید</span>
       
                         <div class="shopping-cart">
@@ -129,7 +129,7 @@
                         <span class="float-right">{{(Session::has('cart'))?number_format(Session::get('cart')->totalPrice,2):'0'}}</span>
                     </div>
                     <div class="text-center text-dark">
-                        <a href="{{route('cart.index')}}" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">مشاهده سبد خرید</a>
+                        <a href="{{route('cart.index')}}" dusk="view-shopping-cart" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">مشاهده سبد خرید</a>
                         <a href="#" class="btn btn-dark btn-mobile rounded-0 {{Session::has('cart')?'':'d-none'}}">پرداخت</a>
                     </div>
                 </div>
