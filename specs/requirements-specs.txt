@@ -17,10 +17,10 @@ Lavaza restaurants website
 
         B-Users order food and pay online.---
             
-            -Users add items to their shopping cart*
-            -Users delete an item from shopping cart*
-            -Users add notes about the order(i.e. allergies or removing a specific ingredients)*
-            -guest users enter an email/phone, address and bank card details to confirm and pay for order.--
+            -Users add items to their shopping cart**
+            -Users delete an item from shopping cart**
+            -Users add notes about the order(i.e. allergies or removing a specific ingredients)**
+            -guest users enter name, email/phone, address and bank card details to confirm and pay for order.--
             -Logged in users enter an address and bank card details to confirm and pay for order    
             
             

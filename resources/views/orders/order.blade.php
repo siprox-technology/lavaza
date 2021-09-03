@@ -1,20 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-        <!-- shopping basket-->
+        <!-- order and payment-->
         <!-- main wrapper -->
-        <div class="main-wrapper" id='cart'>
+        <div class="main-wrapper" id='order'>
             <section class="user-dashboard section" >
                     <div class="row justify-content-center px-lg-5 px-md-4 p-3">
                         <div class="col-md-10">
                             <div class="row m-0 w-100 justify-content-center">
-                                <h2 class="m-0">سبد خرید</h2>
+                                <h2 class="m-0">پرداخت</h2>
                             </div>
                         </div>
                         <div class="col-md-10">
                             <div class="block text-center border border-grey mt-5 p-3">
                                 <div class="row">
-                                    <div class="col-12 mx-auto">
+                                    {{-- order details --}}
+                                    <div class="col-6">
                                         <div class="block">
                                             <div class="product-list">
                                                     <div class="table-responsive">
@@ -74,9 +75,6 @@
                                                         <div class="col-lg-4 col-md-6 col-12 ">
                                                             <a href="/#menu" class="btn btn-dark w-100">اضافه کردن موارد بیشتر</a>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-6 col-12 ">
-                                                            <a href="/order#order" class="btn btn-dark w-100">پرداخت</a>
-                                                        </div>
                                                     </div>
                                                     <hr>
                                                     {{-- optional notes --}}
@@ -115,13 +113,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- payment details --}}
+                                    <div class="col-6">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
             </section>
             <script type="text/javascript">
-                document.getElementById("cart").scrollIntoView();
+                document.getElementById("order").scrollIntoView();
             </script>
 @endsection
 
