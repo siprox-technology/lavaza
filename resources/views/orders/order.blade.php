@@ -8,14 +8,14 @@
                     <div class="row justify-content-center px-lg-5 px-md-4 p-3">
                         <div class="col-md-10">
                             <div class="row m-0 w-100 justify-content-center">
-                                <h2 class="m-0">پرداخت</h2>
+                                <h2 class="m-0">تایید سفارش</h2>
                             </div>
                         </div>
                         <div class="col-md-10">
                             <div class="block text-center border border-grey mt-5 p-3">
                                 <div class="row">
                                     {{-- order details --}}
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="block">
                                             <div class="product-list">
                                                     <div class="table-responsive">
@@ -113,9 +113,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- payment details --}}
-                                    <div class="col-6">
-
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row m-0 w-100 justify-content-center">
+                                <h2 class="m-0">ادرس</h2>
+                            </div>
+                            <div class="block text-center border border-grey mt-5 p-3">
+                                <div class="row">
+                                    {{-- address and user details HERE--}}
+                                    <div class="col-12">
+                                        <input type="text" name="name" placeholder="نام">
+                                        <input type="text" name="">
                                     </div>
                                 </div>
                             </div>

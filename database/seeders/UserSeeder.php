@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'name' => 'Soroosh Modarresi',
             'email' => 'siproxtech@gmail.com',
             'phone' => rand(11111111,9999999999),
+            'role'=>'1',
             'password' => Hash::make('1111'), // password
             ]
         );
