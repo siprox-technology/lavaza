@@ -8,7 +8,7 @@
                     <div class="row justify-content-center px-lg-5 px-md-4 p-3">
                         <div class="col-md-10">
                             <div class="row m-0 w-100 justify-content-center">
-                                <h2 class="m-0">تایید سفارش</h2>
+                                <h2 class="m-0">سفارش شما</h2>
                             </div>
                         </div>
                         <div class="col-md-10">
@@ -102,7 +102,7 @@
                                                             <div class="col-12">
                                                                 <ul class="list-unstyled text-right">
                                                                     {{-- total price and tax  --}}
-                                                                    <li>جمع کل<span
+                                                                    <li>جمع کل<span id="cart_price"
                                                                             class="d-inline-block w-100px">{{(Session::has('cart'))?Session::get('cart')->totalPrice:'0'}}</span>
                                                                     </li>
                                                                 </ul>
@@ -122,11 +122,24 @@
                             </div>
                             <div class="block text-center border border-grey mt-5 p-3">
                                 <div class="row">
-                                    {{-- address and user details HERE--}}
-                                    <div class="col-12">
-                                        <input type="text" name="name" placeholder="نام">
-                                        <input type="text" name="">
-                                    </div>
+                                    {{-- address and user details--}}
+                                    <form action="">
+                                        <div class="col-6 m-auto">
+                                            <input type="text" name="name" placeholder="نام">
+                                            <input type="text" name="tell_or_email" placeholder="تلفن یا ایمیل">
+                                            <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس" ></textarea>
+                                            <br>
+                                            <span>هزینه حمل:</span>
+                                            <select name="delivery_price" id="delivery_price">
+                                                <option value="25">۲۵۰۰۰ تومان</option>
+                                                <option value="0">جداگانه پرداخت میکنم</option>
+                                            </select>
+                                            <br>
+                                            <span>جمع سفارش: </span>
+                                            <input type="text" disabled name="total_price" id="total_price" value="">
+                                            <button type="submit" id='payment_btn' disabled>پرداخت</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
