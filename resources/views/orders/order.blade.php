@@ -11,6 +11,7 @@
                                 <h2 class="m-0">سفارش شما</h2>
                             </div>
                         </div>
+                        
                         <div class="col-md-10">
                             <div class="block text-center border border-grey mt-5 p-3">
                                 <div class="row">
@@ -123,21 +124,46 @@
                             <div class="block text-center border border-grey mt-5 p-3">
                                 <div class="row">
                                     {{-- address and user details--}}
-                                    <form action="">
+                                    <form action="{{route('payment.attemp_payment')}}" method="POST">
+                                        @csrf
                                         <div class="col-6 m-auto">
-                                            <input type="text" name="name" placeholder="نام">
-                                            <input type="text" name="tell_or_email" placeholder="تلفن یا ایمیل">
-                                            <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس" ></textarea>
+                                            <input type="text" name="name" placeholder="نام" class="@error('name') border-danger @enderror">
+                                                @error('name')
+                                                    <div class=" text-danger">
+                                                        *
+                                                    </div>
+                                                @enderror
+                                            <input type="text" name="email" placeholder="ایمیل" class="@error('email') border-danger @enderror">
+                                                @error('email')
+                                                    <div class=" text-danger">
+                                                        *
+                                                    </div>
+                                                @enderror
+                                            <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس"
+                                                class="@error('address') border-danger @enderror" ></textarea>
+                                                @error('address')
+                                                    <div class=" text-danger">
+                                                        *
+                                                    </div>
+                                                @enderror
                                             <br>
                                             <span>هزینه حمل:</span>
-                                            <select name="delivery_price" id="delivery_price">
-                                                <option value="25">۲۵۰۰۰ تومان</option>
-                                                <option value="0">جداگانه پرداخت میکنم</option>
+                                            <select name="delivery_price" id="delivery_price"  
+                                                class="@error('delivery_price') border-danger @enderror">
+                                                @if (Session::has('cart'))
+                                                    <option default value="{{Session::get('cart')->delivery_price}}">۲۵۰۰۰ تومان</option>
+                                                    <option value="0">جداگانه پرداخت میکنم</option>
+                                                @endif
                                             </select>
+                                            @error('delivery_price')
+                                                <div class=" text-danger">
+                                                    *
+                                                </div>
+                                            @enderror
                                             <br>
                                             <span>جمع سفارش: </span>
                                             <input type="text" disabled name="total_price" id="total_price" value="">
-                                            <button type="submit" id='payment_btn' disabled>پرداخت</button>
+                                            <button type="submit" id='payment_btn'>پرداخت</button>
                                         </div>
                                     </form>
                                 </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgetPasswordController;
@@ -66,6 +67,8 @@ Route::get('/cart/removeAll', function(){
 //orders
 Route::get('/order', [OrderController::class,'index'])->name('order.index');
 
+//payment
+Route::post('/payment',[PaymentController::class,'attempt_payment'])->name('payment.attemp_payment');
 
 
 //dashboard 

@@ -214,7 +214,9 @@
 
     $('#delivery_price').on('change', function () {
         $('#total_price').val(parseFloat($('#cart_price').text()) + parseFloat($('#delivery_price').val()));
-        $('#payment_btn').prop("disabled", false);
+    });
+    $(window).on('load', function () {
+        $('#total_price').val(parseFloat($('#cart_price').text()) + parseFloat($('#delivery_price').val()));
     });
 
 })(jQuery);

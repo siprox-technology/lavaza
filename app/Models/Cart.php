@@ -8,6 +8,7 @@ class Cart
     public $totalQty = 0;
     public $totalPrice = 0;
     public $notes = null;
+    public $delivery_price = 25;
 
     public function __construct($oldCart){
         if($oldCart)
