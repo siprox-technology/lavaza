@@ -108,7 +108,7 @@
             <div class="row menu-container">
             {{-- menu items --}}
               @foreach ($items as $item)
-                <div class="col-lg-6 menu-item {{'filter-'.$item->menu->name_fa}}">
+                <div class="col-lg-6 menu-item {{'filter-'.$item->menu->name}}">
                   <div class="menu-content">
                     <a href="#">{{$item->name_fa}}</a><span>{{$item->price}}</span>
                   </div>

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
 {
-    public function attempt_payment(Request $request)
+    public function prepare_payment(Request $request)
     {
 /*         dd($request); */
         //validate deliver_price, name, email/phone, address
@@ -19,25 +19,51 @@ class PaymentController extends Controller
         ]);
         //retrive cart from session
         $cart = Session::get('cart');
-        //calculate total price and attempt paymnet
-        $total_price = $cart->totalPrice + (($request->delivery_price)<=25?$cart->delivery_price:0) ;
+        //calculate total price
+        $total_price = $cart->totalPrice + (($request->delivery_price)!=0?$cart->delivery_price:0) ;
+        //payment data
+        $payment_data = array("merchant_id" => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "amount" => $total_price,
+        "callback_url" => "/payment-result",
+        "description" => "خرید تست",
+        "metadata" => [ "email" => $request->email,"mobile"=>"09121234567"],
+        );
 
-        dd($total_price);
-
-        //if payment is successfull 
+        //attemp payment
+        $request_payment = $this->request_payment($payment_data);
+          //if payment is successfull 
+        if($request_payment['status'])
+        {
             //create order and order items and save to DB
             //create payment and save top DB
             //delete cart
             //return to order result page with payment and order info
+            return redirect()->route('payment.payment_result',['payment_data'=>$payment_data]);
+        }
+        //if payment failed
 
-        //if payment not successfull
+
+
             //return back with errors
     }
 
-    private function payment()
+    private function request_payment($data)
     {
-        //send POST request to payment API
+        //send payment to payment API
 
-        //return result
+
+        //payemnt success
+        $result = array("status"=>true);
+        return $result;
+    }
+
+    public function payment_result()
+    {
+        return view('payments.payment-result');
+    }
+
+    private function payment_verification()
+    {
+
     }
 }

@@ -124,7 +124,7 @@
                             <div class="block text-center border border-grey mt-5 p-3">
                                 <div class="row">
                                     {{-- address and user details--}}
-                                    <form action="{{route('payment.attemp_payment')}}" method="POST">
+                                    <form action="{{route('payment.prepare_payment')}}" method="POST">
                                         @csrf
                                         <div class="col-6 m-auto">
                                             <input type="text" name="name" placeholder="نام" class="@error('name') border-danger @enderror">
