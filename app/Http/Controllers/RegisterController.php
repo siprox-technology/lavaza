@@ -27,9 +27,9 @@ class RegisterController extends Controller
     {
         //validate user inputs
         $this->validate($request,[
-            'name'=>'required|max:50',
+            'name'=>'required|max:50|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]+$)/',
             'email'=>'required|email|max:50',
-            'phone'=>'required|digits:11',
+            'phone'=>'required|string|max:11|regex:/([۱۲۳۴۵۶۷۸۹۰ 1234567890]+$)/',
             'password'=>'required|confirmed',
         ]);
         //create user 
@@ -37,7 +37,7 @@ class RegisterController extends Controller
             [
                 "name"=>$request->name,
                 "email"=>$request->email,
-                "phone"=>$request->phone,
+                "phone"=>$this->convertPersianNumbersToEnglish($request->phone),
                 "password"=>Hash::make($request->password),
             ]
         );
@@ -56,5 +56,12 @@ class RegisterController extends Controller
     {
         $request->user()->sendEmailVerificationNotification();
         return back()->with('message', 'Verification link sent!');
+    }
+
+    function convertPersianNumbersToEnglish($input)
+    {
+        $persian = ['۰', '۱', '۲', '۳', '۴', '٤', '۵', '٥', '٦', '۶', '۷', '۸', '۹'];
+        $english = [ 0 ,  1 ,  2 ,  3 ,  4 ,  4 ,  5 ,  5 ,  6 ,  6 ,  7 ,  8 ,  9 ];
+        return str_replace($persian, $english, $input);
     }
 }

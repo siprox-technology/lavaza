@@ -18,13 +18,13 @@
               <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
     
                 <div class="content">
-                  <h3>CREATE YOUR ACCOUNT</h3>
+                  <h3>ایجاد حساب کاربری</h3>
                   <form class="text-left clearfix" action="{{route('register')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <input type="text" name="name" id="name" maxlength="50"
                         class="form-control @error('name') border border-danger @enderror" 
-                        placeholder="Your name" value="{{old('name')}}">
+                        placeholder="نام" value="{{old('name')}}">
                         @error('name')
                         <div class=" text-danger mt-2">
                             {{$message}}
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <input type="text" name="email" id="email" maxlength="50" 
                         class="form-control @error('email') border border-danger @enderror" 
-                        placeholder="Your email" value="{{old('email')}}" >
+                        placeholder="ایمیل" value="{{old('email')}}" >
                         @error('email')
                         <div class=" text-danger mt-2">
                             {{$message}}
@@ -42,9 +42,9 @@
                     @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" name="phone" id="phone" maxlength="11" 
+                        <input type="text" name="phone" id="phone" maxlength="11"
                         class="form-control  @error('phone') border border-danger @enderror" 
-                        placeholder="Your phone" value="{{old('phone')}}">
+                        placeholder="تلفن" value="{{old('phone')}}">
                         @error('phone')
                         <div class=" text-danger mt-2">
                             {{$message}}
@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" id="password" maxlength="30" 
-                        class="form-control @error('password') border border-danger @enderror" placeholder="Your password">
+                        class="form-control @error('password') border border-danger @enderror" placeholder="رمز عبور">
                         @error('password')
                         <div class=" text-danger mt-2">
                             {{$message}}
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group">
                         <input type="password" name="password_confirmation" id="password_confirmation" maxlength="30" 
-                        class="form-control @error('password_confirmation') border border-danger @enderror" placeholder="Your password again">
+                        class="form-control @error('password_confirmation') border border-danger @enderror" placeholder="تکرار رمز عبور">
                         @error('password_confirmation')
                         <div class=" text-danger mt-2">
                             {{$message}}

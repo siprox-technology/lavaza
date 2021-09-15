@@ -126,45 +126,80 @@
                                     {{-- address and user details--}}
                                     <form action="{{route('payment.prepare_payment')}}" method="POST">
                                         @csrf
-                                        <div class="col-6 m-auto">
-                                            <input type="text" name="name" placeholder="نام" class="@error('name') border-danger @enderror">
-                                                @error('name')
+                                        {{-- guest form --}}
+                                        @guest
+                                            <div class="col-6 m-auto">
+                                                <input type="text" name="name" placeholder="نام" class="@error('name') border-danger @enderror">
+                                                    @error('name')
+                                                        <div class=" text-danger">
+                                                            *
+                                                        </div>
+                                                    @enderror
+                                                <input type="text" name="email" placeholder="ایمیل" class="@error('email') border-danger @enderror">
+                                                    @error('email')
+                                                        <div class=" text-danger">
+                                                            *
+                                                        </div>
+                                                    @enderror
+                                                <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس"
+                                                    class="@error('address') border-danger @enderror" ></textarea>
+                                                    @error('address')
+                                                        <div class=" text-danger">
+                                                            *
+                                                        </div>
+                                                    @enderror
+                                                <br>
+                                                <span>هزینه حمل:</span>
+                                                <select name="delivery_price" id="delivery_price"  
+                                                    class="@error('delivery_price') border-danger @enderror">
+                                                    @if (Session::has('cart'))
+                                                        <option default value="{{Session::get('cart')->delivery_price}}">۲۵۰۰۰ تومان</option>
+                                                        <option value="0">جداگانه پرداخت میکنم</option>
+                                                    @endif
+                                                </select>
+                                                @error('delivery_price')
                                                     <div class=" text-danger">
                                                         *
                                                     </div>
                                                 @enderror
-                                            <input type="text" name="email" placeholder="ایمیل" class="@error('email') border-danger @enderror">
-                                                @error('email')
+                                                <br>
+                                                <span>جمع سفارش: </span>
+                                                <input type="text" disabled name="total_price" id="total_price" value="">
+                                                <button type="submit" id='payment_btn'>پرداخت</button>
+                                            </div>
+                                        @endguest
+                                            {{-- user form --}}
+                                        @auth
+                                            <div class="col-6 m-auto">
+                                                <input type="text" name="name"disabled placeholder="نام" value="{{auth()->user()->name}}">
+                                                <input type="text" name="email" disabled placeholder="ایمیل" value="{{auth()->user()->email}}">
+                                                <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس جدید"
+                                                    class="@error('address') border-danger @enderror" value="نتانت" >{{auth()->user()->address}}</textarea>
+                                                    @error('address')
+                                                        <div class=" text-danger">
+                                                            *
+                                                        </div>
+                                                    @enderror
+                                                <br>
+                                                <span>هزینه حمل:</span>
+                                                <select name="delivery_price" id="delivery_price"  
+                                                    class="@error('delivery_price') border-danger @enderror">
+                                                    @if (Session::has('cart'))
+                                                        <option default value="{{Session::get('cart')->delivery_price}}">۲۵۰۰۰ تومان</option>
+                                                        <option value="0">جداگانه پرداخت میکنم</option>
+                                                    @endif
+                                                </select>
+                                                @error('delivery_price')
                                                     <div class=" text-danger">
                                                         *
                                                     </div>
                                                 @enderror
-                                            <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس"
-                                                class="@error('address') border-danger @enderror" ></textarea>
-                                                @error('address')
-                                                    <div class=" text-danger">
-                                                        *
-                                                    </div>
-                                                @enderror
-                                            <br>
-                                            <span>هزینه حمل:</span>
-                                            <select name="delivery_price" id="delivery_price"  
-                                                class="@error('delivery_price') border-danger @enderror">
-                                                @if (Session::has('cart'))
-                                                    <option default value="{{Session::get('cart')->delivery_price}}">۲۵۰۰۰ تومان</option>
-                                                    <option value="0">جداگانه پرداخت میکنم</option>
-                                                @endif
-                                            </select>
-                                            @error('delivery_price')
-                                                <div class=" text-danger">
-                                                    *
-                                                </div>
-                                            @enderror
-                                            <br>
-                                            <span>جمع سفارش: </span>
-                                            <input type="text" disabled name="total_price" id="total_price" value="">
-                                            <button type="submit" id='payment_btn'>پرداخت</button>
-                                        </div>
+                                                <br>
+                                                <span>جمع سفارش: </span>
+                                                <input type="text" disabled name="total_price" id="total_price" value="">
+                                                <button type="submit" id='payment_btn'>پرداخت</button>
+                                            </div>
+                                        @endauth
                                     </form>
                                 </div>
                             </div>
