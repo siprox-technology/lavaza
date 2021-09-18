@@ -124,7 +124,7 @@
                             <div class="block text-center border border-grey mt-5 p-3">
                                 <div class="row">
                                     {{-- address and user details--}}
-                                    <form action="{{route('payment.prepare_payment')}}" method="POST">
+                                    <form action="{{route('payment.attemp_payment')}}" method="POST">
                                         @csrf
                                         {{-- guest form --}}
                                         @guest
@@ -132,20 +132,20 @@
                                                 <input type="text" name="name" placeholder="نام" class="@error('name') border-danger @enderror">
                                                     @error('name')
                                                         <div class=" text-danger">
-                                                            *
+                                                            لطفا اطلاعات نام را با حروف فارسی وارد کنید
                                                         </div>
                                                     @enderror
                                                 <input type="text" name="email" placeholder="ایمیل" class="@error('email') border-danger @enderror">
                                                     @error('email')
                                                         <div class=" text-danger">
-                                                            *
+                                                            لطفا ساختار ایمیل را به درستی وارد کنید
                                                         </div>
                                                     @enderror
                                                 <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس"
                                                     class="@error('address') border-danger @enderror" ></textarea>
                                                     @error('address')
                                                         <div class=" text-danger">
-                                                            *
+                                                            لطفا ساختار ادرس را به درستی وارد کنید
                                                         </div>
                                                     @enderror
                                                 <br>
@@ -159,7 +159,7 @@
                                                 </select>
                                                 @error('delivery_price')
                                                     <div class=" text-danger">
-                                                        *
+                                                       مبلغ هزینه حمل اشتباه است
                                                     </div>
                                                 @enderror
                                                 <br>

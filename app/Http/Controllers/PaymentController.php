@@ -3,32 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Payment;
+use App\Models\Order_item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
 {
-    public function prepare_payment(Request $request)
+    public function attemp_payment(Request $request)
     {
-/*         dd($request); */
-        if(auth()->user())
+        if(! auth()->user())
         {
-            //validate deliver_price, address
-            $this->validate($request,[
-                'address'=>'required|string|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/',
-                'delivery_price'=>'required|integer|between:0,25',
-            ]);
-        }
-        else
-        {
-            //validate deliver_price, name, email/phone, address
+            //validate name, email/phone
             $this->validate($request,[
                 'name'=>'required|string|max:50|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]+$)/',
-                'email'=>'required|email|max:150',
-                'address'=>'required|string|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/',
-                'delivery_price'=>'required|integer|between:0,25',
+                'email'=>'required|email|max:150|regex:/([a-z,A-Z]+$)/',
             ]);
         }
+        //validate delivery_price, address
+        $this->validate($request,[
+            'address'=>'required|string|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/',
+            'delivery_price'=>'required|integer|between:0,25',
+        ]);
+
 
         //retrive cart from session
         $cart = Session::get('cart');
@@ -39,36 +36,58 @@ class PaymentController extends Controller
         "amount" => $total_price,
         "callback_url" => "/payment-result",
         "description" => "خرید تست",
-        "metadata" => [ "email" => $request->email,"mobile"=>"09121234567"],
+        "metadata" => [ "email" => ((auth()->user())?auth()->user()->email:$request->email),"mobile"=>"09121234567"],
         );
+
     
         //attemp payment
         $request_payment = $this->request_payment($payment_data);
-          //if payment is successfull 
-        if($request_payment['status'])
-        {
-            //create order and order items and save to DB
-            $order = Order::create(
-                [
-                    'user_id',
-                    'guest_email',
-                    'guest_phone',
-                    'delivery_address',
-                    'delivery_price',
-                    'total_price',
-                    'notes'
-                ]
-             );
-            //create payment and save top DB
-            //delete cart
-            //return to order result page with payment and order info
-            return redirect()->route('payment.payment_result',['payment_data'=>$payment_data]);
-        }
+          
         //if payment failed
+        if($request_payment['status']==false)
+        {
+            return redirect()->route('payment.payment_result',['payment_data'=>$request_payment]);
+        }
+        //if payment is successfull 
+        //create order and order items and save to DB
+        $order = Order::create(
+            [
+                'user_id' =>((auth()->user())?auth()->user()->id:null),
+                'guest_email' =>((auth()->user())?auth()->user()->email:$request->email),
+                'guest_phone'=>null,
+                'delivery_address' =>$request->address,
+                'delivery_price'=>(($request->delivery_price)!=0?$cart->delivery_price:0),
+                'total_price' =>$total_price,
+                'notes'=>$cart->notes
+            ]
+            );
 
+        foreach($cart->items as $item)
+        {
+            $order_item = Order_item::create([
+                'quantity'=> $item['quantity'],
+                'price' => $item['price'],
+                'order_id' => $order['id'],
+                'name' => $item['item']['name'],
+                'name_fa' => $item['item']['name_fa'],
+            ]); 
+        }
+        //create payment and save top DB
 
+        $payment = Payment::create([
+            'order_id' => $order['id'],
+            'amount'=>$request_payment['amount'],
+            'payment_method'=>$request_payment['payment_method'],
+            'last_four_digit'=>$request_payment['last_four_digits'],
+            'payment_ref'=>$request_payment['payment_ref']
+        ]);
+        //delete cart
+        Session::forget('cart');
+        //SMS or email user
 
-            //return back with errors
+        //return to order result page with payment and order info
+        return redirect()->route('payment.payment_result',['payment_data'=>$request_payment]);
+        //return back with errors
     }
 
     private function request_payment($data)
@@ -77,7 +96,19 @@ class PaymentController extends Controller
 
 
         //payemnt success
-        $result = array("status"=>true);
+/*         $result = array(
+            "status"=>true,
+            "message"=>"پرداخت با موفقیت انجام شد"
+            "amount"=>$data['amount'],
+            "payment_method" =>"Saman Bank",
+            "last_four_digits" => "1234",
+            "payment_ref" =>"545asdsda2s12121asds2"
+        ); */
+        //payment failed
+        $result = array(
+            "status"=>false,
+            "message"=>"موجودی کارت کافی نیست"
+        );
         return $result;
     }
 

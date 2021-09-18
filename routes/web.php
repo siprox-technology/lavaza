@@ -68,7 +68,7 @@ Route::get('/cart/removeAll', function(){
 Route::get('/order', [OrderController::class,'index'])->name('order.index');
 
 //payment
-Route::post('/payment',[PaymentController::class,'prepare_payment'])->name('payment.prepare_payment');
+Route::post('/payment',[PaymentController::class,'attemp_payment'])->name('payment.attemp_payment');
 
 //payment result
 Route::get('/payment-result',[PaymentController::class,'payment_result'])->name('payment.payment_result');

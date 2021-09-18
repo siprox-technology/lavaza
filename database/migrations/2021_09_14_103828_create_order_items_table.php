@@ -17,6 +17,7 @@ class CreateOrderItemsTable extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->string('name',128);
+            $table->string('name_fa',128);
             $table->integer('quantity');
             $table->double('price',8,2);           
             $table->timestamps();
