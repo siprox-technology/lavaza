@@ -14,22 +14,25 @@ Lavaza restaurants website
             they can request another one. Users then go to email address and click on activation link,
             after clicking on activation link their email is verified and they will be directed to their
             account home page.
+        
+        B-Users login and logout with forget password.
 
-        B-Users order food and pay online.---
+        C-Users order food and pay online.*
             
             -Users add items to their shopping cart**
             -Users delete an item from shopping cart**
             -Users add notes about the order(i.e. allergies or removing a specific ingredients)**
-            -guest users enter name, email/phone, address and bank card details to confirm and pay for order.--
-            -Logged in users enter an address and bank card details to confirm and pay for order    
+            -guest users enter name, email/phone, address and bank card details to confirm and pay for order*
+            -Logged in users enter an address and bank card details to confirm and pay for order*    
             
             
-
-        2-Users login and logout with forget password.
-        3-Users account with following functionalities:
-            3.1-Users insert and update their address details.
+        D-Users account with following functionalities:
+            -Users insert and update their address details*
+                -Save address*
+                -Remove address*
             3.2-Users update their phone number.
-            3.3-Users can see order history and buy their past orders.
+            3.3-Users can see order history and buy their past orders--
+            -Users can see reservations available and save them.
             3.4-Users can see reservation history and cancel them.
 
             
@@ -50,7 +53,6 @@ Lavaza restaurants website
         *11- Admin add update and remove website's notifications.
 
     -System Requirements
-
 
 
         2-Users can login and logout using their email address or phone number and password. If they forget their password, 

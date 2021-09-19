@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 class PaymentController extends Controller
 {
     public function attemp_payment(Request $request)
-    {
+    { 
         if(! auth()->user())
         {
             //validate name, email/phone

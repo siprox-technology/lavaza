@@ -75,7 +75,10 @@ Route::get('/payment-result',[PaymentController::class,'payment_result'])->name(
 
 //dashboard 
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index');
-
+//add new user address
+Route::post('/dashboard/address/save',[DashboardController::class,'saveUserAddress'])->name('dashboard.store_user_address');
+//remove the address
+Route::post('/dashboard/address/delete',[DashboardController::class,'deleteUserAddress'])->name('dashboard.remove_user_address');
 
 //admin
 Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
