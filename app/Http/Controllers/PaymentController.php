@@ -96,19 +96,19 @@ class PaymentController extends Controller
 
 
         //payemnt success
-/*         $result = array(
+        $result = array(
             "status"=>true,
-            "message"=>"پرداخت با موفقیت انجام شد"
+            "message"=>"پرداخت با موفقیت انجام شد",
             "amount"=>$data['amount'],
             "payment_method" =>"Saman Bank",
             "last_four_digits" => "1234",
             "payment_ref" =>"545asdsda2s12121asds2"
-        ); */
+        );
         //payment failed
-        $result = array(
+/*         $result = array(
             "status"=>false,
             "message"=>"موجودی کارت کافی نیست"
-        );
+        ); */
         return $result;
     }
 

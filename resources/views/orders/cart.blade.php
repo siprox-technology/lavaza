@@ -75,7 +75,7 @@
                                                             <a href="/#menu" class="btn btn-dark w-100">اضافه کردن موارد بیشتر</a>
                                                         </div>
                                                         <div class="col-lg-4 col-md-6 col-12 ">
-                                                            <a href="/order#order" class="btn btn-dark w-100">تایید سفارش</a>
+                                                            <a href="/order#order" dusk="submit-order-btn" class="btn btn-dark w-100">تایید سفارش</a>
                                                         </div>
                                                     </div>
                                                     <hr>

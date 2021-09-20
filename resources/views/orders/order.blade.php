@@ -129,19 +129,19 @@
                                         {{-- guest form --}}
                                         @guest
                                             <div class="col-6 m-auto">
-                                                <input type="text" name="name" placeholder="نام" class="@error('name') border-danger @enderror">
+                                                <input type="text" dusk="name" name="name" placeholder="نام" class="@error('name') border-danger @enderror">
                                                     @error('name')
                                                         <div class=" text-danger">
                                                             لطفا اطلاعات نام را با حروف فارسی وارد کنید
                                                         </div>
                                                     @enderror
-                                                <input type="text" name="email" placeholder="ایمیل" class="@error('email') border-danger @enderror">
+                                                <input type="text" name="email" dusk="email" placeholder="ایمیل" class="@error('email') border-danger @enderror">
                                                     @error('email')
                                                         <div class=" text-danger">
                                                             لطفا ساختار ایمیل را به درستی وارد کنید
                                                         </div>
                                                     @enderror
-                                                <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس"
+                                                <textarea name="address" rows="3" cols="25" dusk="address" maxlength="512" placeholder="ادرس"
                                                     class="@error('address') border-danger @enderror" ></textarea>
                                                     @error('address')
                                                         <div class=" text-danger">
@@ -165,7 +165,7 @@
                                                 <br>
                                                 <span>جمع سفارش: </span>
                                                 <input type="text" disabled name="total_price" id="total_price" value="">
-                                                <button type="submit" id='payment_btn'>پرداخت</button>
+                                                <button type="submit" id='payment_btn' dusk="payment_btn">پرداخت</button>
                                             </div>
                                         @endguest
                                             {{-- user form --}}
