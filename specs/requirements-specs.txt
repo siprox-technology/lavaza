@@ -22,8 +22,8 @@ Lavaza restaurants website
             -Users add items to their shopping cart**
             -Users delete an item from shopping cart**
             -Users add notes about the order(i.e. allergies or removing a specific ingredients)**
-            -guest users enter name, email/phone, address and bank card details to confirm and pay for order*
-            -Logged in users enter an address and bank card details to confirm and pay for order*    
+            -guest users enter name, email/phone, address and bank card details to confirm and pay for order**
+            -Logged in users enter an address and bank card details to confirm and pay for order**    
             
             
         D-Users account with following functionalities:
@@ -31,7 +31,9 @@ Lavaza restaurants website
                 -Save address*
                 -Remove address*
             3.2-Users update their phone number.
-            3.3-Users can see order history and buy their past orders--
+            3.3-Users can see order history and buy their past orders
+                -display order history
+                -buy past orders again
             -Users can see reservations available and save them.
             3.4-Users can see reservation history and cancel them.
 

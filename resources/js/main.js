@@ -219,4 +219,10 @@
         $('#total_price').val(parseFloat($('#cart_price').text()) + parseFloat($('#delivery_price').val()));
     });
 
+    //open order details modal in order history
+
+    $('#detailsBtn').on('click', function () {
+        $('#order_details_modal').modal();
+    })
+
 })(jQuery);

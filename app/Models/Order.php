@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Order_item;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -18,4 +19,9 @@ class Order extends Model
         'total_price',
         'notes'
     ];
+
+    public function order_items()
+    {
+        return $this->hasMany(Order_item::class);
+    }
 }

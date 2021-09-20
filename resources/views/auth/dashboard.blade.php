@@ -58,6 +58,9 @@
                             <button type="submit"><i class="icofont-ui-delete"></i></button>
                         </form>
                     @endif
+
+                {{-- Order history --}}
+                <a href="{{route('dashboard.order-history.index')}}">سفارشات قبلی</a>
                 </div>
 
     

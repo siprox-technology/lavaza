@@ -703,4 +703,10 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
         $('#total_price').val(parseFloat($('#cart_price').text()) + parseFloat($('#delivery_price').val()));
     });
 
+    //open order details modal in order history
+
+    $('#detailsBtn').on('click', function () {
+        $('#order_details_modal').modal();
+    })
+
 })(jQuery);
