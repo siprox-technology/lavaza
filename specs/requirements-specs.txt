@@ -31,8 +31,8 @@ Lavaza restaurants website
                 -Save address*
                 -Remove address*
             3.2-Users update their phone number.
-            3.3-Users can see order history and buy their past orders
-                -display order history
+            3.3-Users can see order history and buy their past orders--
+                -display order history*
                 -buy past orders again
             -Users can see reservations available and save them.
             3.4-Users can see reservation history and cancel them.

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
         <!-- order history-->
         <section id="order-history-section" class="bglight position-relative padding noshadow">
             <div class="container whitebox">
@@ -22,13 +23,39 @@
                         <ul>
                             <li>تاریخ:</li>
                             <li>{{$order->created_at}}</li>
-                            <li>مبلغ:</li>
+                            <li>مبلغ کل:</li>
                             <li>{{$order->total_price}}</li>
+                            <li>هزینه حمل:</li>
+                            <li>{{$order->delivery_price}}</li>
                         </ul>
                     </div>
                       <div class="collapse" id="order-details-{{$order->id}}">
                         <div class="card card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                            <ul>
+                                @foreach ($order->order_items as $item)
+                                    <li class="d-flex border-bottom">
+                                        <img class="" style="width:50px; height:50px;" src="{{asset('images/menu/'.$item->name.'.jpg')}}" alt="product-img">
+                                        <div class="mx-3">
+                                            <p class="mb-0 text-dark">{{$item->name_fa}}</p>
+                                            <span class="text-dark">{{$item->quantity}}</span> 
+                                            <span class="text-dark">X</span> 
+                                            <span class="text-dark">{{$item->price}}</span>
+                                            <span class="text-dark">{{($item->price)*($item->quantity)}}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
+                                <li>
+                                    جمع: {{($order->total_price)-($order->delivery_price)}}
+                                </li>
+                                <li>
+                                    <form action="{{route('dashboard.orders.store')}}" method="POST">
+                                        @csrf
+                                        {{-- order id --}}
+                                        <input type="hidden" value="{{$order->id}}" name="id">
+                                        <button type="submit">سفارش مجدد</button>
+                                    </form>
+                                </li>
+                            </ul>
                         </div>
                       </div>
                 </div>

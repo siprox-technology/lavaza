@@ -11,4 +11,7 @@
 <a href="{{route('order.index')}}">سبد خرید</a>
 {{-- links to order history --}}
 <br>
-<a href="">سابقه سفارشات</a>
+@auth
+    <a href="{{route('dashboard.order-history.index')}}">سابقه سفارشات</a>
+@endauth
+

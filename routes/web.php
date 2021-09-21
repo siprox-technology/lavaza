@@ -81,7 +81,8 @@ Route::post('/dashboard/address/save',[DashboardController::class,'saveUserAddre
 Route::post('/dashboard/address/delete',[DashboardController::class,'deleteUserAddress'])->name('dashboard.remove_user_address');
 //order history
 Route::get('/dashboard/orders-history',[DashboardController::class,'displayOrderHistory'])->name('dashboard.order-history.index');
-
+//order past orders
+Route::post('/dashboard/orders-history/order',[DashboardController::class,'orderPastOrders'])->name('dashboard.orders.store');
 
 //admin
 Route::get('/admin', [AdminController::class,'index'])->name('admin.index');

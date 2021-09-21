@@ -174,7 +174,7 @@
                                                 <input type="text" name="name"disabled placeholder="نام" value="{{auth()->user()->name}}">
                                                 <input type="text" name="email" disabled placeholder="ایمیل" value="{{auth()->user()->email}}">
                                                 <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس جدید"
-                                                    class="@error('address') border-danger @enderror" value="نتانت" >{{auth()->user()->address}}</textarea>
+                                                    class="@error('address') border-danger @enderror" value="" >{{auth()->user()->address}}</textarea>
                                                     @error('address')
                                                         <div class=" text-danger">
                                                             *
