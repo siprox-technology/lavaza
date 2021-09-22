@@ -27,19 +27,16 @@ Lavaza restaurants website
             
             
         D-Users account with following functionalities:
-            -Users insert and update their address details*
-                -Save address*
-                -Remove address*
-            3.2-Users update their phone number.
-            3.3-Users can see order history and buy their past orders--
-                -display order history*
-                -buy past orders again
-            -Users can see reservations available and save them.
-            3.4-Users can see reservation history and cancel them.
+            -Users insert and update their address details**
+                -Save address**
+                -Remove address**
+            -Users update their phone number.
+            -Users can see order history and buy their past orders*
+                -display order history**
+                -buy past orders again**
+            -Users can see reservations available and save them    
+            -Users can see reservation history and cancel them.
 
-            
-
-        5-System provides table reservation for registered users.
         
         6-Admin reset forgotten password.   
         7-Admin add or remove a menu.

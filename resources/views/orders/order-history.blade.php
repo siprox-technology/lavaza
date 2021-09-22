@@ -17,7 +17,7 @@
                 @foreach ($orders as $order)
                 <div class="row">
                     <div class="row">
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#order-details-{{$order->id}}" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary" dusk="order_details" type="button" data-toggle="collapse" data-target="#order-details-{{$order->id}}" aria-expanded="false" aria-controls="collapseExample">
                             جزییات سفارش
                         </button>
                         <ul>
@@ -25,8 +25,6 @@
                             <li>{{$order->created_at}}</li>
                             <li>مبلغ کل:</li>
                             <li>{{$order->total_price}}</li>
-                            <li>هزینه حمل:</li>
-                            <li>{{$order->delivery_price}}</li>
                         </ul>
                     </div>
                       <div class="collapse" id="order-details-{{$order->id}}">
@@ -39,20 +37,23 @@
                                             <p class="mb-0 text-dark">{{$item->name_fa}}</p>
                                             <span class="text-dark">{{$item->quantity}}</span> 
                                             <span class="text-dark">X</span> 
-                                            <span class="text-dark">{{$item->price}}</span>
-                                            <span class="text-dark">{{($item->price)*($item->quantity)}}</span>
+                                            <span class="text-dark">{{($item->price)/($item->quantity)}}</span>
+                                            <span class="text-dark">{{($item->price)}}</span>
                                         </div>
                                     </li>
                                 @endforeach
                                 <li>
-                                    جمع: {{($order->total_price)-($order->delivery_price)}}
+                                    هزینه حمل:{{$order->delivery_price}}
+                                </li>
+                                <li>
+                                    جمع: {{($order->total_price)}}
                                 </li>
                                 <li>
                                     <form action="{{route('dashboard.orders.store')}}" method="POST">
                                         @csrf
                                         {{-- order id --}}
                                         <input type="hidden" value="{{$order->id}}" name="id">
-                                        <button type="submit">سفارش مجدد</button>
+                                        <button type="submit" dusk="order_again">سفارش مجدد</button>
                                     </form>
                                 </li>
                             </ul>

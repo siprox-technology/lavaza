@@ -12,6 +12,6 @@
 {{-- links to order history --}}
 <br>
 @auth
-    <a href="{{route('dashboard.order-history.index')}}">سابقه سفارشات</a>
+    <a dusk="order_history" href="{{route('dashboard.order-history.index')}}">سابقه سفارشات</a>
 @endauth
 
