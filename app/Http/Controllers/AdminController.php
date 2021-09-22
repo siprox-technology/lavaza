@@ -30,22 +30,13 @@ class AdminController extends Controller
         $this->validate($request,[
             'name'=>'max:50',
             'phone'=>'digits:11',
-            'address'=>'max:150',
-            'city'=>'max:50',
-            'state'=>'max:30',
-            'country'=>'max:30',
-            'post_code'=>'max:15',
+            'address'=>'string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/|nullable',
         ]);
             //update user details
-
             $user = User::find($request->user_id);
             $user->name = $request->name;
             $user->phone = $request->phone;
             $user->address = $request->address;
-            $user->city = $request->city;
-            $user->state = $request->state;
-            $user->country = $request->country;
-            $user->post_code = $request->post_code;
             $user->save();
             return back()->with(['status'=>'User updated successfully']);
     }

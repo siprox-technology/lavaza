@@ -7,7 +7,7 @@ Lavaza restaurants website
 
 
 
-        A-Users registration and activation with email/phone.
+        A-(Users registration and activation with email/phone)
             A.1-For the first part of registration, users enter their email, name, phone number.
             Then they are being directed to account verification page where 
             if the number was not sent for a given period of time (i.e. 60 seconds), 
@@ -15,7 +15,7 @@ Lavaza restaurants website
             after clicking on activation link their email is verified and they will be directed to their
             account home page.
         
-        B-Users login and logout with forget password.
+        B-(Users login and logout with forget password).
 
         C-Users order food and pay online.*
             
@@ -27,18 +27,24 @@ Lavaza restaurants website
             
             
         D-Users account with following functionalities:
-            -Users insert and update their address details**
+            -Users insert and update their details**
                 -Save address**
                 -Remove address**
-            -Users update their phone number.
+                -(Update phone number)--HERE
+                -Update name
+
             -Users can see order history and buy their past orders*
                 -display order history**
                 -buy past orders again**
             -Users can see reservations available and save them    
             -Users can see reservation history and cancel them.
 
+        E-Admin see, edit users details and delete them*
+            -Admin see list of users*
+            -Admin delete a user*
+            -Admin edit user details(name, (phone) address)*
         
-        6-Admin reset forgotten password.   
+        6-Admin reset forgotten password with email and phone
         7-Admin add or remove a menu.
         8-Admin create update and remove menu items.
             8.1- Admin create a menu item.
@@ -48,7 +54,7 @@ Lavaza restaurants website
             8.1- Admin create a reservation slot
             8.2- Admin edit a reservation slot
             8.3- Admin remove a reservation slot
-        *10-Admin see, edit users details and delete them
+
         *11- Admin add update and remove website's notifications.
 
     -System Requirements

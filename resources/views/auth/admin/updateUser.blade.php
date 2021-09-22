@@ -47,7 +47,7 @@
                                         value="{{$user->phone}}">
                                         @error('phone')
                                             <div class=" text-danger mt-2">
-                                                {{$message}}
+                                            *تلفن ۱۱ رقم و به اعداد انگلیسی باشد
                                             </div>
                                         @enderror
                                     </div>
@@ -57,35 +57,11 @@
                                         <input type="text" name="address" id="address" maxlength="150" 
                                         class="form-control  @error('address') border border-danger @enderror" 
                                         value="{{$user->address}}">
-                                    </div>
-                                    {{-- city --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" class="mt-2 mb-0" for="city"><b>City:</b></label>
-                                        <input type="text" name="city" id="city" maxlength="50" 
-                                        class="form-control  @error('city') border border-danger @enderror" 
-                                        value="{{$user->city}}">
-
-                                    </div>
-                                    {{-- state --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="state"><b>State:</b></label>
-                                        <input type="text" name="state" id="state" maxlength="30" 
-                                        class="form-control  @error('state') border border-danger @enderror" 
-                                        value="{{$user->state}}">
-                                    </div>
-                                    {{-- country --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="country"><b>Country:</b></label>
-                                        <input type="text" name="country" id="country" maxlength="30" 
-                                        class="form-control  @error('country') border border-danger @enderror" 
-                                        value="{{$user->country}}">
-                                    </div>
-                                    {{-- post_code --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="post_code"><b>post_code:</b></label>
-                                        <input type="text" name="post_code" id="post_code" maxlength="15" 
-                                        class="form-control  @error('post_code') border border-danger @enderror" 
-                                        value="{{$user->post_code}}">
+                                        @error('address')
+                                            <div class=" text-danger">
+                                                *لطفا اطلاعات ادرس را به درستی وارد کنید
+                                            </div>
+                                        @enderror
                                     </div>
                                     {{-- user id --}}
                                     <input type="hidden" name="user_id" value="{{$user->id}}">  
