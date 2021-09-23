@@ -55,7 +55,7 @@ class ForgetPasswordController extends Controller
                 event(new PasswordReset($user));
             }
         );
-    
+        auth()->logout();
         return $status == Password::PASSWORD_RESET
                     ? redirect()->route('login.index')->with('status', __($status))
                     : back()->withErrors(['email' => [__($status)]]);

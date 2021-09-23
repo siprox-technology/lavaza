@@ -75,10 +75,10 @@ Route::get('/payment-result',[PaymentController::class,'payment_result'])->name(
 
 //dashboard 
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard.index');
-//add new user address
-Route::post('/dashboard/address/save',[DashboardController::class,'saveUserAddress'])->name('dashboard.store_user_address');
-//remove the address
-Route::post('/dashboard/address/delete',[DashboardController::class,'deleteUserAddress'])->name('dashboard.remove_user_address');
+//edit user details
+Route::get('/dashboard/user/update', [DashboardController::class,'updateUserDetailsIndex'])->name('dashboard.user.update.index');
+Route::post('/dashboard/user/update', [DashboardController::class,'updateUserDetails'])->name('dashboard.user.update');
+
 //order history
 Route::get('/dashboard/orders-history',[DashboardController::class,'displayOrderHistory'])->name('dashboard.order-history.index');
 //order past orders

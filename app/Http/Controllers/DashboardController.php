@@ -21,9 +21,29 @@ class DashboardController extends Controller
     
     public function index()
     {
-        return view('auth.dashboard');
+        return view('auth.dashboard.index');
     }
 
+    public function updateUserDetailsIndex()
+    {
+        return view('auth.dashboard.edit-user-details');
+    }
+    public function updateUserDetails(Request $request)
+    {
+        //validate user inputs
+        $this->validate($request,[
+            'name'=>'max:50',
+            'phone'=>'digits:11',
+            'address'=>'string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/|nullable',
+        ]);
+            //update user details
+            $user = auth()->user();
+            $user->name = $request->name;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->save();
+            return back()->with(['status'=>'User updated successfully']);
+    }
     public function saveUserAddress(Request $request)
     {
         //validate delivery_price, address

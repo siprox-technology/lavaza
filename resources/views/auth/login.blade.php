@@ -14,9 +14,16 @@
               <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("assets/img/about.jpg");'>
                 <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
               </div>
-    
+
               <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
-    
+
+                    {{-- update password status--}}
+                    @if (session('status'))
+                        <div class="text-center text-success mt-2">
+                            {{session('status')}}
+                        </div>
+                    @endif
+
                 <div class="content">
                   <h3>Login</h3>
                   <form class="text-left clearfix" method="POST" action="{{route('login')}}">

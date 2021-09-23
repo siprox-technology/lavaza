@@ -30,8 +30,9 @@ Lavaza restaurants website
             -Users insert and update their details**
                 -Save address**
                 -Remove address**
-                -(Update phone number)--HERE
-                -Update name
+                -(Update phone number)**
+                -Update name**
+                -change password**
 
             -Users can see order history and buy their past orders*
                 -display order history**

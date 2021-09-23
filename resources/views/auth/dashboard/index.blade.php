@@ -19,8 +19,12 @@
     
                 <div class="content">
                     <h3>Dashboard</h3>
+                    {{-- name --}}
+                    <p>نام:</p>
+                    <p class="text-success">{{auth()->user()->name}}</p>
+
                     {{-- Email --}}
-                    <p>Email:</p>
+                    <p>ایمیل:</p>
                     @if (!auth()->user()->email_verified_at)
                         <p class="text-danger">Please verify email address</p>
                         <form action="{{route('verification.send')}}" method="POST">
@@ -33,37 +37,30 @@
                     @else
                     <p class="text-success">Email verified</p>
                     @endif
+                    {{-- phone --}}
+                    <p>تلفن:</p>
+                    <p class="text-success">{{auth()->user()->phone}}</p>
 
                     {{-- Address --}}
-                    <p>Address:</p>
+                    <p>ادرس:</p>
                     @if (!auth()->user()->address)
                         {{-- save address --}}
                         <p class="text-danger">در حال حاضر ادرسی ذخیره نشده است</p>
-                        <form action="{{route('dashboard.store_user_address')}}" method="POST" >
-                            @csrf
-                            <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس جدید"
-                            class="@error('address') border-danger @enderror" ></textarea>
-                            @error('address')
-                                <div class=" text-danger">
-                                    لطفا ساختار ادرس را به درستی وارد کنید
-                                </div>
-                            @enderror
-                            <button type="submit">ذخیره</button>
-                        </form>
                     @else
                         <p class="text-success">{{auth()->user()->address}}</p>
-                        {{-- delete address --}}
-                        <form action="{{route('dashboard.remove_user_address')}}" method="POST">
-                            @csrf
-                            <button type="submit"><i class="icofont-ui-delete"></i></button>
-                        </form>
                     @endif
 
                 {{-- Order history --}}
                 <a href="{{route('dashboard.order-history.index')}}">سفارشات قبلی</a>
                 </div>
 
+                {{-- edit user details --}}
+
+                <a href="{{route('dashboard.user.update.index')}}">پروفایل </a>
     
+                {{-- تغییر رمز عبور --}}
+
+                <a href="{{route('forgetPassword.index')}}">تغییر رمز عبور</a>
               </div>
     
             </div>
