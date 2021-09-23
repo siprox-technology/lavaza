@@ -4,4 +4,3 @@
     {{-- processing payment page --}}
     <h1>processing</h1>
 @endsection
-

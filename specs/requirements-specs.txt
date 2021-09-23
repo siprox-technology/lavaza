@@ -15,9 +15,9 @@ Lavaza restaurants website
             after clicking on activation link their email is verified and they will be directed to their
             account home page.
         
-        B-(Users login and logout with forget password).
+        B-(Users login and logout with forget password).--here
 
-        C-Users order food and pay online.*
+        C-Users order food and pay online.**
             
             -Users add items to their shopping cart**
             -Users delete an item from shopping cart**
