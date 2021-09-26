@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
             //1.users
             UserSeeder::class,
             //2.menu
-            MenuSeeder::class,
+/*             MenuSeeder::class, */
             //3.items
-            ItemSeeder::class
+/*             ItemSeeder::class */
             
         ]);
     }

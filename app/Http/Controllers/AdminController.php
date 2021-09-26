@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Morilog\Jalali\Jalalian;
 
 class AdminController extends Controller
 {
@@ -15,7 +17,13 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('auth.admin.index')->with(['users'=>$users]);
+        $menus = Menu::all();
+        foreach($menus as $menu)
+        {
+            $menu->created_at = Jalalian::fromDateTime($menu->created_at)->toString();
+            $menu->updated_at = Jalalian::fromDateTime($menu->updated_at)->toString();
+        }
+        return view('auth.admin.index')->with(['users'=>$users, 'menus'=>$menus]);
     }
 
     //User model update and delete
@@ -38,7 +46,7 @@ class AdminController extends Controller
             $user->phone = $request->phone;
             $user->address = $request->address;
             $user->save();
-            return back()->with(['status'=>'User updated successfully']);
+            return back()->with(['status'=>'ویرایش کاربر انجام شد']);
     }
     public function deleteUser(Request $request)
     {
@@ -47,7 +55,7 @@ class AdminController extends Controller
         return redirect()->route('admin.index')
         ->with(['users'=>$users, 
         'users-database-list'=>'open',
-        'status'=>'User ID: '.$request->user_id.' removed']);
+        'status'=>'کاربر شماره: '.$request->user_id.' حذف شد']);
     }
 
 }

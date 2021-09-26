@@ -4,7 +4,7 @@
 
     <main id="main">
         <div class="row justify-content-center py-5 w-100 mx-auto">
-            <h1 class="text_yellow">Admin Panel</h1>
+            <h1 class="text_yellow">پنل ادمین</h1>
         </div>
         <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
             <div class="col-12 ">
@@ -15,7 +15,7 @@
                         <div class="card-header">
                             <a class="text-dark" dusk="AdminDbMenuLink" data-toggle="collapse"
                                 data-target="#databaseHeading" aria-expanded="true" aria-controls="collapseOne">
-                                Database
+                                اطلاعات سیستم
                             </a>
                         </div>
 
@@ -26,10 +26,15 @@
                             {{-- database tables list --}}
                             <div class="card-body">
                                 <ul>
-                                    {{-- users menu link --}}
+                                    {{-- users link --}}
                                     <li>
-                                        <a class="" data-toggle=" collapse" data-target="#userDatabaseCollapse"
-                                            aria-expanded="true" aria-controls="collapseOne">Users</a>
+                                        <a class="" data-toggle="collapse" data-target="#userDatabaseCollapse"
+                                            aria-expanded="true" aria-controls="collapseOne">کاربرها</a>
+                                    </li>
+                                    {{-- menus link --}}
+                                    <li>
+                                        <a class="" data-toggle="collapse" data-target="#menuDatabaseCollapse"
+                                            aria-expanded="true" aria-controls="collapseOne">منوها</a>
                                     </li>
                                 </ul>
                             </div>
@@ -80,12 +85,10 @@
                     </div>
                 </div>
             </div>
+            {{-- admin creates updates deletes user details --}}
             <div class="col-12 ">
-                {{-- users create update delete status --}}
-
-                {{-- delete user status --}}
                 @if (session('status'))
-                    @if (str_contains(session('status'), 'removed'))
+                    @if (str_contains(session('status'), 'کاربر'))
                         <div class="text-center text-danger mt-2">
                             {{ session('status') }}
                         </div>
@@ -98,11 +101,11 @@
                         <table class="table table-striped table-responsive">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Role</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">شماره</th>
+                                    <th scope="col">نام</th>
+                                    <th scope="col">ایمیبل</th>
+                                    <th scope="col">عنوان کاربری</th>
+                                    <th scope="col">گزینه ها</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -112,7 +115,7 @@
                                         {{ $user->id }}</th>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->role == 1 ? 'Admin' : 'User' }}</td>
+                                        <td>{{ $user->role == 1 ? 'ادمین' : 'کاربر' }}</td>
                                         @if ($user->role != 1)
                                             <td class="row justify-content-center">
                                                 {{-- delete user button --}}
@@ -135,6 +138,58 @@
                     </div>
                 </div>
             </div>
+            {{-- admin create updates and deletes menus --}}
+            <div class="col-12 ">
+                @if (session('status'))
+                    @if (str_contains(session('status'), 'منو'))
+                        <div class="text-center text-danger mt-2">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                @endif
+                {{-- menus list --}}
+                <div class="collapse @error('phone')show @enderror {{ session('menu-database-list') == 'open' ? 'show' : '' }}"
+                    id="menuDatabaseCollapse">
+                    <div class="card card-body">
+                        <table class="table table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th scope="col">شماره</th>
+                                    <th scope="col">نام</th>
+                                    <th scope="col">تاریخ</th>
+                                    <th scope="col">تاریخ ویرایش</th>
+                                    <th scope="col">گزینه ها</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($menus as $menu)
+                                    <tr class="">
+                                        <th scope=" row">
+                                        {{ $menu->id }}</th>
+                                        <td>{{ $menu->name_fa }}</td>
+                                        <td>{{ $menu->created_at }}</td>
+                                        <td>{{ $menu->updated_at }}</td>
+                                        <td class="row justify-content-center">
+                                            {{-- delete menu button --}}
+                                            <form action="{{ route('admin.user.delete') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                                <button dusk="@if ($user->email == 'test@gmail.com')deleteUserBtn @endif" class="py-1 px-2 mx-1"
+                                                    type="submit"><i class="icofont-trash"></i></button>
+                                            </form>
+                                            {{-- edit user link --}}
+                                            <a dusk="@if ($user->email == 'test@gmail.com')updateUserLink @endif"
+                                                href="{{ route('admin.user.update.index', $user->id) }}"
+                                                class="py-1 px-2 mx-1"><i class="icofont-pencil"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a href="{{route('forgetPassword.index')}}">تغییر رمز عبور</a>
         </div>
     </main>
 

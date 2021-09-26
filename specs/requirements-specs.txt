@@ -3,7 +3,7 @@ Lavaza restaurants website
 
 ------------------------------
 
-    -Requirements specifications:
+    -Product Features:
 
 
 
@@ -15,7 +15,7 @@ Lavaza restaurants website
             after clicking on activation link their email is verified and they will be directed to their
             account home page.
         
-        B-(Users login and logout with forget password).--here
+        B-(Users login and logout with forget password)
 
         C-Users order food and pay online.**
             
@@ -45,78 +45,22 @@ Lavaza restaurants website
             -Admin delete a user*
             -Admin edit user details(name, (phone) address)*
         
-        6-Admin reset forgotten password with email and phone
-        7-Admin add or remove a menu.
-        8-Admin create update and remove menu items.
-            8.1- Admin create a menu item.
-            8.2- Admin update a menu item.
-            8.3- Admin removes a menu item.
-        *9-Admin create update and delete reservation slots.
-            8.1- Admin create a reservation slot
-            8.2- Admin edit a reservation slot
-            8.3- Admin remove a reservation slot
+        F-Admin change or reset password with email and phone*
 
-        *11- Admin add update and remove website's notifications.
-
-    -System Requirements
-
-
-        2-Users can login and logout using their email address or phone number and password. If they forget their password, 
-        they request a password reset code to be sent to their phone or email address. at this stage if they did not receive the code
-        after (i.e. 60 seconds), they can request another one. Then the user will be directed to the change password 
-        page where they enter the password reset code and their new password. once their password has been changed successfully,
-        they will be notified and directed to login page to login with their new password.  
-
-        3.1-Users enter their address details including, address,city, state, 
-        postal code and country. the system changes the current address with the new information or create a new address.
-        They optionally can pinpoint their address in google map.the system displays any errors or confirms the updated.
-        
-        3.2- Users enter their new phone number and new activation code will be sent to their 
-        new number, if the number was not sent for a given period of time (i.e. 60 seconds), they can request another one. 
-        After entering the correct activation code, their phone number is updated and the user will be notified.
-
-        3.3-List of orders is displayed in order history, user selects an order and add it to their basket to buy it again.
-        
-        3.4-List of reservations is displayed in reservations section of user account, 
-        users can cancel any reservations before a set period of time.
-        
-  
-
-        5-Users would be able to reserve a table for a set time and date. 
-        admin will set an available time, date, table numbers, table description and reservation price(optional).
-        the user selects an available reservation slot and can ask for special arrangements regarding their reservation 
-        in additional notes (i.e  birthdays, anniversaries or quite work meeting). If reservation needs payment,
-        the reserved table is added to the shopping basket, payment page is displayed with reserved table information,
-        the user enters payment card details and confirms the payment, the system displays payment confirmation and 
-        sends the confirmation information to user's phone and email.The system saves reservation and payment 
-        details in database.
-        If reservation does not need payment, the user selects an available reservation slot and can
-        ask for special arrangements regarding their reservation in additional notes (i.e  birthdays, anniversaries or quiet work meeting).
-        the user confirms reservation and the system sends the confirmation to the user's phone and email.The reservation
-        details are saved in database.
-
-        6-admin can reset forgotten password with email only.If they forget their password, 
-        they request a password reset code to be sent to the email address. at this stage if they did not receive the code
-        after (i.e. 60 seconds), they can request another one. Then admin will be directed to the change password 
-        page where they enter the password reset code and their new password. once their password has been changed successfully,
-        they will be notified and directed to login page to login with their new password. If for any reason this process fails,
-        new user should be added to database and the owner of database must give the new user admin access.
-
-        7-Once admin logs in to account dashboard, he/she can go to menus section and see the online menus.
-        Admin can add a new menu. he/she enters the name, time of availability and clicks save. the menu is saved 
-        to database and will be availabe in the website according to its time of availability. there is an option to 
-        delete a menu from database.
-
-        8-Admin can selects a menu and see its items.
-        8.1- Admin can add a new item to the menu. Admin enters the item's name, ingredients, quantity, price and image 
-        and clicks save.
-        8.2- Admin can edit items name, ingredients, quantity,price and image and clicks save.
-        8.3- Admin can remove an item from the menu.
+        G-Admin add or remove a menu
+            -add a menu
+            -remove a menu
+        H-Admin create update and remove menu items.
+            -Admin create a menu item.
+            -Admin update a menu item.
+            -Admin removes a menu item.
+        I-Admin create update and delete reservation slots.
+            -Admin create a reservation slot
+            -Admin edit a reservation slot
+            -Admin remove a reservation slot
+            -Admin has the option for setting
+            -reservation price for special arrangements.---
+        J-Admin add update and remove website's notifications.
 
 
 
-
-    System Requirements (Admin)
-
-        1-Admin has the option for setting
-        reservation price for special arrangements.---

@@ -44,7 +44,7 @@
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="active"><a href="{{ route('home') }}">خانه</a></li>
                     @guest
                         <li class=""><a href=" {{ route('register.index') }}">Register</a></li>
                         <li class=""><a href=" {{ route('login.index') }}">Login</a></li>
@@ -180,7 +180,8 @@
                     </div>
 
                     <!-- Slide 2 -->
-                    <div class="carousel-item" style="background: url({{ asset('assets/img/slide/slide-2.jpg') }});">
+                    <div class="carousel-item"
+                        style="background: url({{ asset('assets/img/slide/slide-2.jpg') }});">
                         <div class="carousel-container">
                             <div class="carousel-content">
                                 <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
@@ -199,8 +200,10 @@
                     </div>
 
                     <!-- Slide 3 -->
-                    <div class="carousel-item" style="background: url({{ asset('assets/img/slide/slide-3.jpg') }});">
-                        <div class="carousel-background"><img src="{{ asset('assets/img/slide/slide-3.jpg') }}" alt="">
+                    <div class="carousel-item"
+                        style="background: url({{ asset('assets/img/slide/slide-3.jpg') }});">
+                        <div class="carousel-background"><img src="{{ asset('assets/img/slide/slide-3.jpg') }}"
+                                alt="">
                         </div>
                         <div class="carousel-container">
                             <div class="carousel-content">

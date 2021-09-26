@@ -4,13 +4,10 @@
 
 
     <main id="main">
-
         <!-- ======= login Section ======= -->
         <section id="login" class="about">
             <div class="container-fluid">
-
                 <div class="row">
-
                     <div class="col-lg-5 align-items-stretch video-box"
                         style='background-image: url("assets/img/about.jpg");'>
                         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
@@ -63,7 +60,8 @@
                                     </div>
                                 @enderror
                             </form>
-                            <p class="mt-3">New in this site ?<a href="{{ route('register.index') }}"> Create New
+                            <p class="mt-3">New in this site ?<a href="{{ route('register.index') }}"> Create
+                                    New
                                     Account</a></p>
                             <a href="{{ route('forgetPassword.index') }}">
                                 <p class="mt-3">Forget password ?</p>
