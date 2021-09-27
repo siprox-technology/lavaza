@@ -51,11 +51,16 @@ class AdminController extends Controller
     public function deleteUser(Request $request)
     {
         User::find($request->user_id)->delete();
-        $users = User::all();
-        return redirect()->route('admin.index')
-        ->with(['users'=>$users, 
-        'users-database-list'=>'open',
+        return back()
+        ->with(['users-database-list'=>'open',
         'status'=>'کاربر شماره: '.$request->user_id.' حذف شد']);
     }
+
+    public function menuItemsIndex()
+    {
+        $menus = Menu::all();
+        return view('auth.admin.menuItemsIndex')->with(['menus'=>$menus]);
+    }
+
 
 }

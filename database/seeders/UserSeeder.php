@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-/*         User::create(
+        User::create(
             [
             'name' => 'Soroosh Modarresi',
             'email' => 'siproxtech@gmail.com',
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'role'=>'1',
             'password' => Hash::make('1111'), // password
             ]
-        ); */
+        );
         User::create(
             [
             'name' => 'Jonh Doe',
@@ -38,6 +38,14 @@ class UserSeeder extends Seeder
             [
             'name' => 'ahmad Doe',
             'email' => 'ahmad@email.com',
+            'phone' => rand(11111111,9999999999),
+            'password' => Hash::make('1111'), // password
+            ]
+        );
+        User::create(
+            [
+            'name' => 'مهران زاهدی',
+            'email' => 'mshadow73@gmail.com',
             'phone' => rand(11111111,9999999999),
             'password' => Hash::make('1111'), // password
             ]

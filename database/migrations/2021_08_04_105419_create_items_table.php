@@ -16,8 +16,8 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_id')->constrained()->onDelete('cascade');
-            $table->string('name',128);
-            $table->string('name_fa',128)->nullable();
+            $table->string('name',128)->nullable();
+            $table->string('name_fa',128);
             $table->string('ingredients',512);
             $table->string('ingredients_fa',512);
             $table->double('price',6,2);

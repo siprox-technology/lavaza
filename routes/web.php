@@ -84,9 +84,13 @@ Route::get('/dashboard/orders-history',[DashboardController::class,'displayOrder
 //order past orders
 Route::post('/dashboard/orders-history/order',[DashboardController::class,'orderPastOrders'])->name('dashboard.orders.store');
 
-//admin
+//admin/user
 Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
 Route::get('/admin/add-user',[AdminController::class,'createUserIndex'])->name('admin.user.create');
 Route::post('/admin/delete-user',[AdminController::class,'deleteUser'])->name('admin.user.delete');
 Route::get('/admin/update-user/{user:id}',[AdminController::class,'updateUserIndex'])->name('admin.user.update.index');
 Route::post('/admin/update-user',[AdminController::class,'updateUser'])->name('admin.user.update');
+//admin/menu
+Route::get('/admin/menu-items',[AdminController::class,'menuItemsIndex'])->name('admin.menu-items.index');
+/* Route::post('/admin/menu-items',[AdminController::class,'addMenuItems'])->name('admin.menu-items.create'); */
+

@@ -11,6 +11,5 @@ class Menu extends Model
     protected $fillable = [
         'name',
         'name_fa',
-        'expiration_date'
     ];
 }

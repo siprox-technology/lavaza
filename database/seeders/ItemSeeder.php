@@ -89,7 +89,7 @@ class ItemSeeder extends Seeder
         Item::create([
             'menu_id' => (DB::table('menus')->where('name', 'Side')->pluck('id'))[0],
             'name' => 'Secar Salad',
-            'name_fa'=>'سس سزار',
+            'name_fa'=>'سالاد سزار',
             'ingredients' => 'Lettuce, Parmesan cheese, Crisp croutons, Salad dressing',
             'ingredients_fa' =>'کاهو پنیر پارمسان کروتون سس سزار',
             'price' => 11.50,

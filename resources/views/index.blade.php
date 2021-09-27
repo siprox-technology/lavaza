@@ -113,7 +113,7 @@
                         <ul id="menu-flters">
                             <li data-filter="*" class="filter-active">همه</li>
                             @foreach ($menus as $menu)
-                                <li data-filter={{ '.filter-' . $menu->name }}>{{ $menu->name_fa }}</li>
+                                <li data-filter={{ '.filter-' . $menu->name_fa}}>{{ $menu->name_fa }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -122,7 +122,7 @@
                 <div class="row menu-container">
                     {{-- menu items --}}
                     @foreach ($items as $item)
-                        <div class="col-lg-6 menu-item {{ 'filter-' . $item->menu->name }}">
+                        <div class="col-lg-6 menu-item {{ 'filter-' . $item->menu->name_fa }}">
                             <div class="menu-content">
                                 <a href="#">{{ $item->name_fa }}</a><span>{{ $item->price }}</span>
                             </div>
@@ -130,7 +130,7 @@
                                 {{ $item->ingredients_fa }}
                             </div>
                             <div class="menu-image mt-2">
-                                <img src="{{ asset('images/menu/' . $item->name . '.jpg') }}" alt="">
+                                <img src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
                             </div>
                             <div class=" d-flex mt-5 w-100">
                                 <label for="quantity" class="d-none"></label>

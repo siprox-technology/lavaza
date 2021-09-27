@@ -47,9 +47,12 @@ Lavaza restaurants website
         
         F-Admin change or reset password with email and phone*
 
-        G-Admin add or remove a menu
+        G-Admin add or remove menu items
             -add a menu
             -remove a menu
+            -add menu items
+            -remove menu items
+
         H-Admin create update and remove menu items.
             -Admin create a menu item.
             -Admin update a menu item.

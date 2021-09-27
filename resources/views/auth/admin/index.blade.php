@@ -34,7 +34,7 @@
                                     {{-- menus link --}}
                                     <li>
                                         <a class="" data-toggle="collapse" data-target="#menuDatabaseCollapse"
-                                            aria-expanded="true" aria-controls="collapseOne">منوها</a>
+                                            aria-expanded="true" aria-controls="collapseOne">منو</a>
                                     </li>
                                 </ul>
                             </div>
@@ -141,7 +141,7 @@
             {{-- admin create updates and deletes menus --}}
             <div class="col-12 ">
                 @if (session('status'))
-                    @if (str_contains(session('status'), 'منو'))
+                    @if (str_contains(session('status'), 'منوی'))
                         <div class="text-center text-danger mt-2">
                             {{ session('status') }}
                         </div>
@@ -170,17 +170,10 @@
                                         <td>{{ $menu->created_at }}</td>
                                         <td>{{ $menu->updated_at }}</td>
                                         <td class="row justify-content-center">
-                                            {{-- delete menu button --}}
-                                            <form action="{{ route('admin.user.delete') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                                <button dusk="@if ($user->email == 'test@gmail.com')deleteUserBtn @endif" class="py-1 px-2 mx-1"
-                                                    type="submit"><i class="icofont-trash"></i></button>
-                                            </form>
-                                            {{-- edit user link --}}
-                                            <a dusk="@if ($user->email == 'test@gmail.com')updateUserLink @endif"
-                                                href="{{ route('admin.user.update.index', $user->id) }}"
-                                                class="py-1 px-2 mx-1"><i class="icofont-pencil"></i></button>
+                                            {{-- edit menu button --}}
+                                        <a dusk="addMenuBtn" href="{{route('admin.menu-items.index')}}" class="py-1 px-2 mx-1"
+                                            type="submit"><i class="icofont-pencil"></i></a>
+
                                         </td>
                                     </tr>
                                 @endforeach
