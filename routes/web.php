@@ -92,5 +92,5 @@ Route::get('/admin/update-user/{user:id}',[AdminController::class,'updateUserInd
 Route::post('/admin/update-user',[AdminController::class,'updateUser'])->name('admin.user.update');
 //admin/menu
 Route::get('/admin/menu-items',[AdminController::class,'menuItemsIndex'])->name('admin.menu-items.index');
-/* Route::post('/admin/menu-items',[AdminController::class,'addMenuItems'])->name('admin.menu-items.create'); */
+Route::post('/admin/menu-items/delete',[AdminController::class,'deleteMenuItems'])->name('admin.menu-items.delete');
 

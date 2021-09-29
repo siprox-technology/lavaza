@@ -18,7 +18,7 @@ class CreateItemsTable extends Migration
             $table->foreignId('menu_id')->constrained()->onDelete('cascade');
             $table->string('name',128)->nullable();
             $table->string('name_fa',128);
-            $table->string('ingredients',512);
+            $table->string('ingredients',512)->nullable();
             $table->string('ingredients_fa',512);
             $table->double('price',6,2);
             $table->integer('stock')->nullable();

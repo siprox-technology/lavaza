@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Menu;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -59,8 +62,19 @@ class AdminController extends Controller
     public function menuItemsIndex()
     {
         $menus = Menu::all();
-        return view('auth.admin.menuItemsIndex')->with(['menus'=>$menus]);
+        $items = Item::all();
+        return view('auth.admin.menuItemsIndex')->with(['menus'=>$menus,'items'=>$items]);
     }
-
-
+    public function deleteMenuItems(Request $request)
+    {
+        $this->validate($request,[
+            'id'=>'required|regex:/([1234567890]+$)/'
+        ]);
+       $item = Item::find($request->id);
+       $imageName = $item->name_fa.'.jpg';  
+       Storage::disk('images')->delete('menu/'.$imageName);
+       Cache::flush();
+       $item->delete();
+       return back()->with(['status'=>'ایتم مورد نظر حذف شد']);
+    }
 }

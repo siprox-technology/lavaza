@@ -17,78 +17,131 @@
             <div class="col-12">
                 {{--add new menu items status --}}
                 @if (session('status'))
-                    @if (session('status') == '')
-                        <div class="text-center text-success mt-2">
+                    @if (session('status') == 'ایتم مورد نظر حذف شد')
+                        <div class="text-center text-danger mt-2">
                             {{ session('status') }}
                         </div>
                     @endif
                 @endif
             </div>
-            <div class="col-12">
-                    {{-- choose menu part --}}
-                <div class="row justify-content-center">
-                    <label for="cars">نوع ایتم غذایی:</label>
 
-                    <select name="cars" id="cars">
-                        <option value="">همه</option>
-                        @foreach ($menus as $menu)
-                            <option value="{{$menu->id}}">{{$menu->name_fa}}</option>
-                        @endforeach
-                    </select>
+            {{-- menu items forms --}}
+            <div class="col-12">
+        <!-- ======= Menu Section ======= -->
+        <section id="menu" class="menu">
+            <div class="container">
+                {{-- differnt menus i.e. Starter Main .... --}}
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="menu-flters">
+                            <li data-filter="*" class="filter-active">همه</li>
+                            @foreach ($menus as $menu)
+                                <li data-filter={{ '.filter-' . $menu->name_fa}}>{{ $menu->name_fa }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
 
-            </div>
-            {{-- add new menu items form --}}
-            <div class="col-sm-10 col-md-8 col-lg-6 ">
-                <div class="heading-title">
-                    <div class=" flex justify-center">
-                        <div class=" w-6/12 bg-white p-6 rounded-lg">
-                            <div class="block text-center">
-                                {{-- edit user details --}}
-                                <form class="text-left clearfix" action="{{}}" method="POST">
+                <div class="col-12 menu-container">
+                    {{-- menu items --}}
+                    @foreach ($items as $item)
+                        <div class="row menu-item w-100 {{ 'filter-' . $item->menu->name_fa }}">
+                            <div class="col-lg-8 col-12">
+                                <form class="text-left clearfix" action="" method="post">
                                     @csrf
                                     {{-- name --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="contact_pref"><b>نام:</b></label>
-                                        <input type="text" name="name" id="name" maxlength="50"
-                                            class="form-control @error('name') border border-danger @enderror"
-                                            value="">
-                                    </div>
-                                    {{-- phone --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="contact_pref"><b>تلفن:</b></label>
-                                        <input type="text" name="phone" id="phone" maxlength="11"
-                                            class="form-control  @error('phone') border border-danger @enderror"
-                                            value="">
-                                        @error('phone')
+                                    <div class="form-group">
+                                        <input type="text" name="name" dusk="name" id="name" maxlength="128"
+                                            class="form-control @error('name') border border-danger @enderror" placeholder="نام لاتین"
+                                            value="{{$item->name}}">
+                                        @error('name')
                                             <div class=" text-danger mt-2">
-                                                *تلفن ۱۱ رقم و به اعداد انگلیسی باشد
+                                                {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
-                                    {{-- address --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="address"><b>ادرس:</b></label>
-                                        <input type="text" name="address" id="address" maxlength="150"
-                                            class="form-control  @error('address') border border-danger @enderror"
-                                            value="">
-                                        @error('address')
-                                            <div class=" text-danger">
-                                                *لطفا اطلاعات ادرس را به درستی وارد کنید
+                                    {{-- name_fa --}}
+                                    <div class="form-group">
+                                        <input type="text" name="nameـfa" dusk="name_fa" dusk="name_fa" id="name_fa" maxlength="128"
+                                            class="form-control @error('name_fa') border border-danger @enderror" placeholder="نام"
+                                            value="{{$item->name_fa}}">
+                                        @error('name_fa')
+                                            <div class=" text-danger mt-2">
+                                                {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
-                                    {{-- user id --}}
-                                    <input type="hidden" name="user_id" value="">
-                                    <div class="text-center my-2">
-                                        <button type="submit" class="btn btn-primary">ذخیره</button>
+                                    {{-- ingredients_fa --}}
+                                    <div class="form-group">
+                                        <input type="text" name="ingredients_fa" dusk="ingredients_fa" id="ingredients_fa" maxlength="512"
+                                            class="form-control @error('ingredients_fa') border border-danger @enderror"
+                                            placeholder="مواد تشکیل دهنده" value="{{ $item->ingredients_fa }}">
+                                        @error('ingredients_fa')
+                                            <div class=" text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    {{-- price --}}
+                                    <div class="form-group">
+                                        <input type="text" name="price" dusk="price" id="price" maxlength="8"
+                                            class="form-control  @error('price') border border-danger @enderror"
+                                            placeholder="قیمت" value="{{ $item->price}}">
+                                        @error('price')
+                                            <div class=" text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    {{-- stock --}}
+                                    <div class="form-group">
+                                        <input type="stock" name="stock" dusk="stock" id="stock" maxlength="4"
+                                            class="form-control @error('stock') border border-danger @enderror"
+                                            placeholder="رمز عبور">
+                                        @error('stock')
+                                            <div class=" text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" dusk="RegisterSubmitBtn">ذخیره</button>
                                     </div>
                                 </form>
                             </div>
+                            
+                            <div class="col-lg-4 col-12">
+                                <div class="row justify-content-center">
+                                    <div class="menu-image mt-2">
+                                        <img src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-4">
+                                <div class="row">
+                                    <form action="">
+                                        <button>ذخیره</button>
+                                    </form>
+                                   {{-- delete --}}
+                                    <form action="{{route('admin.menu-items.delete')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{$item->id}}" name="id">
+                                        <button type="submit">حذف</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
+
                 </div>
+
             </div>
+        </section><!-- End Menu Section -->
+            </div>
+
         </div>
     </main>
 
