@@ -77,4 +77,18 @@ class AdminController extends Controller
        $item->delete();
        return back()->with(['status'=>'ایتم مورد نظر حذف شد']);
     }
+    public function updateMenuItemsImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpg|max:2048',
+            'id'=>'required|regex:/([1234567890]+$)/'
+        ]);
+        $imageName = Item::find($request->id)->name_fa.'.jpg';  
+        Storage::disk('images')->delete('menu/'.$imageName);
+        $path = $request->file('image')->storeAs(
+            'menu', $imageName,'images'
+        );
+        Cache::flush();
+        return back(); 
+    }
 }

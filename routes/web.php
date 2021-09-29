@@ -93,4 +93,5 @@ Route::post('/admin/update-user',[AdminController::class,'updateUser'])->name('a
 //admin/menu
 Route::get('/admin/menu-items',[AdminController::class,'menuItemsIndex'])->name('admin.menu-items.index');
 Route::post('/admin/menu-items/delete',[AdminController::class,'deleteMenuItems'])->name('admin.menu-items.delete');
+Route::post('/admin/menu-items/updateImage',[AdminController::class,'updateMenuItemsImage'])->name('admin.menu-items.image.update');
 

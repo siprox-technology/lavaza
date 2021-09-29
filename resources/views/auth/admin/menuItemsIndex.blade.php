@@ -108,36 +108,47 @@
                                         <button type="submit" dusk="RegisterSubmitBtn">ذخیره</button>
                                     </div>
                                 </form>
+                                {{-- delete --}}
+                                <form action="{{route('admin.menu-items.delete')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{$item->id}}" name="id">
+                                    <button type="submit">حذف</button>
+                                </form>
                             </div>
-                            
                             <div class="col-lg-4 col-12">
                                 <div class="row justify-content-center">
                                     <div class="menu-image mt-2">
                                         <img src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
-
-                                        
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-12 mb-4">
-                                <div class="row">
-                                    <form action="">
-                                        <button>ذخیره</button>
-                                    </form>
-                                   {{-- delete --}}
-                                    <form action="{{route('admin.menu-items.delete')}}" method="POST">
-                                        @csrf
-                                        <input type="hidden" value="{{$item->id}}" name="id">
-                                        <button type="submit">حذف</button>
-                                    </form>
+                                <div class="row justify-content-center">
+                                    <div class="col-12 mb-4">
+                                        <div class="row">
+                                            {{-- change image --}}
+                                            <div class="col-md-12">
+                                                <form action="{{route('admin.menu-items.image.update')}}" class="bg-gray p-3"  method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-12">
+                                                        <label class="custom-file-upload">
+                                                            <input type="file" name="image"/>
+                                                            انتخاب عکس
+                                                        </label>
+                                                        </div>
+                                                        <input type="hidden" value="{{$item->id}}" name="id">
+                                                        <div class="col-12 mt-2 ">
+                                                            <button type="submit" class="py-2 px-3 border-0 btn-primary">ذخیره</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
                 </div>
-
             </div>
         </section><!-- End Menu Section -->
             </div>
