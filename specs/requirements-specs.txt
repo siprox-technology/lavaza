@@ -49,7 +49,7 @@ Lavaza restaurants website
 
         G-Admin add or remove menu items
             -add menu items
-            -remove menu items
+            -remove menu items*
 
         H-Admin create update and remove menu items.
             -Admin create a menu item.
