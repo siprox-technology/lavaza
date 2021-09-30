@@ -43,6 +43,7 @@ class AdminController extends Controller
             'phone'=>'digits:11',
             'address'=>'string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/|nullable',
         ]);
+
             //update user details
             $user = User::find($request->user_id);
             $user->name = $request->name;
@@ -90,5 +91,27 @@ class AdminController extends Controller
         );
         Cache::flush();
         return back(); 
+    }
+
+    public function updateMenuItemsDetails(Request $request)
+    {
+        //validate item inputs
+        $this->validate($request,[
+            'id'=>'required|regex:/([1234567890]+$)/',
+            'name'=>'string|max:128|regex:/([A-Z,a-z]+$)/|nullable',
+            'name_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
+            'ingredients_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
+            'price'=>'required|string|regex:/([1234567890]+$)/',
+            'stock'=>'string|regex:/([1234567890]+$)/|nullable'
+        ]);
+            //update item details
+            $menu_item = Item::find($request->id);
+            $menu_item->name = $request->name;
+            $menu_item->name_fa = $request->name_fa;
+            $menu_item->ingredients_fa = $request->ingredients_fa;
+            $menu_item->price = $request->price;
+            $menu_item->stock = $request->stock;
+            $menu_item->save();
+            return back()->with(['status'=>'ویرایش ایتم انجام شد']);
     }
 }
