@@ -1,2 +1,3 @@
 419 ERROR message
 -scrollbar for shopping cart
+-refresh for changed images menu items

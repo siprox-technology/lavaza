@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -29,8 +30,6 @@ class AdminController extends Controller
         return view('auth.admin.index')->with(['users'=>$users, 'menus'=>$menus]);
     }
 
-    //User model update and delete
-    
     public function updateUserIndex($userId)
     {
         $user = User::find($userId);
@@ -64,7 +63,7 @@ class AdminController extends Controller
     {
         $menus = Menu::all();
         $items = Item::all();
-        return view('auth.admin.menuItemsIndex')->with(['menus'=>$menus,'items'=>$items]);
+        return view('auth.admin.menuItems')->with(['menus'=>$menus,'items'=>$items]);
     }
     public function deleteMenuItems(Request $request)
     {
@@ -78,7 +77,7 @@ class AdminController extends Controller
        $item->delete();
        return back()->with(['status'=>'ایتم مورد نظر حذف شد']);
     }
-    public function updateMenuItemsImage(Request $request)
+    public function updateMenuItemsImage(Request $request)/* fix refresh image */
     {
         $request->validate([
             'image' => 'required|image|mimes:jpg|max:2048',
@@ -91,6 +90,18 @@ class AdminController extends Controller
         );
         Cache::flush();
         return back(); 
+    }
+    public function updateMenuItemsDetailsIndex($item_name)
+    {
+        $rules = ['name_fa' => 'regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/'];
+        $input = ['name_fa' => $item_name];
+
+        if(Validator::make($input, $rules)->passes())
+        {
+            $item = Item::get()->where('name_fa',$item_name);
+            return view('auth.admin.updateMenuItems')->with(['item'=>$item]);
+        }
+        return back();
     }
 
     public function updateMenuItemsDetails(Request $request)
@@ -112,6 +123,27 @@ class AdminController extends Controller
             $menu_item->price = $request->price;
             $menu_item->stock = $request->stock;
             $menu_item->save();
-            return back()->with(['status'=>'ویرایش ایتم انجام شد']);
+            return back()->with(
+                ['status'=>' ویرایش ایتم با موفقیت انجام شد ']
+            );
+    }
+
+    public function createMenuItemsIndex()
+    {
+        return view('auth.admin.createMenuItem');
+    }
+    public function createMenuItems()
+    {
+        dd($request);
+        //validate item inputs /* her */
+        $this->validate($request,[
+            'menu_name'=>'required|string|regex:/([A-Z,a-z]+$)/',
+            'name'=>'string|max:128|regex:/([A-Z,a-z]+$)/|nullable',
+            'name_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
+            'ingredients_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
+            'price'=>'required|string|regex:/([1234567890]+$)/',
+            'stock'=>'string|regex:/([1234567890]+$)/|nullable'
+        ]);
+
     }
 }
