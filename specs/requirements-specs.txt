@@ -48,7 +48,7 @@ Lavaza restaurants website
         F-Admin change or reset password with email and phone*
 
         G-Admin add or remove menu items
-            -add menu items
+            -add menu items*
             -remove menu items*
             -update menu items*
             -update menu items image*

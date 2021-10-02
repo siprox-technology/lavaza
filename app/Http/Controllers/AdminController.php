@@ -7,6 +7,7 @@ use App\Models\Menu;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -132,10 +133,10 @@ class AdminController extends Controller
     {
         return view('auth.admin.createMenuItem');
     }
-    public function createMenuItems()
+    public function createMenuItems(Request $request)
     {
-        dd($request);
-        //validate item inputs /* her */
+
+        //validate item inputs
         $this->validate($request,[
             'menu_name'=>'required|string|regex:/([A-Z,a-z]+$)/',
             'name'=>'string|max:128|regex:/([A-Z,a-z]+$)/|nullable',
@@ -144,6 +145,22 @@ class AdminController extends Controller
             'price'=>'required|string|regex:/([1234567890]+$)/',
             'stock'=>'string|regex:/([1234567890]+$)/|nullable'
         ]);
+        //create item
+        $item = Item::create([
+            'menu_id'=>(DB::table('menus')->where('name', $request->menu_name)->pluck('id'))[0],
+            'name'=>$request->name,
+            'name_fa'=>$request->name_fa,
+            'ingredients' =>null,
+            'ingredients_fa'=>$request->ingredients_fa,
+            'price' => $request->price,
+            'stock' => 11,
+        ]);
+        if($item)
+        {
+            return back()->with(['status'=>'ایتم جدید اضافه شد']);
+        }
+
+        return back()->with(['status'=>'امکان اضافه کردن ایتم جدید وجود ندارد']);
 
     }
 }

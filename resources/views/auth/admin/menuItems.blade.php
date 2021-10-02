@@ -77,8 +77,27 @@
                             <div class="col-lg-4 col-12">
                                 <div class="row justify-content-center">
                                     <div class="menu-image mt-2">
-                                        <img src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
+                                        <img src="
+                                            @if(file_exists(public_path('images/menu/'.$item->name_fa .'.jpg')))
+                                                {{asset('images/menu/'.$item->name_fa .'.jpg')}}
+                                            @else
+                                                {{asset('images/menu/ایتم جدید.jpg')}}
+                                            @endif
+                                            " alt="">
                                     </div>
+                                    <form action="{{ route('admin.menu-items.image.update') }}" class="bg-gray p-3" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row justify-content-center">
+                                            <label class="custom-file-upload">
+                                                <input type="file" name="image"/>
+                                                انتخاب عکس
+                                            </label>
+                                            <input type="hidden" name="id" value="{{$item->id}}">
+                                            <div class="col-sm-6 mt-2 mt-sm-0 ml-3 ml-sm-0 dashboard-menu">
+                                                <button type="submit" class="py-2 px-3 border-0 btn-primary">ذخیره</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
