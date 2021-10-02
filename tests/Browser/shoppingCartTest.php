@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class shoppingCartTest extends DuskTestCase
 {
-     // test : item id 1 with the name of 'سمپلر' with price of 11.50 and quantity of 3 is added to cart
+     // add to cart
     public function test_item_can_be_added_to_shopping_cart()
     {
         $this->browse(function (Browser $browser) {
@@ -22,10 +22,9 @@ class shoppingCartTest extends DuskTestCase
         });
     }
     
-    //test: item id 1 with the name of 'سمپلر' with price of 11.50 and quantity of 3 is deleted from the cart
+    // delete item from cart
     public function test_item_can_be_deleted_from_shopping_cart()
     {
-
         $this->browse(function (Browser $browser) {
             $browser->visit('/cart')->assertSee('سمپلر')->assertSee('33.75')
             ->click('@product-remove-link')->assertPathIs('/cart')
@@ -33,7 +32,7 @@ class shoppingCartTest extends DuskTestCase
         });
 
     }
-    //test: the whole shopping cart can be deleted
+   //the whole shopping cart can be deleted
     public function test_the_whole_cart_can_be_deleted(){
         $this->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
@@ -42,7 +41,7 @@ class shoppingCartTest extends DuskTestCase
                     ->assertSee('سبد شما خالی است');
         });
     }
-    //test: notes can be added and removed from shopping cart
+    // notes can be added and removed from shopping cart
     public function test_notes_can_be_added_to_and_removed_from_cart()
     {
         $this->test_item_can_be_added_to_shopping_cart();

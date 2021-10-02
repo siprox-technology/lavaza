@@ -28,7 +28,7 @@
                             {{-- Email --}}
                             <p>ایمیل:</p>
                             @if (!auth()->user()->email_verified_at)
-                                <p class="text-danger">Please verify email address</p>
+                                <p class="text-danger">لطفا ایمیل خود را باز کرده و بر روی لینک تایید کلیک کنید</p>
                                 <form action="{{ route('verification.send') }}" method="POST">
                                     @csrf
                                     <button type="submit">resend verification email</button>
@@ -53,7 +53,7 @@
                             @endif
 
                             {{-- Order history --}}
-                            <a href="{{ route('dashboard.order-history.index') }}">سفارشات قبلی</a>
+                            <a dusk="order_history" href="{{ route('dashboard.order-history.index') }}">سفارشات قبلی</a>
                         </div>
 
                         {{-- edit user details --}}

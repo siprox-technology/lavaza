@@ -24,7 +24,7 @@
                         @endif
 
                         <div class="content">
-                            <h3>Login</h3>
+                            <h3>ورود به حساب کاربری</h3>
                             <form class="text-left clearfix" method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
@@ -52,7 +52,7 @@
                                     @enderror
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    <button type="submit" class="btn btn-primary">ورود</button>
                                 </div>
                                 @error('status')
                                     <div class="text-center text-danger mt-2 ">

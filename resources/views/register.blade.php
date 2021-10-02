@@ -75,7 +75,7 @@
                                     @enderror
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" dusk="RegisterSubmitBtn">Register</button>
+                                    <button type="submit" dusk="َUserRegisterSubmitBtn">ثبت نام</button>
                                 </div>
                             </form>
                         </div>

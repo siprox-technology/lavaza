@@ -7,26 +7,33 @@ Lavaza restaurants website
 
 
 
-        A-(Users registration and activation with email/phone)
-            A.1-For the first part of registration, users enter their email, name, phone number.
-            Then they are being directed to account verification page where 
-            if the number was not sent for a given period of time (i.e. 60 seconds), 
-            they can request another one. Users then go to email address and click on activation link,
-            after clicking on activation link their email is verified and they will be directed to their
-            account home page.
+        A-Users registration and activation with email/phone.
         
-        B-(Users login and logout with forget password)
+            -user registration with email **
+            -user account activation with email *-
+            -user registration with phone --
+            -user account activation with phone --
+        
+        B-Users login and logout with forget password email/phone.
 
-        C-Users order food and pay online.**
+            -user login and logout**
+            -user forgot password with email*-
+            -user forgot password with phone--
+            
+        C-Users order food and pay online with phone/email
             
             -Users add items to their shopping cart**
             -Users delete an item from shopping cart**
             -Users add notes about the order(i.e. allergies or removing a specific ingredients)**
-            -guest users enter name, email/phone, address and bank card details to confirm and pay for order**
-            -Logged in users enter an address and bank card details to confirm and pay for order**    
+            -guest users enter name, email, address and bank card details to confirm and pay for order**
+            -guest users enter name, phone, address and bank card details to confirm and pay for order--
+            -Logged in users enter an address and bank card details to confirm and pay for order**
+            -Logged in users can see order history**
+            -Logged in users can order past orders**
+            -confirmation text is sent to user phone.--
+            -confirmtion of order is sent to user email--    
             
-            
-        D-Users account with following functionalities:
+        D-Users account with following functionalities: -HERE
             -Users insert and update their details**
                 -Save address**
                 -Remove address**
@@ -52,10 +59,7 @@ Lavaza restaurants website
             -remove menu items*
             -update menu items*
             -update menu items image*
-        H-Admin create update and remove menu items.
-            -Admin create a menu item.
-            -Admin update a menu item.
-            -Admin removes a menu item.
+
         I-Admin create update and delete reservation slots.
             -Admin create a reservation slot
             -Admin edit a reservation slot
