@@ -5,8 +5,6 @@ Lavaza restaurants website
 
     -Product Features:
 
-
-
         A-Users registration and activation with email/phone.
         
             -user registration with email **
@@ -27,13 +25,13 @@ Lavaza restaurants website
             -Users add notes about the order(i.e. allergies or removing a specific ingredients)**
             -guest users enter name, email, address and bank card details to confirm and pay for order**
             -guest users enter name, phone, address and bank card details to confirm and pay for order--
-            -Logged in users enter an address and bank card details to confirm and pay for order**
+            -Logged in users enter a new address(optional) and bank card details to confirm and pay for order**
             -Logged in users can see order history**
             -Logged in users can order past orders**
             -confirmation text is sent to user phone.--
-            -confirmtion of order is sent to user email--    
+            -confirmation text is sent to user email--    
             
-        D-Users account with following functionalities: -HERE
+        D-Users account with following functionalities: 
             -Users insert and update their details**
                 -Save address**
                 -Remove address**

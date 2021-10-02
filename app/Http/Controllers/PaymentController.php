@@ -53,8 +53,8 @@ class PaymentController extends Controller
         $order = Order::create(
             [
                 'user_id' =>((auth()->user())?auth()->user()->id:null),
-                'guest_email' =>((auth()->user())?auth()->user()->email:$request->email),
-                'guest_phone'=>null,
+                'email' =>((auth()->user())?auth()->user()->email:$request->email),
+                'phone'=>null,
                 'delivery_address' =>$request->address,
                 'delivery_price'=>(($request->delivery_price)!=0?$cart->delivery_price:0),
                 'total_price' =>$total_price,

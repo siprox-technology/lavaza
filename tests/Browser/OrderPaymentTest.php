@@ -5,6 +5,7 @@ namespace Tests\Browser;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use App\Models\Order_item;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class OrderPaymentTest extends DuskTestCase
@@ -68,5 +69,10 @@ class OrderPaymentTest extends DuskTestCase
                     ->assertPathIs('/cart')
                     ->assertSee('33.75');
         });
+        $this->assertEquals(true,DB::table('orders')->where('total_price','=','58.75')
+        ->where('email','=','jamshid@gmail.com')->delete());
+        $this->assertEquals(true,DB::table('orders')->where('total_price','=','58.75')
+        ->where('email','=','mshadow73@gmail.com')->delete());
     }
+
 }

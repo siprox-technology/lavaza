@@ -144,7 +144,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `guest_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `guest_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `delivery_address` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `delivery_price` double(4,2) NOT NULL,
@@ -158,7 +158,7 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `guest_email`, `guest_phone`, `delivery_address`, `delivery_price`, `total_price`, `notes`, `created_at`, `updated_at`) VALUES
+INSERT INTO `orders` (`id`, `user_id`, `email`, `guest_phone`, `delivery_address`, `delivery_price`, `total_price`, `notes`, `created_at`, `updated_at`) VALUES
 (41, 7, 'mshadow73@gmail.com', NULL, 'دانش اموز ۳۴ پلاک ۱۲۴۵ واحد -۱', 25.00, 58.75, NULL, '2021-09-22 06:28:19', '2021-09-22 06:28:19');
 
 -- --------------------------------------------------------
