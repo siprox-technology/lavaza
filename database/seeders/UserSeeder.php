@@ -48,6 +48,7 @@ class UserSeeder extends Seeder
             'email' => 'mshadow73@gmail.com',
             'phone' => rand(11111111,9999999999),
             'password' => Hash::make('1111'), // password
+            'address' =>'بولوار دانشجو ۴۵ پلاک ۶۷۵'
             ]
         );
     }

@@ -12,7 +12,7 @@ class OrderPaymentTest extends DuskTestCase
 {
     public function test_guest_user_can_order_and_pay()
     {
-        $cart = new shoppingCartTest();
+        $cart = new ShoppingCartTest();
         $cart->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
             $browser->click('@submit-order-btn')
@@ -36,7 +36,7 @@ class OrderPaymentTest extends DuskTestCase
                     ->press('ورود')
                     ->assertPathIs('/dashboard');
         });
-        $cart = new shoppingCartTest();
+        $cart = new ShoppingCartTest();
         $cart->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
             $browser->click('@submit-order-btn')

@@ -7,7 +7,7 @@ use Laravel\Dusk\Browser;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class shoppingCartTest extends DuskTestCase
+class ShoppingCartTest extends DuskTestCase
 {
      // add to cart
     public function test_item_can_be_added_to_shopping_cart()
