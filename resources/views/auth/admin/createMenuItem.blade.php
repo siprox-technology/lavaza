@@ -34,7 +34,7 @@
                                     @csrf
                                     {{-- menu name --}}
                                     <div class="form-group">
-                                        <select name="menu_name" id="" class="form-control @error('name') border border-danger @enderror">
+                                        <select name="menu_name" dusk="menuName_select" id="" class="form-control @error('name') border border-danger @enderror">
                                             <option default>انتخاب نوع غذا</option>
                                             <option value="Starter">اسنارتر</option>
                                             <option value="Side">ساید</option>
@@ -103,7 +103,7 @@
                                         @enderror
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" dusk="RegisterSubmitBtn">ذخیره ایتم جدید</button>
+                                        <button type="submit" dusk="submit_btn" dusk="RegisterSubmitBtn">ذخیره ایتم جدید</button>
                                     </div>
                                 </form>
                             </div>

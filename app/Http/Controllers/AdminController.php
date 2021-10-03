@@ -94,12 +94,13 @@ class AdminController extends Controller
     }
     public function updateMenuItemsDetailsIndex($item_name)
     {
+
         $rules = ['name_fa' => 'regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/'];
         $input = ['name_fa' => $item_name];
 
         if(Validator::make($input, $rules)->passes())
         {
-            $item = Item::get()->where('name_fa',$item_name);
+            $item = Item::where('name_fa',$item_name)->first();
             return view('auth.admin.updateMenuItems')->with(['item'=>$item]);
         }
         return back();
@@ -125,7 +126,7 @@ class AdminController extends Controller
             $menu_item->stock = $request->stock;
             $menu_item->save();
             return back()->with(
-                ['status'=>' ویرایش ایتم با موفقیت انجام شد ']
+                ['status'=>'ویرایش ایتم با موفقیت انجام شد']
             );
     }
 

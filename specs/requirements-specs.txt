@@ -41,25 +41,27 @@ Lavaza restaurants website
             -Users can see reservations available and reserve them.--
             -Users can see reservation history and cancel them.--
 
-        E-Admin see, edit users details and delete them*
-            -Admin see list of users*
-            -Admin delete a user*
-            -Admin edit user details(name,phone and address)*
+        E-Admin see, edit users details and delete them:
+            -Admin see list of users**
+            -Admin delete a user**
+            -Admin edit user details(name,phone and address)**
         
-        F-Admin change or reset password with email and phone*
+        F-Admin change or reset password with email and phone
+            -admin reset password with email*-
+            -admin reset password with phone--
 
         G-Admin add or remove menu items
-            -add menu items*
-            -remove menu items*
-            -update menu items*
-            -update menu items image*
+            -add menu items**
+            -remove menu items**
+            -update menu items**
+            -update menu items image*-
 
         I-Admin create update and delete reservation slots.
             -Admin create a reservation slot
             -Admin edit a reservation slot
             -Admin remove a reservation slot
             -Admin has the option for setting
-            -reservation price for special arrangements.---
+            -reservation price for special arrangements
         J-Admin add update and remove website's notifications.
 
 

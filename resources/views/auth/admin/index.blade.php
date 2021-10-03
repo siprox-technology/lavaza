@@ -171,9 +171,8 @@
                                         <td>{{ $menu->updated_at }}</td>
                                         <td class="row justify-content-center">
                                             {{-- edit menu button --}}
-                                        <a dusk="addMenuBtn" href="{{route('admin.menu-items.index')}}" class="py-1 px-2 mx-1"
+                                        <a dusk="editMenu_link" href="{{route('admin.menu-items.index')}}" class="py-1 px-2 mx-1"
                                             type="submit"><i class="icofont-pencil"></i></a>
-
                                         </td>
                                     </tr>
                                 @endforeach

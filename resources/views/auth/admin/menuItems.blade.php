@@ -41,7 +41,7 @@
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="menu-flters">
                             <li data-filter="*" class="">همه</li>
-                            <li> <a href="{{route('admin.menu-items.store.index')}}"> ایتم جدید</a></li>
+                            <li> <a dusk="newItem_link"href="{{route('admin.menu-items.store.index')}}"> ایتم جدید</a></li>
                             @foreach ($menus as $menu)
                                 <li data-filter={{ '.filter-' . $menu->name_fa}}>{{ $menu->name_fa }}</li>
                             @endforeach
@@ -63,14 +63,14 @@
                                     <li>{{$item->stock}}</li>
                                 </ul>
                                 <div class="text-center">
-                                        <a href="{{route('admin.menu-items.update.index',$item->name_fa)}}">ویرایش</a>
+                                    <a dusk="@if ($item->name == 'test food')editItem_link @endif" href="{{route('admin.menu-items.update.index',$item->name_fa)}}">ویرایش</a>
                                 </div>
 
                                 {{-- delete --}}
                                 <form action="{{route('admin.menu-items.delete')}}" method="POST">
                                     @csrf
                                     <input type="hidden" value="{{$item->id}}" name="id">
-                                    <button type="submit">حذف</button>
+                                    <button dusk="@if ($item->name == 'test changed')deleteItem_btn @endif" type="submit">حذف</button>
                                 </form>
                             </div>
                             {{-- image--}}

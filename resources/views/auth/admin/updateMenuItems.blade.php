@@ -2,6 +2,7 @@
 @section('content')
 
 
+
     <main id="menu-items">
         <div class="row justify-content-center py-5 w-100 mx-auto">
             <h1 class="text_yellow">پنل ادمین</h1>
@@ -19,7 +20,7 @@
                 @if (session('status'))
                     @if (str_contains(session('status'), 'ویرایش'))
                         <div class="text-center text-success mt-2">
-                            {{ session('status') }}
+                            {{session('status')}}
                         </div>
                     @endif
                 @endif
@@ -39,7 +40,7 @@
                                 <div class="form-group">
                                     <input type="text" name="name" dusk="name" id="name" maxlength="128"
                                         class="form-control @error('name') border border-danger @enderror" placeholder="نام لاتین"
-                                        value="{{$item[0]->name}}">
+                                        value="{{$item->name}}">
                                     @error('name')
                                         <div class=" text-danger mt-2">
                                             {{ $message }}
@@ -50,7 +51,7 @@
                                 <div class="form-group">
                                     <input type="text" name="name_fa" dusk="name_fa" dusk="name_fa" id="name_fa" maxlength="128"
                                         class="form-control @error('name_fa') border border-danger @enderror" placeholder="نام"
-                                        value="{{$item[0]->name_fa}}">
+                                        value="{{$item->name_fa}}">
                                     @error('name_fa')
                                         <div class=" text-danger mt-2">
                                             {{ $message }}
@@ -61,7 +62,7 @@
                                 <div class="form-group">
                                     <input type="text" name="ingredients_fa" dusk="ingredients_fa" id="ingredients_fa" maxlength="512"
                                         class="form-control @error('ingredients_fa') border border-danger @enderror"
-                                        placeholder="مواد تشکیل دهنده" value="{{ $item[0]->ingredients_fa }}">
+                                        placeholder="مواد تشکیل دهنده" value="{{ $item->ingredients_fa }}">
                                     @error('ingredients_fa')
                                         <div class=" text-danger mt-2">
                                             {{ $message }}
@@ -72,7 +73,7 @@
                                 <div class="form-group">
                                     <input type="text" name="price" dusk="price" id="price" maxlength="8"
                                         class="form-control  @error('price') border border-danger @enderror"
-                                        placeholder="قیمت" value="{{ $item[0]->price}}">
+                                        placeholder="قیمت" value="{{ $item->price}}">
                                     @error('price')
                                         <div class=" text-danger mt-2">
                                             {{ $message }}
@@ -83,16 +84,16 @@
                                 <div class="form-group">
                                     <input type="stock" name="stock" dusk="stock" id="stock" maxlength="4"
                                         class="form-control @error('stock') border border-danger @enderror"
-                                        placeholder="موجودی(تعداد)" value="{{ $item[0]->stock}}">
+                                        placeholder="موجودی(تعداد)" value="{{ $item->stock}}">
                                     @error('stock')
                                         <div class=" text-danger mt-2">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-                                <input type="hidden" name="id" value="{{$item[0]->id}}">
+                                <input type="hidden" name="id" value="{{$item->id}}">
                                 <div class="text-center">
-                                    <button type="submit">ویرایش</a>
+                                    <button type="submit" dusk="submit_btn">ویرایش</a>
                                 </div>
                             </div>
                         </form>
@@ -100,7 +101,7 @@
                         <div class="col-lg-4 col-12">
                             <div class="row justify-content-center">
                                 <div class="menu-image mt-2">
-                                    <img src="{{ asset('images/menu/' . $item[0]->name_fa . '.jpg') }}" alt="">
+                                    <img src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
                                 </div>
                             </div>
                             <div class="row justify-content-center">
@@ -117,7 +118,7 @@
                                                         انتخاب عکس
                                                     </label>
                                                     </div>
-                                                    <input type="hidden" value="{{$item[0]->id}}" name="id">
+                                                    <input type="hidden" value="{{$item->id}}" name="id">
                                                     <div class="col-12 mt-2 ">
                                                         <button type="submit" class="py-2 px-3 border-0 btn-primary">ذخیره</button>
                                                     </div>

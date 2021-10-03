@@ -92,7 +92,6 @@ Route::get('/admin/update-user/{user:id}',[AdminController::class,'updateUserInd
 Route::post('/admin/update-user',[AdminController::class,'updateUser'])->name('admin.user.update');
 //admin/menu
 Route::get('/admin/menu-items',[AdminController::class,'menuItemsIndex'])->name('admin.menu-items.index');
-
 Route::get('/admin/menu-items/create',[AdminController::class,'createMenuItemsIndex'])->name('admin.menu-items.store.index');
 Route::post('/admin/menu-items/create',[AdminController::class,'createMenuItems'])->name('admin.menu-items.store');
 
