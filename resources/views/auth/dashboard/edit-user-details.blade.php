@@ -7,13 +7,13 @@
             <h1 class="text_yellow">پروفایل</h1>
         </div>
         <div class="row justify-content-center pb-5 w-100 mx-auto">
-            <a href="{{ route('dashboard.index') }}">Back to panel</a>
+            <a href="{{ route('dashboard.index') }}">بازگشت به منوی اصلی</a>
         </div>
         <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
             <div class="col-12">
                 {{-- update user status --}}
                 @if (session('status'))
-                    @if (session('status') == 'User updated successfully')
+                    @if (session('status') == 'جزییات کاربر ویرایش شد')
                         <div class="text-center text-success mt-2">
                             {{ session('status') }}
                         </div>
@@ -32,14 +32,14 @@
                                     {{-- name --}}
                                     <div class="form-group text-left mb-0">
                                         <label class="mt-2 mb-0" for="contact_pref"><b>نام:</b></label>
-                                        <input type="text" name="name" id="name" maxlength="50"
+                                        <input type="text" dusk="name_input" name="name" id="name" maxlength="50"
                                             class="form-control @error('name') border border-danger @enderror"
                                             value="{{ auth()->user()->name }}">
                                     </div>
                                     {{-- phone --}}
                                     <div class="form-group text-left mb-0">
                                         <label class="mt-2 mb-0" for="contact_pref"><b>تلفن:</b></label>
-                                        <input type="text" name="phone" id="phone" maxlength="11"
+                                        <input type="text" dusk="phone_input" name="phone" id="phone" maxlength="11"
                                             class="form-control  @error('phone') border border-danger @enderror"
                                             value="{{ auth()->user()->phone }}">
                                         @error('phone')
@@ -51,7 +51,7 @@
                                     {{-- address --}}
                                     <div class="form-group text-left mb-0">
                                         <label class="mt-2 mb-0" for="address"><b>ادرس:</b></label>
-                                        <input type="text" name="address" id="address" maxlength="150"
+                                        <input type="text" dusk="address_input" name="address" id="address" maxlength="150"
                                             class="form-control  @error('address') border border-danger @enderror"
                                             value="{{ auth()->user()->address }}">
                                         @error('address')
@@ -63,7 +63,7 @@
                                     {{-- user id --}}
                                     {{-- <input type="hidden" name="user_id" value="{{$user->id}}"> --}}
                                     <div class="text-center my-2">
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="submit" dusk="update_btn" class="btn btn-primary">Update</button>
                                     </div>
                                 </form>
                             </div>

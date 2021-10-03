@@ -39,7 +39,7 @@ class AdminTest extends DuskTestCase
                     ->type('phone', '11111111111')->type('address','test address number test')
                     ->type('city', 'test city')->type('state', 'test state')
                     ->type('country', 'test country')->type('post_code', 'test1code1')
-                    ->press('Update')->assertSee('User updated successfully')
+                    ->press('Update')->assertSee('جزییات کاربر ویرایش شد')
                     ->click('@Logout')->assertPathIs('/');    
         });
         $this->assertEquals(1, User::where('name','=','test1')

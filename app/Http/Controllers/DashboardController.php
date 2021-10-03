@@ -42,7 +42,7 @@ class DashboardController extends Controller
             $user->phone = $request->phone;
             $user->address = $request->address;
             $user->save();
-            return back()->with(['status'=>'User updated successfully']);
+            return back()->with(['status'=>'جزییات کاربر ویرایش شد']);
     }
     public function saveUserAddress(Request $request)
     {

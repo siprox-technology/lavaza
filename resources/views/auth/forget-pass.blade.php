@@ -20,14 +20,14 @@
                     <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
 
                         <div class="content">
-                            <h3>Forget password</h3>
-                            <h4 class="text-center mt-3">Please enter your email address:</h4>
+                            <h3>تغییر رمز عبور</h3>
+                            <h4 class="text-center mt-3">لطفا ایمیل خود را وارد کنید</h4>
                             <form class="text-left clearfix" action="{{ route('forgetPassword.email') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" name="email"
+                                    <input type="text" name="email" dusk="email_input"
                                         class="form-control @error('email') border border-danger @enderror"
-                                        placeholder="Your email">
+                                        placeholder="ایمیل">
                                     @error('email')
                                         <div class="text-danger mt-2">
                                             {{ $message }}
@@ -40,7 +40,7 @@
                                     </div>
                                 @endif
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Reset pass</button>
+                                    <button type="submit" dusk="submit_btn" class="btn btn-primary">درخواست تغییر رمز</button>
                                 </div>
                             </form>
                             <p class="mt-3">New in this site ?<a href="{{ route('register.index') }}"> Create New

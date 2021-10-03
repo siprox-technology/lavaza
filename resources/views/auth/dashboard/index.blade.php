@@ -58,11 +58,11 @@
 
                         {{-- edit user details --}}
 
-                        <a href="{{ route('dashboard.user.update.index') }}">پروفایل </a>
+                        <a dusk="profile_link" href="{{ route('dashboard.user.update.index') }}">پروفایل </a>
 
                         {{-- تغییر رمز عبور --}}
 
-                        <a href="{{ route('forgetPassword.index') }}">تغییر رمز عبور</a>
+                        <a dusk="changePassword_link" href="{{ route('forgetPassword.index') }}">تغییر رمز عبور</a>
                     </div>
 
                 </div>

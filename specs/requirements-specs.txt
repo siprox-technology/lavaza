@@ -26,24 +26,20 @@ Lavaza restaurants website
             -guest users enter name, email, address and bank card details to confirm and pay for order**
             -guest users enter name, phone, address and bank card details to confirm and pay for order--
             -Logged in users enter a new address(optional) and bank card details to confirm and pay for order**
-            -Logged in users can see order history**
-            -Logged in users can order past orders**
             -confirmation text is sent to user phone.--
-            -confirmation text is sent to user email--    
+            -confirmation text is sent to user email.--    
             
         D-Users account with following functionalities: 
-            -Users insert and update their details**
-                -Save address**
+            -Users create and update their details:
+                -Save new address**
                 -Remove address**
-                -(Update phone number)**
+                -Update phone number**
                 -Update name**
                 -change password**
-
-            -Users can see order history and buy their past orders*
-                -display order history**
-                -buy past orders again**
-            -Users can see reservations available and save them    
-            -Users can see reservation history and cancel them.
+            -Users can see order history**
+            -Users can order past orders**
+            -Users can see reservations available and save them.--
+            -Users can see reservation history and cancel them.--
 
         E-Admin see, edit users details and delete them*
             -Admin see list of users*
