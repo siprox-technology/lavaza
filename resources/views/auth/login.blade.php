@@ -52,7 +52,7 @@
                                     @enderror
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">ورود</button>
+                                    <button type="submit" dusk="submit_btn" class="btn btn-primary">ورود</button>
                                 </div>
                                 @error('status')
                                     <div class="text-center text-danger mt-2 ">

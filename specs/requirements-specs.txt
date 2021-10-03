@@ -38,13 +38,13 @@ Lavaza restaurants website
                 -change password**
             -Users can see order history**
             -Users can order past orders**
-            -Users can see reservations available and save them.--
+            -Users can see reservations available and reserve them.--
             -Users can see reservation history and cancel them.--
 
         E-Admin see, edit users details and delete them*
             -Admin see list of users*
             -Admin delete a user*
-            -Admin edit user details(name, (phone) address)*
+            -Admin edit user details(name,phone and address)*
         
         F-Admin change or reset password with email and phone*
 

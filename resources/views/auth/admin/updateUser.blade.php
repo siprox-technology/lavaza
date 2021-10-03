@@ -67,7 +67,7 @@
                                     {{-- user id --}}
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                                     <div class="text-center my-2">
-                                        <button type="submit" class="btn btn-primary">ویرایش</button>
+                                        <button type="submit" dusk="submit_btn" class="btn btn-primary">ویرایش</button>
                                     </div>
                                 </form>
                             </div>

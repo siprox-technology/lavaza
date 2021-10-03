@@ -47,7 +47,7 @@
                     <li class="active"><a href="{{ route('home') }}">خانه</a></li>
                     @guest
                         <li class=""><a href=" {{ route('register.index') }}">Register</a></li>
-                        <li class=""><a href=" {{ route('login.index') }}">Login</a></li>
+                        <li class=""><a dusk="login_link" href=" {{ route('login.index') }}">ورود کاربر</a></li>
                     @endguest
                     @auth
                         @if (auth()->user()->role == 1)
