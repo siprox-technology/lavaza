@@ -147,6 +147,5 @@ class AdminTest extends DuskTestCase
             $this->assertEquals(0, Item::where('name','=','test changed')
             ->where('price','99')->get()->count());
     }
-
 }
 
