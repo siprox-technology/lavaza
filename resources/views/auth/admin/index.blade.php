@@ -36,6 +36,10 @@
                                         <a class="" data-toggle="collapse" data-target="#menuDatabaseCollapse"
                                             aria-expanded="true" aria-controls="collapseOne">منو</a>
                                     </li>
+                                    {{-- reservations link --}}
+                                    <li>
+                                        <a href="{{route('reservations.index')}}">میزهای رزرو</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

@@ -58,10 +58,11 @@ Lavaza restaurants website
 
         I-Admin create update and delete reservation slots.
             -Admin create a reservation slot
+            -Admin see reservations list.
             -Admin edit a reservation slot
+                -reservation notes for special arrangements
+                -edit optional reservation price
             -Admin remove a reservation slot
-            -Admin has the option for setting
-            -reservation price for special arrangements
         J-Admin add update and remove website's notifications.
 
 
