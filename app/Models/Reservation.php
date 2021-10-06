@@ -10,10 +10,12 @@ class Reservation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'time_slot'
+        'date'
+        ,'time'
         ,'user_id'
         ,'table_number'
-        ,'price'  
+        ,'price'
+        ,'notes'  
     ];
 
     public function user()

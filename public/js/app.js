@@ -2498,7 +2498,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 
 })(jQuery);
 
-kamaDatepicker('date1', {
+kamaDatepicker('reservation_date', {
     buttonsColor: "red",
     closeAfterSelect: true,
     markToday: true,

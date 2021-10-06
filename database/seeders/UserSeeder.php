@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
         );
         User::create(
             [
-            'name' => 'ahmad Doe',
+            'name' => 'احمد احمدی',
             'email' => 'ahmad@email.com',
             'phone' => rand(11111111,9999999999),
             'password' => Hash::make('1111'), // password

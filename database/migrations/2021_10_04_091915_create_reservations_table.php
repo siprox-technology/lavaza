@@ -15,10 +15,12 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('time_slot',0)->unique();
+            $table->string('date','10');
+            $table->string('time','5');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->integer('table_number')->unique();
+            $table->integer('table_number');
             $table->double('price',4,2)->nullable();
+            $table->string('notes',512)->nullable();
             $table->timestamps();
         });
     }
