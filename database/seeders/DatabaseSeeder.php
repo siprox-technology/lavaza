@@ -28,8 +28,9 @@ class DatabaseSeeder extends Seeder
             //2.menu
             MenuSeeder::class,
             //3.items
-            ItemSeeder::class
-            
+            ItemSeeder::class,
+            //4.reservations
+            ReservationSeeder::class
         ]);
     }
 }

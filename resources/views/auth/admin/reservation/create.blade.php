@@ -17,21 +17,27 @@
                 @csrf
                 <div class="form-group">
                     <div class="row justify-content-center">
-                        <input type="text" name="date" class="form-control " id="reservation_date" id="date" placeholder="انتخاب تاریخ">
+                        <input type="text" name="date" class="form-control"  autocomplete="off" id="reservation_date" id="date" placeholder="انتخاب تاریخ">
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="email" id="email" maxlength="50" class="form-control " placeholder="ایمیل" value="">
+                    <input type="time" id="time" name="time" min="08:00" max="23:00" placeholder="زمان">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="phone" id="phone" maxlength="11" class="form-control  " placeholder="تلفن" value="">
-                                                    </div>
+                    <select name="user_name" id="">
+                        <option value="">انتخاب اسم کاریر</option>
+                    @foreach ($users as $user)
+                        <option value="{{$user->name}}">{{$user->name}}</option>
+                    @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
-                    <input type="password" name="password" id="password" maxlength="30" class="form-control " placeholder="رمز عبور">
-                                                    </div>
+                    <input type="number" name="tabel_number" min="1" max="30" class="form-control " placeholder="شماره میز">
+                </div>
+                {{-- here price --}}
                 <div class="form-group">
-                    <input type="password" name="password_confirmation" id="password_confirmation" maxlength="30" class="form-control " placeholder="تکرار رمز عبور">
-                                                    </div>
+                    <input type="text" name="password_confirmation" id="password_confirmation" maxlength="30" class="form-control " placeholder="تکرار رمز عبور">
+                </div>
                 <div class="text-center">
                     <button type="submit" dusk="َUserRegisterSubmitBtn">ثبت  رزرو</button>
                 </div>

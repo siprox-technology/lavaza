@@ -101,6 +101,7 @@ Route::get('/admin/menu-items/updateDetails/{item_name}',[AdminController::class
 Route::post('/admin/menu-items/updateDetails',[AdminController::class,'updateMenuItemsDetails'])->name('admin.menu-items.update');
 //admin/reservation
 Route::get('/admin/reservations',[ReservationController::class,'index'])->name('reservations.index');
+Route::post('/admin/reservations',[ReservationController::class,'show'])->name('reservations.show');
 Route::get('/admin/reservations/create',[ReservationController::class,'create'])->name('reservations.create');
 Route::post('/admin/reservations/store',[ReservationController::class,'store'])->name('reservations.store');
 

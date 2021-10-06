@@ -73,5 +73,48 @@ class ReservationSeeder extends Seeder
             'price'=>null,
             'notes' => 'ولنتاین با تزیینات'
         ]);
+
+        //tomorow
+
+        Reservation::create([
+            'date' =>str_replace('-',' ',explode(' ',Jalalian::fromDateTime(Carbon::now()->add(1,'day')))[0]),
+            'time'=>'22:00',
+            'user_id'=>(DB::table('users')->where('name', 'مهران زاهدی')->pluck('id'))[0],
+            'table_number' => '4',
+            'price'=>null,
+            'notes' => 'ولنتاین با تزیینات'
+        ]);
+        Reservation::create([
+            'date' =>str_replace('-',' ',explode(' ',Jalalian::fromDateTime(Carbon::now()->add(1,'day')))[0]),
+            'time'=>'21:00',
+            'user_id'=>(DB::table('users')->where('name', 'مهران زاهدی')->pluck('id'))[0],
+            'table_number' => '1',
+            'price'=>null,
+            'notes' => 'ولنتاین با تزیینات'
+        ]);
+        Reservation::create([
+            'date' =>str_replace('-',' ',explode(' ',Jalalian::fromDateTime(Carbon::now()->add(1,'day')))[0]),
+            'time'=>'20:00',
+            'user_id'=>(DB::table('users')->where('name', 'مهران زاهدی')->pluck('id'))[0],
+            'table_number' => '10',
+            'price'=>null,
+            'notes' => 'ولنتاین با تزیینات'
+        ]);
+        Reservation::create([
+            'date' =>str_replace('-',' ',explode(' ',Jalalian::fromDateTime(Carbon::now()->add(1,'day')))[0]),
+            'time'=>'19:00',
+            'user_id'=>(DB::table('users')->where('name', 'مهران زاهدی')->pluck('id'))[0],
+            'table_number' => '12',
+            'price'=>null,
+            'notes' => 'ولنتاین با تزیینات'
+        ]);
+        Reservation::create([
+            'date' =>str_replace('-',' ',explode(' ',Jalalian::fromDateTime(Carbon::now()->add(1,'day')))[0]),
+            'time'=>'18:00',
+            'user_id'=>(DB::table('users')->where('name', 'مهران زاهدی')->pluck('id'))[0],
+            'table_number' => '8',
+            'price'=>null,
+            'notes' => 'ولنتاین با تزیینات'
+        ]);
     }
 }
