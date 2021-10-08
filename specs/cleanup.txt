@@ -1,3 +1,9 @@
 419 ERROR message
 -scrollbar for shopping cart
 -refresh for changed images menu items
+
+-english to persian
+-styles images and fonts
+
+-get sms system
+-get payment system

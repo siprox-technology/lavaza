@@ -36,7 +36,6 @@
                                         <a class="" data-toggle="collapse" data-target="#menuDatabaseCollapse"
                                             aria-expanded="true" aria-controls="collapseOne">منو</a>
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
