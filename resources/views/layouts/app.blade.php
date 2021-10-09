@@ -1,152 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fa">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Inner Page - Delicious Bootstrap Template</title>
+    <title>لاواتزا - طعمی متفاوت</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
     <!-- Favicons -->
     <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-
-{{-- {{dd(Session::get('cart'))}} --}}
-
 <body>
     <!-- ======= Top Bar ======= -->
     <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top topbar-transparent">
-        <div class="container text-right">
-            <i class="icofont-phone"></i> +1 5589 55488 55
-            <i class="icofont-clock-time icofont-rotate-180"></i> Mon-Sat: 11:00 AM - 23:00 PM
+        <div class="container text-left">
+            <i class="icofont-phone"></i> +۹۸ ۹۱۵ ۱۱۱ ۱۱۱۱
+            <i class="icofont-clock-time icofont-rotate-180"></i> همه روزه از ۱۱ صبح تا ۱۱ شب
         </div>
-
     </section>
-
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center header-transparent">
         <div class="container d-flex align-items-center">
-
             <div class="logo mr-auto">
                 <h1 class="text-light"><a href="index.html"><span>Delicious</span></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
-
+{{--             {{dd(request()->route()->getName())}} --}}
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="{{ route('home') }}">خانه</a></li>
+                    <li class="{{((request()->route()->getName())=="home")?'active':''}} text-right"><a href="{{route('home')}}">خانه</a></li>
+                    <li class="{{((request()->route()->getName())=="menu.index")?'active':''}} text-right"><a href="{{route('menu.index')}}">مشاهده منو</a></li>
                     @guest
-                        <li class=""><a href=" {{ route('register.index') }}">Register</a></li>
-                        <li class=""><a dusk="login_link" href=" {{ route('login.index') }}">ورود کاربر</a></li>
+                        <li class="text-right"><a href=" {{ route('register.index') }}">ثبت نام</a></li>
+                        <li class="text-right"><a dusk="login_link" href=" {{ route('login.index') }}">ورود کاربر</a></li>
                     @endguest
                     @auth
                         @if (auth()->user()->role == 1)
-                            <li><a href="{{ route('admin.index') }}">Admin</a></li>
+                            <li class="text-right"><a href="{{ route('admin.index') }}">پنل ادمین</a></li>
                         @else
-                            <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                            <li class="text-right"><a href="{{ route('dashboard.index') }}">حساب کاربری</a></li>
                         @endif
-
-                        <li class=""><a dusk="Logout" href="{{ route('logout') }}">خروج</a></li>
+                        <li class="text-right"><a dusk="Logout" href="{{ route('logout') }}">خروج</a></li>
                     @endauth
-
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#specials">Specials</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#chefs">Chefs</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-
-                    <li class="book-a-table text-center"><a href="#book-a-table">Book a table</a></li>
-                    <div class="cart">
-                        <button id="cartOpen" dusk="cartOpen" class="cart-btn d-flex">
-                            <i class="fas fa-shopping-cart mt-3"></i><span class="d-xs-none">سبد خرید</span>
-
-                            <div class="shopping-cart">
-                                <p class="m-0 text-center">
-                                    <!-- get number of items in basket -->
-                                    {{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}
-                                </p>
-                            </div>
-                        </button>
-                        {{-- cart links --}}
-                        <div class="cart-wrapper">
-                            <i id="cartClose" class="cart-close">X</i>
-                            <h4 class="mb-4 text-dark">سبد خرید</h4>
-                            <ul class="pl-0 mb-3">
-                                @if (Session::has('cart'))
-                                    @foreach (Session::get('cart')->items as $item)
+                    <li class="text-right"><a href="#about">درباره ما</a></li>
+                    <li class="text-right"><a href="#contact">ارتباط با ما</a></li>
+                    <li class="text-center mt-5 mt-sm-0">
+                        <div class="cart">
+                            <button id="cartOpen" dusk="cartOpen" class="btn-cart d-flex">
+                                <i class="fas fa-shopping-cart mt-3"></i><span class="mr-3">سبد خرید</span>
+                                <div class="shopping-cart">
+                                    <p class="m-0 text-center">
+                                        <!-- get number of items in basket -->
+                                        {{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}
+                                    </p>
+                                </div>
+                            </button>
+                            {{-- cart links --}}
+                            <div class="cart-wrapper">
+                                <i id="cartClose" class="cart-close">X</i>
+                                <h4 class="mb-4 text-dark">سبد خرید</h4>
+                                <ul class="pl-0 mb-3">
+                                    @if (Session::has('cart'))
+                                        @foreach (Session::get('cart')->items as $item)
+                                            <li class="d-flex border-bottom">
+                                                <img class="" style=" width:50px; height:50px;"
+                                                    src="{{ asset('images/menu/' . $item['item']['name'] . '.jpg') }}"
+                                                    alt="product-img">
+                                                <div class="mx-3">
+                                                    {{--  --}}
+                                                    <p class="mb-0 text-dark">{{ $item['item']['name_fa'] }}</p>
+                                                    <span class="text-dark">{{ $item['quantity'] }}</span>
+                                                    <span class="text-dark">X</span>
+                                                    <span
+                                                        class="text-dark">{{ $item['price'] / $item['quantity'] }}</span>
+                                                    <span class="text-dark">{{ $item['price'] }}</span>
+                                                </div>
+                                                {{-- remove item --}}
+                                                <a href="{{ route('cart.remove', $item['item']) }}"
+                                                    class="text-danger">X</a>
+                                            </li>
+                                        @endforeach
+                                        {{-- optional notes --}}
                                         <li class="d-flex border-bottom">
-                                            <img class="" style=" width:50px; height:50px;"
-                                                src="{{ asset('images/menu/' . $item['item']['name'] . '.jpg') }}"
-                                                alt="product-img">
-                                            <div class="mx-3">
-                                                {{--  --}}
-                                                <p class="mb-0 text-dark">{{ $item['item']['name_fa'] }}</p>
-                                                <span class="text-dark">{{ $item['quantity'] }}</span>
-                                                <span class="text-dark">X</span>
-                                                <span
-                                                    class="text-dark">{{ $item['price'] / $item['quantity'] }}</span>
-                                                <span class="text-dark">{{ $item['price'] }}</span>
-                                            </div>
-                                            {{-- remove item --}}
-                                            <a href="{{ route('cart.remove', $item['item']) }}"
-                                                class="text-danger">X</a>
+                                            <span class="text-dark">توضیح بیشتر راجع به سفارش:</span>
+                                            @if (Session::get('cart')->notes)
+                                                <span class="text-danger">{{ Session::get('cart')->notes }}</span>
+                                                <form action="{{ route('cart.removeNotes') }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit">X</button>
+                                                </form>
+                                            @else
+                                                <form action="{{ route('cart.addNotes') }}" method="POST">
+                                                    @csrf
+                                                    <input type="text" class="text-warning border-none" name="notes"
+                                                        value="" maxlength="128" placeholder="ندارد">
+                                                    <button type="submit">ذخیره</button>
+                                                </form>
+                                            @endif
                                         </li>
-                                    @endforeach
-                                    {{-- optional notes --}}
-                                    <li class="d-flex border-bottom">
-                                        <span class="text-dark">توضیح بیشتر راجع به سفارش:</span>
-                                        @if (Session::get('cart')->notes)
-                                            <span class="text-danger">{{ Session::get('cart')->notes }}</span>
-                                            <form action="{{ route('cart.removeNotes') }}" method="POST">
-                                                @csrf
-                                                <button type="submit">X</button>
-                                            </form>
-                                        @else
-                                            <form action="{{ route('cart.addNotes') }}" method="POST">
-                                                @csrf
-                                                <input type="text" class="text-warning border-none" name="notes"
-                                                    value="" maxlength="128" placeholder="ندارد">
-                                                <button type="submit">ذخیره</button>
-                                            </form>
-                                        @endif
-                                    </li>
-                                @else
-
-                                    <li class="d-flex border-bottom">
-                                        <p class="text-center text-warning">سبد شما خالی است !</p>
-                                    </li>
-                                @endif
-
-                            </ul>
-                            <div class="mb-3 text-dark">
-                                <span>جمع سفارش</span>
-                                <span
-                                    class="float-right">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</span>
-                            </div>
-                            <div class="text-center text-dark">
-                                <a href="{{ route('cart.index') }}" dusk="view-shopping-cart"
-                                    class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">مشاهده
-                                    سبد خرید</a>
-                                <a href="#"
-                                    class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">پرداخت</a>
+                                    @else
+    
+                                        <li class="d-flex border-bottom">
+                                            <p class="text-center text-warning">سبد شما خالی است !</p>
+                                        </li>
+                                    @endif
+    
+                                </ul>
+                                <div class="mb-3 text-dark">
+                                    <span>جمع سفارش</span>
+                                    <span
+                                        class="float-right">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</span>
+                                </div>
+                                <div class="text-center text-dark">
+                                    <a href="{{ route('cart.index') }}" dusk="view-shopping-cart"
+                                        class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">مشاهده
+                                        سبد خرید</a>
+                                    <a href="#"
+                                        class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">پرداخت</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </li>
                 </ul>
             </nav><!-- .nav-menu -->
-
         </div>
     </header><!-- End Header -->
 

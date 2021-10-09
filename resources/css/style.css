@@ -304,6 +304,7 @@ h6 {
     visibility: hidden;
     border-radius: 10px;
     padding: 10px 0;
+    background-color: rgba(26, 24, 22, 0.85);
 }
 
 .mobile-nav * {
@@ -315,11 +316,12 @@ h6 {
 .mobile-nav a {
     display: block;
     position: relative;
-    color: #433f39;
+    color: white;
     padding: 10px 20px;
     font-weight: 500;
     outline: none;
 }
+
 
 .mobile-nav a:hover,
 .mobile-nav .active>a,
@@ -1789,4 +1791,28 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.cart #cartOpen {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.5s;
+    line-height: 1;
+    margin: 0 10px;
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+    color: white;
+    border: 2px solid #ffb03b;
+    background-color: transparent;
+}
+
+.cart #cartOpen:hover {
+    color: white;
+    border: 2px solid #ffb03b;
+    background-color: #ffb03b;
 }
