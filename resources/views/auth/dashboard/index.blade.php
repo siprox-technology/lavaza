@@ -3,7 +3,7 @@
 
 
 
-    <main id="main">
+    <main id="dashboard">
 
         <!-- ======= About Section ======= -->
         <section id="about" class="about">

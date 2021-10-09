@@ -24,7 +24,6 @@ use App\Http\Controllers\ForgetPasswordController;
 */
 
 Route::get('/',[PageController::class,'showHomePage'])->name('home');
-Route::get('/menu',[PageController::class,'showMenuPage'])->name('menu.index');
 
 //register
 Route::get('/register',[RegisterController::class,'index'])->name('register.index');

@@ -15,11 +15,4 @@ class PageController extends Controller
         $menus = Menu::all();
         return view('index')->with(['items'=>$items, 'menus'=>$menus]);
     }
-    public function showMenuPage()
-    {
-        //get menus and items
-        $items = Item::all();
-        $menus = Menu::all();
-        return view('menu')->with(['items'=>$items, 'menus'=>$menus]);
-    }
 }

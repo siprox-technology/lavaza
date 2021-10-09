@@ -25,7 +25,7 @@
 
                         <div class="content">
                             <h3>ورود به حساب کاربری</h3>
-                            <form class="text-left clearfix" method="POST" action="{{ route('login') }}">
+                            <form class="text-left clearfix" method="POST" id="login" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" name="email"
@@ -76,9 +76,4 @@
 
 
     </main><!-- End #main -->
-    {{-- scroll to login section --}}
-    <script type="text/javascript">
-        document.getElementById("login").scrollIntoView();
-    </script>
-
 @endsection

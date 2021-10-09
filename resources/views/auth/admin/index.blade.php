@@ -2,11 +2,11 @@
 @section('content')
 
 
-    <main id="main">
+    <main id="admin">
         <div class="row justify-content-center py-5 w-100 mx-auto">
             <h1 class="text_yellow">پنل ادمین</h1>
         </div>
-        <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
+        <div class="row justify-content-center pb-5 w-100 mx-auto" >
             <div class="col-12 ">
                 {{-- main menu --}}
                 <div id="accordion">
@@ -184,9 +184,4 @@
             <a href="{{route('forgetPassword.index')}}">تغییر رمز عبور</a>
         </div>
     </main>
-
-    {{-- modals --}}
-    <script type="text/javascript">
-        document.getElementById("admin-panel").scrollIntoView();
-    </script>
 @endsection

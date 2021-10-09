@@ -31,25 +31,24 @@
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
-{{--             {{dd(request()->route()->getName())}} --}}
             <nav class="nav-menu d-none d-lg-block">
-                <ul>
-                    <li class="{{((request()->route()->getName())=="home")?'active':''}} text-right"><a href="{{route('home')}}">خانه</a></li>
-                    <li class="{{((request()->route()->getName())=="menu.index")?'active':''}} text-right"><a href="{{route('menu.index')}}">مشاهده منو</a></li>
-                    @guest
-                        <li class="text-right"><a href=" {{ route('register.index') }}">ثبت نام</a></li>
-                        <li class="text-right"><a dusk="login_link" href=" {{ route('login.index') }}">ورود کاربر</a></li>
+                <ul>{{-- {{dd(request()->path())}} --}}
+                    <li class="text-right"><a href="{{route('home')}}">خانه</a></li>
+                    <li class="text-right"><a href="{{route('home',['#menu'])}}">مشاهده منو</a></li>
+                    @guest 
+                        <li class="text-right"><a href="{{ route('register.index',['#register']) }}">ثبت نام</a></li>
+                        <li class="text-right"><a dusk="login_link" href=" {{ route('login.index',['#login']) }}">ورود کاربر</a></li>
                     @endguest
                     @auth
                         @if (auth()->user()->role == 1)
-                            <li class="text-right"><a href="{{ route('admin.index') }}">پنل ادمین</a></li>
+                            <li class="text-right"><a href="{{ route('admin.index',['#admin']) }}">پنل ادمین</a></li>
                         @else
-                            <li class="text-right"><a href="{{ route('dashboard.index') }}">حساب کاربری</a></li>
+                            <li class="text-right"><a href="{{ route('dashboard.index',['#dashboard']) }}">حساب کاربری</a></li>
                         @endif
                         <li class="text-right"><a dusk="Logout" href="{{ route('logout') }}">خروج</a></li>
                     @endauth
-                    <li class="text-right"><a href="#about">درباره ما</a></li>
-                    <li class="text-right"><a href="#contact">ارتباط با ما</a></li>
+                    <li class="text-right"><a href="{{route('home',['#about'])}}">درباره ما</a></li>
+                    <li class="text-right"><a href="{{route('home',['#contact'])}}">ارتباط با ما</a></li>
                     <li class="text-center mt-5 mt-sm-0">
                         <div class="cart">
                             <button id="cartOpen" dusk="cartOpen" class="btn-cart d-flex">

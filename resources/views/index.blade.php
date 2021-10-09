@@ -102,7 +102,6 @@
         <!-- ======= Menu Section ======= -->
         <section id="menu" class="menu">
             <div class="container">
-
                 <div class="section-title">
                     <h2>Check our tasty <span>Menu</span></h2>
                     <h2>منوی <span>لذیذ</span></h2>

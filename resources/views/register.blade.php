@@ -21,7 +21,7 @@
 
                         <div class="content">
                             <h3>ایجاد حساب کاربری</h3>
-                            <form class="text-left clearfix" action="{{ route('register') }}" method="post">
+                            <form class="text-left clearfix" action="{{ route('register') }}" method="post" id="register">
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="name" id="name" maxlength="50"
@@ -88,10 +88,5 @@
 
 
     </main><!-- End #main -->
-    {{-- scroll to login section --}}
-    <script type="text/javascript">
-        document.getElementById("register").scrollIntoView();
-    </script>
-
 
 @endsection
