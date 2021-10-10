@@ -129,7 +129,7 @@
                 </ul>
             </nav><!-- .nav-menu -->
         </div>
-    </header><!-- End Header -->
+    </header><!-- End Header --> {{-- here --}}
 
     <!-- ======= Hero Section ======= -->
     <section id="hero">

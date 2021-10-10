@@ -13,7 +13,7 @@
                     <div class="card">
                         {{-- database menu --}}
                         <div class="card-header">
-                            <a class="text-dark" dusk="AdminDbMenuLink" data-toggle="collapse"
+                            <a class="text-dark" dusk="AdminDbMenu_link" data-toggle="collapse"
                                 data-target="#databaseHeading" aria-expanded="true" aria-controls="collapseOne">
                                 اطلاعات سیستم
                             </a>
@@ -33,7 +33,7 @@
                                     </li>
                                     {{-- menus link --}}
                                     <li>
-                                        <a class="" data-toggle="collapse" data-target="#menuDatabaseCollapse"
+                                        <a class="" dusk="menu_link" data-toggle="collapse" data-target="#menuDatabaseCollapse"
                                             aria-expanded="true" aria-controls="collapseOne">منو</a>
                                     </li>
                                 </ul>
@@ -126,9 +126,9 @@
                                                         type="submit"><i class="icofont-trash"></i></button>
                                                 </form>
                                                 {{-- edit user link --}}
-                                                <a dusk="@if ($user->email == 'test@gmail.com')updateUse_Link @endif"
+                                                <a dusk="@if ($user->email == 'test@gmail.com')updateUser_Link @endif"
                                                     href="{{ route('admin.user.update.index', $user->id) }}"
-                                                    class="py-1 px-2 mx-1"><i class="icofont-pencil"></i></button>
+                                                    class="py-1 px-2 mx-1"><i class="icofont-pencil"></i></a>
                                             </td>
                                         @endif
                                     </tr>
@@ -164,15 +164,16 @@
                             <tbody>
                                 @foreach ($menus as $menu)
                                     <tr class="">
-                                        <th scope=" row">
+                                        <th scope="row">
                                         {{ $menu->id }}</th>
                                         <td>{{ $menu->name_fa }}</td>
                                         <td>{{ $menu->created_at }}</td>
                                         <td>{{ $menu->updated_at }}</td>
                                         <td class="row justify-content-center">
                                             {{-- edit menu button --}}
-                                        <a dusk="editMenu_link" href="{{route('admin.menu-items.index')}}" class="py-1 px-2 mx-1"
-                                            type="submit"><i class="icofont-pencil"></i></a>
+                                            <a href="{{route('admin.menu-items.index')}}" class="py-1 px-2 mx-1">
+                                                <i class="icofont-pencil"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -181,7 +182,9 @@
                     </div>
                 </div>
             </div>
-            <a href="{{route('forgetPassword.index')}}">تغییر رمز عبور</a>
+            <a href="{{route('forgetPassword.index')}}" dusk='changePassword_link' id="changePassword_link">تغییر رمز عبور</a>
+                                        {{-- test link for dusk --}}
+            <a dusk="editMenu_link" href="{{route('admin.menu-items.index')}}" >ویرایش منو</a>
         </div>
     </main>
 @endsection
