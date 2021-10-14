@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>لاواتزا - طعمی متفاوت</title>
+    <title> لاواتزا - طعمی متفاوت از برگر</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -17,17 +17,17 @@
 </head>
 <body>
     <!-- ======= Top Bar ======= -->
-    <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top topbar-transparent">
-        <div class="container text-left">
+    <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+        <div class="container text-center">
             <i class="icofont-phone"></i> +۹۸ ۹۱۵ ۱۱۱ ۱۱۱۱
             <i class="icofont-clock-time icofont-rotate-180"></i> همه روزه از ۱۱ صبح تا ۱۱ شب
         </div>
     </section>
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <header id="header" class="fixed-top d-flex align-items-center mt-1">
         <div class="container d-flex align-items-center">
             <div class="logo mr-auto">
-                <h1 class="text-light"><a href="index.html"><span>Delicious</span></a></h1>
+                <h1 class="text-light"><a href="index.html"><span>Lavaza</span></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -47,7 +47,8 @@
                         @endif
                         <li class="text-right"><a dusk="Logout" href="{{ route('logout') }}">خروج</a></li>
                     @endauth
-                    <li class="text-right"><a href="{{route('home',['#about'])}}">درباره ما</a></li>
+                    <li class="text-right"><a href="{{route('home',['#why-us'])}}">درباره ما</a></li>
+                    <li class="text-right"><a href="{{route('home',['#specials'])}}">مخصوص سر اشپز</a></li>
                     <li class="text-right"><a href="{{route('home',['#contact'])}}">ارتباط با ما</a></li>
                     <li class="text-center mt-5 mt-sm-0">
                         <div class="cart">
@@ -129,96 +130,7 @@
                 </ul>
             </nav><!-- .nav-menu -->
         </div>
-    </header><!-- End Header --> {{-- here --}}
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero">
-        <div class="hero-container">
-            <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-
-                <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-                <div class="carousel-inner" role="listbox">
-
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active"
-                        style="background: url({{ asset('assets/img/slide/slide-1.jpg') }});">
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2 class="animate__animated animate__fadeInDown"><span>Delicious</span> Restaurant</h2>
-                                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                    aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                    mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                    vel. Minus et tempore modi architecto.</p>
-                                <div>
-                                    <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our
-                                        Menu</a>
-                                    <a href="#book-a-table"
-                                        class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="carousel-item"
-                        style="background: url({{ asset('assets/img/slide/slide-2.jpg') }});">
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                    aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                    mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                    vel. Minus et tempore modi architecto.</p>
-                                <div>
-                                    <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our
-                                        Menu</a>
-                                    <a href="#book-a-table"
-                                        class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-item"
-                        style="background: url({{ asset('assets/img/slide/slide-3.jpg') }});">
-                        <div class="carousel-background"><img src="{{ asset('assets/img/slide/slide-3.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="carousel-container">
-                            <div class="carousel-content">
-                                <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                    aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                    mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                    vel. Minus et tempore modi architecto.</p>
-                                <div>
-                                    <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our
-                                        Menu</a>
-                                    <a href="#book-a-table"
-                                        class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-
-                <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-
-            </div>
-        </div>
-    </section><!-- End Hero -->
-
+    </header><!-- End Header -->
 
     @yield('content')
 
