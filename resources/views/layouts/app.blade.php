@@ -19,7 +19,7 @@
     <!-- ======= Top Bar ======= -->
     <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
         <div class="container text-center">
-            <i class="icofont-phone"></i> +۹۸ ۹۱۵ ۱۱۱ ۱۱۱۱
+            <i class="icofont-phone"></i> +۹۸ ۹۱۵ ۰۰۰۰
             <i class="icofont-clock-time icofont-rotate-180"></i> همه روزه از ۱۱ صبح تا ۱۱ شب
         </div>
     </section>
@@ -139,25 +139,17 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>Delicious</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi
-                placeat.</p>
+            <h3>Lavaza</h3>
+            <p>طعمی متفاوت از برگر</p>
             <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-            <div class="copyright">
-                &copy; Copyright <strong><span>Delicious</span></strong>. All Rights Reserved
+                <a  class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a  class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a  class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a  class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a  class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+               <a target="_blank" href="https://siprox-tech.com/">SIPROX TECHNOLOGY</a> طراحی توسط  
             </div>
         </div>
     </footer><!-- End Footer -->
