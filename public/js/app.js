@@ -2441,9 +2441,14 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
             itemSelector: '.menu-item',
             layoutMode: 'fitRows'
         });
-
-        $('#menu-flters li').on('click', function () {
-            $("#menu-flters li").removeClass('filter-active');
+        //select a main course for default on load isotop
+        $("#filter-Main").addClass('filter-active');
+        menuIsotope.isotope({
+            filter: $("#filter-Main").data('filter')
+        });
+        //select different filters
+        $('#menu-filters li').on('click', function () {
+            $("#menu-filters li").removeClass('filter-active');
             $(this).addClass('filter-active');
 
             menuIsotope.isotope({

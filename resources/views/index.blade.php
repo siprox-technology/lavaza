@@ -17,8 +17,10 @@
                             <div class="carousel-container">
                                 <div class="carousel-content">
                                     <h2 class="animate__animated animate__fadeInDown"><span>طعمی واقعی</span> از برگر</h2>
-                                    <p class="animate__animated animate__fadeInUp">اماده سازی با گوشت صد در صد خالص و کم چرب برگر با طعم اصیل را در لاوازا تجربه کنید</p>
-                                    <div>
+                                    <p class="animate__animated animate__fadeInUp">اماده سازی با گوشت صد در صد خالص و کم چرب </p>
+                                    <p class="animate__animated animate__fadeInUp">برگر با طعم اصیل را در لاوازا تجربه کنید
+                                    </p>
+                                <div>
                                         <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">مشاهده منو</a>
                                     </div>
                                 </div>
@@ -59,10 +61,9 @@
                 {{-- differnt menus i.e. Starter Main .... --}}
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
-                        <ul id="menu-flters">
-                            <li data-filter="*" class="filter-active">همه</li>
+                        <ul id="menu-filters">
                             @foreach ($menus as $menu)
-                                <li data-filter={{ '.filter-' . $menu->name_fa}}>{{ $menu->name_fa }}</li>
+                                <li data-filter={{ '.filter-' . $menu->name_fa}} id="{{ 'filter-' . $menu->name}}">{{ $menu->name_fa }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -105,24 +106,24 @@
 
                 <div class="section-title">
                     <h2>چرا <span>برگر لاواتزا</span></h2>
-                    <p>عوامل متعدد و زیادی باعث  در کیفیت یک برگر واقعی و خوشمزه نقش دارند</p>
+                    <p>عوامل زیادی در کیفیت یک برگر واقعی و خوشمزه نقش دارند</p>
                 </div>
 
                 <div class="row">
 
                     <div class="col-lg-4">
-                        <div class="box">
-                            <span>01</span>
+                        <div class="box text-right">
+                            <span>03</span>
                             <h4>کیفیت و تازگی گوشت</h4>
                             <p>اولین قدم در اماده سازی یک برگر لذیذ انخاب
                                  گوشت تازه و مناسب است.
-                                  ما باور داریم یک برگر فقط یک قضای سریع یا فست فود نیست بلکه یک وعده غذایی کامل است
+                                 ما باور داریم یک برگر فقط یک غذای سریع یا فست فود نیست بلکه یک وعده غذایی کامل است
                             </p>
                         </div>
                     </div>
 
                     <div class="col-lg-4 mt-4 mt-lg-0">
-                        <div class="box">
+                        <div class="box text-right">
                             <span>02</span>
                             <h4>کیفیت نان</h4>
                             <p>یک نان سالم تازه و با کییفیت یکی از عناصر اصلی برگر با کییفیت است. ما نان برگر را در خود رستوران به صورت تازه در تنور و قبل از اماده سازی برگر تهیه میکنیم</p>
@@ -130,8 +131,8 @@
                     </div>
 
                     <div class="col-lg-4 mt-4 mt-lg-0">
-                        <div class="box">
-                            <span>03</span>
+                        <div class="box text-right">
+                            <span>01</span>
                             <h4> اماده سازی و مواد اولیه</h4>
                             <p>داشتن مواد اولیه تازه به همراه ادویه های ممتاز تنها یک بخش از اماده سازی یک برگراصیل است. سر اشپز رستوران ما با داشتن سالها
                                  سابقه در اماده سازی برگر همواره یک برگر اب دار خوشمزه و در عین حال برشته برای شما اماده خواهد کرد
@@ -150,20 +151,20 @@
 
                 <div class="section-title">
                     <h2>برگر های <span>مخصوص</span> سر آشپز </h2>
-                    <p>برگر های زیر در روزهای پنجشنبه و جمعه و به صورت مخصوص و به سفارش مشتریان اماده سازی و سرو میشوند</p>
+                    <p>برگر های زیر در روزهای پنجشنبه و جمعه به صورت مخصوص و به سفارش مشتریان اماده سازی و سرو میشوند</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-3">
                         <ul class="nav nav-tabs flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active show" data-toggle="tab" href="#hawaiian-burger">Hawaiian Burger</a>
+                                <a class="nav-link active show" data-toggle="tab" href="#hawaiian-burger">برگر هاوایی</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#mexican-burger">Mexican Burger</a>
+                                <a class="nav-link" data-toggle="tab" href="#mexican-burger">برگر مکزیکی</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#newyork-burger">New York Burger</a>
+                                <a class="nav-link" data-toggle="tab" href="#newyork-burger">برگر نیو یورک</a>
                             </li>
                         </ul>
                     </div>
@@ -171,12 +172,12 @@
                         <div class="tab-content">
                             <div class="tab-pane active show" id="hawaiian-burger">
                                 <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                    <div class="col-lg-8 details order-2 order-lg-1 text-right">
                                         <h3>برگر هاوایی</h3>
-                                        <p class="font-italic">گوشت گوساله اناناس گریل شده پنیر موزا پیاز چوجه فرنگی کاهو مایونز سس باربکیو
+                                        <p class="font-italic">گوشت گوساله اناناس گریل شده پنیر موزارلا پیاز گوجه فرنگی کاهو مایونز سس باربکیو
                                         </p>
                                         <p> 
-                                            همبرگر هاوایی یک برگر کاملا متفاوت و جالب است که با آناناس‌های گریل شده تهیه می‌شود و با سس مخصوص بسیار خوش طعم میشود.</p>
+                                            همبرگر هاوایی یک برگر کاملا متفاوت و جالب است که با آناناس‌های گریل شده تهیه می‌شود و با سس مخصوص بسیار خوش طعم میشود</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
                                         <img src="{{asset('assets/img/hawaiian-burger.jpg')}}" alt="" class="img-fluid rounded-circle">
@@ -185,7 +186,7 @@
                             </div>
                             <div class="tab-pane" id="mexican-burger">
                                 <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                    <div class="col-lg-8 details order-2 order-lg-1 text-right">
                                         <h3>برگر مکزیکی</h3>
                                         <p class="font-italic">گوشت چرخ کرده 
                                             پیاز رنده شده
@@ -196,7 +197,7 @@
                                             سس گوجه فرنگی 
                                             سس مایونز 
                                             نان ساندویچ </p>
-                                        <p>ین ساندویچ معمولا با خامه ترش یا سس تاکو و یا سس گوآکاموله سرو میشه یک طعم متفاوت تند و تیز مکزیکی برای این برگر مکزیکی کامل کننده و عالی میشه حتما این برگر را امتحان کنید.</p>
+                                        <p>این ساندویچ معمولا با خامه ترش یا سس تاکو و یا سس گوآکاموله سرو میشود. یک طعم تند و تیز مکزیکی برای این برگر کامل کننده و عالی میشود حتما این برگر را امتحان کنید.</p>
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
                                         <img src="{{asset('assets/img/mexican-burger.jpg')}}" alt="" class="img-fluid rounded-circle">
@@ -205,7 +206,7 @@
                             </div>
                             <div class="tab-pane" id="newyork-burger">
                                 <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                    <div class="col-lg-8 details order-2 order-lg-1 text-right">
                                         <h3>برگر نیو یورک</h3>
                                         <p class="font-italic">برگر،فیله استریپس،پنیر گودا،قارچ بلانچ،سالاد سبز،سیب زمینی با سس پنی</p>
                                         <p>چیز برگر نیو یورکی یکی از انواع برگرهای معروف و خوشمزه در جهان است که به عنوان یک غذای پر طرفدار بین المللی در سراسر جهان شناخته می شود</p>
@@ -225,7 +226,6 @@
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact bg-light">
             <div class="container">
-
                 <div class="section-title">
                     <h2><span>ارتباط</span> با ما</h2>
                     <p>شما میتوانید از راههای زیر با ما در تماس باشید</p>
@@ -235,19 +235,19 @@
             <div class="container mt-5">
                 <div class="info-wrap">
                     <div class="row">
-                        <div class="col-lg-4 bg-light col-md-6 info">
+                        <div class="col-lg-4 bg-light col-md-6 info text-right">
                             <i class="icofont-google-map"></i>
-                            <h4>ادرس:</h4>
+                            <h4>ادرس</h4>
                             <p>خیابان  ناصری پلاک ۹۹<br>تهران</p>
                         </div>
-                        <div class="col-lg-4 bg-light col-md-6 info mt-4 mt-lg-0">
+                        <div class="col-lg-4 bg-light col-md-6 info mt-4 mt-lg-0 text-right">
                             <i class="icofont-clock-time icofont-rotate-90"></i>
-                            <h4>ساعات کار:</h4>
+                            <h4>ساعات کار</h4>
                             <p>همه روزه از:<br>۱۱ صبح تا ۱۱ شب</p>
                         </div>
-                        <div class="col-lg-4 bg-light col-md-6 info mt-4 mt-lg-0">
+                        <div class="col-lg-4 bg-light col-md-6 info mt-4 mt-lg-0 text-right">
                             <i class="icofont-phone"></i>
-                            <h4>تلفن:</h4>
+                            <h4>تلفن</h4>
                             <p>+۹۸ ۹۱۵ ۰۰۰۰</p>
                         </div>
                     </div>

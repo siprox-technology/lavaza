@@ -39,7 +39,7 @@
                 {{-- differnt menus i.e. Starter Main .... --}}
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
-                        <ul id="menu-flters">
+                        <ul id="menu-filters">
                             <li data-filter="*" class="">همه</li>
                             <li> <a dusk="newItem_link"href="{{route('admin.menu-items.store.index')}}"> ایتم جدید</a></li>
                             @foreach ($menus as $menu)
