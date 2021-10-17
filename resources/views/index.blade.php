@@ -5,53 +5,7 @@
 
     <main id="main">
 
-        <!-- ======= Hero Section ======= -->
-        <section id="hero">
-            <div class="hero-container">
-                <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-                    <div class="carousel-inner" role="listbox">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active"
-                            style="background: url({{ asset('assets/img/slide/slide-1.jpg') }});">
-                            <div class="carousel-container">
-                                <div class="carousel-content">
-                                    <h2 class="animate__animated animate__fadeInDown"><span>طعمی واقعی</span> از برگر</h2>
-                                    <p class="animate__animated animate__fadeInUp">اماده سازی با گوشت صد در صد خالص و کم چرب </p>
-                                    <p class="animate__animated animate__fadeInUp">برگر با طعم اصیل را در لاوازا تجربه کنید
-                                    </p>
-                                <div>
-                                        <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">مشاهده منو</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="carousel-item"
-                            style="background: url({{ asset('assets/img/slide/slide-2.jpg') }});">
-                            <div class="carousel-container">
-                                <div class="carousel-content">
-                                    <h2 class="animate__animated animate__fadeInDown">محیطی <span>آرام</span> و دلپذیر</h2>
-                                    <p class="animate__animated animate__fadeInUp">محیط رستوران دارای فضای مجزا برای کافی شاپ و میتینگ های کاری شما</p>
-                                    <div>
-                                        <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">مشاهده منو</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
 
-                    <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </section><!-- End Hero -->
         <!-- ======= Menu Section ======= -->
         <section id="menu" class="menu">
             <div class="container">
@@ -62,37 +16,40 @@
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="menu-filters">
+                            <li data-filter="*" class="filter-active">همه</li>
                             @foreach ($menus as $menu)
                                 <li dusk="{{$menu->name}}_filter_btn" data-filter={{ '.filter-' . $menu->name_fa}} id="{{ 'filter-' . $menu->name}}">{{ $menu->name_fa }}</li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
-                <div class="menu-container row border border-warning p-2 p-md-4 p-lg-5 mt-3 mx-0 "style="border-radius:1.25rem">
+                <div class="menu-container border border-warning {{-- p-2 p-md-4 p-lg-5 --}} mt-3 mx-0 "style="border-radius:1.25rem">
                     {{-- menu items --}}
                     @foreach ($items as $item)
-                    <div class="row w-100 menu-image mt-2 mt-sm-3 mt-md-4 menu-item  {{ 'filter-' . $item->menu->name_fa }}">
-                        <div class="col-sm-8 w-100">
-                            <div class="menu-content">
-                                <a>{{ $item->name_fa }}</a><span>{{ $item->price }}</span>
+                    <div class="col-md-4 p-2 menu-item {{ 'filter-' . $item->menu->name_fa }}" id="menu-item">
+                        <div class="row mx-auto p-2 w-100">
+                            <div class="col-sm-8 ">
+                                <div class="menu-content">
+                                    <a>{{ $item->name_fa }}</a><span>{{ $item->price }}</span>
+                                </div>
+                                <div class="menu-ingredients">
+                                    {{ $item->ingredients_fa }}
+                                </div>
+                                <div class="row justify-content-end mx-0 mt-3 w-100">
+                                    <label for="quantity" class="d-none"></label>
+                                    {{-- add to cart --}}
+                                    <form action="{{ route('cart.add') }}" method="GET">
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <input type="number" dusk="{{ 'quantity-input-' . $item->id }}" name="quantity" min="1"
+                                            max="100" value="1" class="pl-1">
+                                        <button type="submit" dusk="{{ 'submit-btn-' . $item->id }}" id="add-to-cart"
+                                            class="btn btn-primary py-1 px-3">+</button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="menu-ingredients">
-                                {{ $item->ingredients_fa }}
+                            <div class="col-sm-4 menu-image text-left text-sm-center mt-sm-3 mt-2">
+                                <img height="75px" width="75px" style="border-radius:1.25rem" src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
                             </div>
-                            <div class="row justify-content-end mx-0 mt-3 w-100">
-                                <label for="quantity" class="d-none"></label>
-                                {{-- add to cart --}}
-                                <form action="{{ route('cart.add') }}" method="GET">
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <input type="number" dusk="{{ 'quantity-input-' . $item->id }}" name="quantity" min="1"
-                                        max="100" value="1" class="pl-1">
-                                    <button type="submit" dusk="{{ 'submit-btn-' . $item->id }}" id="add-to-cart"
-                                        class="btn btn-primary py-1 px-3">+</button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 w-100 text-left text-sm-center mt-sm-3 mt-2">
-                            <img height="150px" width="150px" style="border-radius:1.25rem" src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
                         </div>
                     </div>
                     @endforeach
