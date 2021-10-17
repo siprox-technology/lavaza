@@ -63,7 +63,7 @@
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="menu-filters">
                             @foreach ($menus as $menu)
-                                <li data-filter={{ '.filter-' . $menu->name_fa}} id="{{ 'filter-' . $menu->name}}">{{ $menu->name_fa }}</li>
+                                <li dusk="{{$menu->name}}_filter_btn" data-filter={{ '.filter-' . $menu->name_fa}} id="{{ 'filter-' . $menu->name}}">{{ $menu->name_fa }}</li>
                             @endforeach
                         </ul>
                     </div>
