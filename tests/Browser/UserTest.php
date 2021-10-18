@@ -51,7 +51,7 @@ class UserTest extends DuskTestCase
                     ->click('@Logout')->assertPathIs('/');
         });
     }
-    //check system is sending reset passwor link to users email
+    //check system is sending reset password link to users email
     public function test_reset_password_link_is_sent_to_user_email(){
         $this->browse(function ($browser){
             $browser->visit('/')->visit('/login')

@@ -5,17 +5,15 @@
         <section id="register" class="about">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-5 align-items-stretch video-box"
+                    <div class="col-lg-5 align-items-stretch"
                         style='background-image: url("assets/img/about.jpg");'>
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
-                            data-vbtype="video" data-autoplay="true"></a>
+                        {{-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
+                            data-vbtype="video" data-autoplay="true"></a> --}}
                     </div>
-
                     <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
-
-                        <div class="content">
+                        <div class="content text-right">
                             <h3>ایجاد حساب کاربری</h3>
-                            <form class="text-left clearfix" action="{{ route('register') }}" method="post" id="register">
+                            <form class="clearfix" action="{{ route('register') }}" method="post" id="register">
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="name" id="name" maxlength="50"

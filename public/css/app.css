@@ -13726,3 +13726,7 @@ input[type="file"] {
 ::-webkit-scrollbar-thumb:hover {
     background: #ffb03b;
 }
+
+.form-group>input {
+    text-align: right;
+}
