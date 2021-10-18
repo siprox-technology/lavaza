@@ -1,11 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
-
-
     <main id="main">
-
-
         <!-- ======= Menu Section ======= -->
         <section id="menu" class="menu">
             <div class="container">
@@ -16,39 +11,39 @@
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="menu-filters">
-                            <li data-filter="*" class="filter-active">همه</li>
+{{--                             <li data-filter="*" class="filter-active">همه</li> --}}
                             @foreach ($menus as $menu)
                                 <li dusk="{{$menu->name}}_filter_btn" data-filter={{ '.filter-' . $menu->name_fa}} id="{{ 'filter-' . $menu->name}}">{{ $menu->name_fa }}</li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
-                <div class="menu-container border border-warning {{-- p-2 p-md-4 p-lg-5 --}} mt-3 mx-0 "style="border-radius:1.25rem">
+                <div class="menu-container border border-warning mt-3 mx-0 overflow-auto"style="border-radius:1.25rem; max-height:508px">
                     {{-- menu items --}}
                     @foreach ($items as $item)
-                    <div class="col-md-4 p-2 menu-item {{ 'filter-' . $item->menu->name_fa }}" id="menu-item">
-                        <div class="row mx-auto p-2 w-100">
-                            <div class="col-sm-8 ">
+                    <div class="col-md-6 col-lg-4 col-12 menu-item py-3 {{ 'filter-' . $item->menu->name_fa }}" id="menu-item">
+                        <div class="row mx-auto p-0 border border-dark rounded p-3" style="min-height:220px">
+                            <div class="col-sm-8 p-0">
                                 <div class="menu-content">
                                     <a>{{ $item->name_fa }}</a><span>{{ $item->price }}</span>
                                 </div>
                                 <div class="menu-ingredients">
                                     {{ $item->ingredients_fa }}
                                 </div>
-                                <div class="row justify-content-end mx-0 mt-3 w-100">
-                                    <label for="quantity" class="d-none"></label>
-                                    {{-- add to cart --}}
-                                    <form action="{{ route('cart.add') }}" method="GET">
-                                        <input type="hidden" name="id" value="{{ $item->id }}">
-                                        <input type="number" dusk="{{ 'quantity-input-' . $item->id }}" name="quantity" min="1"
-                                            max="100" value="1" class="pl-1">
-                                        <button type="submit" dusk="{{ 'submit-btn-' . $item->id }}" id="add-to-cart"
-                                            class="btn btn-primary py-1 px-3">+</button>
-                                    </form>
-                                </div>
                             </div>
-                            <div class="col-sm-4 menu-image text-left text-sm-center mt-sm-3 mt-2">
+                            <div class="col-sm-4 menu-image text-left text-sm-right px-0 my-2 mx-sm-0">
                                 <img height="75px" width="75px" style="border-radius:1.25rem" src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}" alt="">
+                            </div>
+                            <div class="row justify-content-end mx-0 mt-3 w-100 px-0 ">
+                                <label for="quantity" class="d-none"></label>
+                                {{-- add to cart --}}
+                                <form action="{{ route('cart.add') }}" method="GET">
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <input type="number" dusk="{{ 'quantity-input-' . $item->id }}" name="quantity" min="1"
+                                        max="100" value="1" class="pl-1">
+                                    <button type="submit" dusk="{{ 'submit-btn-' . $item->id }}" id="add-to-cart"
+                                        class="btn btn-primary py-1 px-3">+</button>
+                                </form>
                             </div>
                         </div>
                     </div>

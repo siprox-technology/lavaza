@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
-
     <main id="main" class="">
         <!-- ======= Register Section ======= -->
         <section id="register" class="about">
@@ -85,5 +82,4 @@
 
 
     </main><!-- End #main -->
-
 @endsection

@@ -171,10 +171,10 @@
             layoutMode: 'fitRows'
         });
         //select a main course for default on load isotop
-        /*         $("#filter-Main").addClass('filter-active');
-                menuIsotope.isotope({
-                    filter: $("#filter-Main").data('filter')
-                }); */
+        $("#filter-Main").addClass('filter-active');
+        menuIsotope.isotope({
+            filter: $("#filter-Main").data('filter')
+        });
         //select different filters
         $('#menu-filters li').on('click', function () {
             $("#menu-filters li").removeClass('filter-active');
