@@ -31,6 +31,7 @@
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
+
             <nav class="nav-menu d-none d-lg-block">
                 <ul>{{-- {{dd(request()->path())}} --}}
                     <li class="text-right"><a href="{{route('home')}}">خانه</a></li>
@@ -50,85 +51,85 @@
                     <li class="text-right"><a href="{{route('home',['#why-us'])}}">درباره ما</a></li>
                     <li class="text-right"><a href="{{route('home',['#specials'])}}">مخصوص سر اشپز</a></li>
                     <li class="text-right"><a href="{{route('home',['#contact'])}}">ارتباط با ما</a></li>
-                    <li class="text-center mt-5 mt-sm-0">
-                        <div class="cart">
-                            <button id="cartOpen" dusk="cartOpen" class="btn-cart d-flex">
-                                <i class="fas fa-shopping-cart mt-3"></i><span class="mr-3">سبد خرید</span>
-                                <div class="shopping-cart">
-                                    <p class="m-0 text-center">
-                                        <!-- get number of items in basket -->
-                                        {{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}
-                                    </p>
-                                </div>
-                            </button>
-                            {{-- cart links --}}
-                            <div class="cart-wrapper">
-                                <i id="cartClose" class="cart-close">X</i>
-                                <h4 class="mb-4 text-dark">سبد خرید</h4>
-                                <ul class="pl-0 mb-3">
-                                    @if (Session::has('cart'))
-                                        @foreach (Session::get('cart')->items as $item)
-                                            <li class="d-flex border-bottom">
-                                                <img class="" style=" width:50px; height:50px;"
-                                                    src="{{ asset('images/menu/' . $item['item']['name'] . '.jpg') }}"
-                                                    alt="product-img">
-                                                <div class="mx-3">
-                                                    {{--  --}}
-                                                    <p class="mb-0 text-dark">{{ $item['item']['name_fa'] }}</p>
-                                                    <span class="text-dark">{{ $item['quantity'] }}</span>
-                                                    <span class="text-dark">X</span>
-                                                    <span
-                                                        class="text-dark">{{ $item['price'] / $item['quantity'] }}</span>
-                                                    <span class="text-dark">{{ $item['price'] }}</span>
-                                                </div>
-                                                {{-- remove item --}}
-                                                <a href="{{ route('cart.remove', $item['item']) }}"
-                                                    class="text-danger">X</a>
-                                            </li>
-                                        @endforeach
-                                        {{-- optional notes --}}
-                                        <li class="d-flex border-bottom">
-                                            <span class="text-dark">توضیح بیشتر راجع به سفارش:</span>
-                                            @if (Session::get('cart')->notes)
-                                                <span class="text-danger">{{ Session::get('cart')->notes }}</span>
-                                                <form action="{{ route('cart.removeNotes') }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit">X</button>
-                                                </form>
-                                            @else
-                                                <form action="{{ route('cart.addNotes') }}" method="POST">
-                                                    @csrf
-                                                    <input type="text" class="text-warning border-none" name="notes"
-                                                        value="" maxlength="128" placeholder="ندارد">
-                                                    <button type="submit">ذخیره</button>
-                                                </form>
-                                            @endif
-                                        </li>
-                                    @else
-    
-                                        <li class="d-flex border-bottom">
-                                            <p class="text-center text-warning">سبد شما خالی است !</p>
-                                        </li>
-                                    @endif
-    
-                                </ul>
-                                <div class="mb-3 text-dark">
-                                    <span>جمع سفارش</span>
-                                    <span
-                                        class="float-right">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</span>
-                                </div>
-                                <div class="text-center text-dark">
-                                    <a href="{{ route('cart.index') }}" dusk="view-shopping-cart"
-                                        class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">مشاهده
-                                        سبد خرید</a>
-                                    <a href="#"
-                                        class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">پرداخت</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </nav><!-- .nav-menu -->
+            {{-- Shopping basket --}}
+            <div class="cart mr-5 mr-sm-0">
+                <button id="cartOpen" dusk="cartOpen" class="btn-cart d-flex py-sm-2 px-sm-3 p-2">
+                    <i class="icofont-shopping-cart mr-2 d-sm-none"></i><span class="mr-3 d-sm-block d-none" style="margin-bottom: 3px">سبد خرید</span>
+                    <div class="shopping-cart">
+                        <p class=" m-0 text-center">
+                            <!-- get number of items in basket -->
+                            {{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}
+                        </p>
+                    </div>
+                </button>
+                {{-- cart links --}}
+                <div class="cart-wrapper p-3 border rounded border-warning">
+{{--                     <i id="cartClose" class="cart-close"><b>X</b></i> --}}
+                    <h4 class="mb-4 text-dark text-center">سبد خرید</h4>
+                    <ul class="pl-0 mb-3">
+                        @if (Session::has('cart'))
+                            @foreach (Session::get('cart')->items as $item)
+                                <li class="d-flex p-3 mb-2 border border-warning rounded justify-content-between">
+                                    <div class="mx-3">
+                                        {{--  --}}
+                                        <p class="mb-0">{{ $item['item']['name_fa'] }}</p>
+                                        <span class="">{{ $item['quantity'] }}</span>
+                                        <span class="">X</span>
+                                        <span class="">{{ $item['price'] / $item['quantity'] }}</span>
+                                        <span class="">=</span>
+                                        <span class="">{{ $item['price'] }}</span>
+                                    </div>
+
+                                    <img class="" style=" width:50px; height:50px; border-radius: 1.1rem"
+                                    src="{{ asset('images/menu/' . $item['item']['name_fa'] . '.jpg') }}"
+                                    alt="product-img" >
+
+                                    {{-- remove item --}}
+                                    <a href="{{ route('cart.remove', $item['item']) }}"
+                                    class="text-danger">X</a>
+                                </li>
+                            @endforeach
+                            {{-- optional notes --}}
+                            <li class="d-flex border-bottom">
+                                <span class="text-dark">توضیحات :</span>
+                                @if (Session::get('cart')->notes)
+                                    <form action="{{ route('cart.removeNotes') }}" method="POST" class="row ml-3">
+                                        @csrf
+                                        <input type="text" class="w-100 border border-success" name="notes" id="" value="{{Session::get('cart')->notes}}">
+                                        <button type="submit" class="mt-3 mx-auto">حذف</button>
+                                    </form>
+                                @else
+                                    <form action="{{ route('cart.addNotes') }}" method="POST" class="row ml-3">
+                                        @csrf
+                                        <textarea  class="w-100" name="notes" id="" cols="10" rows="2" placeholder="ندارد"></textarea>
+                                        <button type="submit" class="mt-3 mx-auto">ذخیره</button>
+                                    </form>
+                                @endif
+                            </li>
+                        @else
+
+                            <li class="d-flex border-bottom">
+                                <p class="text-center text-warning">سبد شما خالی است !</p>
+                            </li>
+                        @endif
+
+                    </ul>
+                    <div class="mb-3 text-dark">
+                        <span>جمع سفارش</span>
+                        <span
+                            class="float-right">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</span>
+                    </div>
+                    <div class="text-center text-dark">
+                        <a href="{{ route('cart.index') }}" dusk="view-shopping-cart"
+                            class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">مشاهده
+                            سبد خرید</a>
+                        <a href="#"
+                            class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">پرداخت</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header><!-- End Header -->
     <!-- ======= Hero Section ======= -->

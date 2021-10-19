@@ -206,12 +206,13 @@
         $('.venobox').venobox();
     });
 
-    //  Cart Open
+    //  Cart Open and close
     $('#cartOpen').on('click', function () {
-        $('.cart-wrapper').addClass('open');
-    });
-    $('#cartClose').on('click', function () {
-        $('.cart-wrapper').removeClass('open');
+        if ($('.cart-wrapper').hasClass('open')) {
+            $('.cart-wrapper').removeClass('open');
+        } else {
+            $('.cart-wrapper').addClass('open');
+        }
     });
 
     //calculate total price of an order
