@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Redirect;
 class CartController extends Controller
 {
 
-    public function index()
-    {
-        return view('orders.cart');
-    }
 
     public function store(Request $request)
     {

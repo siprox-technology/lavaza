@@ -48,8 +48,6 @@ Route::get('/reset-password/{token}',[ForgetPasswordController::class,'showReset
 Route::post('/reset-password',[ForgetPasswordController::class,'resetPass'])->name('password.update');
 
 
-//shopping cart
-Route::get('/cart', [CartController::class,'index'])->name('cart.index');
 //add items to cart
 Route::get('/cart/add', [CartController::class,'store'])->name('cart.add');
 //add notes to cart

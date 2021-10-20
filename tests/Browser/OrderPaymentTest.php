@@ -15,12 +15,13 @@ class OrderPaymentTest extends DuskTestCase
         $cart = new ShoppingCartTest();
         $cart->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
-            $browser->click('@submit-order-btn')
+            $browser->assertSee('جمع سفارش')->
+            clickLink('پرداخت')
             ->assertPathIs('/order')
             ->type('@name',' نایین جمشید ازکنی')
             ->type('@email','jamshid@gmail.com')
             ->type('@address','سپاهان ۲ پلان ۹۶')
-            ->press('@payment_btn')
+            ->press('@guest_payment_btn')
             ->assertPathIs('/payment-result')
             ->assertSee('پرداخت با موفقیت انجام شد')
             ->assertSee('58.75');
@@ -39,7 +40,7 @@ class OrderPaymentTest extends DuskTestCase
         $cart = new ShoppingCartTest();
         $cart->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
-            $browser->click('@submit-order-btn')
+            $browser->clickLink('پرداخت')
             ->assertPathIs('/order')
             ->assertSee('پرداخت')
             ->press('پرداخت')
@@ -66,7 +67,7 @@ class OrderPaymentTest extends DuskTestCase
                     ->pause('1000')
                     ->assertSee('سفارش مجدد')
                     ->press('@order_again')
-                    ->assertPathIs('/cart')
+                    ->assertPathIs('/order')
                     ->assertSee('33.75');
         });
         $this->assertEquals(true,DB::table('orders')->where('total_price','=','58.75')

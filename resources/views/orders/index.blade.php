@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- shopping basket-->
+    <!-- order and payment-->
     <!-- main wrapper -->
-    <div class="main-wrapper" id='cart'>
+    <div class="main-wrapper" id='order'>
         <section class="user-dashboard section">
             <div class="row justify-content-center px-lg-5 px-md-4 p-3">
                 <div class="col-md-10">
                     <div class="row m-0 w-100 justify-content-center">
-                        <h2 class="m-0">سبد خرید</h2>
+                        <h2 class="m-0">سفارش شما</h2>
                     </div>
                 </div>
+
                 <div class="col-md-10">
                     <div class="block text-center border border-grey mt-5 p-3">
                         <div class="row">
-                            <div class="col-12 mx-auto">
+                            {{-- order details --}}
+                            <div class="col-12">
                                 <div class="block">
                                     <div class="product-list">
                                         <div class="table-responsive">
@@ -80,10 +82,6 @@
                                             <div class="col-lg-4 col-md-6 col-12 ">
                                                 <a href="/#menu" class="btn btn-dark w-100">اضافه کردن موارد بیشتر</a>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 col-12 ">
-                                                <a href="/order#order" dusk="submit-order-btn"
-                                                    class="btn btn-dark w-100">تایید سفارش</a>
-                                            </div>
                                         </div>
                                         <hr>
                                         {{-- optional notes --}}
@@ -112,7 +110,7 @@
                                                 <div class="col-12">
                                                     <ul class="list-unstyled text-right">
                                                         {{-- total price and tax --}}
-                                                        <li>جمع کل<span
+                                                        <li>جمع کل<span id="cart_price"
                                                                 class="d-inline-block w-100px">{{ Session::has('cart') ? Session::get('cart')->totalPrice : '0' }}</span>
                                                         </li>
                                                     </ul>
@@ -126,9 +124,103 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-10">
+                    <div class="row m-0 w-100 justify-content-center">
+                        <h2 class="m-0">ادرس</h2>
+                    </div>
+                    <div class="block text-center border border-grey mt-5 p-3">
+                        <div class="row">
+                            {{-- address and user details --}}
+                            <form action="{{ route('payment.attemp_payment') }}" method="POST">
+                                @csrf
+                                {{-- guest form --}}
+                                @guest
+                                    <div class="col-6 m-auto">
+                                        <input type="text" dusk="name" name="name" placeholder="نام"
+                                            class="@error('name') border-danger @enderror">
+                                        @error('name')
+                                            <div class=" text-danger">
+                                                لطفا اطلاعات نام را با حروف فارسی وارد کنید
+                                            </div>
+                                        @enderror
+                                        <input type="text" name="email" dusk="email" placeholder="ایمیل"
+                                            class="@error('email') border-danger @enderror">
+                                        @error('email')
+                                            <div class=" text-danger">
+                                                لطفا ساختار ایمیل را به درستی وارد کنید
+                                            </div>
+                                        @enderror
+                                        <textarea name="address" rows="3" cols="25" dusk="address" maxlength="512"
+                                            placeholder="ادرس" class="@error('address') border-danger @enderror"></textarea>
+                                        @error('address')
+                                            <div class=" text-danger">
+                                                لطفا ساختار ادرس را به درستی وارد کنید
+                                            </div>
+                                        @enderror
+                                        <br>
+                                        <span>هزینه حمل:</span>
+                                        <select name="delivery_price" id="delivery_price"
+                                            class="@error('delivery_price') border-danger @enderror">
+                                            @if (Session::has('cart'))
+                                                <option default value="{{ Session::get('cart')->delivery_price }}">۲۵۰۰۰ تومان
+                                                </option>
+                                                <option value="0">جداگانه پرداخت میکنم</option>
+                                            @endif
+                                        </select>
+                                        @error('delivery_price')
+                                            <div class=" text-danger">
+                                                مبلغ هزینه حمل اشتباه است
+                                            </div>
+                                        @enderror
+                                        <br>
+                                        <span>جمع سفارش: </span>
+                                        <input type="text" disabled name="total_price" id="total_price" value="">
+                                        <button type="submit" id='guest_payment_btn' dusk="guest_payment_btn">پرداخت</button>
+                                    </div>
+                                @endguest
+                                {{-- user form --}}
+                                @auth
+                                    <div class="col-6 m-auto">
+                                        <input type="text" name="name" disabled placeholder="نام"
+                                            value="{{ auth()->user()->name }}">
+                                        <input type="text" name="email" disabled placeholder="ایمیل"
+                                            value="{{ auth()->user()->email }}">
+                                        <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس جدید"
+                                            class="@error('address') border-danger @enderror"
+                                            value="">{{ auth()->user()->address }}</textarea>
+                                        @error('address')
+                                            <div class=" text-danger">
+                                                *
+                                            </div>
+                                        @enderror
+                                        <br>
+                                        <span>هزینه حمل:</span>
+                                        <select name="delivery_price" id="delivery_price"
+                                            class="@error('delivery_price') border-danger @enderror">
+                                            @if (Session::has('cart'))
+                                                <option default value="{{ Session::get('cart')->delivery_price }}">۲۵۰۰۰ تومان
+                                                </option>
+                                                <option value="0">جداگانه پرداخت میکنم</option>
+                                            @endif
+                                        </select>
+                                        @error('delivery_price')
+                                            <div class=" text-danger">
+                                                *
+                                            </div>
+                                        @enderror
+                                        <br>
+                                        <span>جمع سفارش: </span>
+                                        <input type="text" disabled name="total_price" id="total_price" value="">
+                                        <button type="submit" dusk="user_payment_btn" id='user_payment_btn' >پرداخت</button>
+                                    </div>
+                                @endauth
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <script type="text/javascript">
-            document.getElementById("cart").scrollIntoView();
+            document.getElementById("order").scrollIntoView();
         </script>
     @endsection

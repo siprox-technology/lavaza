@@ -118,10 +118,7 @@
                             class="float-right text-warning">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</span>
                     </div>
                     <div class="text-center text-white">
-                        <a href="{{ route('cart.index') }}" dusk="view-shopping-cart"
-                            class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">مشاهده
-                            سبد خرید</a>
-                        <a href="#"
+                        <a href="{{route('order.index')}}" dusk="payment_btn"
                             class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">پرداخت</a>
                     </div>
                 </div>

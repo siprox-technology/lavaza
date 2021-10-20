@@ -98,7 +98,7 @@ class DashboardController extends Controller
 
         //add cart to session
         $request->session()->put('cart',$cart);
-        //redirect to shopping cart page
-        return redirect()->route('cart.index');
+        //redirect to order page
+        return redirect()->route('order.index');
     }
 }
