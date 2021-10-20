@@ -65,63 +65,59 @@
                     </div>
                 </button>
                 {{-- cart links --}}
-                <div class="cart-wrapper p-3 border rounded border-warning">
+                <div class="cart-wrapper p-3 border rounded border-warning ">
 {{--                     <i id="cartClose" class="cart-close"><b>X</b></i> --}}
-                    <h4 class="mb-4 text-dark text-center">سبد خرید</h4>
+                    <h4 class="mb-4 text-white text-center">سبد خرید</h4>
                     <ul class="pl-0 mb-3">
                         @if (Session::has('cart'))
                             @foreach (Session::get('cart')->items as $item)
-                                <li class="d-flex p-3 mb-2 border border-warning rounded justify-content-between">
-                                    <div class="mx-3">
-                                        {{--  --}}
-                                        <p class="mb-0">{{ $item['item']['name_fa'] }}</p>
-                                        <span class="">{{ $item['quantity'] }}</span>
-                                        <span class="">X</span>
-                                        <span class="">{{ $item['price'] / $item['quantity'] }}</span>
-                                        <span class="">=</span>
-                                        <span class="">{{ $item['price'] }}</span>
-                                    </div>
+                                <li class="d-flex p-3 mb-2 border border-warning rounded">
 
+                                    {{-- remove item --}}
+                                    <a href="{{ route('cart.remove', $item['item']) }}"
+                                    class="text-danger mr-2">X</a>
                                     <img class="" style=" width:50px; height:50px; border-radius: 1.1rem"
                                     src="{{ asset('images/menu/' . $item['item']['name_fa'] . '.jpg') }}"
                                     alt="product-img" >
 
-                                    {{-- remove item --}}
-                                    <a href="{{ route('cart.remove', $item['item']) }}"
-                                    class="text-danger">X</a>
+                                    <div class="mx-3 ml-auto text-right">
+                                        {{-- item quantity --}}
+                                        <p class="mb-0 text-warning">{{ $item['item']['name_fa'] }}</p>
+                                        <span class="text-white">تعداد :</span>
+                                        <span class="text-white">{{ $item['quantity'] }}</span>
+                                    </div>
                                 </li>
                             @endforeach
                             {{-- optional notes --}}
                             <li class="d-flex border-bottom">
-                                <span class="text-dark">توضیحات :</span>
+                                <span class="text-white">توضیحات :</span>
                                 @if (Session::get('cart')->notes)
                                     <form action="{{ route('cart.removeNotes') }}" method="POST" class="row ml-3">
                                         @csrf
-                                        <input type="text" class="w-100 border border-success" name="notes" id="" value="{{Session::get('cart')->notes}}">
-                                        <button type="submit" class="mt-3 mx-auto">حذف</button>
+                                        <textarea  class="w-100 border-success rounded" name="notes" id="" cols="10" rows="2" placeholder="ندارد">{{Session::get('cart')->notes}}</textarea>
+                                        <button type="submit" class="mt-3 px-3 py-1 mx-auto">حذف</button>
                                     </form>
                                 @else
                                     <form action="{{ route('cart.addNotes') }}" method="POST" class="row ml-3">
                                         @csrf
-                                        <textarea  class="w-100" name="notes" id="" cols="10" rows="2" placeholder="ندارد"></textarea>
-                                        <button type="submit" class="mt-3 mx-auto">ذخیره</button>
+                                        <textarea  class="w-100 rounded" name="notes" id="" cols="10" rows="2" placeholder="ندارد"></textarea>
+                                        <button type="submit" class="mt-3 px-3 py-1 mx-auto">ذخیره</button>
                                     </form>
                                 @endif
                             </li>
                         @else
-
-                            <li class="d-flex border-bottom">
-                                <p class="text-center text-warning">سبد شما خالی است !</p>
+                            <li class="d-flex justify-content-center border-bottom">
+                                <p class=" text-warning">سبد شما خالی است </p>
                             </li>
                         @endif
 
                     </ul>
-                    <div class="mb-3 text-dark">
+                    <div class="mb-3 text-white">
                         <span>جمع سفارش</span>
                         <span
-                            class="float-right">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</span>
+                            class="float-right text-warning">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</span>
                     </div>
-                    <div class="text-center text-dark">
+                    <div class="text-center text-white">
                         <a href="{{ route('cart.index') }}" dusk="view-shopping-cart"
                             class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">مشاهده
                             سبد خرید</a>
