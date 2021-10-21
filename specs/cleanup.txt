@@ -1,5 +1,6 @@
-419 ERROR message
--scrollbar for shopping cart
+-419 ERROR message
+
+-burger prices
 -refresh for changed images menu items
 
 -english to persian

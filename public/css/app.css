@@ -13621,6 +13621,10 @@ button[type="submit"] {
     overflow-y: scroll;
 }
 
+.cart-wrapper span {
+    font-size: 12px;
+}
+
 
 @media (max-width: 575px) {
     .cart-wrapper {
@@ -13705,11 +13709,6 @@ input[type="file"] {
         background-color: #ffb03b;
     }
 
-}
-
-
-.cart p {
-    color: #ff9b08;
 }
 
 
