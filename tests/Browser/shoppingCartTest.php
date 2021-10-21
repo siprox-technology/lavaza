@@ -35,7 +35,7 @@ class ShoppingCartTest extends DuskTestCase
         $this->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
             $browser->visit('/order')->assertSee('سمپلر')->assertSee('33.75')
-            ->click('@delete_whole_cart_link')->assertPathIs('/order')
+            ->click('@order_delete_whole_cart_link')->assertPathIs('/order')
                     ->assertSee('سبد شما خالی است');
         });
     }

@@ -74,7 +74,7 @@
                                             class="d-flex flex-column flex-md-row align-items-center justify-content-md-between ">
                                             @if (Session::has('cart'))
                                                 <div class="col-lg-4 col-md-6 col-12 mb-2 mb-md-0">
-                                                    <a href="{{ route('cart.removeAll') }}" dusk="delete_whole_cart_link"
+                                                    <a href="{{ route('cart.removeAll') }}" dusk="order_delete_whole_cart_link"
                                                         class="btn btn-danger w-100">حذف سبد خرید</a>
                                                 </div>
                                             @endif
