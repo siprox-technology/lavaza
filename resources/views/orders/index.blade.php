@@ -5,28 +5,29 @@
     <!-- main wrapper -->
     <div class="main-wrapper" id='order'>
         <section class="user-dashboard section">
-            <div class="row justify-content-center px-lg-5 px-md-4 p-3">
-                <div class="col-md-10">
-                    <div class="row m-0 w-100 justify-content-center section-title">
+            <div class="row justify-content-center mx-auto">
+                <div class="col-md-10 px-0">
+                    <div class="row m-0 justify-content-center section-title">
                         <h2 class="m-0">سفارش <span>شما</span> </h2>
                     </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="block text-center border border-warning rounded mt-5 p-3">
+                <div class="col-md-10 px-sm-3 px-0">
+                    <div class="block text-center border border-warning rounded mt-5 px-3 py-0">
                         <div class="row">
                             {{-- order details --}}
-                            <div class="col-12">
+                            <div class="col-12 px-sm-3 px-0">
                                 <div class="block">
                                     <div class="product-list">
-                                        <div class="table-responsive">
+                                        <div class="">
                                             <table class="table cart-table">
-                                                <thead>
+                                                <thead class="border-bottom border-gray">
                                                     <tr>
                                                         <th></th>
-                                                        <th>نام</th>
-                                                        <th>قیمت</th>
-                                                        <th>تعداد</th>
                                                         <th>جمع</th>
+                                                        <th>تعداد</th>
+                                                        <th>قیمت</th>
+                                                        <th class="text-right">نام</th>
+
                                                     </tr>
                                                 </thead>
                                                 {{-- items in the cart --}}
@@ -35,27 +36,31 @@
                                                         @foreach (Session::get('cart')->items as $item)
                                                             <tr>
                                                                 {{-- delete icon --}}
-                                                                <td>
-                                                                    <a class="product-remove text-danger"
+                                                                <td class="col-1">
+                                                                    <a class="text-danger"
                                                                         dusk="product-remove-link"
-                                                                        href="{{ route('cart.remove', $item['item']) }}">X</a>
+                                                                        href="{{ route('cart.remove', $item['item']) }}"><p class="mt-3">X</p></a>
                                                                 </td>
+                                                                {{-- price --}}
+                                                                <td class="col-1"><p class="mt-3">{{ $item['price'] }}</p></td>
+                                                                <td class="col-1"><p class="mt-3">{{ $item['quantity'] }}</p></td>
+                                                                <td class="col-1"><p class="mt-3">{{ $item['price'] / $item['quantity'] }}</p></td>
+
                                                                 {{-- images and name --}}
                                                                 <td>
                                                                     <div class="row">
-                                                                        <img class="" style=" height:75px;width:75px; border-radius:1.25rem"
+                                                                        <div class="col-sm-2">
+                                                                            <img class="" style=" height:50px;width:50px; border-radius:1.25rem"
                                                                             src="{{ asset('images/menu/' . $item['item']['name_fa'] . '.jpg') }}"
                                                                             alt="product-img">
-                                                                        <div class="col-10 text-left">
-                                                                            <a class="text-dark"
+                                                                        </div>
+                                                                        <div class="col-sm-10 text-sm-right my-auto">
+                                                                            <a class="text-dark "
                                                                                 href="#">{{ $item['item']['name_fa'] }}</a>
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                {{-- price --}}
-                                                                <td>{{ $item['price'] / $item['quantity'] }}</td>
-                                                                <td>{{ $item['quantity'] }}</td>
-                                                                <td>{{ $item['price'] }}</td>
+
                                                             </tr>
                                                         @endforeach
                                                     @else
@@ -69,41 +74,45 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <hr>
-                                        <div
-                                            class="d-flex flex-column flex-md-row align-items-center justify-content-md-between ">
+                                        {{-- optional notes --}}
+                                        <li class="d-flex flex-sm-row justify-content-between flex-column border-top border-gray pt-2 p-2">
+                                            <div class="my-auto order-sm-1 order-2">
+                                                @if (Session::has('cart'))
+                                                    @if (Session::get('cart')->notes)
+                                                        <span class="text-danger">{{ Session::get('cart')->notes }}</span>
+                                                        <form action="{{ route('cart.removeNotes') }}" method="POST">
+                                                            @csrf
+                                                            <button type="submit" dusk="remove-notes-btn">X</button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{ route('cart.addNotes') }}" method="POST">
+                                                            @csrf
+                                                            <input type="text" class="text-warning border-none" name="notes"
+                                                                value="" maxlength="128" dusk="add-notes-input"
+                                                                placeholder="ندارد">
+                                                            <button type="submit" dusk="add-notes-btn" class="py-1 px-3">ذخیره</button>
+                                                        </form>
+                                                    @endif
+                                                @endif
+                                            </div>
+                                            <div class="order-sm-2 order-1">
+                                                <span class="text-dark ml-auto"><p class="my-auto">:توضیحات</p></span>
+                                            </div>
+                                        </li>
+
+                                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-md-between border-top border-gray pt-2">
                                             @if (Session::has('cart'))
-                                                <div class="col-lg-4 col-md-6 col-12 mb-2 mb-md-0">
+                                                <div class="col-lg-4 col-md-6 mb-2 mb-md-0">
                                                     <a href="{{ route('cart.removeAll') }}" dusk="order_delete_whole_cart_link"
                                                         class="btn btn-danger w-100">حذف سبد خرید</a>
                                                 </div>
                                             @endif
-                                            <div class="col-lg-4 col-md-6 col-12 ">
+                                            <div class="col-lg-4 col-md-6 ">
                                                 <a href="/#menu" class="btn btn-dark w-100">اضافه کردن موارد بیشتر</a>
                                             </div>
                                         </div>
                                         <hr>
-                                        {{-- optional notes --}}
-                                        <li class="d-flex border-bottom">
-                                            @if (Session::has('cart'))
-                                                <span class="text-dark">توضیح بیشتر راجع به سفارش:</span>
-                                                @if (Session::get('cart')->notes)
-                                                    <span class="text-danger">{{ Session::get('cart')->notes }}</span>
-                                                    <form action="{{ route('cart.removeNotes') }}" method="POST">
-                                                        @csrf
-                                                        <button type="submit" dusk="remove-notes-btn">X</button>
-                                                    </form>
-                                                @else
-                                                    <form action="{{ route('cart.addNotes') }}" method="POST">
-                                                        @csrf
-                                                        <input type="text" class="text-warning border-none" name="notes"
-                                                            value="" maxlength="128" dusk="add-notes-input"
-                                                            placeholder="ندارد">
-                                                        <button type="submit" dusk="add-notes-btn">ذخیره</button>
-                                                    </form>
-                                                @endif
-                                            @endif
-                                        </li>
+
                                         @if (Session::has('cart'))
                                             <div class="row">
                                                 <div class="col-12">
@@ -123,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 px-0">
                     <div class="row m-0 w-100 justify-content-center">
                         <h2 class="m-0">ادرس</h2>
                     </div>
