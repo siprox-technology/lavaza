@@ -88,25 +88,6 @@
                                     </div>
                                 </li>
                             @endforeach
-                            {{-- optional notes --}}
-                            <li class="d-flex border-bottom py-3 px-0">
-                                @if (Session::get('cart')->notes)
-                                    <form action="{{ route('cart.removeNotes') }}" method="POST" class="col-9 p-0 mr-auto">
-                                        @csrf
-                                        <textarea  class="w-100 border-success rounded" name="notes" id="" cols="10" rows="2" placeholder="ندارد">{{Session::get('cart')->notes}}</textarea>
-                                        <button type="submit" class="mt-3 px-3 py-1 mx-auto">حذف</button>
-                                    </form>
-                                @else
-                                    <form action="{{ route('cart.addNotes') }}" method="POST" class="col-9 p-0 mr-auto">
-                                        @csrf
-                                        <textarea  class="w-100 rounded" name="notes" id="" cols="10" rows="2" placeholder="ندارد"></textarea>
-                                        <button type="submit" class="mt-3 px-3 py-1 mx-auto">ذخیره</button>
-                                    </form>
-                                @endif
-                                <div class="col-3 text-right p-0">
-                                    <span class="text-white ml-auto">: توضیحات</span>
-                                </div>
-                            </li>
                         @else
                             <li class="d-flex justify-content-center border-bottom">
                                 <p class=" text-warning">سبد شما خالی است </p>
@@ -118,9 +99,9 @@
                         <p class="mr-auto text-warning">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</p>
                         <p class="ml-auto">: جمع سفارش</p>
                     </div>
-                    <div class="text-center text-white">
-                        <a href="{{route('order.index','#order')}}" dusk="order_process_link"
-                            class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">ادامه خرید</a>
+                    <div class="text-center text-white row justify-content-between px-3">
+                        <a href="{{route('cart.removeAll')}}" dusk="delete_whole_cart_link" class="btn btn-danger btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">حذف سبد خرید</a>
+                        <a href="{{route('order.index','#order')}}" dusk="order_process_link" class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">ادامه خرید</a>
                     </div>
                 </div>
             </div>

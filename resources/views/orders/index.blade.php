@@ -7,12 +7,12 @@
         <section class="user-dashboard section">
             <div class="row justify-content-center px-lg-5 px-md-4 p-3">
                 <div class="col-md-10">
-                    <div class="row m-0 w-100 justify-content-center">
-                        <h2 class="m-0">سفارش شما</h2>
+                    <div class="row m-0 w-100 justify-content-center section-title">
+                        <h2 class="m-0">سفارش <span>شما</span> </h2>
                     </div>
                 </div>
                 <div class="col-md-10">
-                    <div class="block text-center border border-grey mt-5 p-3">
+                    <div class="block text-center border border-warning rounded mt-5 p-3">
                         <div class="row">
                             {{-- order details --}}
                             <div class="col-12">
@@ -43,8 +43,8 @@
                                                                 {{-- images and name --}}
                                                                 <td>
                                                                     <div class="row">
-                                                                        <img class="" style=" height:75px;width:75px;"
-                                                                            src="{{ asset('images/menu/' . $item['item']['name'] . '.jpg') }}"
+                                                                        <img class="" style=" height:75px;width:75px; border-radius:1.25rem"
+                                                                            src="{{ asset('images/menu/' . $item['item']['name_fa'] . '.jpg') }}"
                                                                             alt="product-img">
                                                                         <div class="col-10 text-left">
                                                                             <a class="text-dark"

@@ -11,7 +11,6 @@
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
                         <ul id="menu-filters">
-{{--                             <li data-filter="*" class="filter-active">همه</li> --}}
                             @foreach ($menus as $menu)
                                 <li dusk="{{$menu->name}}_filter_btn" data-filter={{ '.filter-' . $menu->name_fa}} id="{{ 'filter-' . $menu->name}}">{{ $menu->name_fa }}</li>
                             @endforeach
@@ -25,7 +24,7 @@
                         <div class="row mx-auto p-0 border border-dark rounded p-3" style="min-height:220px">
                             <div class="col-sm-8 p-0">
                                 <div class="menu-content">
-                                    <a>{{ $item->name_fa }}</a><span>{{ $item->price }}</span>
+                                    <p>{{ $item->name_fa }}</p><span>{{ $item->price }}</span>
                                 </div>
                                 <div class="menu-ingredients">
                                     {{ $item->ingredients_fa }}
@@ -42,7 +41,7 @@
                                     <input type="number" dusk="{{ 'quantity-input-' . $item->id }}" name="quantity" min="1"
                                         max="100" value="1" class="pl-1">
                                     <button type="submit" dusk="{{ 'submit-btn-' . $item->id }}" id="add-to-cart"
-                                        class="btn btn-primary py-1 px-3">+</button>
+                                        class="btn py-1 px-3">+</button>
                                 </form>
                             </div>
                         </div>
