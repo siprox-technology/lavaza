@@ -15,9 +15,7 @@ class OrderPaymentTest extends DuskTestCase
         $cart = new ShoppingCartTest();
         $cart->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
-            $browser->assertSee('جمع سفارش')->
-            clickLink('پرداخت')
-            ->assertPathIs('/order')
+            $browser->assertPathIs('/order')
             ->type('@name',' نایین جمشید ازکنی')
             ->type('@email','jamshid@gmail.com')
             ->type('@address','سپاهان ۲ پلان ۹۶')
@@ -40,8 +38,7 @@ class OrderPaymentTest extends DuskTestCase
         $cart = new ShoppingCartTest();
         $cart->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
-            $browser->clickLink('پرداخت')
-            ->assertPathIs('/order')
+            $browser->assertPathIs('/order')
             ->assertSee('پرداخت')
             ->press('پرداخت')
             ->assertPathIs('/payment-result')

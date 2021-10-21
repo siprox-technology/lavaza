@@ -11,7 +11,6 @@
                         <h2 class="m-0">سفارش شما</h2>
                     </div>
                 </div>
-
                 <div class="col-md-10">
                     <div class="block text-center border border-grey mt-5 p-3">
                         <div class="row">

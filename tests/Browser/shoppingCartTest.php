@@ -16,7 +16,7 @@ class ShoppingCartTest extends DuskTestCase
                     ->assertSee('منوی لذیذ')->press('@Starter_filter_btn')
                     ->assertSee('سمپلر')->type('@quantity-input-1', '3')->press('@submit-btn-1')
                     ->press('@cartOpen')->pause('1000')->assertSee('جمع سفارش')
-                    ->click('@payment_btn')->assertPathIs('/order')
+                    ->click('@order_process_link')->assertPathIs('/order')
                     ->assertSee('سمپلر')->assertSee('33.75');
         });
     }

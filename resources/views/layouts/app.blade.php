@@ -119,8 +119,8 @@
                         <p class="ml-auto">: جمع سفارش</p>
                     </div>
                     <div class="text-center text-white">
-                        <a href="{{route('order.index')}}" dusk="payment_btn"
-                            class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">پرداخت</a>
+                        <a href="{{route('order.index','#order')}}" dusk="order_process_link"
+                            class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">ادامه خرید</a>
                     </div>
                 </div>
             </div>
