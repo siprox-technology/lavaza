@@ -106,7 +106,7 @@
                                     <select name="delivery_price" id="delivery_price"
                                         class="w-100 text-right @error('delivery_price') border-danger @enderror">
                                         @if (Session::has('cart'))
-                                            <option default value="{{ Session::get('cart')->delivery_price }}">۲۵۰۰۰ تومان
+                                            <option default value="{{ Session::get('cart')->delivery_price }}">25
                                             </option>
                                             <option value="0">جداگانه پرداخت میکنم</option>
                                         @endif
@@ -202,7 +202,7 @@
                                                             <span class="text-danger">{{ Session::get('cart')->notes }}</span>
                                                             <form action="{{ route('cart.removeNotes') }}" method="POST">
                                                                 @csrf
-                                                                <button type="submit" dusk="remove-notes-btn">X</button>
+                                                                <button type="submit" class="py-1 px-3" dusk="remove-notes-btn">X</button>
                                                             </form>
                                                         @else
                                                             <form action="{{ route('cart.addNotes') }}" method="POST">
@@ -234,15 +234,10 @@
                                             <hr>
 
                                             @if (Session::has('cart'))
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <ul class="list-unstyled text-right">
-                                                            {{-- total price and tax --}}
-                                                            <li>جمع کل<span id="cart_price"
-                                                                    class="d-inline-block w-100px">{{ Session::has('cart') ? Session::get('cart')->totalPrice : '0' }}</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                <div class="row justify-content-between w-100 mx-auto">
+                                                    {{-- total price and tax --}}
+                                                    <h3 id="cart_price">{{ Session::has('cart') ? Session::get('cart')->totalPrice : '0' }}</h3>
+                                                    <h3>جمع کل</h3>
                                                 </div>
                                                 <hr>
                                             @endif

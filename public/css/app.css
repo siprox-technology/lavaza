@@ -2852,7 +2852,7 @@ textarea.form-control.is-invalid {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
+    border-radius: 1.25rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
@@ -11916,7 +11916,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Satisfy", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -13726,6 +13726,4 @@ input[type="file"] {
 #user_payment_btn:hover,
 #guest_payment_btn:hover {
     color: #ffb03b;
-    /*     background-color: #ffb03b;
-    border-color: #ffb03b; */
 }
