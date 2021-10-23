@@ -1,8 +1,8 @@
 -419 ERROR message
-
+-links to files for loading speed
 -burger prices
 -refresh for changed images menu items
-
+-logout link text
 -english to persian
 -styles images and fonts
 

@@ -3052,15 +3052,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-warning {
-    color: #212529;
-    background-color: #ffc107;
-    border-color: #ffc107
+    color: white;
+    background-color: #ffb03b;
+    border-color: #ffb03b
 }
 
 .btn-warning:hover {
     color: #212529;
-    background-color: #e0a800;
-    border-color: #d39e00
+    background-color: #ffb03b;
+    border-color: #ffb03b
 }
 
 .btn-warning.focus,
@@ -3099,7 +3099,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-danger:hover {
-    color: #fff;
+    color: black;
     background-color: #c82333;
     border-color: #bd2130
 }
@@ -13714,4 +13714,18 @@ input[type="file"] {
 
 .form-group>input {
     text-align: right;
+}
+
+#user_payment_btn,
+#guest_payment_btn {
+    color: #fff;
+    background-color: black;
+    border-color: black
+}
+
+#user_payment_btn:hover,
+#guest_payment_btn:hover {
+    color: #ffb03b;
+    /*     background-color: #ffb03b;
+    border-color: #ffb03b; */
 }

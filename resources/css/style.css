@@ -1827,3 +1827,17 @@ input[type="file"] {
 .form-group>input {
     text-align: right;
 }
+
+#user_payment_btn,
+#guest_payment_btn {
+    color: #fff;
+    background-color: black;
+    border-color: black
+}
+
+#user_payment_btn:hover,
+#guest_payment_btn:hover {
+    color: #ffb03b;
+    /*     background-color: #ffb03b;
+    border-color: #ffb03b; */
+}
