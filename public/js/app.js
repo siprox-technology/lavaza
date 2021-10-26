@@ -2489,10 +2489,14 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
     //calculate total price of an order
 
     $('#delivery_price').on('change', function () {
-        $('#total_price').val(parseFloat($('#cart_price').text()) + parseFloat($('#delivery_price').val()));
+        var price = (parseFloat($('#cart_price_input').val()) + parseFloat($('#delivery_price').val())).toFixed(2);
+        $('#total_price').val(price);
+        $('#display_total_price').text(price);
     });
     $(window).on('load', function () {
-        $('#total_price').val(parseFloat($('#cart_price').text()) + parseFloat($('#delivery_price').val()));
+        var price = (parseFloat($('#cart_price_input').val()) + parseFloat($('#delivery_price').val())).toFixed(2);
+        $('#total_price').val(price);
+        $('#display_total_price').text(price);
     });
 
     //open order details modal in order history

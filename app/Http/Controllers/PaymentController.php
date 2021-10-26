@@ -23,7 +23,7 @@ class PaymentController extends Controller
         //validate delivery_price, address
         $this->validate($request,[
             'address'=>'required|string|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/',
-            'delivery_price'=>'required|integer|between:0,25',
+            'delivery_price'=>'required|between:0,25.00',
         ]);
 
 
