@@ -100,8 +100,8 @@
                         <p class="ml-auto">: جمع سفارش</p>
                     </div>
                     <div class="text-center text-white row justify-content-between px-3">
-                        <a href="{{route('cart.removeAll')}}" dusk="delete_whole_cart_link" class="btn btn-danger btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">حذف سبد خرید</a>
-                        <a href="{{route('order.index','#order')}}" dusk="order_process_link" class="btn btn-dark btn-mobile rounded-0 {{ Session::has('cart') ? '' : 'd-none' }}">ادامه خرید</a>
+                        <a href="{{route('cart.removeAll')}}" dusk="delete_whole_cart_link" class="btn btn-danger {{ Session::has('cart') ? '' : 'd-none' }}">حذف سبد خرید</a>
+                        <a href="{{route('order.index','#order')}}" dusk="order_process_link" class="btn btn-dark {{ Session::has('cart') ? '' : 'd-none' }}">ادامه فرایند خرید</a>
                     </div>
                 </div>
             </div>

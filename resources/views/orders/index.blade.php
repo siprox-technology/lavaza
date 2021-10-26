@@ -12,6 +12,7 @@
                     </div>
                 </div>
                 <div class="row pl-3 w-100 {{(Session::has('cart'))?'':'justify-content-center'}}">
+                    {{-- address --}}
                     @if(Session::has('cart'))
                         <div class="col-md-4 order-2 order-md-1 mt-5">
                             {{-- address and user details --}}
@@ -22,46 +23,46 @@
                                 </div>
                                 {{-- guest form --}}
                                 @guest
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: نام</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-10">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-10">
                                         <input type="text" dusk="name" name="name"
                                             class=" w-100 text-right @error('name') border-danger @enderror">
                                         @error('name')
-                                            <div class=" text-danger">
+                                            <div class=" text-danger text-right">
                                                 لطفا اطلاعات نام را با حروف فارسی وارد کنید
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: ایمیل</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <input type="text" name="email" dusk="email"
                                             class="w-100 text-right @error('email') border-danger @enderror">
                                         @error('email')
-                                            <div class=" text-danger">
+                                            <div class=" text-danger text-right">
                                                 لطفا ساختار ایمیل را به درستی وارد کنید
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: ادرس</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <textarea name="address" rows="3" cols="25" dusk="address" maxlength="512"
                                              class=" w-100 text-right @error('address') border-danger @enderror"></textarea>
                                         @error('address')
-                                            <div class=" text-danger">
+                                            <div class=" text-danger text-right">
                                                 لطفا ساختار ادرس را به درستی وارد کنید
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: هزینه حمل</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <select name="delivery_price" id="delivery_price"
                                             class=" w-100 text-right @error('delivery_price') border-danger @enderror form-select">
                                             @if (Session::has('cart'))
@@ -78,7 +79,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-5 p-3 text-center border border-warning rounded">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-5 p-3 text-center border border-warning rounded">
                                         <span class="w-100"><h5>: جمع سفارش </h5></span>
                                         <input type="hidden" class="w-100 text-right " disabled name="total_price" id="total_price" value="">
                                        <div class="row w-100 mx-auto justify-content-between">
@@ -86,7 +87,7 @@
                                             <h3 id="display_total_price"></h3>
                                        </div>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mt-2 mx-auto mb-3">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mt-2 mx-auto mb-3">
                                         <div class="row">
                                             <button type="submit" class="mx-auto" id='guest_payment_btn' dusk="guest_payment_btn">پرداخت</button>
                                         </div>
@@ -95,37 +96,37 @@
                             
                                 {{-- user form --}}
                                 @auth
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: نام</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                             <input type="text" name="name" class="w-100 text-right"disabled 
                                                 value="{{ auth()->user()->name }}">
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: ایمیل</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <input type="text" class="w-100 text-right" name="email" disabled 
                                         value="{{ auth()->user()->email }}">
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: ادرس</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <textarea name="address" rows="3" cols="25" maxlength="512" placeholder="ادرس جدید"
                                             class=" w-100 text-right @error('address') border-danger @enderror"
                                             value="">{{ auth()->user()->address }}</textarea>
                                         @error('address')
                                             <div class=" text-danger">
-                                                *
+                                                لطفا ساختار ادرس را به درستی وارد کنید
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1 text-right">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: هزینه حمل</span>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-1">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <select name="delivery_price" id="delivery_price"
                                             class="w-100 text-right @error('delivery_price') border-danger @enderror form-select">
                                             @if (Session::has('cart'))
@@ -136,11 +137,11 @@
                                         </select>
                                         @error('delivery_price')
                                             <div class=" text-danger">
-                                                *
+                                                مبلغ هزینه حمل اشتباه است
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mx-auto mt-5 p-3 text-center border border-warning rounded">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-5 p-3 text-center border border-warning rounded">
                                         <span class="w-100"><h5>: جمع سفارش </h5></span>
                                         <input type="hidden" class="w-100 text-right " disabled name="total_price" id="total_price" value="">
                                        <div class="row w-100 mx-auto justify-content-between">
@@ -148,7 +149,7 @@
                                             <h3 id="display_total_price"></h3>
                                        </div>
                                     </div>
-                                    <div class="col-md-11 col-lg-10 mt-2 mx-auto mb-3">
+                                    <div class="col-sm-8 col-md-11 col-lg-10 mt-2 mx-auto mb-3">
                                         <div class="row">
                                             <button type="submit" class="mx-auto" id='guest_payment_btn' dusk="guest_payment_btn">پرداخت</button>
                                         </div>
@@ -157,6 +158,7 @@
                             </form>
                         </div>
                     @endif
+                    {{-- order-details --}}
                     <div class="col-md-8 order-1 order-md-2 px-sm-3 px-0">
                         <div class="block text-center border border-warning rounded mt-5 px-3 py-0">
                             <div class="row">
@@ -257,13 +259,11 @@
                                                     <a href="/#menu" class="btn btn-warning w-100">{{(Session::has('cart'))?'اضافه کردن موارد بیشتر':'سفارش غذا'}}</a>
                                                 </div>
                                             </div>
-
                                             @if (Session::has('cart'))
-                                                <div class="row justify-content-between w-100 mx-auto border-top border-gray py-2">
+                                                <div class="">
                                                     {{-- total price and tax --}}
                                                     <input type="hidden" id="cart_price_input" value="{{Session::has('cart') ? number_format(Session::get('cart')->totalPrice,2) : '0'}}">
                                                 </div>
-                                                <hr>
                                             @endif
                                         </div>
                                     </div>
@@ -274,7 +274,8 @@
                 </div>
             </div>
         </section>
+    </div>
         <script type="text/javascript">
             document.getElementById("order").scrollIntoView();
         </script>
-    @endsection
+@endsection
