@@ -5,11 +5,11 @@
 
     <main id="">
 
-        <!-- ======= About Section ======= -->
-        <section id="dashboard" class="about">
+        <!-- ======= dashboard Section ======= -->
+        <section id="dashboard">
             <div class="container-fluid">
                 <div class="row mx-auto w-100 justify-content-center">
-                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch border border-warning rounded p-3">
+                    <div class="col-lg-5 col-md-7 col-sm-9 d-flex flex-column justify-content-center align-items-stretch border border-warning rounded p-3">
                         <div class="content text-right">
                             <h3 class="text-center">اطلاعات کاربر</h3>
                             {{-- name --}}
@@ -44,7 +44,7 @@
                                 <p class="text-success">{{ auth()->user()->address }}</p>
                             @endif
 
-                            <div class="row w-100 mx-auto justify-content-end">
+                            <div class="row w-100 mx-auto justify-content-center">
                                 {{-- Order history --}}
                                 <a class="btn btn-warning  m-2 " dusk="order_history" href="{{ route('dashboard.order-history.index') }}">سفارشات قبلی</a>
                                 {{-- edit user details --}}
@@ -53,8 +53,6 @@
                                 <a class="btn btn-warning  m-2" dusk="changePassword_link" href="{{ route('forgetPassword.index') }}">تغییر رمز عبور</a>
                             </div>
                         </div>
-
-
                     </div>
 
                 </div>

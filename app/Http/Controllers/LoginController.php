@@ -21,7 +21,7 @@ class LoginController extends Controller
 
         if(!auth()->attempt($request->only('email','password'),$request->remember))
         {
-            return back()->withErrors(['status'=>'Invalid login details']);
+            return back()->withErrors(['status'=>'نام کاربری یا رمز عبور اشتباه است']);
         }
         //login for admins
         if(auth()->user()->role == 1)
