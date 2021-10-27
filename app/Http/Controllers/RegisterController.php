@@ -26,7 +26,7 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //validate user inputs
-        $this->validate($request,[
+        $validate_status = $this->validate($request,[
             'name'=>'required|max:50|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]+$)/',
             'email'=>'required|email|max:50',
             'phone'=>'required|string|max:11|regex:/([۱۲۳۴۵۶۷۸۹۰ 1234567890]+$)/',
@@ -55,7 +55,7 @@ class RegisterController extends Controller
     public function sendVerifyEmail(Request $request)
     {
         $request->user()->sendEmailVerificationNotification();
-        return back()->with('message', 'Verification link sent!');
+        return back()->with('message', 'لینک تایید به ایمیل شما ارسال شد');
     }
 
     function convertPersianNumbersToEnglish($input)

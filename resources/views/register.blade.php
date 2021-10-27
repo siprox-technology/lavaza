@@ -21,7 +21,7 @@
                                         value="{{ old('name') }}">
                                     @error('name')
                                         <div class=" text-danger mt-2">
-                                            {{ $message }}
+                                            لطفا نام را با حروف فارسی وارد کنید
                                         </div>
                                     @enderror
                                 </div>
@@ -51,7 +51,7 @@
                                         placeholder="رمز عبور">
                                     @error('password')
                                         <div class=" text-danger mt-2">
-                                            {{ $message }}
+                                            رمز عبور با رمز عبور مجدد یکسان نیست 
                                         </div>
                                     @enderror
                                 </div>
@@ -78,6 +78,8 @@
 
             </div>
 
-
+            <script>
+                document.getElementById("register").scrollIntoView();
+            </script>
     </main><!-- End #main -->
 @endsection

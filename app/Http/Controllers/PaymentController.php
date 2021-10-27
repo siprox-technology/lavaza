@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Order_item;
 use Illuminate\Http\Request;
+use Morilog\Jalali\Jalalian;
 use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
@@ -73,7 +75,6 @@ class PaymentController extends Controller
             ]); 
         }
         //create payment and save top DB
-
         $payment = Payment::create([
             'order_id' => $order['id'],
             'amount'=>$request_payment['amount'],
@@ -102,12 +103,14 @@ class PaymentController extends Controller
             "amount"=>$data['amount'],
             "payment_method" =>"Saman Bank",
             "last_four_digits" => "1234",
-            "payment_ref" =>"545asdsda2s12121asds2"
+            "payment_ref" =>"545asdsda2s12121asds2",
+            "date_time" =>  Jalalian::fromDateTime(Carbon::now()->toDateTimeString())->toString()
         );
         //payment failed
 /*         $result = array(
             "status"=>false,
             "message"=>"موجودی کارت کافی نیست"
+            Jalalian::fromDateTime($menu->created_at)->toString();
         ); */
         return $result;
     }

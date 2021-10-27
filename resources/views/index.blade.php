@@ -17,7 +17,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="menu-container border border-warning mt-3 mx-0 overflow-auto"style="border-radius:1.25rem; max-height:508px">
+                <div class="menu-container border-warning mt-3 mx-0 overflow-auto"style="border-radius:1.25rem; max-height:508px">
                     {{-- menu items --}}
                     @foreach ($items as $item)
                     <div class="col-md-6 col-lg-4 col-12 menu-item py-3 {{ 'filter-' . $item->menu->name_fa }}" id="menu-item">

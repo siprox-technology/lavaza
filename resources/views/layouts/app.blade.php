@@ -37,7 +37,7 @@
                     <li class="text-right"><a href="{{route('home')}}">خانه</a></li>
                     <li class="text-right"><a href="{{route('home',['#menu'])}}">مشاهده منو</a></li>
                     @guest 
-                        <li class="text-right"><a href="{{ route('register.index',['#register']) }}">ثبت نام</a></li>
+                        <li class="text-right"><a href="{{ route('register.index') }}">ثبت نام</a></li>
                         <li class="text-right"><a dusk="login_link" href=" {{ route('login.index',['#login']) }}">ورود کاربر</a></li>
                     @endguest
                     @auth

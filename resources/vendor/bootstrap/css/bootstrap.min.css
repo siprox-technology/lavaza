@@ -7509,7 +7509,7 @@ button.bg-dark:hover {
 }
 
 .border-warning {
-    border-color: #ffc107 !important
+    border: 2px solid #ffc107 !important;
 }
 
 .border-danger {

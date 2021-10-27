@@ -41,7 +41,7 @@ class UserTest extends DuskTestCase
                     ->press('ورود')
                     ->assertPathIs('/dashboard')
                     ->assertSee('لطفا ایمیل خود را باز کرده و بر روی لینک تایید کلیک کنید')
-                    ->assertSee('پروفایل')->click('@profile_link')->assertPathIs('/dashboard/user/update')
+                    ->assertSee('ویرایش')->click('@profile_link')->assertPathIs('/dashboard/user/update')
                     ->type('@name_input', 'تست شده')
                     ->type('@phone_input', '22222222222')
                     ->type('@address_input', 'ادرس تست شده')
@@ -64,7 +64,7 @@ class UserTest extends DuskTestCase
                     ->assertSee('تغییر رمز عبور')->click('@changePassword_link')->assertPathIs('/forgetPassword')
                     ->type('@email_input', 'test@gmail.com')
                     ->press('@submit_btn')
-                    ->pause(5000)->assertSee('لینک تغییر رمز عبور به ایمیل شما ارسال شد')
+                    ->assertSee('لینک تغییر رمز عبور به ایمیل شما ارسال شد')
                     ->click('@Logout')->assertPathIs('/');
         });
     }

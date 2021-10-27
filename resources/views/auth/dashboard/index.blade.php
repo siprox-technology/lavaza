@@ -3,48 +3,40 @@
 
 
 
-    <main id="dashboard">
+    <main id="">
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
+        <section id="dashboard" class="about">
             <div class="container-fluid">
-
-                <div class="row">
-
-                    <div class="col-lg-5 align-items-stretch video-box"
-                        style='background-image: url("assets/img/about.jpg");'>
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
-                            data-vbtype="video" data-autoplay="true"></a>
-                    </div>
-
-                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
-
-                        <div class="content">
-                            <h3>Dashboard</h3>
+                <div class="row mx-auto w-100 justify-content-center">
+                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch border border-warning rounded p-3">
+                        <div class="content text-right">
+                            <h3 class="text-center">اطلاعات کاربر</h3>
                             {{-- name --}}
-                            <p>نام:</p>
+                            <p class="mb-0">: نام</p>
                             <p class="text-success">{{ auth()->user()->name }}</p>
-
                             {{-- Email --}}
-                            <p>ایمیل:</p>
+                            <p class="mb-0">: ایمیل</p>
+                            <p class="text-success mb-0">{{auth()->user()->email}}</p>
                             @if (!auth()->user()->email_verified_at)
-                                <p class="text-danger">لطفا ایمیل خود را باز کرده و بر روی لینک تایید کلیک کنید</p>
+                                <p class="text-danger mb-0">لطفا ایمیل خود را باز کرده و بر روی لینک تایید کلیک کنید</p>
                                 <form action="{{ route('verification.send') }}" method="POST">
                                     @csrf
-                                    <button type="submit">resend verification email</button>
+                                    <button type="submit"class="px-1 py-0" >ارسال مجدد لینک تایید</button>
                                 </form>
                                 @if (session('message'))
                                     <p class="text-success">{{ session('message') }}</p>
                                 @endif
                             @else
-                                <p class="text-success">Email verified</p>
+                                <p class="text-success">ایمیل تایید شده</p>
                             @endif
+
                             {{-- phone --}}
-                            <p>تلفن:</p>
+                            <p class="mt-3 mb-0">تلفن:</p>
                             <p class="text-success">{{ auth()->user()->phone }}</p>
 
                             {{-- Address --}}
-                            <p>ادرس:</p>
+                            <p class="mb-0">ادرس:</p>
                             @if (!auth()->user()->address)
                                 {{-- save address --}}
                                 <p class="text-danger">در حال حاضر ادرسی ذخیره نشده است</p>
@@ -52,23 +44,25 @@
                                 <p class="text-success">{{ auth()->user()->address }}</p>
                             @endif
 
-                            {{-- Order history --}}
-                            <a dusk="order_history" href="{{ route('dashboard.order-history.index') }}">سفارشات قبلی</a>
+                            <div class="row w-100 mx-auto justify-content-end">
+                                {{-- Order history --}}
+                                <a class="btn btn-warning  m-2 " dusk="order_history" href="{{ route('dashboard.order-history.index') }}">سفارشات قبلی</a>
+                                {{-- edit user details --}}
+                                <a class="btn btn-warning  m-2" dusk="profile_link" href="{{ route('dashboard.user.update.index') }}">ویرایش </a>
+                                {{-- تغییر رمز عبور --}}
+                                <a class="btn btn-warning  m-2" dusk="changePassword_link" href="{{ route('forgetPassword.index') }}">تغییر رمز عبور</a>
+                            </div>
                         </div>
 
-                        {{-- edit user details --}}
 
-                        <a dusk="profile_link" href="{{ route('dashboard.user.update.index') }}">پروفایل </a>
-
-                        {{-- تغییر رمز عبور --}}
-
-                        <a dusk="changePassword_link" href="{{ route('forgetPassword.index') }}">تغییر رمز عبور</a>
                     </div>
 
                 </div>
 
             </div>
-
+            <script>
+                document.getElementById('dashboard').scrollIntoView();
+            </script>
 
     </main><!-- End #main -->
 
