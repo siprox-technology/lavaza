@@ -38,12 +38,16 @@ class AdminController extends Controller
     }
     public function updateUser(Request $request){
         //validate user inputs
+        //farsi alphabets with numbers in farsi and english
+        $farsi_alphabets_english_digits = '\x{06F0}-\x{06F9}\x{0020}\x{2000}-\x{200F}\x{2028}-\x{202F}\x{0621}-\x{0628}\x{062A}-\x{063A}\x{0641}-\x{0642}\x{0644}-\x{0648}\x{064E}-\x{0651}\x{0655}\x{067E}\x{0686}\x{0698}\x{06A9}\x{06AF}\x{06BE}\x{06CC}';
+        //farsi only alphabets
+        $farsi_only_alphabets = '\x{0020}\x{2000}-\x{200F}\x{2028}-\x{202F}\x{0621}-\x{0628}\x{062A}-\x{063A}\x{0641}-\x{0642}\x{0644}-\x{0648}\x{064E}-\x{0651}\x{0655}\x{067E}\x{0686}\x{0698}\x{06A9}\x{06AF}\x{06BE}\x{06CC}';
+    
         $this->validate($request,[
-            'name'=>'max:50',
+            'name'=>'required|max:50|regex:/^['.$farsi_only_alphabets.']*$/u',
             'phone'=>'digits:11',
-            'address'=>'string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/|nullable',
+            'address'=>'string|max:511|regex:/^['.$farsi_alphabets_english_digits.'{0-9}'.']*$/u|nullable',
         ]);
-
             //update user details
             $user = User::find($request->user_id);
             $user->name = $request->name;

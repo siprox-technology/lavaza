@@ -3,54 +3,59 @@
 
 
     <main id="main">
-        <div class="row justify-content-center py-5 w-100 mx-auto">
-            <h1 class="text_yellow">پروفایل</h1>
+        <div class="row justify-content-center py-3 w-100 mx-auto">
+            <h3 class="">ویرایش اطلاعات کاربر</h3>
         </div>
-        <div class="row justify-content-center pb-5 w-100 mx-auto">
+        <div class="row justify-content-center pb-3 w-100 mx-auto">
             <a href="{{ route('dashboard.index') }}">بازگشت به منوی اصلی</a>
         </div>
-        <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
+        <div class="row justify-content-center w-100 mx-auto" id="admin-panel">
             <div class="col-12">
                 {{-- update user status --}}
                 @if (session('status'))
                     @if (session('status') == 'جزییات کاربر ویرایش شد')
-                        <div class="text-center text-success mt-2">
+                        <div class="text-center text-success mb-3">
                             {{ session('status') }}
                         </div>
                     @endif
                 @endif
             </div>
             {{-- update user form --}}
-            <div class="col-sm-10 col-md-8 col-lg-6 ">
+            <div class="col-lg-5 col-md-7 col-sm-9 border border-warning rounded p-3 ">
                 <div class="heading-title">
                     <div class=" flex justify-center">
                         <div class=" w-6/12 bg-white p-6 rounded-lg">
                             <div class="block text-center">
                                 {{-- edit user details --}}
-                                <form class="text-left clearfix" action="" method="POST">
+                                <form class="text-left clearfix" action="{{route('dashboard.user.update')}}" method="POST">
                                     @csrf
                                     {{-- name --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="contact_pref"><b>نام:</b></label>
+                                    <div class="form-group text-right mb-1">
+                                        <label class="mt-2 mb-1" for="contact_pref">: نام</label>
                                         <input type="text" dusk="name_input" name="name" id="name" maxlength="50"
                                             class="form-control @error('name') border border-danger @enderror"
                                             value="{{ auth()->user()->name }}">
                                     </div>
+                                    @error('name')
+                                        <div class="text-right text-danger mt-2">
+                                            نام را با حروف فارسی وارد کنید
+                                        </div>
+                                    @enderror
                                     {{-- phone --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="contact_pref"><b>تلفن:</b></label>
+                                    <div class="form-group text-right mb-1">
+                                        <label class="mt-2 mb-1" for="contact_pref">: تلفن</label>
                                         <input type="text" dusk="phone_input" name="phone" id="phone" maxlength="11"
                                             class="form-control  @error('phone') border border-danger @enderror"
                                             value="{{ auth()->user()->phone }}">
                                         @error('phone')
                                             <div class=" text-danger mt-2">
-                                                *تلفن ۱۱ رقم و به اعداد انگلیسی باشد
+                                                تلفن ۱۱ رقم و به اعداد انگلیسی باشد
                                             </div>
                                         @enderror
                                     </div>
                                     {{-- address --}}
-                                    <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="address"><b>ادرس:</b></label>
+                                    <div class="form-group text-right mb-1">
+                                        <label class="mt-2 mb-1" for="address">: ادرس</label>
                                         <input type="text" dusk="address_input" name="address" id="address" maxlength="150"
                                             class="form-control  @error('address') border border-danger @enderror"
                                             value="{{ auth()->user()->address }}">

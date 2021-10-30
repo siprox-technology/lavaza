@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
-
-
     <main id="">
-
         <!-- ======= dashboard Section ======= -->
         <section id="dashboard">
             <div class="container-fluid">
