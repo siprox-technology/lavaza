@@ -5,6 +5,7 @@
 -login wrong password error mesage does not show (scroll) also convert to persian
 -logout link text
 -english to persian
+-maximum rows database
 
 -styles images and fonts
 

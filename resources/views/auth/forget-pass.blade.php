@@ -1,22 +1,15 @@
 @extends('layouts.app')
 @section('content')
-
-
-
     <main id="main">
-
         <!-- ======= forget password Section ======= -->
         <section id="forget-pass" class="about">
             <div class="container-fluid">
-
                 <div class="row">
-
                     <div class="col-lg-5 order-2 order-lg-1 align-items-stretch video-box mt-5 mt-lg-0"
                         style='background-image: url("assets/img/about.jpg");'>
 {{--                         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
                             data-vbtype="video" data-autoplay="true"></a> --}}
                     </div>
-
                     <div class="col-lg-7 col-sm-7 mx-auto  d-flex order-1 order-lg-2 flex-column justify-content-center align-items-stretch">
 
                         <div class="content">
@@ -47,12 +40,8 @@
                         </div>
 
                     </div>
-
                 </div>
-
             </div>
-
-
     </main><!-- End #main -->
     {{-- scroll to forget password section --}}
     <script type="text/javascript">

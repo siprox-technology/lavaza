@@ -21,7 +21,7 @@
                 @endif
             </div>
             {{-- update user form --}}
-            <div class="col-lg-5 col-md-7 col-sm-9 border border-warning rounded p-3 ">
+            <div class="col-lg-5 col-md-7 col-sm-9 border border-warning rounded p-3 my-5">
                 <div class="heading-title">
                     <div class=" flex justify-center">
                         <div class=" w-6/12 bg-white p-6 rounded-lg">
