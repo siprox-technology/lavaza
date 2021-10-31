@@ -36,21 +36,21 @@
                 <ul>{{-- {{dd(request()->path())}} --}}
                     <li class="text-right"><a href="{{route('home')}}">خانه</a></li>
                     <li class="text-right"><a href="{{route('home',['#menu'])}}">مشاهده منو</a></li>
-                    @guest 
-                        <li class="text-right"><a href="{{ route('register.index') }}">ثبت نام</a></li>
-                        <li class="text-right"><a dusk="login_link" href=" {{ route('login.index',['#login']) }}">ورود کاربر</a></li>
-                    @endguest
-                    @auth
-                        @if (auth()->user()->role == 1)
-                            <li class="text-right"><a href="{{ route('admin.index',['#admin']) }}">پنل ادمین</a></li>
-                        @else
-                            <li class="text-right"><a href="{{ route('dashboard.index',['#dashboard']) }}">حساب کاربری</a></li>
-                        @endif
-                        <li class="text-right"><a dusk="Logout" href="{{ route('logout') }}">خروج</a></li>
-                    @endauth
                     <li class="text-right"><a href="{{route('home',['#why-us'])}}">درباره ما</a></li>
                     <li class="text-right"><a href="{{route('home',['#specials'])}}">مخصوص سر اشپز</a></li>
                     <li class="text-right"><a href="{{route('home',['#contact'])}}">ارتباط با ما</a></li>
+                    @guest 
+                        <li class="text-right"><a href="{{ route('register.index') }}">ثبت نام</a></li>
+                        <li class="text-right "><a dusk="login_link" class="text-success" href=" {{ route('login.index',['#login']) }}">ورود کاربر</a></li>
+                    @endguest
+                    @auth
+                        @if (auth()->user()->role == 1)
+                            <li class="text-right"><a href="{{ route('admin.index',['#admin']) }}" class="text-warning">پنل ادمین</a></li>
+                        @else
+                            <li class="text-right"><a href="{{ route('dashboard.index',['#dashboard']) }}" class="text-warning">حساب کاربری</a></li>
+                        @endif
+                        <li class="text-right"><a dusk="Logout" class="text-danger" href="{{ route('logout') }}">خروج</a></li>
+                    @endauth
                 </ul>
             </nav><!-- .nav-menu -->
             {{-- Shopping basket --}}
@@ -66,7 +66,6 @@
                 </button>
                 {{-- cart links --}}
                 <div class="cart-wrapper p-3 border rounded border-warning ">
-{{--                     <i id="cartClose" class="cart-close"><b>X</b></i> --}}
                     <h4 class="mb-4 text-white text-center">سبد خرید</h4>
                     <ul class="pl-0 mb-3">
                         @if (Session::has('cart'))

@@ -32,7 +32,7 @@
                                     </div>
                                 @endif
                                 <div class="text-center">
-                                    <button type="submit" dusk="submit_btn" class="btn btn-primary">درخواست تغییر رمز</button>
+                                    <button type="submit" dusk="submit_btn" class="btn btn-warning">درخواست تغییر رمز</button>
                                 </div>
                             </form>
                             <p class="mt-3 text-right">کاربر جدید هستید؟<a href="{{ route('register.index') }}"> ایجاد حساب کاربری</a></p>
