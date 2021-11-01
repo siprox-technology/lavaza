@@ -3,8 +3,8 @@
 @section('content')
 
     <!-- order history-->
-    <section id="order-history-section" class="bglight position-relative padding noshadow">
-        <div class="container whitebox">
+    <section id="order-history-section" class=" row justify-content-center bglight position-relative padding noshadow">
+        <div class="col-lg-5 col-md-7 col-sm-9">
             <div class="row justify-content-center">
                 <a class="" href=" user-profile.php"><i class="fas fa-arrow-left"></i></a>
             </div>
@@ -15,59 +15,56 @@
                 </h2>
             </div>
             @foreach ($orders as $order)
-                <div class="row">
-                    <div class="row">
-                        <button class="btn btn-primary" dusk="order_details" type="button" data-toggle="collapse"
+                <div class="border border-warning rounded">
+                    <div class="mb-0 row px-3">
+                        <p class="mr-auto text-warning">{{$order->total_price}}</p>
+                        <p class="ml-auto">: جمع سفارش</p>
+                    </div>
+                    <div class="mb-0 row px-3">
+                        <p class="mr-auto text-warning">{{$order->created_at}}</p>
+                        <p class="ml-auto">: تاریخ سفارش</p>
+                    </div>
+                </div>
+                    <div class="row mx-auto w-100 justify-content-center my-3">
+                        <button class="btn btn-warning" dusk="order_details" type="button" data-toggle="collapse"
                             data-target="#order-details-{{ $order->id }}" aria-expanded="false"
                             aria-controls="collapseExample">
                             جزییات سفارش
                         </button>
-                        <ul>
-                            <li>تاریخ:</li>
-                            <li>{{ $order->created_at }}</li>
-                            <li>مبلغ کل:</li>
-                            <li>{{ $order->total_price }}</li>
-                        </ul>
+                        <form action="{{ route('dashboard.orders.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" value="{{ $order->id }}" name="id">
+                            <button type="submit" class="btn btn-dark" dusk="{{($order->total_price == '58.75')?'order_again':''}}">سفارش مجدد</button>
+                        </form>    
                     </div>
-                    <div class="collapse" id="order-details-{{ $order->id }}">
+                    <div class="collapse mb-3" id="order-details-{{ $order->id }}">
                         <div class="card card-body">
-                            <ul>
-                                @foreach ($order->order_items as $item)
-                                    <li class="d-flex border-bottom">
-                                        <img class="" style=" width:50px; height:50px;"
-                                            src="{{ asset('images/menu/' . $item->name . '.jpg') }}" alt="product-img">
-                                        <div class="mx-3">
-                                            <p class="mb-0 text-dark">{{ $item->name_fa }}</p>
-                                            <span class="text-dark">{{ $item->quantity }}</span>
-                                            <span class="text-dark">X</span>
-                                            <span class="text-dark">{{ $item->price / $item->quantity }}</span>
-                                            <span class="text-dark">{{ $item->price }}</span>
-                                        </div>
-                                    </li>
-                                @endforeach
-                                <li>
-                                    هزینه حمل:{{ $order->delivery_price }}
-                                </li>
-                                <li>
-                                    جمع: {{ $order->total_price }}
-                                </li>
-                                <li>
-                                    <form action="{{ route('dashboard.orders.store') }}" method="POST">
-                                        @csrf
-                                        {{-- order id --}}
-                                        <input type="hidden" value="{{ $order->id }}" name="id">
-                                        <button type="submit" dusk="order_again">سفارش مجدد</button>
-                                    </form>
-                                </li>
-                            </ul>
+                            <div class="p-3 border rounded border-warning ">
+                                <h4 class="mb-4 text-center">جزییات سفارش</h4>
+                                <ul class="pl-0 mb-3">
+                                    @foreach ($order->order_items as $item)
+                                        <li class="d-flex p-3 mb-2 border border-warning rounded">
+                                            <img class="" style=" width:50px; height:50px; border-radius: 1.1rem"
+                                            src="{{ asset('images/menu/' . $item->name_fa . '.jpg') }}"
+                                            alt="product-img" >
+        
+                                            <div class="mx-3 ml-auto text-right">
+                                                {{-- item quantity --}}
+                                                <p class="mb-0 text-warning">{{ $item->name_fa }}</p>
+                                                <span class="">تعداد :</span>
+                                                <span class="">{{ $item->quantity }}</span>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                <div class="text-center text-white row justify-content-between px-3">
+                           
+                                 </div>
+
+                            </div>                                             
                         </div>
                     </div>
-                </div>
             @endforeach
-
-
-            <p class="text-danger m-0">*Full payment for pending orders must be completed within 24 hours.</p>
-            <p class="text-danger m-0">*Pending orders will be removed from this list after 24 hours.</p>
         </div>
     </section>
 

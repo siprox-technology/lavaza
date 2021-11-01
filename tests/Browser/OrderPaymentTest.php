@@ -60,12 +60,11 @@ class OrderPaymentTest extends DuskTestCase
                     ->click('@order_history')
                     ->assertPathIs('/dashboard/orders-history')
                     ->assertSee('58.75')
-                    ->press('@order_details')
-                    ->pause('1000')
                     ->assertSee('سفارش مجدد')
                     ->press('@order_again')
                     ->assertPathIs('/order')
-                    ->assertSee('33.75');
+                    ->assertSee('آدرس')
+                    ->assertSee('تومان')->assertSee('58.75');
         });
         $this->assertEquals(true,DB::table('orders')->where('total_price','=','58.75')
         ->where('email','=','jamshid@gmail.com')->delete());
