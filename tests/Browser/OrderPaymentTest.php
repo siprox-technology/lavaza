@@ -22,7 +22,7 @@ class OrderPaymentTest extends DuskTestCase
             ->press('@guest_payment_btn')
             ->assertPathIs('/payment-result')
             ->assertSee('پرداخت با موفقیت انجام شد')
-            ->assertSee('58.75');
+            ->assertSee('124,750');
         });
     }
     public function test_logged_in_user_can_order_and_pay()
@@ -43,7 +43,7 @@ class OrderPaymentTest extends DuskTestCase
             ->press('پرداخت')
             ->assertPathIs('/payment-result')
             ->assertSee('پرداخت با موفقیت انجام شد')
-            ->assertSee('58.75');
+            ->assertSee('124,750');
         });
     }
     //user login, see order history and order past orders and pay
@@ -59,16 +59,16 @@ class OrderPaymentTest extends DuskTestCase
                     ->assertSee('سفارشات قبلی')
                     ->click('@order_history')
                     ->assertPathIs('/dashboard/orders-history')
-                    ->assertSee('58.75')
+                    ->assertSee('124,750')
                     ->assertSee('سفارش مجدد')
                     ->press('@order_again')
                     ->assertPathIs('/order')
                     ->assertSee('آدرس')
-                    ->assertSee('تومان')->assertSee('58.75');
+                    ->assertSee('تومان')->assertSee('124,750');
         });
-        $this->assertEquals(true,DB::table('orders')->where('total_price','=','58.75')
+        $this->assertEquals(true,DB::table('orders')->where('total_price','=','124750')
         ->where('email','=','jamshid@gmail.com')->delete());
-        $this->assertEquals(true,DB::table('orders')->where('total_price','=','58.75')
+        $this->assertEquals(true,DB::table('orders')->where('total_price','=','124750')
         ->where('email','=','mshadow73@gmail.com')->delete());
     }
 

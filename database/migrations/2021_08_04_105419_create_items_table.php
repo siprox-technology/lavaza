@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('name_fa',128);
             $table->string('ingredients',512)->nullable();
             $table->string('ingredients_fa',512);
-            $table->double('price',6,2);
+            $table->integer('price');
             $table->integer('stock')->nullable();
             $table->timestamps();
         });

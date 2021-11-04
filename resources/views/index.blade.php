@@ -24,7 +24,7 @@
                         <div class="row mx-auto p-0 border border-dark rounded p-3" style="min-height:220px">
                             <div class="col-sm-8 p-0">
                                 <div class="menu-content">
-                                    <p>{{ $item->name_fa }}</p><span>{{ $item->price }}</span>
+                                    <p>{{ $item->name_fa }}</p><span>{{number_format($item->price,0) }}</span>
                                 </div>
                                 <div class="menu-ingredients">
                                     {{ $item->ingredients_fa }}

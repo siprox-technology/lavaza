@@ -218,14 +218,16 @@
     //calculate total price of an order
 
     $('#delivery_price').on('change', function () {
-        var price = (parseFloat($('#cart_price_input').val()) + parseFloat($('#delivery_price').val())).toFixed(2);
-        $('#total_price').val(price);
-        $('#display_total_price').text(price);
+        var total_price = (parseInt($('#cart_price_input').val()) + parseInt($('#delivery_price').val()));
+        var total_price_to_display = total_price.toLocaleString();
+        $('#total_price').val(total_price);
+        $('#display_total_price').text(total_price_to_display);
     });
     $(window).on('load', function () {
-        var price = (parseFloat($('#cart_price_input').val()) + parseFloat($('#delivery_price').val())).toFixed(2);
-        $('#total_price').val(price);
-        $('#display_total_price').text(price);
+        var total_price = (parseInt($('#cart_price_input').val()) + parseInt($('#delivery_price').val()));
+        var total_price_to_display = total_price.toLocaleString();
+        $('#total_price').val(total_price);
+        $('#display_total_price').text(total_price_to_display);
     });
 
     //open order details modal in order history

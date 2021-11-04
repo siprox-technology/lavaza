@@ -14,6 +14,12 @@
                     <span class="divider-center"></span>
                 </h2>
             </div>
+            @if (count($orders) == 0)
+                <div class="text-center">
+                    <h6 class="text-danger">! سفارشی موجود نیست</h6>
+                </div>
+
+            @else
             @foreach ($orders as $order)
             <div class="p-3 border border-dark rounded mb-3">
                 <div class="px-3 text-center">
@@ -22,7 +28,7 @@
                 <div class="border border-warning rounded p-2">
                     <div class="mb-0 row px-3 w-100 mx-auto" style="max-height: 24px">
                         <p class="mr-1 mb-0">تومان</p>
-                        <p class="mr-auto mb-0"> {{$order->total_price}}</p>
+                        <p class="mr-auto mb-0"> {{number_format($order->total_price,0)}}</p>
                         <p class="ml-auto"><b>: جمع سفارش</b></p>
                     </div>
                     <div class="mb-0 row px-3 w-100 mx-auto">
@@ -39,7 +45,7 @@
                     <form action="{{ route('dashboard.orders.store') }}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $order->id }}" name="id">
-                        <button type="submit" class="btn px-3 py-1" dusk="{{($order->total_price == '58.75')?'order_again':''}}">سفارش مجدد</button>
+                        <button type="submit" class="btn px-3 py-1" dusk="{{($order->total_price == '124750')?'order_again':''}}">سفارش مجدد</button>
                     </form>    
                 </div>
                 <div class="collapse mb-3" id="order-details-{{ $order->id }}">
@@ -61,7 +67,7 @@
                                     </div>
                                     <div class="row justify-content-around">
                                         <p class="mr-1">تومان</p>
-                                        <span class="ml-auto mr-1">{{ $item->price }}</span>
+                                        <span class="ml-auto mr-1">{{number_format($item->price,0) }}</span>
                                         <span class="ml-auto">: قیمت</span>
                                     </div>
                                 </div>
@@ -70,7 +76,8 @@
                     </ul>                                    
                 </div>
             </div>
-            @endforeach
+        @endforeach
+            @endif
         </div>
     </section>
 

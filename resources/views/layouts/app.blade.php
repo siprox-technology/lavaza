@@ -95,7 +95,7 @@
 
                     </ul>
                     <div class="mb-3 text-white row px-3">
-                        <p class="mr-auto text-warning">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 2) : '0' }}</p>
+                        <p class="mr-auto text-warning">{{ Session::has('cart') ? number_format(Session::get('cart')->totalPrice, 0) : '0' }}</p>
                         <p class="ml-auto">: جمع سفارش</p>
                     </div>
                     <div class="text-center text-white row justify-content-between px-3">

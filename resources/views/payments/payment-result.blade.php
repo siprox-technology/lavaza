@@ -13,7 +13,7 @@
                     <span><b>: مبلغ</b></span>
                     <div class="row w-100 mx-auto justify-content-center">
                         <h3 class="mr-2"> تومان</h3>
-                        <h3 class="mb-1 mt-1">{{number_format($_GET['payment_data']['amount'],2)}}</h3>
+                        <h3 class="mb-1 mt-1">{{number_format($_GET['payment_data']['amount'],0)}}</h3>
                     </div>
                 </div>
                 <div class="col-12">

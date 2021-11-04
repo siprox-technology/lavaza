@@ -17,7 +17,7 @@ class ShoppingCartTest extends DuskTestCase
                     ->assertSee('سمپلر')->type('@quantity-input-1', '3')->press('@submit-btn-1')
                     ->press('@cartOpen')->pause('1000')->assertSee('جمع سفارش')
                     ->click('@order_process_link')->assertPathIs('/order')
-                    ->assertSee('سمپلر')->assertSee('33.75');
+                    ->assertSee('سمپلر')->assertSee('99,750');
         });
     }
     
@@ -25,7 +25,7 @@ class ShoppingCartTest extends DuskTestCase
     public function test_item_can_be_deleted_from_shopping_cart()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/order')->assertSee('سمپلر')->assertSee('33.75')
+            $browser->visit('/order')->assertSee('سمپلر')->assertSee('99,750')
             ->click('@product-remove-link')->assertPathIs('/order')
                     ->assertSee('سبد شما خالی است');
         });
@@ -34,10 +34,10 @@ class ShoppingCartTest extends DuskTestCase
     public function test_the_whole_cart_can_be_deleted(){
         $this->test_item_can_be_added_to_shopping_cart();
         $this->browse(function (Browser $browser) {
-            $browser->visit('/order')->assertSee('سمپلر')->assertSee('33.75')
-            ->click('@order_delete_whole_cart_link')->assertPathIs('/order')
-                    ->assertSee('سبد شما خالی است');
+            $browser->visit('/order')->assertSee('سمپلر')->assertSee('99,750')
+            ->click('@order_delete_whole_cart_link')->assertPathIs('/');
         });
+        $this->assertEquals(null,Session::get('cart'));
     }
     // notes can be added and removed from shopping cart
     public function test_notes_can_be_added_to_and_removed_from_cart()

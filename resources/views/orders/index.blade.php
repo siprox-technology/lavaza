@@ -66,8 +66,9 @@
                                         <select name="delivery_price" id="delivery_price"
                                             class=" w-100 text-right @error('delivery_price') border-danger @enderror form-select">
                                             @if (Session::has('cart'))
-                                                <option default value="{{ number_format(Session::get('cart')->delivery_price,2) }}" class="text-right"> 25.00
-                                                </option>
+                                            <option default value="{{Session::get('cart')->delivery_price}}">
+                                                {{ number_format(Session::get('cart')->delivery_price,0)}}
+                                            </option>
                                                 <option value="0" class="text-right">جداگانه پرداخت میکنم</option>
                                             @else
                                                 <option default value="0" class="text-right"></option>
@@ -130,7 +131,8 @@
                                         <select name="delivery_price" id="delivery_price"
                                             class="w-100 text-right @error('delivery_price') border-danger @enderror form-select">
                                             @if (Session::has('cart'))
-                                                <option default value="{{ number_format(Session::get('cart')->delivery_price,2)}}">25.00
+                                                <option default value="{{Session::get('cart')->delivery_price}}">
+                                                    {{ number_format(Session::get('cart')->delivery_price,0)}}
                                                 </option>
                                                 <option value="0">جداگانه پرداخت میکنم</option>
                                             @endif
@@ -190,9 +192,9 @@
                                                                             href="{{ route('cart.remove', $item['item']) }}"><p class="mt-3">X</p></a>
                                                                     </td>
                                                                     {{-- price --}}
-                                                                    <td class="col-1"><p class="mt-3">{{ $item['price'] }}</p></td>
+                                                                    <td class="col-1"><p class="mt-3">{{number_format($item['price'],0)  }}</p></td>
                                                                     <td class="col-1"><p class="mt-3">{{ $item['quantity'] }}</p></td>
-                                                                    <td class="col-1"><p class="mt-3">{{ $item['price'] / $item['quantity'] }}</p></td>
+                                                                    <td class="col-1"><p class="mt-3">{{number_format($item['price'] / $item['quantity'],0)}}</p></td>
 
                                                                     {{-- images and name --}}
                                                                     <td>
@@ -208,7 +210,6 @@
                                                                             </div>
                                                                         </div>
                                                                     </td>
-
                                                                 </tr>
                                                             @endforeach
                                                         @else
@@ -262,7 +263,7 @@
                                             @if (Session::has('cart'))
                                                 <div class="">
                                                     {{-- total price and tax --}}
-                                                    <input type="hidden" id="cart_price_input" value="{{Session::has('cart') ? number_format(Session::get('cart')->totalPrice,2) : '0'}}">
+                                                    <input type="hidden" id="cart_price_input" value="{{Session::has('cart') ? Session::get('cart')->totalPrice : '0'}}">
                                                 </div>
                                             @endif
                                         </div>

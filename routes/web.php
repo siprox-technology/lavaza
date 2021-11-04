@@ -59,7 +59,7 @@ Route::get('/cart/{id}/remove', [CartController::class,'destroy'])->name('cart.r
 //remove all items in cart
 Route::get('/cart/removeAll', function(){
     Session::forget('cart');
-    return back();
+    return redirect()->route('home');
 })->name('cart.removeAll');
 
 //orders
