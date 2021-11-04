@@ -12,3 +12,6 @@
 -get sms system
 -get payment system
 -clean html
+
+-security
+   -check returning order_id which is a primary key in order recipts is safe !!! 

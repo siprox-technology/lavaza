@@ -17,6 +17,13 @@
                     </div>
                 </div>
                 <div class="col-12">
+                    <span><b>: شماره سفارش</b></span>
+                    <div class="row w-100 mx-auto justify-content-center">
+                        <h6 class="mt-2">{{$_GET['order_id']}}</h6>
+                    </div>
+                </div>
+
+                <div class="col-12">
                     <span><b>: شماره پیگیری</b></span>
                     <div class="row w-100 mx-auto justify-content-center">
                         <h6 class="mt-2">{{$_GET['payment_data']['payment_ref']}}</h6>

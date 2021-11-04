@@ -87,7 +87,7 @@ class PaymentController extends Controller
         //SMS or email user
 
         //return to order result page with payment and order info
-        return redirect()->route('payment.payment_result',['payment_data'=>$request_payment]);
+        return redirect()->route('payment.payment_result',['payment_data'=>$request_payment,'order_id'=>$order->id]);
         //return back with errors
     }
 
