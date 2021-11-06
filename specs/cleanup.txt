@@ -1,17 +1,13 @@
+-styles images and fonts
+-clean html
+-english to persian
+
 -419 ERROR message
 -links to files for loading speed
--burger prices
 -refresh for changed images menu items
--login wrong password error mesage does not show (scroll) also convert to persian
--logout link text
--english to persian
--maximum rows database
-
--styles images and fonts
-
--get sms system
+-get sms system 
+-replace sms with email functions - or make confirm email language to persian
 -get payment system
--clean html
 
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 

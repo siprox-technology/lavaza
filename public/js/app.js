@@ -2430,7 +2430,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
 
     $('.back-to-top').click(function () {
         $('html, body').animate({
-            scrollTop: 0
+            scrollTop: 650
         }, 1500, 'easeInOutExpo');
         return false;
     });

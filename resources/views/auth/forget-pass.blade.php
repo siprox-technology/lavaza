@@ -14,6 +14,9 @@
 
                         <div class="content">
                             <h4 class="text-center mt-3">لطفا ایمیل خود را وارد کنید</h4>
+                            <div class="row justify-content-center pb-3 w-100 mx-auto">
+                                <a href="{{route('dashboard.index')}}">بازگشت به منوی اصلی</a>
+                            </div>
                             <form class="text-left clearfix" action="{{ route('forgetPassword.email') }}" method="POST" novalidate>
                                 @csrf
                                 <div class="form-group">

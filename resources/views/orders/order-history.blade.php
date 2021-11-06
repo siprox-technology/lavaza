@@ -14,6 +14,9 @@
                     <span class="divider-center"></span>
                 </h2>
             </div>
+            <div class="row justify-content-center pb-3 w-100 mx-auto">
+                <a href="{{route('dashboard.index')}}">بازگشت به منوی اصلی</a>
+            </div>
             @if (count($orders) == 0)
                 <div class="text-center">
                     <h6 class="text-danger">! سفارشی موجود نیست</h6>
@@ -25,21 +28,9 @@
                 <div class="px-3 text-center">
                     <h5>سفارش شماره : {{$order->id}}</h5>
                 </div>
-                <div class="border border-warning rounded p-2">
-                    <div class="mb-0 row px-3 w-100 mx-auto" style="max-height: 24px">
-                        <p class="mr-1 mb-0">تومان</p>
-                        <p class="mr-auto mb-0"> {{number_format($order->total_price,0)}}</p>
-                        <p class="ml-auto"><b>: جمع سفارش</b></p>
-                    </div>
-                    <div class="mb-0 row px-3 w-100 mx-auto">
-                        <p class="mb-0 mr-auto">{{($order->created_at)->format('Y-m-d')}}</p>
-                        <p class="mb-0 ml-auto"><b>: تاریخ سفارش</b></p>
-                    </div>
-                </div>
                 <div class="row mx-auto w-100 justify-content-center my-3">
                     <button class="btn btn-warning mr-1 px-3 py-1 mb-1 mb-sm-0" dusk="order_details" type="button" data-toggle="collapse"
-                        data-target="#order-details-{{ $order->id }}" aria-expanded="false"
-                        aria-controls="collapseExample">
+                        data-target="#order-details-{{ $order->id }}" aria-expanded="false">
                         جزییات سفارش
                     </button>
                     <form action="{{ route('dashboard.orders.store') }}" method="POST">
@@ -48,7 +39,7 @@
                         <button type="submit" class="btn px-3 py-1" dusk="{{($order->total_price == '124750')?'order_again':''}}">سفارش مجدد</button>
                     </form>    
                 </div>
-                <div class="collapse mb-3" id="order-details-{{ $order->id }}">
+                <div class="collapse" id="order-details-{{ $order->id }}">
                     <h4 class="mb-4 text-center">جزییات سفارش</h4>
                     <ul class="pl-0 mb-3">
                         @foreach ($order->order_items as $item)
@@ -74,6 +65,17 @@
                             </li>
                         @endforeach
                     </ul>                                    
+                </div>
+                <div class="border border-warning rounded p-2">
+                    <div class="mb-0 row px-3 w-100 mx-auto">
+                        <p class="mb-0 mr-auto">{{($order->created_at)->format('Y-m-d')}}</p>
+                        <p class="mb-0 ml-auto">: تاریخ سفارش</p>
+                    </div>
+                    <div class="mb-0 row px-3 w-100 mx-auto" style="max-height: 24px">
+                        <p class="mr-1 mb-0"><b>تومان</b></p>
+                        <p class="mr-auto mb-0"><b> {{number_format($order->total_price,0)}}</b></p>
+                        <p class="ml-auto">: جمع سفارش</p>
+                    </div>
                 </div>
             </div>
         @endforeach

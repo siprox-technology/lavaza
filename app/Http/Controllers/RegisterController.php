@@ -34,6 +34,7 @@ class RegisterController extends Controller
         $validate_status = $this->validate($request,[
             'name'=>'required|max:50|regex:/^['.$farsi_only_alphabets.']*$/u',
             'phone'=>'digits:11',
+            'email'=>'required|email',
             'address'=>'string|max:511|regex:/^['.$farsi_alphabets_english_digits.'{0-9}'.']*$/u|nullable',
             'password'=>'required|confirmed',
         ]);

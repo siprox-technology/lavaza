@@ -158,7 +158,9 @@
             </div>
         </div>
     </section><!-- End Hero -->
-    @yield('content')
+    <div id="content">
+        @yield('content')
+    </div>
 
 
     <!-- Template Main JS File -->
