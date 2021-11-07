@@ -23,6 +23,7 @@ use App\Http\Controllers\ForgetPasswordController;
 |
 */
 
+
 Route::get('/',[PageController::class,'showHomePage'])->name('home');
 
 //register

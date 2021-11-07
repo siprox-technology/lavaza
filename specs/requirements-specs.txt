@@ -5,7 +5,7 @@ Lavaza restaurants website
 
     -Product Features:
 
-        A-Users registration and activation with email/phone. --here
+        A-Users registration and activation with email/phone. --here 
         
             -user registration with email **
             -user account activation with email *-
@@ -35,8 +35,6 @@ Lavaza restaurants website
                 -change password**
             -Users can see order history**
             -Users can order past orders**
-            -Users can see reservations available and reserve them.--
-            -Users can see reservation history and cancel them.--
 
         E- Admin account with following functionalities:
             -Admin see, edit users details and delete them:
@@ -60,8 +58,8 @@ Lavaza restaurants website
 
         I- Text message notification for the following features:--
             -User account registration and activation
-            -forget/reset passowrd code
-            -forget/reset password confirmation
+            -send forget/reset passowrd code
+            -receive forget/reset password confirmation
             -confirmation of order and payment 
 
 

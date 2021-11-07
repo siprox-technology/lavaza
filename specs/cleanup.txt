@@ -2,7 +2,7 @@
 -clean html
 -english to persian
 
--419 ERROR message
+
 -links to files for loading speed
 -refresh for changed images menu items
 -get sms system 
