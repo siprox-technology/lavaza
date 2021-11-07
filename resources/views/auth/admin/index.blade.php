@@ -186,5 +186,9 @@
                                         {{-- test link for dusk --}}
             <a dusk="editMenu_link" href="{{route('admin.menu-items.index')}}" >ویرایش منو</a>
         </div>
+        <script type="text/javascript">
+            document.getElementById("admin").scrollIntoView();
+        </script>
+    
     </main>
 @endsection

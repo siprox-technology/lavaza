@@ -46,7 +46,6 @@
                 </div>
             </div>
     </main><!-- End #main -->
-    {{-- scroll to forget password section --}}
     <script type="text/javascript">
         document.getElementById("forget-pass").scrollIntoView();
     </script>
