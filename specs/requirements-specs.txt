@@ -53,14 +53,20 @@ Lavaza restaurants website
                 -update menu items image*-
         
             -Admin add update and remove website's contents--
-            -admin set online selling opening hours--
-            -Admin update sms notofication settings--
+            -admin set website online shop off and on--
+
+            -Live orders page
+                -Admin sees live pending and incoming orders--
+                -Admin can print pending orders--
+                -Admin cancels and remove a pending orders--
+                -Admin can see removed and canceled orders--
 
         I- Text message notification for the following features:--
             -User account registration and activation
             -send forget/reset passowrd code
             -receive forget/reset password confirmation
             -confirmation of order and payment 
+            -cancelation of order notification to email/phone
 
 
         
