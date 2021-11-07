@@ -11,3 +11,5 @@
 
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 
+
+-tests on live server
