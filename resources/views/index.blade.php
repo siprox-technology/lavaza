@@ -189,7 +189,7 @@
                         <div class="col-lg-4 bg-light col-md-6 info text-right">
                             <i class="icofont-google-map"></i>
                             <h4>ادرس</h4>
-                            <p>خیابان فرهاد ۲۰ پلاک ۸۵<br>مشهد</p>
+                            <p>خیابان فرهاد ۲۱ پلاک  ۱۲۵<br>مشهد</p>
                         </div>
                         <div class="col-lg-4 bg-light col-md-6 info mt-4 mt-lg-0 text-right">
                             <i class="icofont-clock-time icofont-rotate-90"></i>

@@ -19,7 +19,7 @@
     <!-- ======= Top Bar ======= -->
     <section id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
         <div class="container text-center">
-            <i class="icofont-phone"></i> +۹۸ ۹۳۷۱۳۷۳۹۲۹
+            <i class="icofont-phone"></i> +۹۸ ۹۰۰۰۰۰۰
             <i class="icofont-clock-time icofont-rotate-180"></i> همه روزه از ۱۱ صبح تا ۱۱ شب
         </div>
     </section>
