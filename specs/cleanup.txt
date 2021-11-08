@@ -14,4 +14,4 @@
 
 -tests on live server
 
--
+-databse removed phone number first 0
