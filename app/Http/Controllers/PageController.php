@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Menu;
 use Illuminate\Http\Request;
-/* use Trez\RayganSms\Facades\RayganSms; */
+use Trez\RayganSms\Facades\RayganSms;
 
 class PageController extends Controller
 {
@@ -15,7 +15,7 @@ class PageController extends Controller
         $items = Item::all();
         $menus = Menu::all();
 
-/*         dd(RayganSms::sendMessage('09371373929','Test Message')); */
+/*         dd(RayganSms::sendMessage('09371373929','پیامک جدید')); */
         return view('index')->with(['items'=>$items, 'menus'=>$menus]);
     }
 }
