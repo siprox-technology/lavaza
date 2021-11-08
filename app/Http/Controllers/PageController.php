@@ -15,7 +15,7 @@ class PageController extends Controller
         $items = Item::all();
         $menus = Menu::all();
 
-/*         dd(RayganSms::sendMessage('09371373929','پیامک جدید')); */
+/*         RayganSms::sendMessage('09371373929','4پیامک جدید'); */
         return view('index')->with(['items'=>$items, 'menus'=>$menus]);
     }
 }
