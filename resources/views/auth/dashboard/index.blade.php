@@ -6,6 +6,8 @@
             <div class="container-fluid">
                 <div class="row mx-auto w-100 justify-content-center">
                     <div class="col-lg-5 col-md-7 col-sm-9 d-flex flex-column justify-content-center align-items-stretch border border-warning rounded p-3">
+                       
+                    @if ((auth()->user()->email_verified_at)||(auth()->user()->phone_verified_at))
                         <div class="content text-right">
                             <h3 class="text-center">اطلاعات کاربر</h3>
                             {{-- name --}}
@@ -14,23 +16,9 @@
                             {{-- Email --}}
                             <p class="mb-0">: ایمیل</p>
                             <p class="text-success mb-0">{{auth()->user()->email}}</p>
-                            @if (!auth()->user()->email_verified_at)
-                                <p class="text-danger mb-0">لطفا ایمیل خود را باز کرده و بر روی لینک تایید کلیک کنید</p>
-                                <form action="{{ route('verification.send') }}" method="POST">
-                                    @csrf
-                                    <button type="submit"class="px-1 py-0" >ارسال مجدد لینک تایید</button>
-                                </form>
-                                @if (session('message'))
-                                    <p class="text-success">{{ session('message') }}</p>
-                                @endif
-                            @else
-                                <p class="text-success">ایمیل تایید شده</p>
-                            @endif
-
                             {{-- phone --}}
                             <p class="mt-3 mb-0">تلفن:</p>
                             <p class="text-success">{{ auth()->user()->phone }}</p>
-
                             {{-- Address --}}
                             <p class="mb-0">ادرس:</p>
                             @if (!auth()->user()->address)
@@ -39,7 +27,6 @@
                             @else
                                 <p class="text-success">{{ auth()->user()->address }}</p>
                             @endif
-
                             <div class="row w-100 mx-auto justify-content-center">
                                 {{-- Order history --}}
                                 <a class="btn btn-warning  m-2 " dusk="order_history" href="{{ route('dashboard.order-history.index') }}">سفارشات قبلی</a>
@@ -49,6 +36,56 @@
                                 <a class="btn btn-warning  m-2" dusk="changePassword_link" href="{{ route('forgetPassword.index') }}">تغییر رمز عبور</a>
                             </div>
                         </div>
+                       @else
+                            {{-- send verification sms again --}}
+                            <p class="text-center mb-0">لطفا کد تایید پیامک شده را وارد نمایید</p>
+                            {{-- verify sms verification code --}}
+                            <form action="{{route('SmsVerification.verify')}}" method="POST" class="text-center">
+                                @csrf
+                                <input type="text" name="code" id="" class="@error('code') border border-danger @enderror">
+                                    @error('code')
+                                        <div class="text-danger mt-2">
+                                            کد وارد شده اشتباه است
+                                        </div>
+                                    @enderror
+                                    {{-- sms verification status --}}
+                                    @if (session('status'))
+                                        @if (session('status')=='کد مورد نظر منقضی شده. لطفا دوباره درخواست نمایید')
+                                            <div class="text-center text-danger mt-2">
+                                                {{ session('status') }}
+                                            </div>
+                                        @endif
+                                        @if (session('status')=='کد تایید به شماره شما ارسال شد')
+                                            <div class="text-center text-success mt-2">
+                                                {{ session('status') }}
+                                            </div>
+                                        @endif
+                                        @if (session('status')=='کد تایید به شماره شما ارسال نشد')
+                                            <div class="text-center text-danger mt-2">
+                                                {{ session('status') }}
+                                            </div>
+                                        @endif
+                                    @endif
+                                <button type="submit">تایید</button>
+                            </form>
+
+                            <form action="{{route('SmsVerification.send')}}" method="POST" class="text-center">
+                                @csrf
+                                <input type="hidden" name="phone" value="{{auth()->user()->phone}}">
+                                <button type="submit"class="px-1 py-0" >ارسال مجدد کد تایید</button>
+                            </form>
+
+                            {{-- send verification email again --}}
+                            <p class="text-danger mb-0">لطفا ایمیل خود را باز کرده و بر روی لینک تایید کلیک کنید</p>
+                            <form action="{{ route('verification.send') }}" method="POST">
+                                @csrf
+                                <button type="submit"class="px-1 py-0" >ارسال مجدد لینک تایید</button>
+                            </form>
+                            @if (session('message'))
+                                <p class="text-success">{{ session('message') }}</p>
+                            @endif
+                       @endif
+
                     </div>
 
                 </div>

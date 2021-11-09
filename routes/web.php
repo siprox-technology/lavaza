@@ -33,6 +33,11 @@ Route::post('/register',[RegisterController::class,'store'])->name('register');
 Route::get('/email/verify/{id}/{hash}',[RegisterController::class,'verifyEmail'])->name('verification.verify');
 //resend verification email
 Route::post('/email/verification-notification',[RegisterController::class,'sendVerifyEmail'] )->name('verification.send');
+//verify sms verification
+Route::post('/phone/verification-notification/verify',[RegisterController::class,'VerifySMS'] )->name('SmsVerification.verify');
+//resend sms verification
+Route::post('/phone/verification-notification/resend',[RegisterController::class,'reSendVerifySMS'] )->name('SmsVerification.send');
+
 
 //login logout
 Route::get('/login', [LoginController::class,'index'])->name('login.index');

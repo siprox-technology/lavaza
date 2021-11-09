@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
     {
         User::create(
             [
-            'name' => 'سروش مدرسی',
+            'name' => 'ادمین',
             'email' => 'siproxtech@gmail.com',
             'phone' => rand(11111111,9999999999),
             'role'=>'1',
