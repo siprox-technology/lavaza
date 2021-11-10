@@ -6,7 +6,7 @@
 -links to files for loading speed
 -refresh for changed images menu items
 -get sms system 
--replace sms with email functions - or make confirm email language to persian
+-make confirm email language to persian
 -get payment system
 
 -security

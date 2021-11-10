@@ -4,9 +4,9 @@
 # {{ $greeting }}
 @else
 @if ($level === 'error')
-# @lang('مشکلی پیش امد!')
+# @lang('! مشکلی پیش امد ')
 @else
-# @lang('سلام!')
+# @lang('با سلام')
 @endif
 @endif
 
