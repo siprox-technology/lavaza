@@ -13,7 +13,7 @@ Lavaza restaurants website
         
         B-Users login and logout with forget password email/phone.
 
-            -user login and logout**
+            -user login and logout with phone**
             -user forgot password with email*-
             -user forgot password with phone--
             

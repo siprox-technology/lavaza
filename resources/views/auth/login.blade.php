@@ -21,7 +21,7 @@
                             <h3>ورود به حساب کاربری</h3>
                             <form class="text-left" method="POST" id="login" action="{{ route('login') }} " novalidate>
                                 @csrf
-                                <div class="form-group">
+{{--                                 <div class="form-group">
                                     <input type="email" name="email"
                                         class="form-control  @error('email') border border-danger @enderror 
                                         @error('status') border border-danger @enderror"
@@ -29,6 +29,17 @@
                                     @error('email')
                                         <div class=" text-danger text-right mt-2 ">
                                             {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div> --}}
+                                <div class="form-group">
+                                    <input type="text" name="phone" id="phone" maxlength="11"
+                                        class="form-control  @error('phone') border border-danger @enderror
+                                        @error('status') border border-danger @enderror"
+                                        placeholder="تلفن" value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <div class="text-right text-danger mt-2">
+                                            09** *** **** لطفا شماره را به صورت درست وارد کنید. مثال 
                                         </div>
                                     @enderror
                                 </div>

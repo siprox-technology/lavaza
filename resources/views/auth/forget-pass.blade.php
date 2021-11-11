@@ -13,11 +13,11 @@
                     <div class="col-lg-7 col-sm-7 mx-auto  d-flex order-1 order-lg-2 flex-column justify-content-center align-items-stretch">
 
                         <div class="content">
-                            <h4 class="text-center mt-3">لطفا ایمیل خود را وارد کنید</h4>
+                            <h4 class="text-center mt-3">لطفا ایمیل و شماره تلفن خود را وارد کنید</h4>
                             <div class="row justify-content-center pb-3 w-100 mx-auto">
                                 <a href="{{route('dashboard.index')}}">بازگشت به منوی اصلی</a>
                             </div>
-                            <form class="text-left clearfix" action="{{ route('forgetPassword.email') }}" method="POST" novalidate>
+                            <form class="text-left clearfix" action="{{ route('forgetPassword.send') }}" method="POST" novalidate>
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="email" dusk="email_input"
@@ -26,6 +26,27 @@
                                     @error('email')
                                         <div class="text-danger text-right mt-2">
                                             {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="phone" id="phone" maxlength="11"
+                                        class="form-control  @error('phone') border border-danger @enderror"
+                                        placeholder="تلفن" value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <div class="text-right text-danger mt-2">
+                                           09** *** **** لطفا شماره را به صورت درست وارد کنید. مثال 
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <select name="send_method" class="form-control text-right @error('phone') border border-danger @enderror">
+                                        <option value="0" default class="text-right"> لینک به موبایل پیامک شود</option>
+                                        <option value="1" class="text-right">لینک به ایمیل ارسال شود</option>
+                                    </select>
+                                    @error('phone')
+                                        <div class="text-right text-danger mt-2">
+                                           09** *** **** لطفا شماره را به صورت درست وارد کنید. مثال 
                                         </div>
                                     @enderror
                                 </div>

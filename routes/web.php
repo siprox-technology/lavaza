@@ -47,7 +47,7 @@ Route::get('/logout',[LoginController::class,'logOut'])->name('logout');
 //forget password form
 Route::get('/forgetPassword',[ForgetPasswordController::class,'index'] )->name('forgetPassword.index');
 //send reset password email
-Route::post('/forgetPassword',[ForgetPasswordController::class,'sendResetPassEmail'])->name('forgetPassword.email');
+Route::post('/forgetPassword',[ForgetPasswordController::class,'sendResetPass'])->name('forgetPassword.send');
 //reset password form
 Route::get('/reset-password/{token}',[ForgetPasswordController::class,'showResetPassForm'])->name('password.reset');
 //reset password

@@ -21,7 +21,8 @@
                             </div>
                             @error('email')
                                 <div class="text-right text-danger mt-2">
-                                    لطفا ساختار ایمیل را به درستی وارد کنید
+                                    {{-- لطفا ساختار ایمیل را به درستی وارد کنید --}}
+                                    {{$message}}
                                 </div>
                             @enderror
                             {{-- new password --}}

@@ -15,13 +15,13 @@ class LoginController extends Controller
         //validate user
        $this->validate($request,
             [
-                'email'=>'required|email',
+                'phone'=>'required|digits:11',
                 'password'=>'required'
             ]);
 
-        if(!auth()->attempt($request->only('email','password'),$request->remember))
+        if(!auth()->attempt($request->only('phone','password'),$request->remember))
         {
-            return back()->withErrors(['status'=>'نام کاربری یا رمز عبور اشتباه است']);
+            return back()->withErrors(['status'=>'شماره تلفن یا رمز عبور اشتباه است']);
         }
         //login for admins
         if(auth()->user()->role == 1)

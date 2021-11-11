@@ -1,11 +1,7 @@
-@extends('layouts.app', [
-    'title' => 'Server error happened',
-    'errorCode' => '500',
-    'homeLink' => false,
-])
+@extends('layouts.app')
 @section('content')
     
-<div class="container my-5 py-5" id="error-403">
+<div class="container my-5 py-5 border rounded"  style="background:#35322d;" id="error-403">
     <div class="row mx-auto justify-content-center w-100">
         <h4 class="text-danger">
             لینک مورد نظر منقضی شده. لطفا مجددا از طریق حساب کاربری درخواست لینک کنید

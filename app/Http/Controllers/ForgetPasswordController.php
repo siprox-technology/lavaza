@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
-
+use Trez\RayganSms\Facades\RayganSms;
 class ForgetPasswordController extends Controller
 {
     public function construct()
@@ -19,9 +19,25 @@ class ForgetPasswordController extends Controller
     {
         return view('auth.forget-pass');
     }
-    public function sendResetPassEmail(Request $request)
+    public function sendResetPass(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
+        $request->validate([
+            'email'=>'required|email',
+            'phone'=>'required|digits:11',
+            'send_method'=>'required|digits:1'
+        ]);
+        
+        /* user selected sms to receive the link */
+        if($request->send_method == 0)
+        {
+            //creat sms link and send it to user phone
+            $sms_link = route('password.reset',Password::createToken(Password::getUser($request->only('email','phone'))));
+            if(RayganSms::sendMessage($request->phone,$sms_link))
+            {
+                return back()->with(['status'=>'لینک تغییر رمز عبور به شماره موبایل شما پیامک شد']);
+            }
+            return back()->with(['status'=>'ارسال لینک با مشکل مواجه شد. لطفا مجددا تلاش کنید']);
+        }
         $status = Password::sendResetLink(
             $request->only('email')
         );

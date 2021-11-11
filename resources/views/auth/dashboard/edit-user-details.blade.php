@@ -48,8 +48,8 @@
                                             class="form-control  @error('phone') border border-danger @enderror"
                                             value="{{ auth()->user()->phone }}">
                                         @error('phone')
-                                            <div class=" text-danger mt-2">
-                                                تلفن ۱۱ رقم و به اعداد انگلیسی باشد
+                                            <div class="text-right text-danger mt-2">
+                                                09** *** **** لطفا شماره را به صورت درست وارد کنید. مثال 
                                             </div>
                                         @enderror
                                     </div>
@@ -68,7 +68,7 @@
                                     {{-- user id --}}
                                     {{-- <input type="hidden" name="user_id" value="{{$user->id}}"> --}}
                                     <div class="text-center my-2">
-                                        <button type="submit" dusk="update_btn" class="btn btn-primary">Update</button>
+                                        <button type="submit" dusk="update_btn" class="btn btn-primary">ویرایش</button>
                                     </div>
                                 </form>
                             </div>

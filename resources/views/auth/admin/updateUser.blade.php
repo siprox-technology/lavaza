@@ -47,8 +47,8 @@
                                             class="form-control  @error('phone') border border-danger @enderror"
                                             value="{{ $user->phone }}">
                                         @error('phone')
-                                            <div class=" text-danger mt-2">
-                                                *تلفن ۱۱ رقم و به اعداد انگلیسی باشد
+                                            <div class="text-right text-danger mt-2">
+                                                09** *** **** لطفا شماره را به صورت درست وارد کنید. مثال 
                                             </div>
                                         @enderror
                                     </div>

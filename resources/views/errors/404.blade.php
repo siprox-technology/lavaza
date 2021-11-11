@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     
-<div class="container my-5 py-5 border rounded"  style="background:#35322d;" id="error-419">
+<div class="container my-5 py-5 border rounded" id="error-404"  style="background:#35322d;">
     <div class="row mx-auto justify-content-center w-100">
         <h4 class="text-danger">
             صفحه مورد نظر یافت نشد 
@@ -9,11 +9,11 @@
     </div>
     <div class="row mx-auto justify-content-center w-100 mt-5">
         <h4 class="text-success">
-            <a href="{{URL::previous()}}" class="btn btn-warning">بازشگت به صفحه قبل</a>
+            <a href="{{route('home')}}" class="btn btn-warning"> بازشگت به خانه</a>
         </h4>
     </div>
 </div>
 <script type="text/javascript">
-    document.getElementById("error-419").scrollIntoView();
+    document.getElementById("error-404").scrollIntoView();
 </script>
 @endsection
