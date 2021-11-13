@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2021 at 10:38 AM
+-- Generation Time: Nov 13, 2021 at 09:34 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -183,6 +183,15 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('mshadow73@gmail.com', '$2y$10$Ld9kTFedhtSJZducascdLuNv97XBTZNCsdd3cxqfj0Ux41Q4oDGb2', '2021-11-11 05:49:06'),
+('integralproject1988@gmail.com', '$2y$10$orpdGvHNR82uyNiyJ1l4EeysjKnFFVZ.lhWF79XAMGe1fVvewm5Ma', '2021-11-13 06:31:41'),
+('test@gmail.com', '$2y$10$k2TAp1ZXRAML2ir02mhvy.GzXwlsMTuNKyL2v.p0DFxnHvVxdigPO', '2021-11-13 07:18:36');
+
 -- --------------------------------------------------------
 
 --
@@ -229,7 +238,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `address`, `role`, `passwor
 (1, 'ادمین', 'siproxtech@gmail.com', '6799731454', NULL, 1, '$2y$10$G5mJoeEtQju6qOQ9wxymW.T.XH.1XGUdhbtuM6lWkDudm3LWY6BOq', NULL, NULL, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
 (2, 'نکیسا رهنورد', 'email@email.com', '8967469108', NULL, 0, '$2y$10$oqPEhEI6geCN7mm4xYi1mutzQlaGgdk4ZnUJY4AEruplXPB7Swcwm', NULL, NULL, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
 (3, 'احمد احمدی', 'ahmad@email.com', '8020162101', NULL, 0, '$2y$10$3INBF3IBO1OKdgvWhFPvKudtm195xjd7TGkrn5.dqpHVtZgf3nsL2', NULL, NULL, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(4, 'مهران زاهدی', 'mshadow73@gmail.com', '4529142349', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, '$2y$10$AcF/Bbx2U5XAKSjJl7qBIuS91OCzp9RvAdK/CH41q5emVpyCLyN4i', NULL, NULL, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04');
+(4, 'مهران زاهدی', 'mshadow73@gmail.com', '45291423491', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, '$2y$10$AcF/Bbx2U5XAKSjJl7qBIuS91OCzp9RvAdK/CH41q5emVpyCLyN4i', '2021-11-11 05:48:37', NULL, NULL, '2021-11-09 07:10:04', '2021-11-11 05:48:37'),
+(14, 'احمدی نام', 'soroosh_66m@yahoo.com', '11111111111', NULL, 0, '$2y$10$CpxV7RmmwUohM2UuADPdaenHcrmjQcv5p/6uAV1WmVLjeCmAN7.LO', '2021-11-11 06:08:49', NULL, NULL, '2021-11-11 06:08:38', '2021-11-11 06:10:52'),
+(15, 'سروش مدرسی', 'integralproject1988@gmail.com', '09371373929', NULL, 0, '$2y$10$3HjvZrcM13wrBKgznRXZJ..7mmn9hZj01uGMOOCI0UxEf1/VCY8cC', '2021-11-11 08:39:56', NULL, NULL, '2021-11-11 08:36:59', '2021-11-11 08:39:56');
 
 --
 -- Indexes for dumped tables
@@ -344,7 +355,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
