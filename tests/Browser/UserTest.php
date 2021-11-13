@@ -86,7 +86,7 @@ class UserTest extends DuskTestCase
                         ->type('@email_input', 'test@gmail.com')
                         ->type('phone','09937736723')->select('@send_method_select','0')
                         ->press('@submit_btn')
-                        ->assertSee('لینک تغییر رمز عبور به شماره موبایل شما پیامک شد')
+                        ->assertSee('لینک تغییر رمز عبور تا چند دقیقه دیگر به شماره موبایل شما پیامک خواهد شد')
                         ->click('@Logout')->assertPathIs('/');
             });
         }

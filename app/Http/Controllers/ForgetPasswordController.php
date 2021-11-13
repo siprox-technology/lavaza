@@ -34,7 +34,7 @@ class ForgetPasswordController extends Controller
             $sms_link = route('password.reset',Password::createToken(Password::getUser($request->only('email','phone'))));
             if(RayganSms::sendMessage($request->phone,$sms_link))
             {
-                return back()->with(['status'=>'لینک تغییر رمز عبور به شماره موبایل شما پیامک شد']);
+                return back()->with(['status'=>'لینک تغییر رمز عبور تا چند دقیقه دیگر به شماره موبایل شما پیامک خواهد شد']);
             }
             return back()->with(['status'=>'ارسال لینک با مشکل مواجه شد. لطفا مجددا تلاش کنید']);
         }

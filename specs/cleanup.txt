@@ -7,6 +7,8 @@
 -refresh for changed images menu items
 -get payment system
 
+-validate phone number structure
+
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 
 
