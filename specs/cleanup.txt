@@ -5,13 +5,10 @@
 
 -links to files for loading speed
 -refresh for changed images menu items
--get sms system 
--make confirm email language to persian
 -get payment system
 
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 
 
--tests on live server
-
--databse removed phone number first 0
+-errors
+   -time out error for sending sms

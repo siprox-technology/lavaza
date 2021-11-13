@@ -56,11 +56,12 @@ class ForgetPasswordController extends Controller
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
+            'phone'=>'required|digits:11',
             'password' => 'required|confirmed',
         ]);
     
         $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
+            $request->only('email','phone', 'password', 'password_confirmation', 'token'),
             function ($user, $password) use ($request) {
                 $user->forceFill([
                     'password' => Hash::make($password)

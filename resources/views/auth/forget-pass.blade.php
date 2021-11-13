@@ -30,7 +30,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="phone" id="phone" maxlength="11"
+                                    <input type="text" name="phone" id="phone" maxlength="11" dusk="phone_input"
                                         class="form-control  @error('phone') border border-danger @enderror"
                                         placeholder="تلفن" value="{{ old('phone') }}">
                                     @error('phone')
@@ -40,15 +40,10 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <select name="send_method" class="form-control text-right @error('phone') border border-danger @enderror">
+                                    <select name="send_method" dusk="send_method_select" class="form-control text-right @error('send_method') border border-danger @enderror">
                                         <option value="0" default class="text-right"> لینک به موبایل پیامک شود</option>
                                         <option value="1" class="text-right">لینک به ایمیل ارسال شود</option>
                                     </select>
-                                    @error('phone')
-                                        <div class="text-right text-danger mt-2">
-                                           09** *** **** لطفا شماره را به صورت درست وارد کنید. مثال 
-                                        </div>
-                                    @enderror
                                 </div>
                                 @if (session('status'))
                                     <div class="text-success my-2 text-center">
