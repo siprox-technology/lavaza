@@ -51,42 +51,40 @@
                                             کد وارد شده اشتباه است
                                         </div>
                                     @enderror
-                                    {{-- sms verification status --}}
-                                    @if (session('status'))
-                                        @if (session('status')=='کد مورد نظر منقضی شده. لطفا دوباره درخواست نمایید')
-                                            <div class="text-center text-danger mt-2">
-                                                {{ session('status') }}
-                                            </div>
-                                        @endif
-                                        @if (session('status')=='کد تایید به شماره شما ارسال شد')
-                                            <div class="text-center text-success mt-2">
-                                                {{ session('status') }}
-                                            </div>
-                                        @endif
-                                        @if (session('status')=='کد تایید به شماره شما ارسال نشد')
-                                            <div class="text-center text-danger mt-2">
-                                                {{ session('status') }}
-                                            </div>
-                                        @endif
-                                    @endif
                                 <button type="submit">تایید</button>
                             </form>
-
                             <form action="{{route('SmsVerification.send')}}" method="POST" class="text-center">
                                 @csrf
                                 <input type="hidden" name="phone" value="{{auth()->user()->phone}}">
-                                <button type="submit"class="px-1 py-0" >ارسال مجدد کد تایید</button>
+                                <button type="submit"class="px-2 py-1" >ارسال مجدد کد تایید</button>
                             </form>
-
+                            {{-- sms verification status --}}
+                            @if (session('status'))
+                                @if (session('status')=='کد مورد نظر منقضی شده. لطفا دوباره درخواست نمایید')
+                                    <div class="text-center text-danger mt-1">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                @if (session('status')=='کد تایید به شماره شما ارسال شد')
+                                    <div class="text-center text-success mt-1">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                @if (session('status')=='کد تایید به شماره شما ارسال نشد')
+                                    <div class="text-center text-danger mt-1">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                            @endif
                             {{-- send verification email again --}}
-                            <p class="text-center mb-0">در صورت تمایل میتوانید با کلیک بر روی لینک ارسال شده به ایمیل حساب خود را فعال سازی کنید</p>
+                            <p class="text-center mb-0 mt-4">در صورت تمایل میتوانید با کلیک بر روی لینک ارسال شده به ایمیل حساب خود را فعال سازی کنید</p>
                             <form action="{{ route('verification.send') }}" method="POST" class="text-center">
                                 @csrf
-                                <button type="submit"class="px-1 py-0" >ارسال مجدد لینک تایید</button>
+                                <button type="submit"class="px-2 py-1 mt-1" >ارسال مجدد لینک تایید</button>
                             </form>
                             @if (session('message'))
                                 @if (session('message')=='لینک تایید به ایمیل شما ارسال شد')
-                                    <p class="text-success text-center">{{ session('message') }}</p>
+                                    <p class="text-success text-center mt-1">{{ session('message') }}</p>
                                 @endif
                             @endif
                        @endif
