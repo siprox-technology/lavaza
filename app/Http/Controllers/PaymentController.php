@@ -84,7 +84,7 @@ class PaymentController extends Controller
         if(auth()->user())
         {
             //email order confirmation to user
-            Mail::to('integrlproject1988@gmail.com')->
+            Mail::to(auth()->user()->email)->
             send(new OrderConfirmed($request_payment,$order->id));
         }
         //send order confirmation text to user
