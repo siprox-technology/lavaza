@@ -5,29 +5,26 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\Payment;
+use App\Mail\OrderConfirmed;
 use App\Models\Order_item;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
+use Trez\RayganSms\Facades\RayganSms;
 
 class PaymentController extends Controller
 {
     public function attemp_payment(Request $request)
     { 
-        if(! auth()->user())
-        {
-            //validate name, email/phone
-            $this->validate($request,[
-                'name'=>'required|string|max:50|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]+$)/',
-                'email'=>'required|email|max:150|regex:/([a-z,A-Z]+$)/',
-            ]);
-        }
-        //validate delivery_price, address
+
+        //validate delivery_price, address name,phone
         $this->validate($request,[
+            'name'=>'required|string|max:50|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی]+$)/',
+            'phone'=>'required|digits:11',
             'address'=>'required|string|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی 1234567890]+$)/',
             'delivery_price'=>'required|between:0,25.00',
         ]);
-
 
         //retrive cart from session
         $cart = Session::get('cart');
@@ -38,31 +35,29 @@ class PaymentController extends Controller
         "amount" => $total_price,
         "callback_url" => "/payment-result",
         "description" => "خرید تست",
-        "metadata" => [ "email" => ((auth()->user())?auth()->user()->email:$request->email),"mobile"=>"09121234567"],
+        "metadata" => [ "email" => ((auth()->user())?auth()->user()->email:null),"mobile"=>$request->phone],
         );
 
-    
         //attemp payment
         $request_payment = $this->request_payment($payment_data);
           
         //if payment failed
         if($request_payment['status']==false)
         {
-            return redirect()->route('payment.payment_result',['payment_data'=>$request_payment]);
+            //do something
         }
+
         //if payment is successfull 
         //create order and order items and save to DB
-        $order = Order::create(
-            [
+        $order = Order::create([
                 'user_id' =>((auth()->user())?auth()->user()->id:null),
-                'email' =>((auth()->user())?auth()->user()->email:$request->email),
-                'phone'=>null,
+                'email' =>((auth()->user())?auth()->user()->email:null),
+                'phone'=>(auth()->user())?auth()->user()->phone:$request->phone,
                 'delivery_address' =>$request->address,
                 'delivery_price'=>(($request->delivery_price)!=0?$cart->delivery_price:0),
                 'total_price' =>$total_price,
                 'notes'=>$cart->notes
-            ]
-            );
+            ]);
 
         foreach($cart->items as $item)
         {
@@ -84,11 +79,21 @@ class PaymentController extends Controller
         ]);
         //delete cart
         Session::forget('cart');
-        //SMS or email user
+
+        //SMS and/or email user
+        if(auth()->user())
+        {
+            //email order confirmation to user
+            Mail::to('integrlproject1988@gmail.com')->
+            send(new OrderConfirmed($request_payment,$order->id));
+        }
+        //send order confirmation text to user
+        $confirmation_text = ' سفارش شما به شماره '.$order->id.' با مبلغ '.number_format($request_payment['amount'],0).' '.'تومان با موفقیت ثبت شد. با تشکر رستوران لاوازا  ';
+        RayganSms::sendMessage((auth()->user())?auth()->user()->phone:$request->phone,$confirmation_text);
 
         //return to order result page with payment and order info
         return redirect()->route('payment.payment_result',['payment_data'=>$request_payment,'order_id'=>$order->id]);
-        //return back with errors
+
     }
 
     private function request_payment($data)
@@ -106,12 +111,10 @@ class PaymentController extends Controller
             "payment_ref" =>"545asdsda2s12121asds2",
             "date_time" =>  Jalalian::fromDateTime(Carbon::now()->toDateTimeString())->toString()
         );
+        
         //payment failed
-/*         $result = array(
-            "status"=>false,
-            "message"=>"موجودی کارت کافی نیست"
-            Jalalian::fromDateTime($menu->created_at)->toString();
-        ); */
+        //do something
+
         return $result;
     }
 

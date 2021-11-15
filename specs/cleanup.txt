@@ -1,4 +1,6 @@
--styles images and fonts
+-style 
+   -images and fonts
+   -cart item images margin and padding for drinks items
 -clean html
 -english to persian
 

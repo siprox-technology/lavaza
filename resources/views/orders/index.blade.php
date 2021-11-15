@@ -27,7 +27,7 @@
                                         <span class="w-100">: نام</span>
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-10">
-                                        <input type="text" dusk="name" name="name"
+                                        <input type="text" dusk="name" name="name" value="{{ old('name') }}"
                                             class=" w-100 text-right @error('name') border-danger @enderror">
                                         @error('name')
                                             <div class=" text-danger text-right">
@@ -36,14 +36,15 @@
                                         @enderror
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
-                                        <span class="w-100">: ایمیل</span>
+                                        <span class="w-100">: تلفن</span>
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
-                                        <input type="text" name="email" dusk="email"
-                                            class="w-100 text-right @error('email') border-danger @enderror">
-                                        @error('email')
-                                            <div class=" text-danger text-right">
-                                                لطفا ساختار ایمیل را به درستی وارد کنید
+                                        <input type="text" name="phone" id="phone" maxlength="11" dusk="phone"
+                                            class="w-100 text-right  @error('phone') border-danger @enderror"
+                                            value="{{ old('phone') }}">
+                                        @error('phone')
+                                            <div class="text-right text-danger mt-2">
+                                                09** *** **** لطفا شماره را به صورت صحیح وارد کنید 
                                             </div>
                                         @enderror
                                     </div>
@@ -51,7 +52,7 @@
                                         <span class="w-100">: ادرس</span>
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
-                                        <textarea name="address" rows="3" cols="25" dusk="address" maxlength="512"
+                                        <textarea name="address" rows="3" cols="25" dusk="address" maxlength="512"  value="{{ old('address') }}"
                                              class=" w-100 text-right @error('address') border-danger @enderror"></textarea>
                                         @error('address')
                                             <div class=" text-danger text-right">
@@ -101,15 +102,21 @@
                                         <span class="w-100">: نام</span>
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
-                                            <input type="text" name="name" class="w-100 text-right"disabled 
+                                            <input type="text" name="name" class="w-100 text-right" 
                                                 value="{{ auth()->user()->name }}">
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
-                                        <span class="w-100">: ایمیل</span>
+                                        <span class="w-100">: تلفن</span>
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
-                                        <input type="text" class="w-100 text-right" name="email" disabled 
-                                        value="{{ auth()->user()->email }}">
+                                        <input type="text" name="phone" id="phone" maxlength="11" dusk="phone"
+                                            class="w-100 text-right  @error('phone') border-danger @enderror"
+                                            value="{{ auth()->user()->phone }}">
+                                        @error('phone')
+                                            <div class="text-right text-danger mt-2">
+                                                09** *** **** لطفا شماره را به صورت صحیح وارد کنید 
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
                                         <span class="w-100">: ادرس</span>
@@ -153,7 +160,7 @@
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mt-2 mx-auto mb-3">
                                         <div class="row">
-                                            <button type="submit" class="mx-auto" id='guest_payment_btn' dusk="guest_payment_btn">پرداخت</button>
+                                            <button type="submit" class="mx-auto" id='user_payment_btn' dusk="user_payment_btn">پرداخت</button>
                                         </div>
                                     </div>
                                 @endauth

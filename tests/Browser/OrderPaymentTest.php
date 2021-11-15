@@ -17,7 +17,7 @@ class OrderPaymentTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->assertPathIs('/order')
             ->type('@name',' نایین جمشید ازکنی')
-            ->type('@email','jamshid@gmail.com')
+            ->type('@phone','09371373929')
             ->type('@address','سپاهان ۲ پلان ۹۶')
             ->press('@guest_payment_btn')
             ->assertPathIs('/payment-result')
@@ -30,7 +30,7 @@ class OrderPaymentTest extends DuskTestCase
         $this->browse(function ($browser){
             $browser->visit('/')->visit('/login')
             ->assertSee('ورود')
-                    ->type('email', 'mshadow73@gmail.com')
+                    ->type('phone', '09371373929')
                     ->type('password', '1111')
                     ->press('ورود')
                     ->assertPathIs('/dashboard');
@@ -52,7 +52,7 @@ class OrderPaymentTest extends DuskTestCase
         $this->browse(function ($browser){
             $browser->visit('/')->visit('/login')
             ->assertSee('ورود')
-                    ->type('email', 'mshadow73@gmail.com')
+                    ->type('phone', '09371373929')
                     ->type('password', '1111')
                     ->press('ورود')
                     ->assertPathIs('/dashboard')
@@ -66,10 +66,8 @@ class OrderPaymentTest extends DuskTestCase
                     ->assertSee('آدرس')
                     ->assertSee('تومان')->assertSee('124,750');
         });
-        $this->assertEquals(true,DB::table('orders')->where('total_price','=','124750')
-        ->where('email','=','jamshid@gmail.com')->delete());
-        $this->assertEquals(true,DB::table('orders')->where('total_price','=','124750')
-        ->where('email','=','mshadow73@gmail.com')->delete());
+        $this->assertEquals(2,DB::table('orders')->where('total_price','=','124750')
+        ->where('phone','=','09371373929')->delete());
     }
 
 }

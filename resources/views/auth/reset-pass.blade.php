@@ -33,7 +33,7 @@
                                     value="{{ old('phone') }}">
                                 @error('phone')
                                     <div class="text-right text-danger mt-2">
-                                       09** *** **** لطفا شماره را به صورت درست وارد کنید. مثال 
+                                       09** *** **** لطفا شماره را به صورت صحیح وارد کنید 
                                     </div>
                                 @enderror
                             </div>
