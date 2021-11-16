@@ -43,7 +43,7 @@
                                     @enderror
                                     {{-- phone --}}
                                     <div class="form-group text-right mb-1">
-                                        <label class="mt-2 mb-1" for="contact_pref">: تلفن</label>
+                                        <label class="mt-2 mb-1" for="contact_pref">: موبایل</label>
                                         <input type="text" dusk="phone_input" name="phone" id="phone" maxlength="11"
                                             class="form-control  @error('phone') border border-danger @enderror"
                                             value="{{ auth()->user()->phone }}">

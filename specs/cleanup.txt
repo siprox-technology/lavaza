@@ -1,18 +1,16 @@
 -style 
    -images and fonts
    -cart item images margin and padding for drinks items
--clean html
--english to persian
+   -clean html
+   -english to persian
 
 
--links to files for loading speed
--refresh for changed images menu items
--get payment system
-
--validate phone number structure
+-performance
+   -links to files for loading speed
 
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 
 
 -errors
    -time out error for sending sms
+   -refresh for changed images menu items

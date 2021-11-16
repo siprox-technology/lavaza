@@ -36,7 +36,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
-                                        <span class="w-100">: تلفن</span>
+                                        <span class="w-100">: موبایل</span>
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <input type="text" name="phone" id="phone" maxlength="11" dusk="phone"
@@ -106,7 +106,7 @@
                                                 value="{{ auth()->user()->name }}">
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1 text-right">
-                                        <span class="w-100">: تلفن</span>
+                                        <span class="w-100">: موبایل</span>
                                     </div>
                                     <div class="col-sm-8 col-md-11 col-lg-10 mx-auto mt-1">
                                         <input type="text" name="phone" id="phone" maxlength="11" dusk="phone"

@@ -17,7 +17,7 @@
                                 <p class="mb-0">: ایمیل</p>
                                 <p class="text-success mb-0">{{auth()->user()->email}}</p>
                                 {{-- phone --}}
-                                <p class="mt-3 mb-0">: تلفن</p>
+                                <p class="mt-3 mb-0">: موبایل</p>
                                 <p class="text-success">{{ auth()->user()->phone }}</p>
                                 {{-- account status --}}
                                 <p class="mt-3 mb-0">: حساب کاربری</p>

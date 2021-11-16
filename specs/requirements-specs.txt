@@ -5,7 +5,7 @@ Lavaza restaurants website
 
     -Product Features:
 
-        A-Users registration and activation with email/phone. S-
+        A-Users registration and activation with email/phone.
         
             -user registration with email **
             -user account activation with email **
@@ -68,4 +68,4 @@ Lavaza restaurants website
             -cancelation of order notification to email/phone
 
 
-        
+        J-get payment system

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             [
             'name' => 'ادمین',
             'email' => 'siproxtech@gmail.com',
-            'phone' => rand(11111111,9999999999),
+            'phone' => '09999999999',
             'role'=>'1',
             'password' => Hash::make('1111'), // password
             ]
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             [
             'name' => 'نکیسا رهنورد',
             'email' => 'email@email.com',
-            'phone' => rand(11111111,9999999999),
+            'phone' => rand(11111111111,9999999999),
             'password' => Hash::make('1111'), // password
             ]
         );
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             [
             'name' => 'احمد احمدی',
             'email' => 'ahmad@email.com',
-            'phone' => rand(11111111,9999999999),
+            'phone' => rand(11111111111,9999999999),
             'password' => Hash::make('1111'), // password
             ]
         );
@@ -46,7 +46,16 @@ class UserSeeder extends Seeder
             [
             'name' => 'مهران زاهدی',
             'email' => 'mshadow73@gmail.com',
-            'phone' => rand(11111111,9999999999),
+            'phone' => rand(11111111111,9999999999),
+            'password' => Hash::make('1111'), // password
+            'address' =>'بولوار دانشجو ۴۵ پلاک ۶۷۵'
+            ]
+        );
+        User::create(
+            [
+            'name' => 'سروش مدرسی',
+            'email' => 'integralproject1988@gmail.com',
+            'phone' => '09371373929',
             'password' => Hash::make('1111'), // password
             'address' =>'بولوار دانشجو ۴۵ پلاک ۶۷۵'
             ]

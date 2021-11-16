@@ -198,7 +198,7 @@
                         </div>
                         <div class="col-lg-4 bg-light col-md-6 info mt-4 mt-lg-0 text-right">
                             <i class="icofont-phone"></i>
-                            <h4>تلفن</h4>
+                            <h4>موبایل</h4>
                             <p>+۹۸ ۹۳۷۱۳۷۳۹۲۹</p>
                         </div>
                     </div>

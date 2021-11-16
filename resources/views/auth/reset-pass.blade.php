@@ -27,7 +27,7 @@
 
                             {{-- phone --}}
                             <div class="form-group text-right">
-                                <label class="mt-2 mb-1" >: تلفن</label>
+                                <label class="mt-2 mb-1" >: موبایل</label>
                                 <input type="text" name="phone" id="phone" maxlength="11"
                                     class="form-control  @error('phone') border border-danger @enderror"
                                     value="{{ old('phone') }}">

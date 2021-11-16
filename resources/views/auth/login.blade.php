@@ -36,7 +36,7 @@
                                     <input type="text" name="phone" id="phone" maxlength="11"
                                         class="form-control  @error('phone') border border-danger @enderror
                                         @error('status') border border-danger @enderror"
-                                        placeholder="تلفن" value="{{ old('phone') }}">
+                                        placeholder="موبایل" value="{{ old('phone') }}">
                                     @error('phone')
                                         <div class="text-right text-danger mt-2">
                                             09** *** **** لطفا شماره را به صورت صحیح وارد کنید 

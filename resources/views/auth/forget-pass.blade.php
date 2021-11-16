@@ -13,7 +13,7 @@
                     <div class="col-lg-7 col-sm-7 mx-auto  d-flex order-1 order-lg-2 flex-column justify-content-center align-items-stretch">
 
                         <div class="content">
-                            <h4 class="text-center mt-3">لطفا ایمیل و شماره تلفن خود را وارد کنید</h4>
+                            <h4 class="text-center mt-3">لطفا ایمیل و شماره موبایل خود را وارد کنید</h4>
                             <div class="row justify-content-center pb-3 w-100 mx-auto">
                                 <a href="{{route('dashboard.index')}}">بازگشت به منوی اصلی</a>
                             </div>
@@ -32,7 +32,7 @@
                                 <div class="form-group">
                                     <input type="text" name="phone" id="phone" maxlength="11" dusk="phone_input"
                                         class="form-control  @error('phone') border border-danger @enderror"
-                                        placeholder="تلفن" value="{{ old('phone') }}">
+                                        placeholder="موبایل" value="{{ old('phone') }}">
                                     @error('phone')
                                         <div class="text-right text-danger mt-2">
                                            09** *** **** لطفا شماره را به صورت صحیح وارد کنید 

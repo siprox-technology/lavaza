@@ -42,7 +42,7 @@
                                     </div>
                                     {{-- phone --}}
                                     <div class="form-group text-left mb-0">
-                                        <label class="mt-2 mb-0" for="contact_pref"><b>تلفن:</b></label>
+                                        <label class="mt-2 mb-0" for="contact_pref"><b>موبایل:</b></label>
                                         <input type="text" name="phone" id="phone" maxlength="11"
                                             class="form-control  @error('phone') border border-danger @enderror"
                                             value="{{ $user->phone }}">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2021 at 09:34 AM
+-- Generation Time: Nov 16, 2021 at 09:48 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lavaza-test`
+-- Database: `siproxte_lavaza`
 --
 
 -- --------------------------------------------------------
@@ -61,29 +61,29 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `menu_id`, `name`, `name_fa`, `ingredients`, `ingredients_fa`, `price`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Sampler', 'سمپلر', 'Beef nachos with tomatos chicken quesadilas and chicken flautas on a bed of lettuce with cheese sauce, sour cream and guacamore', 'ناچو گوشت گوساله به همراه فیله مرغ کاهو و سس پنیر', 33250, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(2, 1, 'Guacamalo Mexicano', 'گواکامالو مکزیکو', 'Avocado, Tomatos, jalapeno, Coriander, Lime', 'اووکادوو گوجه فرنگی هالوپینو کوریاندر لیمو', 21250, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(3, 1, 'Buffalo Wings', 'بوفالو وینگز', 'Chicken wings, Hot sauce, Butter, Vinegar, Paprika, Ground chili', 'بال مرغ سس چیلی سرکه پاپریکا فلفل سیاه', 36500, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(4, 1, 'Chicken Fingers', 'چیکن فینگرز', 'Chicken breast, Cheese, Bread crums, eggs', 'سینه مرغ پنیر تخم مرغ پوره تست', 36500, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(5, 1, 'Stuffed Jalapenos', 'هالوپینو کبابی', 'Jalapeno, Onlion, Cream cheese', 'هالوپینو پیاز پنیر خامه ای', 21000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(6, 1, 'Texas Dip', 'دیپ تگزاس', 'A rich blend of grilled schrimp, Beef, Chicken, Special salsa', 'مخلوطی از میگو گریل شده گوشت گاو گوشت مرغ سالسای مخصوص', 23000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(7, 1, 'Chicken Dip', 'دیپ مرغ', 'Original red hot sauce, Sour cream, Cream cheese, Cheddar cheese, Green onion', 'سس قرمز چیلی خامه پنیر خامه ای پنیر چدار پیاز', 19000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(8, 2, 'Secar Salad', 'سالاد سزار', 'Lettuce, Parmesan cheese, Crisp croutons, Salad dressing', 'کاهو پنیر پارمسان کروتون سس سزار', 35000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(9, 2, 'Four Seasons Super Salad', 'سوپر سالاد فصل', 'Brown rice, Broccoli, Green shallot(s), Carrot, coarsely grated, Olive oil, Lemon juice, Avocado, Reduced fat feta cheese', 'برنج بروکلی پیازچه هویج روغن زیتون اووکادو پنیر فتا', 28000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(10, 2, 'Frech Fries', 'سیب زمینی', 'Fresh potatoes, Vinegar, Salt', 'سیب زمینی تازه به هراه سرکه و نمک', 25000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(11, 3, 'Coca cola can', 'نوشابه کوکا قوطی', '330 ml', '۳۳۰ میلی', 8500, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(12, 3, 'Sprite can', 'نوشابه اسپرایت قوطی', '330 ml', '۳۳۰ میلی', 8500, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(13, 3, 'Fanta can', 'نوشابه فانتا قوطی', '330 ml', '۳۳۰ میلی', 8500, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(14, 4, 'Beef Burger', 'بیف برگر', 'Beef, Onions, Tomatoes, Lettuce, Ketchup, Mayo, Mustard', 'گوشت گوساله گوجه فرنگی کاهو کچاپ مایونز سس خردل', 85000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(15, 4, 'Spicy Tandoori', 'تاندوری برگر اسپایسی', 'Tandoori Chicken, Chedder Cheese, Grilled Onion, & Tomatoes, Lettuce, Pickles, Garlic Sauce, Mayo', 'مرغ تاندوری پنیر چدار پیاز گریل شده و چوجه فرنگی کاهو خیار شور سس سیر مایونز', 95000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(16, 4, 'Cheese Burger', 'چیز برگر', 'Beef Patty, Cheddar Cheese, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo,', 'گوشت گوساله پنیر چدار پیاز و گوجه تنوری خیار شور کاهو کچاپ مایونز خردل', 90000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(17, 4, 'Spicy Buffalo', 'بوفالو برگر اسپایسی', 'Crispy Chicken, Mozza Cheese, Grilled Onion & Tomatoes, Lettuce, Garlic Sauce, Buffalo Sauce, Mayo', 'مرغ سوخاری برشته پنیر موزا پیاز و گوجه گریل شده کاهو سس سیر سس بوفالو مایونز', 75000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(18, 4, 'Beef bacon', 'بیف بیکن برگر', 'Beef Patty, Chedder Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard', 'گوشت گوساله پنیر چدار بیکن پیاز و گوجه کریل شده خیار شور کاهو کچاپ مایونز خردل', 105000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(19, 4, 'BBQ Chicken', 'باربکیو چیکن', 'Grilled chicken, Mozza Cheese, Grilled Onlion, Lettuce, Mayo, BBQ Sauce', 'مرغ گریل شده پنیر موزا کاهو مایونز سس باربکیو', 75000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(20, 4, 'Creamy Mushroom', 'برگر قارچ خامه ای', 'Beef Patty, Cream of Musgroom, Mozza Cheese, Grilled Onions, Mayo', '‌گوشت گوساله قارچ خامه ای پنیر موزا پیاز گریل شده مایونز', 104000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(21, 4, 'Crispy Chicken', 'کریسپی چیکن', 'Crispy Chicken, Cheddar Cheese, Grilled Onion & Tomatoes, Lettuce, Pickles, Garlic Sauce, Mayo, Chipotle Sauce', ' مرغ سوخاری برشته پنیر چدار پیاز و گوجه گریل شده کاهو خیارشور سس سیر مایونز سس سس چیپوتل', 90000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(22, 4, 'Hawaiian Burger', 'برگر هاوایی', 'Beef Patty, Grilled Pineapple Mozza, Cheese, Onions, Tomatoes, Lettuce, Mayo, BBQ Sauce', 'گوشت گوساله اناناس گریل شده پنیر موزا پیاز چوجه فرنگی کاهو مایونز سس باربکیو', 120000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(23, 4, 'Chicken Paradise', 'چیکن پارادایس', 'Grilled Chicken, Mozza Cheese, Grilled Pineapple, Lettuce, Onions, Jalapenos, Mayo, Garlic Sauce', 'مرغ کریسپی پنیر موزا اناناس گریل شده کاهو پیاز هالوپینو مایونز سس سیر', 135000, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04');
+(1, 1, 'Sampler', 'سمپلر', 'Beef nachos with tomatos chicken quesadilas and chicken flautas on a bed of lettuce with cheese sauce, sour cream and guacamore', 'ناچو گوشت گوساله به همراه فیله مرغ کاهو و سس پنیر', 33250, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(2, 1, 'Guacamalo Mexicano', 'گواکامالو مکزیکو', 'Avocado, Tomatos, jalapeno, Coriander, Lime', 'اووکادوو گوجه فرنگی هالوپینو کوریاندر لیمو', 21250, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(3, 1, 'Buffalo Wings', 'بوفالو وینگز', 'Chicken wings, Hot sauce, Butter, Vinegar, Paprika, Ground chili', 'بال مرغ سس چیلی سرکه پاپریکا فلفل سیاه', 36500, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(4, 1, 'Chicken Fingers', 'چیکن فینگرز', 'Chicken breast, Cheese, Bread crums, eggs', 'سینه مرغ پنیر تخم مرغ پوره تست', 36500, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(5, 1, 'Stuffed Jalapenos', 'هالوپینو کبابی', 'Jalapeno, Onlion, Cream cheese', 'هالوپینو پیاز پنیر خامه ای', 21000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(6, 1, 'Texas Dip', 'دیپ تگزاس', 'A rich blend of grilled schrimp, Beef, Chicken, Special salsa', 'مخلوطی از میگو گریل شده گوشت گاو گوشت مرغ سالسای مخصوص', 23000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(7, 1, 'Chicken Dip', 'دیپ مرغ', 'Original red hot sauce, Sour cream, Cream cheese, Cheddar cheese, Green onion', 'سس قرمز چیلی خامه پنیر خامه ای پنیر چدار پیاز', 19000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(8, 2, 'Secar Salad', 'سالاد سزار', 'Lettuce, Parmesan cheese, Crisp croutons, Salad dressing', 'کاهو پنیر پارمسان کروتون سس سزار', 35000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(9, 2, 'Four Seasons Super Salad', 'سوپر سالاد فصل', 'Brown rice, Broccoli, Green shallot(s), Carrot, coarsely grated, Olive oil, Lemon juice, Avocado, Reduced fat feta cheese', 'برنج بروکلی پیازچه هویج روغن زیتون اووکادو پنیر فتا', 28000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(10, 2, 'Frech Fries', 'سیب زمینی', 'Fresh potatoes, Vinegar, Salt', 'سیب زمینی تازه به هراه سرکه و نمک', 25000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(11, 3, 'Coca cola can', 'نوشابه کوکا قوطی', '330 ml', '۳۳۰ میلی', 8500, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(12, 3, 'Sprite can', 'نوشابه اسپرایت قوطی', '330 ml', '۳۳۰ میلی', 8500, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(13, 3, 'Fanta can', 'نوشابه فانتا قوطی', '330 ml', '۳۳۰ میلی', 8500, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(14, 4, 'Beef Burger', 'بیف برگر', 'Beef, Onions, Tomatoes, Lettuce, Ketchup, Mayo, Mustard', 'گوشت گوساله گوجه فرنگی کاهو کچاپ مایونز سس خردل', 85000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(15, 4, 'Spicy Tandoori', 'تاندوری برگر اسپایسی', 'Tandoori Chicken, Chedder Cheese, Grilled Onion, & Tomatoes, Lettuce, Pickles, Garlic Sauce, Mayo', 'مرغ تاندوری پنیر چدار پیاز گریل شده و چوجه فرنگی کاهو خیار شور سس سیر مایونز', 95000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(16, 4, 'Cheese Burger', 'چیز برگر', 'Beef Patty, Cheddar Cheese, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo,', 'گوشت گوساله پنیر چدار پیاز و گوجه تنوری خیار شور کاهو کچاپ مایونز خردل', 90000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(17, 4, 'Spicy Buffalo', 'بوفالو برگر اسپایسی', 'Crispy Chicken, Mozza Cheese, Grilled Onion & Tomatoes, Lettuce, Garlic Sauce, Buffalo Sauce, Mayo', 'مرغ سوخاری برشته پنیر موزا پیاز و گوجه گریل شده کاهو سس سیر سس بوفالو مایونز', 75000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(18, 4, 'Beef bacon', 'بیف بیکن برگر', 'Beef Patty, Chedder Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard', 'گوشت گوساله پنیر چدار بیکن پیاز و گوجه کریل شده خیار شور کاهو کچاپ مایونز خردل', 105000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(19, 4, 'BBQ Chicken', 'باربکیو چیکن', 'Grilled chicken, Mozza Cheese, Grilled Onlion, Lettuce, Mayo, BBQ Sauce', 'مرغ گریل شده پنیر موزا کاهو مایونز سس باربکیو', 75000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(20, 4, 'Creamy Mushroom', 'برگر قارچ خامه ای', 'Beef Patty, Cream of Musgroom, Mozza Cheese, Grilled Onions, Mayo', '‌گوشت گوساله قارچ خامه ای پنیر موزا پیاز گریل شده مایونز', 104000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(21, 4, 'Crispy Chicken', 'کریسپی چیکن', 'Crispy Chicken, Cheddar Cheese, Grilled Onion & Tomatoes, Lettuce, Pickles, Garlic Sauce, Mayo, Chipotle Sauce', ' مرغ سوخاری برشته پنیر چدار پیاز و گوجه گریل شده کاهو خیارشور سس سیر مایونز سس سس چیپوتل', 90000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(22, 4, 'Hawaiian Burger', 'برگر هاوایی', 'Beef Patty, Grilled Pineapple Mozza, Cheese, Onions, Tomatoes, Lettuce, Mayo, BBQ Sauce', 'گوشت گوساله اناناس گریل شده پنیر موزا پیاز چوجه فرنگی کاهو مایونز سس باربکیو', 120000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(23, 4, 'Chicken Paradise', 'چیکن پارادایس', 'Grilled Chicken, Mozza Cheese, Grilled Pineapple, Lettuce, Onions, Jalapenos, Mayo, Garlic Sauce', 'مرغ کریسپی پنیر موزا اناناس گریل شده کاهو پیاز هالوپینو مایونز سس سیر', 135000, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48');
 
 -- --------------------------------------------------------
 
@@ -104,10 +104,10 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `name`, `name_fa`, `created_at`, `updated_at`) VALUES
-(1, 'Starter', 'استارتر', '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(2, 'Side', 'ساید', '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(3, 'Drinks', 'نوشیدنی ها', '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(4, 'Main', 'غذای اصلی', '2021-11-09 07:10:04', '2021-11-09 07:10:04');
+(1, 'Starter', 'استارتر', '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(2, 'Side', 'ساید', '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(3, 'Drinks', 'نوشیدنی ها', '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(4, 'Main', 'غذای اصلی', '2021-11-16 08:47:48', '2021-11-16 08:47:48');
 
 -- --------------------------------------------------------
 
@@ -126,14 +126,14 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(264, '2014_10_12_000000_create_users_table', 1),
-(265, '2014_10_12_100000_create_password_resets_table', 1),
-(266, '2019_08_19_000000_create_failed_jobs_table', 1),
-(267, '2021_08_04_105314_create_menus_table', 1),
-(268, '2021_08_04_105419_create_items_table', 1),
-(269, '2021_09_14_103810_create_orders_table', 1),
-(270, '2021_09_14_103828_create_order_items_table', 1),
-(271, '2021_09_14_103842_create_payments_table', 1);
+(280, '2014_10_12_000000_create_users_table', 1),
+(281, '2014_10_12_100000_create_password_resets_table', 1),
+(282, '2019_08_19_000000_create_failed_jobs_table', 1),
+(283, '2021_08_04_105314_create_menus_table', 1),
+(284, '2021_08_04_105419_create_items_table', 1),
+(285, '2021_09_14_103810_create_orders_table', 1),
+(286, '2021_09_14_103828_create_order_items_table', 1),
+(287, '2021_09_14_103842_create_payments_table', 1);
 
 -- --------------------------------------------------------
 
@@ -183,15 +183,6 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `password_resets`
---
-
-INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('mshadow73@gmail.com', '$2y$10$Ld9kTFedhtSJZducascdLuNv97XBTZNCsdd3cxqfj0Ux41Q4oDGb2', '2021-11-11 05:49:06'),
-('integralproject1988@gmail.com', '$2y$10$orpdGvHNR82uyNiyJ1l4EeysjKnFFVZ.lhWF79XAMGe1fVvewm5Ma', '2021-11-13 06:31:41'),
-('test@gmail.com', '$2y$10$k2TAp1ZXRAML2ir02mhvy.GzXwlsMTuNKyL2v.p0DFxnHvVxdigPO', '2021-11-13 07:18:36');
-
 -- --------------------------------------------------------
 
 --
@@ -235,12 +226,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `address`, `role`, `password`, `email_verified_at`, `phone_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ادمین', 'siproxtech@gmail.com', '6799731454', NULL, 1, '$2y$10$G5mJoeEtQju6qOQ9wxymW.T.XH.1XGUdhbtuM6lWkDudm3LWY6BOq', NULL, NULL, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(2, 'نکیسا رهنورد', 'email@email.com', '8967469108', NULL, 0, '$2y$10$oqPEhEI6geCN7mm4xYi1mutzQlaGgdk4ZnUJY4AEruplXPB7Swcwm', NULL, NULL, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(3, 'احمد احمدی', 'ahmad@email.com', '8020162101', NULL, 0, '$2y$10$3INBF3IBO1OKdgvWhFPvKudtm195xjd7TGkrn5.dqpHVtZgf3nsL2', NULL, NULL, NULL, '2021-11-09 07:10:04', '2021-11-09 07:10:04'),
-(4, 'مهران زاهدی', 'mshadow73@gmail.com', '45291423491', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, '$2y$10$AcF/Bbx2U5XAKSjJl7qBIuS91OCzp9RvAdK/CH41q5emVpyCLyN4i', '2021-11-11 05:48:37', NULL, NULL, '2021-11-09 07:10:04', '2021-11-11 05:48:37'),
-(14, 'احمدی نام', 'soroosh_66m@yahoo.com', '11111111111', NULL, 0, '$2y$10$CpxV7RmmwUohM2UuADPdaenHcrmjQcv5p/6uAV1WmVLjeCmAN7.LO', '2021-11-11 06:08:49', NULL, NULL, '2021-11-11 06:08:38', '2021-11-11 06:10:52'),
-(15, 'سروش مدرسی', 'integralproject1988@gmail.com', '09371373929', NULL, 0, '$2y$10$3HjvZrcM13wrBKgznRXZJ..7mmn9hZj01uGMOOCI0UxEf1/VCY8cC', '2021-11-11 08:39:56', NULL, NULL, '2021-11-11 08:36:59', '2021-11-11 08:39:56');
+(1, 'ادمین', 'siproxtech@gmail.com', '10401879125', NULL, 1, '$2y$10$j/Smp2tGgqO0Sia0vMoecuWNmVaLvVQgO03zcgMiy9DUNZMi9wXVO', NULL, NULL, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(2, 'نکیسا رهنورد', 'email@email.com', '10793585775', NULL, 0, '$2y$10$J4RG/hHuJIWA4VfD2rfYVuU4d/QutZuLEvuq3jFj7VR806vmZsE0G', NULL, NULL, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(3, 'احمد احمدی', 'ahmad@email.com', '10002376661', NULL, 0, '$2y$10$oF.x4jJJzjFgzBVnExDa.O3qoNWKLtDfN9utrRVlaf21ZoIyrovTS', NULL, NULL, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(4, 'مهران زاهدی', 'mshadow73@gmail.com', '10257931229', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, '$2y$10$L8ixLIcmbFsGF1OjOgRlaubAiL6seNaXdWRbnL6wCPPqsRUSicJ7y', NULL, NULL, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48'),
+(5, 'سروش مدرسی', 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, '$2y$10$ZbGqYNWZ3gZPV3fU/wmBi.UZLdUdXdQ2izEz7Wylq.lj2eHOTGCcu', NULL, NULL, NULL, '2021-11-16 08:47:48', '2021-11-16 08:47:48');
 
 --
 -- Indexes for dumped tables
@@ -331,7 +321,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=288;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -355,7 +345,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -21,7 +21,7 @@ class LoginController extends Controller
 
         if(!auth()->attempt($request->only('phone','password'),$request->remember))
         {
-            return back()->withErrors(['status'=>'شماره تلفن یا رمز عبور اشتباه است']);
+            return back()->withErrors(['status'=>'شماره موبایل یا رمز عبور اشتباه است']);
         }
         //login for admins
         if(auth()->user()->role == 1)
