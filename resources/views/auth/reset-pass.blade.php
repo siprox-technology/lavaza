@@ -15,25 +15,25 @@
                             @csrf
                             {{-- email --}}
                             <div class="form-group text-right mb-1">
-                                <label class="mt-2 mb-1" >: ایمیل</label>
+                                <label class="mt-2 mb-1">: ایمیل</label>
                                 <input type="text" dusk="email_input" name="email" id="email" maxlength="50"
                                     class="form-control @error('email') border border-danger @enderror">
                                 @error('email')
                                     <div class="text-right text-danger mt-2">
-                                        لطفا ساختار ایمیل را به درستی وارد کنید 
+                                        لطفا ساختار ایمیل را به درستی وارد کنید
                                     </div>
                                 @enderror
                             </div>
 
                             {{-- phone --}}
                             <div class="form-group text-right">
-                                <label class="mt-2 mb-1" >: موبایل</label>
+                                <label class="mt-2 mb-1">: موبایل</label>
                                 <input type="text" name="phone" id="phone" maxlength="11"
                                     class="form-control  @error('phone') border border-danger @enderror"
                                     value="{{ old('phone') }}">
                                 @error('phone')
                                     <div class="text-right text-danger mt-2">
-                                       09** *** **** لطفا شماره را به صورت صحیح وارد کنید 
+                                        09** *** **** لطفا شماره را به صورت صحیح وارد کنید
                                     </div>
                                 @enderror
                             </div>

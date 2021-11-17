@@ -19,45 +19,46 @@ class UserSeeder extends Seeder
     {
         User::create(
             [
-            'name' => 'ادمین',
-            'email' => 'siproxtech@gmail.com',
-            'phone' => '09999999999',
-            'role'=>'1',
-            'password' => Hash::make('1111'), // password
+                'name' => 'ادمین',
+                'email' => 'siproxtech@gmail.com',
+                'phone' => '09999999999',
+                'role' => '1',
+                'password' => Hash::make('1111'), // password
             ]
         );
         User::create(
             [
-            'name' => 'نکیسا رهنورد',
-            'email' => 'email@email.com',
-            'phone' => rand(11111111111,9999999999),
-            'password' => Hash::make('1111'), // password
+                'name' => 'نکیسا رهنورد',
+                'email' => 'email@email.com',
+                'phone' => rand(11111111111, 9999999999),
+                'password' => Hash::make('1111'), // password
             ]
         );
         User::create(
             [
-            'name' => 'احمد احمدی',
-            'email' => 'ahmad@email.com',
-            'phone' => rand(11111111111,9999999999),
-            'password' => Hash::make('1111'), // password
+                'name' => 'احمد احمدی',
+                'email' => 'ahmad@email.com',
+                'phone' => rand(11111111111, 9999999999),
+                'password' => Hash::make('1111'), // password
             ]
         );
         User::create(
             [
-            'name' => 'مهران زاهدی',
-            'email' => 'mshadow73@gmail.com',
-            'phone' => rand(11111111111,9999999999),
-            'password' => Hash::make('1111'), // password
-            'address' =>'بولوار دانشجو ۴۵ پلاک ۶۷۵'
+                'name' => 'مهران زاهدی',
+                'email' => 'mshadow73@gmail.com',
+                'phone' => rand(11111111111, 9999999999),
+                'password' => Hash::make('1111'), // password
+                'address' => 'بولوار دانشجو ۴۵ پلاک ۶۷۵'
             ]
         );
         User::create(
             [
-            'name' => 'سروش مدرسی',
-            'email' => 'integralproject1988@gmail.com',
-            'phone' => '09371373929',
-            'password' => Hash::make('1111'), // password
-            'address' =>'بولوار دانشجو ۴۵ پلاک ۶۷۵'
+                'name' => 'سروش مدرسی',
+                'email' => 'integralproject1988@gmail.com',
+                'phone' => '09371373929',
+                'password' => Hash::make('1111'), // password
+                'address' => 'بولوار دانشجو ۴۵ پلاک ۶۷۵',
+                'email_verified_at' => '2011-11-17 10:13:18'
             ]
         );
     }
