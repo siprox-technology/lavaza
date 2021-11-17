@@ -6,7 +6,7 @@
 
 
 -performance
-   -links to files for loading speed
+
 
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 

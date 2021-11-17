@@ -41,9 +41,9 @@ Lavaza restaurants website
                 -Admin delete a user**
                 -Admin edit user details(name,phone and address)**
         
-            -Admin change or reset password with email and phone*--
-            -admin reset password with email*-
-            -admin reset password with phone--
+            -Admin change or reset password with email and phone**
+            -admin reset password with email**
+            -admin reset password with phone**
 
             -Admin add or remove menu items
                 -add menu items**
@@ -60,12 +60,12 @@ Lavaza restaurants website
                 -Admin cancels and remove a pending orders--
                 -Admin can see removed and canceled orders--
 
-        I- Text message notification for the following features:--
-            -User account registration and activation
-            -send forget/reset passowrd code
-            -receive forget/reset password confirmation
-            -confirmation of order and payment 
-            -cancelation of order notification to email/phone
+        I- Text message notification for the following features:
+            -User account registration and activation**
+            -send forget/reset passowrd code**
+            -receive forget/reset password confirmation**
+            -confirmation of order and payment**
+            -cancelation of order notification to email/phone--
 
 
         J-get payment system
