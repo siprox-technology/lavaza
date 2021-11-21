@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
     <main id="menu-items">
         <div class="row justify-content-center py-5 w-100 mx-auto">
             <h1 class="text_yellow">پنل ادمین</h1>
@@ -82,7 +80,8 @@
                                         <div class="row justify-content-center">
                                             <div class="menu-image mt-2">
                                                 <img src="
-                                                                @if (file_exists('images/menu/' . $item->name_fa . '.jpg'))
+                                                                                                                     
+                     @if (file_exists('images/menu/' . $item->name_fa . '.jpg'))
                                                 {{ asset('images/menu/' . $item->name_fa . '.jpg') }}
                                             @else
                                                 {{ asset('images/menu/ایتم جدید.jpg') }}

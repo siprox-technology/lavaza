@@ -6,11 +6,9 @@
 
 
 -performance
-
+   -refactore test functions
 
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 
 
 -errors
-   -time out error for sending sms
-   -refresh for changed images menu items

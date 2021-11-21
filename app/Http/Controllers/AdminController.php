@@ -82,7 +82,7 @@ class AdminController extends Controller
        $item->delete();
        return back()->with(['status'=>'ایتم مورد نظر حذف شد']);
     }
-    public function updateMenuItemsImage(Request $request)/* fix refresh image */
+    public function updateMenuItemsImage(Request $request)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpg|max:2048',
@@ -93,8 +93,7 @@ class AdminController extends Controller
         $path = $request->file('image')->storeAs(
             'menu', $imageName,'images'
         );
-        Cache::flush();
-        return back(); 
+        return back()->with(['noCache'=>'true']); 
     }
     public function updateMenuItemsDetailsIndex($item_name)
     {

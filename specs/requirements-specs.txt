@@ -53,7 +53,6 @@ Lavaza restaurants website
         
             -Admin add update and remove website's contents--
             -admin set website online shop off and on--
-
             -Live orders page
                 -Admin sees live pending and incoming orders--
                 -Admin can print pending orders--
