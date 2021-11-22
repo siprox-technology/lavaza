@@ -36,7 +36,7 @@ Lavaza restaurants website
             -Users can order past orders**
 
         E- Admin account with following functionalities:
-            -Admin see, edit users details and delete them:
+            -Admin see, update users details and delete them:
                 -Admin see list of users**
                 -Admin delete a user**
                 -Admin edit user details(name,phone and address)**
