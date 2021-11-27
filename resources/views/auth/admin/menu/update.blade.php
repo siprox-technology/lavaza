@@ -12,7 +12,7 @@
         </div>
         <div class=" row justify-content-center pb-5 w-100
                 mx-auto">
-                <a href="{{ route('admin.menu-items.index') }}">بازگشت به صفحه منو</a>
+                <a href="{{ route('admin.menu.index') }}">بازگشت به صفحه منو</a>
         </div>
         <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
             <div class="col-12">
@@ -33,7 +33,7 @@
             <div class="col-12 menu-container">
                 {{-- update menu item form --}}
                     <div class="row menu-item w-100">
-                        <form action="{{route('admin.menu-items.update')}}" method="POST">
+                        <form action="{{route('admin.menu.items.update')}}" method="POST">
                             @csrf
                             <div class="col-lg-8 col-12">
                                 {{-- name --}}
@@ -109,7 +109,7 @@
                                     <div class="row">
                                         {{-- change image --}}
                                         <div class="col-md-12">
-                                            <form action="{{route('admin.menu-items.image.update')}}" class="bg-gray p-3"  method="POST" enctype="multipart/form-data">
+                                            <form action="{{route('admin.menu.items.image.update')}}" class="bg-gray p-3"  method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="row justify-content-center">
                                                     <div class="col-12">

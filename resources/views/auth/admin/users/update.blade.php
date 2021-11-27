@@ -11,7 +11,7 @@
         </div>
         <div class=" row justify-content-center pb-5 w-100
                 mx-auto">
-                <a href="{{ route('admin.index') }}">بازگشت به منوی اصلی</a>
+                <a href="{{ route('admin.users.index') }}">بازگشت به لیست کاربرها</a>
         </div>
         <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
             <div class="col-12">

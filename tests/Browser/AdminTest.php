@@ -44,13 +44,11 @@ class AdminTest extends DuskTestCase
                 ->press('ورود')->assertPathIs('/admin')
                 ->assertSee('پنل ادمین')
                 ->assertSee('اطلاعات سیستم')
-                ->clickLink('کاربرها')
-                ->pause('1000')->assertSee('test@gmail.com')
+                ->clickLink('کاربرها')->assertSee('test@gmail.com')
                 ->press('@updateUser_Link ')->assertSee('ویرایش اطلاعات کاربر')
                 ->value('#name', 'تست')->type('name', 'تست شده')
                 ->type('phone', '11111111111')->type('address', 'ادرس تست شده')
-                ->press('@submit_btn')->assertSee('ویرایش کاربر انجام شد')
-                ->click('@Logout')->assertPathIs('/');
+                ->press('@submit_btn');
         });
         $this->assertEquals(true, User::where('name', '=', 'تست شده')
             ->where('phone', '11111111111')->delete());
@@ -78,7 +76,7 @@ class AdminTest extends DuskTestCase
                 ->clickLink('کاربرها')
                 ->pause('1000')->assertSee('test@gmail.com')
                 ->press('@deleteUser_btn ')
-                ->assertPathIs('/admin')
+                ->assertPathIs('/admin/users')
                 ->click('@Logout')->assertPathIs('/');
         });
         $this->assertEquals(0, User::where('name', '=', 'تست')->get()->count());
@@ -95,8 +93,8 @@ class AdminTest extends DuskTestCase
                 ->press('ورود')->assertPathIs('/admin')
                 ->assertSee('پنل ادمین')
                 ->assertSee('اطلاعات سیستم')
-                ->click('@editMenu_link')->assertPathIs('/admin/menu-items')
-                ->click('@newItem_link')->assertPathIs('/admin/menu-items/create')
+                ->click('@menu_link')->assertPathIs('/admin/menu')
+                ->click('@newItem_link')->assertPathIs('/admin/menu/items/create')
                 ->select('@menuName_select', 'Starter')
                 ->type('name_fa', 'غذای تست')
                 ->type('name', 'test food')
@@ -116,8 +114,7 @@ class AdminTest extends DuskTestCase
                 ->type('password', '1111')
                 ->press('ورود')->assertPathIs('/admin')
                 ->assertSee('پنل ادمین')
-                ->assertSee('اطلاعات سیستم')
-                ->click('@editMenu_link')->assertPathIs('/admin/menu-items')
+                ->assertSee('اطلاعات سیستم')->click('@menu_link')->assertPathIs('/admin/menu')
                 ->click('@editItem_link ')->assertSee('ویرایش ایتم')
                 ->type('name', 'test changed')->type('name_fa', 'غذای تست تغییر')
                 ->type('ingredients_fa', 'مواد تشکیل دهنده تغییر')
@@ -138,8 +135,7 @@ class AdminTest extends DuskTestCase
                 ->type('password', '1111')
                 ->press('ورود')->assertPathIs('/admin')
                 ->assertSee('پنل ادمین')
-                ->assertSee('اطلاعات سیستم')
-                ->click('@editMenu_link')->assertPathIs('/admin/menu-items')
+                ->assertSee('اطلاعات سیستم')->click('@menu_link')->assertPathIs('/admin/menu')
                 ->press('@deleteItem_btn ');
         });
         $this->assertEquals(0, Item::where('name', '=', 'test changed')

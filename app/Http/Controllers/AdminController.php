@@ -14,27 +14,23 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware(['auth']);
     }
     
-    public function index()
-    {
-        $users = User::all();
-        $menus = Menu::all();
-        foreach($menus as $menu)
-        {
-            $menu->created_at = Jalalian::fromDateTime($menu->created_at)->toString();
-            $menu->updated_at = Jalalian::fromDateTime($menu->updated_at)->toString();
-        }
-        return view('auth.admin.index')->with(['users'=>$users, 'menus'=>$menus]);
+    public function index(){
+        return auth()->user()->role == 1 ?  
+            view('auth.admin.index') :
+            redirect()->route('dashboard.index');
     }
 
-    public function updateUserIndex($userId)
-    {
-        $user = User::find($userId);
-        return view('auth.admin.updateUser')->with(['user'=>$user]);
+    public function usersIndex(){
+        $users = User::all();
+        return view('auth.admin.users.index')->with(['users'=>$users]);
+    }
+    public function updateUserIndex($userName){//write validator like updateMenuIndex function
+        $user = User::find((DB::table('users')->where('name', $userName)->pluck('id'))[0]);
+        return view('auth.admin.users.update')->with(['user'=>$user]);
     }
     public function updateUser(Request $request){
         //validate user inputs
@@ -56,90 +52,26 @@ class AdminController extends Controller
             $user->save();
             return back()->with(['status'=>'ویرایش کاربر انجام شد']);
     }
-    public function deleteUser(Request $request)
-    {
+    public function deleteUser(Request $request){
         User::find($request->user_id)->delete();
         return back()
-        ->with(['users-database-list'=>'open',
-        'status'=>'کاربر شماره: '.$request->user_id.' حذف شد']);
+        ->with(['status'=>'کاربر شماره: '.$request->user_id.' حذف شد']);
     }
-
-    public function menuItemsIndex()
-    {
+    public function menuIndex(){
         $menus = Menu::all();
         $items = Item::all();
-        return view('auth.admin.menuItems')->with(['menus'=>$menus,'items'=>$items]);
-    }
-    public function deleteMenuItems(Request $request)
-    {
-        $this->validate($request,[
-            'id'=>'required|regex:/([1234567890]+$)/'
-        ]);
-       $item = Item::find($request->id);
-       $imageName = $item->name_fa.'.jpg';  
-       Storage::disk('images')->delete('menu/'.$imageName);
-       Cache::flush();
-       $item->delete();
-       return back()->with(['status'=>'ایتم مورد نظر حذف شد']);
-    }
-    public function updateMenuItemsImage(Request $request)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpg|max:2048',
-            'id'=>'required|regex:/([1234567890]+$)/'
-        ]);
-        $imageName = Item::find($request->id)->name_fa.'.jpg';  
-        Storage::disk('images')->delete('menu/'.$imageName);
-        $path = $request->file('image')->storeAs(
-            'menu', $imageName,'images'
-        );
-        return back()->with(['noCache'=>'true']); 
-    }
-    public function updateMenuItemsDetailsIndex($item_name)
-    {
 
-        $rules = ['name_fa' => 'regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/'];
-        $input = ['name_fa' => $item_name];
-
-        if(Validator::make($input, $rules)->passes())
+        foreach($menus as $menu)
         {
-            $item = Item::where('name_fa',$item_name)->first();
-            return view('auth.admin.updateMenuItems')->with(['item'=>$item]);
+            $menu->created_at = Jalalian::fromDateTime($menu->created_at)->toString();
+            $menu->updated_at = Jalalian::fromDateTime($menu->updated_at)->toString();
         }
-        return back();
+        return view('auth.admin.menu.index')->with(['menus'=>$menus,'items'=>$items]);
     }
-
-    public function updateMenuItemsDetails(Request $request)
-    {
-        //validate item inputs
-        $this->validate($request,[
-            'id'=>'required|regex:/([1234567890]+$)/',
-            'name'=>'string|max:128|regex:/([A-Z,a-z]+$)/|nullable',
-            'name_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
-            'ingredients_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
-            'price'=>'required|string|regex:/([1234567890]+$)/',
-            'stock'=>'string|regex:/([1234567890]+$)/|nullable'
-        ]);
-            //update item details
-            $menu_item = Item::find($request->id);
-            $menu_item->name = $request->name;
-            $menu_item->name_fa = $request->name_fa;
-            $menu_item->ingredients_fa = $request->ingredients_fa;
-            $menu_item->price = $request->price;
-            $menu_item->stock = $request->stock;
-            $menu_item->save();
-            return back()->with(
-                ['status'=>'ویرایش ایتم با موفقیت انجام شد']
-            );
+    public function createMenuItemsIndex(){
+        return view('auth.admin.menu.create');
     }
-
-    public function createMenuItemsIndex()
-    {
-        return view('auth.admin.createMenuItem');
-    }
-    public function createMenuItems(Request $request)
-    {
-
+    public function createMenuItems(Request $request){
         //validate item inputs
         $this->validate($request,[
             'menu_name'=>'required|string|regex:/([A-Z,a-z]+$)/',
@@ -167,4 +99,66 @@ class AdminController extends Controller
         return back()->with(['status'=>'امکان اضافه کردن ایتم جدید وجود ندارد']);
 
     }
+    public function updateMenuIndex($item_name){
+        
+        $rules = ['name_fa' => 'regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/'];
+        $input = ['name_fa' => $item_name];
+
+        if(Validator::make($input, $rules)->passes())
+        {
+            $item = Item::where('name_fa',$item_name)->first();
+            return view('auth.admin.menu.update')->with(['item'=>$item]);
+        }
+        return back();
+    }
+    public function updateMenuItems(Request $request)
+    {
+        //validate item inputs
+        $this->validate($request,[
+            'id'=>'required|regex:/([1234567890]+$)/',
+            'name'=>'string|max:128|regex:/([A-Z,a-z]+$)/|nullable',
+            'name_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
+            'ingredients_fa'=>'required|string|max:511|regex:/([آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ]+$)/',
+            'price'=>'required|string|regex:/([1234567890]+$)/',
+            'stock'=>'string|regex:/([1234567890]+$)/|nullable'
+        ]);
+            //update item details
+            $menu_item = Item::find($request->id);
+            $menu_item->name = $request->name;
+            $menu_item->name_fa = $request->name_fa;
+            $menu_item->ingredients_fa = $request->ingredients_fa;
+            $menu_item->price = $request->price;
+            $menu_item->stock = $request->stock;
+            $menu_item->save();
+            return back()->with(
+                ['status'=>'ویرایش ایتم '.$menu_item->name_fa.' با موفقیت انجام شد']
+            );
+    }
+    public function deleteMenuItems(Request $request)
+    {
+        $this->validate($request,[
+            'id'=>'required|regex:/([1234567890]+$)/'
+        ]);
+       $item = Item::find($request->id);
+       $imageName = $item->name_fa.'.jpg';  
+       Storage::disk('images')->delete('menu/'.$imageName);
+       Cache::flush();
+       $item->delete();
+       return back()->with(['status'=>'ایتم '.$item->name_fa.' حذف شد']);
+    }
+
+    public function updateMenuItemImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpg|max:2048',
+            'id'=>'required|regex:/([1234567890]+$)/'
+        ]);
+        $imageName = Item::find($request->id)->name_fa.'.jpg';  
+        Storage::disk('images')->delete('menu/'.$imageName);
+        $path = $request->file('image')->storeAs(
+            'menu', $imageName,'images'
+        );
+        return back()->with(['ignoreCache'=>'true']); 
+    }
+
 }

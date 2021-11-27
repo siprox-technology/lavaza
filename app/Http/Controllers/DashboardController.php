@@ -21,7 +21,9 @@ class DashboardController extends Controller
     
     public function index()
     {
-        return view('auth.dashboard.index');
+        return auth()->user()->role == 0 ?  
+            view('auth.dashboard.index') :
+            redirect()->route('admin.index');
     }
 
     public function updateUserDetailsIndex()

@@ -90,15 +90,19 @@ Route::post('/dashboard/orders-history/order', [DashboardController::class, 'ord
 
 //admin/user
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::get('/admin/add-user', [AdminController::class, 'createUserIndex'])->name('admin.user.create');
-Route::post('/admin/delete-user', [AdminController::class, 'deleteUser'])->name('admin.user.delete');
-Route::get('/admin/update-user/{user:id}', [AdminController::class, 'updateUserIndex'])->name('admin.user.update.index');
-Route::post('/admin/update-user', [AdminController::class, 'updateUser'])->name('admin.user.update');
+Route::get('/admin/users', [AdminController::class, 'usersIndex'])->name('admin.users.index');
+Route::get('/admin/users/update/{user:name}', [AdminController::class, 'updateUserIndex'])->name('admin.user.update.index');
+Route::post('/admin/users/update', [AdminController::class, 'updateUser'])->name('admin.user.update');
+Route::post('/admin/users/delete', [AdminController::class, 'deleteUser'])->name('admin.user.delete');
+
+
 //admin/menu
-Route::get('/admin/menu-items', [AdminController::class, 'menuItemsIndex'])->name('admin.menu-items.index');
-Route::get('/admin/menu-items/create', [AdminController::class, 'createMenuItemsIndex'])->name('admin.menu-items.store.index');
-Route::post('/admin/menu-items/create', [AdminController::class, 'createMenuItems'])->name('admin.menu-items.store');
-Route::post('/admin/menu-items/delete', [AdminController::class, 'deleteMenuItems'])->name('admin.menu-items.delete');
-Route::post('/admin/menu-items/updateImage', [AdminController::class, 'updateMenuItemsImage'])->name('admin.menu-items.image.update');
-Route::get('/admin/menu-items/updateDetails/{item_name}', [AdminController::class, 'updateMenuItemsDetailsIndex'])->name('admin.menu-items.update.index');
-Route::post('/admin/menu-items/updateDetails', [AdminController::class, 'updateMenuItemsDetails'])->name('admin.menu-items.update');
+Route::get('/admin/menu', [AdminController::class, 'menuIndex'])->name('admin.menu.index');
+Route::get('/admin/menu/items/create', [AdminController::class, 'createMenuItemsIndex'])->name('admin.menu.items.create.index');
+Route::post('/admin/menu/items/create', [AdminController::class, 'createMenuItems'])->name('admin.menu.items.create');
+Route::get('/admin/menu/update/{item:name}', [AdminController::class, 'updateMenuIndex'])->name('admin.menu.update.index');
+Route::post('/admin/menu/items/update', [AdminController::class, 'updateMenuItems'])->name('admin.menu.items.update');
+Route::post('/admin/menu/items/delete', [AdminController::class, 'deleteMenuItems'])->name('admin.menu.items.delete');
+
+Route::post('/admin/menu/items/updateImage', [AdminController::class, 'updateMenuItemImage'])->name('admin.menu.items.image.update');
+

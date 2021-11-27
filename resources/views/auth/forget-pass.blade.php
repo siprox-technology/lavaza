@@ -13,10 +13,7 @@
                     <div class="col-lg-7 col-sm-7 mx-auto  d-flex order-1 order-lg-2 flex-column justify-content-center align-items-stretch">
 
                         <div class="content">
-                            <h4 class="text-center mt-3">لطفا ایمیل و شماره موبایل خود را وارد کنید</h4>
-                            <div class="row justify-content-center pb-3 w-100 mx-auto">
-                                <a href="{{route('dashboard.index')}}">بازگشت به منوی اصلی</a>
-                            </div>
+                            <h4 class="text-center my-5">لطفا ایمیل و شماره موبایل خود را وارد کنید</h4>
                             <form class="text-left clearfix" action="{{ route('forgetPassword.send') }}" method="POST" novalidate>
                                 @csrf
                                 <div class="form-group">
@@ -54,10 +51,7 @@
                                     <button type="submit" dusk="submit_btn" class="btn btn-warning">درخواست تغییر رمز</button>
                                 </div>
                             </form>
-                            <p class="mt-3 text-right">کاربر جدید هستید؟<a href="{{ route('register.index') }}"> ایجاد حساب کاربری</a></p>
-                            </a>
                         </div>
-
                     </div>
                 </div>
             </div>
