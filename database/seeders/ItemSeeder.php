@@ -23,7 +23,7 @@ class ItemSeeder extends Seeder
             'ingredients' =>'Beef nachos with tomatos chicken quesadilas and chicken flautas on a bed of lettuce with cheese sauce, sour cream and guacamore',
             'ingredients_fa'=>'ناچو گوشت گوساله به همراه فیله مرغ کاهو و سس پنیر',
             'price' => 33250,
-            'stock' => null,
+            'stock' => rand(1,150),
         ]);
         Item::create([
             'menu_id' => (DB::table('menus')->where('name', 'Starter')->pluck('id'))[0],
@@ -32,7 +32,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Avocado, Tomatos, jalapeno, Coriander, Lime',
             'ingredients_fa'=>'اووکادوو گوجه فرنگی هالوپینو کوریاندر لیمو',
             'price' => 21250,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
         Item::create([
             'menu_id' => (DB::table('menus')->where('name', 'Starter')->pluck('id'))[0],
@@ -41,7 +41,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Chicken wings, Hot sauce, Butter, Vinegar, Paprika, Ground chili',
             'ingredients_fa'=>'بال مرغ سس چیلی سرکه پاپریکا فلفل سیاه',
             'price' => 36500,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -51,7 +51,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Chicken breast, Cheese, Bread crums, eggs',
             'ingredients_fa'=>'سینه مرغ پنیر تخم مرغ پوره تست',
             'price' => 36500,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -61,7 +61,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Jalapeno, Onlion, Cream cheese',
             'ingredients_fa'=>'هالوپینو پیاز پنیر خامه ای',
             'price' => 21000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -71,7 +71,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'A rich blend of grilled schrimp, Beef, Chicken, Special salsa',
             'ingredients_fa' => 'مخلوطی از میگو گریل شده گوشت گاو گوشت مرغ سالسای مخصوص',
             'price' => 23000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -81,7 +81,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Original red hot sauce, Sour cream, Cream cheese, Cheddar cheese, Green onion',
             'ingredients_fa' => 'سس قرمز چیلی خامه پنیر خامه ای پنیر چدار پیاز',
             'price' => 19000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
     
         //Side
@@ -93,7 +93,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Lettuce, Parmesan cheese, Crisp croutons, Salad dressing',
             'ingredients_fa' =>'کاهو پنیر پارمسان کروتون سس سزار',
             'price' => 35000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -103,7 +103,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Brown rice, Broccoli, Green shallot(s), Carrot, coarsely grated, Olive oil, Lemon juice, Avocado, Reduced fat feta cheese',
             'ingredients_fa' =>'برنج بروکلی پیازچه هویج روغن زیتون اووکادو پنیر فتا',
             'price' => 28000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -113,7 +113,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Fresh potatoes, Vinegar, Salt',
             'ingredients_fa'=>'سیب زمینی تازه به هراه سرکه و نمک',
             'price' => 25000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         //Drinks
@@ -125,7 +125,7 @@ class ItemSeeder extends Seeder
             'ingredients' => '330 ml',
             'ingredients_fa'=>'۳۳۰ میلی',
             'price' => 8500,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -135,7 +135,7 @@ class ItemSeeder extends Seeder
             'ingredients' => '330 ml',
             'ingredients_fa'=>'۳۳۰ میلی',
             'price' => 8500,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -145,7 +145,7 @@ class ItemSeeder extends Seeder
             'ingredients' => '330 ml',
             'ingredients_fa'=>'۳۳۰ میلی',
             'price' => 8500,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         //Main
@@ -157,7 +157,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Beef, Onions, Tomatoes, Lettuce, Ketchup, Mayo, Mustard',
             'ingredients_fa'=>'گوشت گوساله گوجه فرنگی کاهو کچاپ مایونز سس خردل',
             'price' => 85000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -167,7 +167,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Tandoori Chicken, Chedder Cheese, Grilled Onion, & Tomatoes, Lettuce, Pickles, Garlic Sauce, Mayo',
             'ingredients_fa'=>'مرغ تاندوری پنیر چدار پیاز گریل شده و چوجه فرنگی کاهو خیار شور سس سیر مایونز',
             'price' => 95000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -177,7 +177,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Beef Patty, Cheddar Cheese, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo,',
             'ingredients_fa'=>'گوشت گوساله پنیر چدار پیاز و گوجه تنوری خیار شور کاهو کچاپ مایونز خردل',
             'price' => 90000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -187,7 +187,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Crispy Chicken, Mozza Cheese, Grilled Onion & Tomatoes, Lettuce, Garlic Sauce, Buffalo Sauce, Mayo',
             'ingredients_fa'=>'مرغ سوخاری برشته پنیر موزا پیاز و گوجه گریل شده کاهو سس سیر سس بوفالو مایونز',
             'price' => 75000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -197,7 +197,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Beef Patty, Chedder Cheese, Beef Bacon, Grilled Onions & Tomatoes, Pickles, Lettuce, Ketchup, Mayo, Mustard',
             'ingredients_fa'=>'گوشت گوساله پنیر چدار بیکن پیاز و گوجه کریل شده خیار شور کاهو کچاپ مایونز خردل',
             'price' => 105000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -207,7 +207,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Grilled chicken, Mozza Cheese, Grilled Onlion, Lettuce, Mayo, BBQ Sauce',
             'ingredients_fa'=>'مرغ گریل شده پنیر موزا کاهو مایونز سس باربکیو',
             'price' => 75000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -217,7 +217,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Beef Patty, Cream of Musgroom, Mozza Cheese, Grilled Onions, Mayo',
             'ingredients_fa'=>'‌گوشت گوساله قارچ خامه ای پنیر موزا پیاز گریل شده مایونز',
             'price' => 104000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -227,7 +227,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Crispy Chicken, Cheddar Cheese, Grilled Onion & Tomatoes, Lettuce, Pickles, Garlic Sauce, Mayo, Chipotle Sauce',
             'ingredients_fa'=>' مرغ سوخاری برشته پنیر چدار پیاز و گوجه گریل شده کاهو خیارشور سس سیر مایونز سس سس چیپوتل',
             'price' => 90000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -237,7 +237,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Beef Patty, Grilled Pineapple Mozza, Cheese, Onions, Tomatoes, Lettuce, Mayo, BBQ Sauce',
             'ingredients_fa'=>'گوشت گوساله اناناس گریل شده پنیر موزا پیاز چوجه فرنگی کاهو مایونز سس باربکیو',
             'price' => 120000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
 
         Item::create([
@@ -247,7 +247,7 @@ class ItemSeeder extends Seeder
             'ingredients' => 'Grilled Chicken, Mozza Cheese, Grilled Pineapple, Lettuce, Onions, Jalapenos, Mayo, Garlic Sauce',
             'ingredients_fa'=>'مرغ کریسپی پنیر موزا اناناس گریل شده کاهو پیاز هالوپینو مایونز سس سیر',
             'price' => 135000,
-            'stock' => null
+            'stock' => rand(1,150)
         ]);
     }
 }

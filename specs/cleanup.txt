@@ -6,8 +6,8 @@
 
 
 -performance
-   -refactore test functions
-
+   -refactor test functions
+   -adjust js scroll on pages
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 
 

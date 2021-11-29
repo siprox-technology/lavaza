@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    <main id="">
+    <main>
         <!-- ======= dashboard Section ======= -->
         <section id="dashboard">
+            <div class="row justify-content-center py-3 w-100 mx-auto">
+                <h3 class="text-center">حساب کاربری</h3>
+            </div>
             <div class="container-fluid">
                 <div class="row mx-auto w-100 justify-content-center">
                     <div class="col-lg-5 col-md-7 col-sm-9 d-flex flex-column justify-content-center align-items-stretch border border-warning rounded p-3">
-                       
                         @if ((auth()->user()->email_verified_at)||(auth()->user()->phone_verified_at))
                             <div class="content text-right">
-                                <h3 class="text-center">حساب کاربری</h3>
                                 {{-- name --}}
                                 <p class="mb-0">: نام</p>
                                 <p class="text-success">{{ auth()->user()->name }}</p>
@@ -94,7 +95,7 @@
             <script>
                 document.getElementById('dashboard').scrollIntoView();
             </script>
-
+        </section>
     </main><!-- End #main -->
 
 

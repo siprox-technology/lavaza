@@ -1793,6 +1793,7 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 .cart #cartOpen {
@@ -1838,4 +1839,23 @@ input[type="file"] {
 #user_payment_btn:hover,
 #guest_payment_btn:hover {
     color: #ffb03b;
+}
+
+.button_yellow {
+    background: #ffb03b;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: .4s;
+    border-radius: 50px;
+}
+
+.button_red {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border: 0;
+    padding: 10px 24px;
+    transition: .4s;
+    border-radius: 50px;
 }
