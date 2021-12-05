@@ -6,14 +6,14 @@
                 <h3 class="">لیست منو</h3>
             </div>
             <div class="row justify-content-center w-100 mx-auto">
-                <a href="{{ route('admin.index') }}">بازگشت به صفحه اصلی</a>
+                <a href="{{ route('admin.index') }}">بازگشت به ادمین</a>
             </div>
             <div class="row justify-content-center pb-5 w-100 mx-auto" id="admin-panel">
                 <div class="col-12">
                     {{-- add new menu items status --}}
                     @if (session('status'))
                         @if (str_contains(session('status'),'حذف شد'))
-                            <div class="text-center text-danger mt-2">
+                            <div class="text-center text-danger my-2">
                                 {{ session('status') }}
                             </div>
                         @endif
@@ -25,7 +25,7 @@
                     <section id="menu" class="menu">
                         <div class="container">
                             {{-- differnt menus i.e. Starter Main .... --}}
-                            <div class="row">
+                            <div class="row mb-3">
                                 <div class="col-lg-12 d-flex justify-content-center">
                                     <ul id="menu-filters">
                                         <li data-filter="*" class="filter-active">همه</li>
@@ -41,10 +41,10 @@
                             <div class="col-12 menu-container">
                                 {{-- menu items --}}
                                 @foreach ($items as $item)
-                                    <div class="row menu-item w-100 mb-2 {{ 'filter-' . $item->menu->name_fa }}"
+                                    <div class="row justify-content-center menu-item w-100 mb-2 {{ 'filter-' . $item->menu->name_fa }}"
                                         id="{{ $item->name_fa }}">
                                         {{-- item information --}}
-                                        <div class="col-lg-8 col-12 border border-warning rounded">
+                                        <div class="col-md-6 col-12 border border-warning rounded pt-3">
                                             {{-- menu item details --}}
                                             <div class="content text-right">
                                                 {{-- name --}}
@@ -73,7 +73,7 @@
                                             </form>
                                         </div>
                                         {{-- image --}}
-                                        <div class="col-lg-4 col-12">
+                                        <div class="col-md-3 col-12">
                                             <div class=" d-flex flex-column">
                                                 <div class="menu-image mx-auto mt-2">
                                                     <img src="@if (file_exists('images/menu/' . $item->name_fa . '.jpg'))
@@ -91,7 +91,7 @@
                                                             انتخاب عکس
                                                         </label>
                                                         <input type="hidden" name="id value="{{ $item->id }}">
-                                                        <button type="submit" class="py-2 px-3 border-0 btn-primary">ذخیره</button>
+                                                        <button type="submit" class="py-2 px-3 mt-1 border-0 btn-primary">ذخیره</button>
                                                     </div>
                                                 </form>
                                             </div>
