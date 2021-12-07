@@ -84,7 +84,7 @@
                     <ul class="pl-0 mb-3">
                         @if (Session::has('cart'))
                             @foreach (Session::get('cart')->items as $item)
-                                <li class="d-flex p-3 mb-2 border border-warning rounded">
+                                <li class="d-flex py-3 pl-3 pr-2 mb-2 border border-warning rounded">
 
                                     {{-- remove item --}}
                                     <a href="{{ route('cart.remove', $item['item']) }}"

@@ -1,14 +1,14 @@
--style 
-   -images and fonts
-   -cart item images margin and padding for drinks items
-   -clean html
-   -english to persian
+-functionalities
+   -finish functional requirements
 
+-style 
+   -test english to persian
 
 -performance
    -refactor test functions
-   -adjust js scroll on pages
+
 -security
    -check returning order_id which is a primary key in order recipts is safe !!! 
 
 -errors
+

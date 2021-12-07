@@ -25,7 +25,7 @@ Lavaza restaurants website
             -guest users enter name, phone, address and bank card details to confirm and pay for order**
             -users enter name, phone, address and bank card details to confirm and pay for order**
             
-        D-Users account with following functionalities: 
+        D-Users account with following functionalities: ---
             -Users create and update their details:
                 -Save new address**
                 -Remove address**
@@ -49,15 +49,18 @@ Lavaza restaurants website
                 -add menu items**
                 -remove menu items**
                 -update menu items**
-                -update menu items image*-
+                -update menu items image**
         
             -Admin add update and remove website's contents--
-            -admin set website online shop off and on--
+                --
             -Live orders page
+                -Admin set website online shop off and on--
                 -Admin sees live pending and incoming orders--
                 -Admin can print pending orders--
                 -Admin cancels and remove a pending orders--
                 -Admin can see removed and canceled orders--
+                -Admin see orders history
+                    -per hour, day, week, month, year
 
         I- Text message notification for the following features:
             -User account registration and activation**
