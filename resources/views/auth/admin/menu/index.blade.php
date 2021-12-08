@@ -75,7 +75,7 @@
                                         {{-- image --}}
                                         <div class="col-md-3 col-12">
                                             <div class=" d-flex flex-column">
-                                                <div class="menu-image mx-auto mt-2">
+                                                <div class="menu-image mx-auto mt-2 mt-sm-0">
                                                     <img src="@if (file_exists('images/menu/' . $item->name_fa . '.jpg'))
                                                     {{ asset('images/menu/' . $item->name_fa . '.jpg') }}
                                                     @else
@@ -90,7 +90,7 @@
                                                             <input type="file" name="image" id="item_image_to_upload" name="item_image_to_upload" />
                                                             انتخاب عکس
                                                         </label>
-                                                        <input type="hidden" name="id value="{{ $item->id }}">
+                                                        <input type="hidden" name="id" value="{{ $item->id }}">
                                                         <button type="submit" class="py-2 px-3 mt-1 border-0 btn-primary">ذخیره</button>
                                                     </div>
                                                 </form>
