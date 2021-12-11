@@ -12,6 +12,7 @@ use Database\Seeders\BrandSeeder;
 use Illuminate\Support\Facades\DB;
 use Database\Seeders\ProductSeeder;
 use Illuminate\Support\Facades\Hash;
+use App\Models\OnlineShop;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,5 +31,13 @@ class DatabaseSeeder extends Seeder
             //3.items
             ItemSeeder::class,
         ]);
+        //set online shop
+        OnlineShop::create([
+            'is_open'=>true,
+            'is_setting_manual'=>false,
+            'open_time'=>'11:00',
+            'close_time'=>'23:00'
+        ]);
+
     }
 }

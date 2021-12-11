@@ -50,17 +50,18 @@ Lavaza restaurants website
                 -remove menu items**
                 -update menu items**
                 -update menu items image**
-        
-            -Admin add update and remove website's contents--
-                --
-            -Live orders page
+
+            -Online orders managment page
                 -Admin set website online shop off and on--
-                -Admin sees live pending and incoming orders--
+                -Admin sees pending orders as they come--
                 -Admin can print pending orders--
                 -Admin cancels and remove a pending orders--
                 -Admin can see removed and canceled orders--
                 -Admin see orders history
                     -per hour, day, week, month, year
+                            
+            -Admin add update and remove website's contents--
+                --
 
         I- Text message notification for the following features:
             -User account registration and activation**

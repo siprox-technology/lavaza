@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <main id="admin">
+    <main id="onlineShop">
         <!-- ======= admin Section ======= -->
-        <section  id="admin">
+        <section id="onlineShop">
             <div class="row justify-content-center py-3 w-100 mx-auto">
-                <h3 class="">پنل ادمین</h3>
+                <h3 class="">فروشگاه انلاین</h3>
             </div>
             <div class="container-fluid">
                 <div class="row mx-auto w-100 justify-content-center">
@@ -13,24 +13,27 @@
                              {{-- system menu --}}
                             <div class="card-header">
                                 <p class="text-dark">
-                                    اطلاعات سیستم
+                                    وضعیت فروشگاه
                                 </p>
                             </div>
                             <div class="card-body">
-                                <ul class="list-unstyled">
-                                    {{-- users link --}}
-                                    <li>
-                                        <a class="" href="{{route('admin.users.index')}}">کاربرها</a>
-                                    </li>
-                                    {{-- menus link --}}
-                                    <li>
-                                        <a class="" href="{{route('admin.menu.index')}}" dusk="menu_link">منو</a>
-                                    </li>
-                                    {{-- online shop link --}}
-                                    <li>
-                                        <a class="" href="{{route('onlineShop.index')}}" dusk="onlineShop_link">فروشگاه انلاین</a>
-                                    </li>
-                                </ul>
+                               {{-- open or close --}}
+                               <div class="form-check form-switch">
+                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                 <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                               </div>
+                               <div class="form-check form-switch">
+                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                 <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                               </div>
+                               <div class="form-check form-switch">
+                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+                                 <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
+                               </div>
+                               <div class="form-check form-switch">
+                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
+                                 <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
+                               </div>
                             </div>
 
                             {{-- admin menu --}}
@@ -52,7 +55,7 @@
                 </div>
             </div>
             <script type="text/javascript">
-                document.getElementById("admin").scrollIntoView();
+                document.getElementById("onlineShop").scrollIntoView();
             </script>
         </section>    
     </main>

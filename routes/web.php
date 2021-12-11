@@ -11,7 +11,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ForgetPasswordController;
-
+use App\Http\Controllers\OnlineShopController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -103,6 +103,8 @@ Route::post('/admin/menu/items/create', [AdminController::class, 'createMenuItem
 Route::get('/admin/menu/update/{item:name}', [AdminController::class, 'updateMenuIndex'])->name('admin.menu.update.index');
 Route::post('/admin/menu/items/update', [AdminController::class, 'updateMenuItems'])->name('admin.menu.items.update');
 Route::post('/admin/menu/items/delete', [AdminController::class, 'deleteMenuItems'])->name('admin.menu.items.delete');
-
 Route::post('/admin/menu/items/updateImage', [AdminController::class, 'updateMenuItemImage'])->name('admin.menu.items.image.update');
+
+//admin/onlineShop
+Route::get('/admin/onlineShop', [OnlineShopController::class, 'index'])->name('onlineShop.index');
 
