@@ -107,4 +107,6 @@ Route::post('/admin/menu/items/updateImage', [AdminController::class, 'updateMen
 
 //admin/onlineShop
 Route::get('/admin/onlineShop', [OnlineShopController::class, 'index'])->name('onlineShop.index');
+Route::post('/admin/onlineShop/update', [OnlineShopController::class, 'updateStatus'])->name('onlineShop.update');
+
 

@@ -9,9 +9,6 @@ class OnlineShop extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'is_open',
-        'is_setting_manual',
-        'open_time',
-        'close_time',
+        'is_open'
     ];
 }

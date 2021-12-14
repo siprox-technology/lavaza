@@ -234,7 +234,34 @@
 
     $('#detailsBtn').on('click', function () {
         $('#order_details_modal').modal();
-    })
+    });
+
+    //online shop status set toggle switches values
+
+    //shop open and close toggle
+    $('#is_open_toggle').on('click', function () {
+        ($('#is_open_input').val() == '0') ? $('#is_open_input').val('1'):
+            $('#is_open_input').val('0');
+        //display status
+        ($('#is_open_input').val() == '0') ? $('#is_open_status').removeClass().addClass('text-danger').text('بسته'):
+            $('#is_open_status').removeClass().addClass('text-success').text('باز');
+
+    });
+    //setting between manual and auto
+    $('#setting_type_toggle').on('click', function () {
+        ($('#setting_type_input').val() == 'manual') ? $('#setting_type_input').val('auto'):
+            $('#setting_type_input').val('manual');
+        /* display setiing status manual or auto */
+        ($('#setting_type_input').val() == 'manual') ? $('#setting_type_status').text('دستی'):
+            $('#setting_type_status').text('اتومات');
+        /* display open and closing times time picker*/
+        ($('#setting_type_input').val() == 'manual') ? $('#open_close_times').addClass('d-none'):
+            $('#open_close_times').removeClass('d-none');
+        /* set open and closing times to null if manual is selected */
+        if ($('#setting_type_input').val() == 'manual') {
+            $('#open_time,#close_time').val(null);
+        }
+    });
 
 })(jQuery);
 

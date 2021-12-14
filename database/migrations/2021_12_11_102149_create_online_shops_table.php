@@ -16,9 +16,6 @@ class CreateOnlineShopsTable extends Migration
         Schema::create('online_shops', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_open');
-            $table->boolean('is_setting_manual');
-            $table->time('open_time');
-            $table->time('close_time');
             $table->timestamps();
         });
     }

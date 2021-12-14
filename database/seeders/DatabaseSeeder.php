@@ -34,9 +34,6 @@ class DatabaseSeeder extends Seeder
         //set online shop
         OnlineShop::create([
             'is_open'=>true,
-            'is_setting_manual'=>false,
-            'open_time'=>'11:00',
-            'close_time'=>'23:00'
         ]);
 
     }

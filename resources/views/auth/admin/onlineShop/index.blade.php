@@ -4,51 +4,44 @@
         <!-- ======= admin Section ======= -->
         <section id="onlineShop">
             <div class="row justify-content-center py-3 w-100 mx-auto">
-                <h3 class="">فروشگاه انلاین</h3>
+                <h3 class="">فروشگاه آنلاین</h3>
             </div>
             <div class="container-fluid">
+                <div class="col-12">
+                    {{-- update onlineShop status --}}
+                    @if (session('status'))
+                        @if (session('status') == 'وضعیت فروشگاه بروز رسانی شد')
+                            <div class="text-center text-success my-2">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    @endif
+                </div>
                 <div class="row mx-auto w-100 justify-content-center">
                     <div class="col-lg-5 col-md-7 col-sm-9 d-flex flex-column justify-content-center align-items-stretch border border-warning rounded p-3">
                         <div class="card text-right">
                              {{-- system menu --}}
                             <div class="card-header">
                                 <p class="text-dark">
-                                    وضعیت فروشگاه
+                                    تنظیمات فروش آنلاین
                                 </p>
-                            </div>
-                            <div class="card-body">
-                               {{-- open or close --}}
-                               <div class="form-check form-switch">
-                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                 <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                               </div>
-                               <div class="form-check form-switch">
-                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                 <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
-                               </div>
-                               <div class="form-check form-switch">
-                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
-                                 <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
-                               </div>
-                               <div class="form-check form-switch">
-                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
-                                 <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
-                               </div>
                             </div>
 
-                            {{-- admin menu --}}
-                            <div class="card-header">
-                                <p class="text-dark">
-                                    اطلاعات ادمین
-                                </p>
-                            </div>
                             <div class="card-body">
-                                <ul class="list-unstyled">
-                                    {{-- chenge password --}}
-                                    <li>
-                                        <a href="{{route('forgetPassword.index')}}" dusk='changePassword_link' id="changePassword_link">تغییر رمز عبور</a>
-                                    </li>
-                                </ul>
+                                <form action="{{route('onlineShop.update')}}" class="d-flex flex-column text-center" method="POST">
+                                    @csrf
+                                    {{-- open or close --}}
+                                    <p><b>وضعیت فروشگاه</b></p>
+                                    <div class="row mx-auto">
+                                        <label class="switch">
+                                            <input type="checkbox" id="is_open_toggle" {{($onlineShopSetting->is_open)==true? 'checked':''}} >
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <input type="hidden" name="is_open" id="is_open_input" value="{{$onlineShopSetting->is_open}}">
+                                    <p id="is_open_status" class="{{($onlineShopSetting->is_open)==true? 'text-success':'text-danger'}}">{{($onlineShopSetting->is_open)==true? 'باز':'بسته'}}</p>
+                                    <button class="mt-3" type="submit">ذخیره</button>
+                                </form>
                             </div>
                         </div>
                     </div>

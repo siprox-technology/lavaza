@@ -17,7 +17,8 @@ class Order extends Model
         'delivery_address',
         'delivery_price',
         'total_price',
-        'notes'
+        'notes',
+        'status'
     ];
 
     public function order_items()

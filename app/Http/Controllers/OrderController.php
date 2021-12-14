@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Order_item;
+use App\Models\OnlineShop;
+
 class OrderController extends Controller
 {
     public function index()
     {
-        return view('orders.index');
+        $status = OnlineShop::find(1)->is_open;
+        return view('orders.index')->with(['isOnlineShopOpen'=>$status]);
     }
 
     public function store($cart,Request $request)
@@ -21,7 +24,8 @@ class OrderController extends Controller
             'delivery_address' => $request->address,
             'delivery_price' => (($request->delivery_price) != 0 ? $cart->delivery_price : 0),
             'total_price' =>$cart->totalPrice + (($request->delivery_price)!=0?$cart->delivery_price:0),
-            'notes' => $cart->notes
+            'notes' => $cart->notes,
+            'status'=>'pending'
         ]);
         $this->storeItems($cart,$order);
         return $order;
