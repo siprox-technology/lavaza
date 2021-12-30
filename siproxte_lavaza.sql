@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 08:58 AM
+-- Generation Time: Dec 30, 2021 at 07:33 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -154,7 +154,7 @@ CREATE TABLE `online_shops` (
 --
 
 INSERT INTO `online_shops` (`id`, `is_open`, `created_at`, `updated_at`) VALUES
-(1, 0, '2021-12-14 07:24:17', '2021-12-14 07:45:51');
+(1, 1, '2021-12-14 07:24:17', '2021-12-20 06:20:00');
 
 -- --------------------------------------------------------
 
@@ -171,7 +171,7 @@ CREATE TABLE `orders` (
   `delivery_price` int(11) NOT NULL,
   `total_price` int(11) NOT NULL,
   `notes` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -181,7 +181,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `email`, `phone`, `delivery_address`, `delivery_price`, `total_price`, `notes`, `status`, `created_at`, `updated_at`) VALUES
-(1, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 25000, 200000, NULL, 'pending', '2021-12-14 07:26:19', '2021-12-14 07:26:19');
+(1, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 25000, 200000, NULL, 'pending', '2021-12-14 07:26:19', '2021-12-28 09:11:38'),
+(4, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, 599000, NULL, 'pending', '2021-12-20 06:20:19', '2021-12-28 09:11:38');
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,12 @@ CREATE TABLE `order_items` (
 
 INSERT INTO `order_items` (`id`, `order_id`, `name`, `name_fa`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Beef Burger', 'بیف برگر', 1, 85000, '2021-12-14 07:26:19', '2021-12-14 07:26:19'),
-(2, 1, 'Cheese Burger', 'چیز برگر', 1, 90000, '2021-12-14 07:26:19', '2021-12-14 07:26:19');
+(2, 1, 'Cheese Burger', 'چیز برگر', 1, 90000, '2021-12-14 07:26:19', '2021-12-14 07:26:19'),
+(5, 4, 'Beef Burger', 'بیف برگر', 1, 85000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
+(6, 4, 'Crispy Chicken', 'کریسپی چیکن', 1, 90000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
+(7, 4, 'Spicy Tandoori', 'تاندوری برگر اسپایسی', 3, 285000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
+(8, 4, 'Secar Salad', 'سالاد سزار', 3, 105000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
+(9, 4, 'Sprite can', 'نوشابه اسپرایت قوطی', 4, 34000, '2021-12-20 06:20:19', '2021-12-20 06:20:19');
 
 -- --------------------------------------------------------
 
@@ -249,7 +255,8 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `order_id`, `amount`, `payment_method`, `last_four_digit`, `payment_ref`, `created_at`, `updated_at`) VALUES
-(1, 1, 200000, 'Saman Bank', '1234', '545asdsda2s12121asds2', '2021-12-14 07:26:19', '2021-12-14 07:26:19');
+(1, 1, 200000, 'Saman Bank', '1234', '545asdsda2s12121asds2', '2021-12-14 07:26:19', '2021-12-14 07:26:19'),
+(4, 4, 599000, 'Saman Bank', '1234', '545asdsda2s12121asds2', '2021-12-20 06:20:19', '2021-12-20 06:20:19');
 
 -- --------------------------------------------------------
 
@@ -390,19 +397,19 @@ ALTER TABLE `online_shops`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

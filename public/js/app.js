@@ -2534,6 +2534,20 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
         }
     });
 
+    //check which items to select in admin page list of orders
+
+    $('#checkAllItems').on('click', function () {
+        $('input:checkbox').not(this).prop('checked', this.checked);
+    });
+
+    //set action type in admin orders page i.e. cancel or process
+    $('#processBtn').hover(function () {
+        $('#ordersStatusInput').val('process');
+    });
+    $('#cancelBtn').hover(function () {
+        $('#ordersStatusInput').val('cancel');
+    });
+
 })(jQuery);
 
 kamaDatepicker('reservation_date', {

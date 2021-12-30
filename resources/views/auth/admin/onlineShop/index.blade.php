@@ -2,9 +2,12 @@
 @section('content')
     <main id="onlineShop">
         <!-- ======= admin Section ======= -->
-        <section id="onlineShop">
+        <section>
             <div class="row justify-content-center py-3 w-100 mx-auto">
                 <h3 class="">فروشگاه آنلاین</h3>
+            </div>
+            <div class="row justify-content-center pb-3 w-100 mx-auto">
+                <a href="{{route('admin.index')}}">بازگشت به ادمین</a>
             </div>
             <div class="container-fluid">
                 <div class="col-12">
@@ -40,16 +43,39 @@
                                     </div>
                                     <input type="hidden" name="is_open" id="is_open_input" value="{{$onlineShopSetting->is_open}}">
                                     <p id="is_open_status" class="{{($onlineShopSetting->is_open)==true? 'text-success':'text-danger'}}">{{($onlineShopSetting->is_open)==true? 'باز':'بسته'}}</p>
-                                    <button class="mt-3" type="submit">ذخیره</button>
+                                    <div class="col-6 mx-auto">
+                                        <button class="mt-3" type="submit">ذخیره</button>
+                                    </div>
                                 </form>
+                            </div>
+                            <div class="card-header">
+                                <p class="text-dark">
+                                    سفارشات
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="border-top border-gray">
+                                        <a href="{{route('onlineShop.orders.pending.index')}}">سفارشات جدید</a>
+                                    </li>
+                                    <li class="border-top border-gray">
+                                        <a href="{{route('onlineShop.orders.processed.index')}}">سفارشات انجام شده</a>
+                                    </li>
+                                    <li class="border-top border-gray">
+                                        <a href="{{route('onlineShop.orders.canceled.index')}}">سفارشات کنسل شده</a>
+                                    </li>
+                                    <li class="border-top border-gray">
+                                        <a href="{{route('onlineShop.orders.history.index')}}">سابقه سفارشات</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <script type="text/javascript">
-                document.getElementById("onlineShop").scrollIntoView();
-            </script>
-        </section>    
+        </section>
+        <script type="text/javascript">
+            document.getElementById("onlineShop").scrollIntoView();
+        </script>    
     </main>
 @endsection

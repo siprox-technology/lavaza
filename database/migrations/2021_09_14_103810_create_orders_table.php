@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->integer('delivery_price');
             $table->integer('total_price');
             $table->string('notes',128)->nullable();
-            $table->string('status',8);
+            $table->string('status',10);
             $table->timestamps();
         });
     }

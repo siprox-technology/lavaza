@@ -109,4 +109,12 @@ Route::post('/admin/menu/items/updateImage', [AdminController::class, 'updateMen
 Route::get('/admin/onlineShop', [OnlineShopController::class, 'index'])->name('onlineShop.index');
 Route::post('/admin/onlineShop/update', [OnlineShopController::class, 'updateStatus'])->name('onlineShop.update');
 
+//admin/onlineShop/orders
+Route::get('/admin/onlineShop/orders/pending', [OnlineShopController::class, 'pendingOrdersIndex'])->name('onlineShop.orders.pending.index');
+Route::post('/admin/onlineShop/orders/updateStatus', [OnlineShopController::class, 'updateOrdersStatus'])->name('onlineShop.orders.update');
+
+Route::get('/admin/onlineShop/orders/processed', [OnlineShopController::class, 'processedOrdersIndex'])->name('onlineShop.orders.processed.index');
+Route::get('/admin/onlineShop/orders/canceled', [OnlineShopController::class, 'canceledOrdersIndex'])->name('onlineShop.orders.canceled.index');
+Route::get('/admin/onlineShop/orders/history', [OnlineShopController::class, 'orderHistoryIndex'])->name('onlineShop.orders.history.index');
+
 
