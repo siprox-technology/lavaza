@@ -1,8 +1,10 @@
 -functionalities
    -finish functional requirements
+   -check how should items quantity in menu change? by ordering
 
 -style 
    -test english to persian
+   -menu items direction to persian in home page
 
 -performance
    -refactor test functions

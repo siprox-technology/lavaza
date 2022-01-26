@@ -56,16 +56,7 @@
                             <div class="card-body">
                                 <ul class="list-unstyled">
                                     <li class="border-top border-gray">
-                                        <a href="{{route('onlineShop.orders.pending.index')}}">سفارشات جدید</a>
-                                    </li>
-                                    <li class="border-top border-gray">
-                                        <a href="{{route('onlineShop.orders.processed.index')}}">سفارشات انجام شده</a>
-                                    </li>
-                                    <li class="border-top border-gray">
-                                        <a href="{{route('onlineShop.orders.canceled.index')}}">سفارشات کنسل شده</a>
-                                    </li>
-                                    <li class="border-top border-gray">
-                                        <a href="{{route('onlineShop.orders.history.index')}}">سابقه سفارشات</a>
+                                        <a href="{{route('onlineShop.orders.index')}}">سفارشات </a>
                                     </li>
                                 </ul>
                             </div>

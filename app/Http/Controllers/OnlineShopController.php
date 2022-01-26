@@ -5,6 +5,7 @@ use App\Models\OnlineShop;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
+use PDF;
 
 class OnlineShopController extends Controller
 {
@@ -12,7 +13,6 @@ class OnlineShopController extends Controller
         $onlineShopSetting = OnlineShop::find(1);
         return view('auth.admin.onlineShop.index')->with(['onlineShopSetting'=>$onlineShopSetting]);
     }
-
     public function updateStatus(Request $request){
 
         $this->validate($request,[
@@ -23,17 +23,6 @@ class OnlineShopController extends Controller
         $onlineShopSetting->save();
         return back()->with(['status'=>'وضعیت فروشگاه بروز رسانی شد','onlineShopSetting'=>$onlineShopSetting]);
     }
-    public function pendingOrdersIndex()
-    {
-        $pendingOrders = Order::get()->where('status','=','pending');
-        foreach($pendingOrders as $order)
-        {
-            $order->created_at = Jalalian::fromDateTime($order->created_at)->toString();
-            $order->updated_at = Jalalian::fromDateTime($order->updated_at)->toString();
-        }
-        return view('auth.admin.onlineShop.orders.pending')->with(['pendingOrders'=>$pendingOrders]);
-    }
-
     public function updateOrdersStatus(Request $request)
     {
         $this->validate($request,[
@@ -48,6 +37,34 @@ class OnlineShopController extends Controller
             'processed':'canceled';
             $order->save();
         }
+        // if order status == processed return in a new tab a page to print processed orders
+        if($request['ordersStatus'] == 'processed')
+        {
+            //
+        }
+        //else
         return back();
     }
+    public function OrdersIndex()
+    {
+        $orders = Order::get()->where('status','=','pending');
+        foreach($orders as $order)
+        {
+            $order->created_at = Jalalian::fromDateTime($order->created_at)->toString();
+            $order->updated_at = Jalalian::fromDateTime($order->updated_at)->toString();
+        }
+        return view('auth.admin.onlineShop.orders.index')->with(['orders'=>$orders]);
+    }
+    public function getOrdersData(Request $request){
+
+        $orders = Order::get()->where('status','=',$request->orders_status);
+        foreach($orders as $order)
+        {
+            $order->created_at = Jalalian::fromDateTime($order->created_at)->toString();
+            $order->updated_at = Jalalian::fromDateTime($order->updated_at)->toString();
+        }
+      return json_encode($orders, JSON_UNESCAPED_UNICODE);
+    }
+
 }
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2021 at 07:33 AM
+-- Generation Time: Jan 26, 2022 at 09:38 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -181,8 +181,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `email`, `phone`, `delivery_address`, `delivery_price`, `total_price`, `notes`, `status`, `created_at`, `updated_at`) VALUES
-(1, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 25000, 200000, NULL, 'pending', '2021-12-14 07:26:19', '2021-12-28 09:11:38'),
-(4, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, 599000, NULL, 'pending', '2021-12-20 06:20:19', '2021-12-28 09:11:38');
+(1, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 25000, 200000, NULL, 'pending', '2021-12-14 07:26:19', '2022-01-25 08:32:50'),
+(4, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 0, 599000, NULL, 'pending', '2021-12-20 06:20:19', '2022-01-25 08:32:50'),
+(5, 5, 'integralproject1988@gmail.com', '09371373929', 'بولوار دانشجو ۴۵ پلاک ۶۷۵', 25000, 256000, NULL, 'pending', '2022-01-17 04:57:47', '2022-01-25 08:32:50');
 
 -- --------------------------------------------------------
 
@@ -212,7 +213,10 @@ INSERT INTO `order_items` (`id`, `order_id`, `name`, `name_fa`, `quantity`, `pri
 (6, 4, 'Crispy Chicken', 'کریسپی چیکن', 1, 90000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
 (7, 4, 'Spicy Tandoori', 'تاندوری برگر اسپایسی', 3, 285000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
 (8, 4, 'Secar Salad', 'سالاد سزار', 3, 105000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
-(9, 4, 'Sprite can', 'نوشابه اسپرایت قوطی', 4, 34000, '2021-12-20 06:20:19', '2021-12-20 06:20:19');
+(9, 4, 'Sprite can', 'نوشابه اسپرایت قوطی', 4, 34000, '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
+(10, 5, 'Beef Burger', 'بیف برگر', 1, 85000, '2022-01-17 04:57:47', '2022-01-17 04:57:47'),
+(11, 5, 'Crispy Chicken', 'کریسپی چیکن', 1, 90000, '2022-01-17 04:57:47', '2022-01-17 04:57:47'),
+(12, 5, 'Four Seasons Super Salad', 'سوپر سالاد فصل', 2, 56000, '2022-01-17 04:57:47', '2022-01-17 04:57:47');
 
 -- --------------------------------------------------------
 
@@ -256,7 +260,8 @@ CREATE TABLE `payments` (
 
 INSERT INTO `payments` (`id`, `order_id`, `amount`, `payment_method`, `last_four_digit`, `payment_ref`, `created_at`, `updated_at`) VALUES
 (1, 1, 200000, 'Saman Bank', '1234', '545asdsda2s12121asds2', '2021-12-14 07:26:19', '2021-12-14 07:26:19'),
-(4, 4, 599000, 'Saman Bank', '1234', '545asdsda2s12121asds2', '2021-12-20 06:20:19', '2021-12-20 06:20:19');
+(4, 4, 599000, 'Saman Bank', '1234', '545asdsda2s12121asds2', '2021-12-20 06:20:19', '2021-12-20 06:20:19'),
+(5, 5, 256000, 'Saman Bank', '1234', '545asdsda2s12121asds2', '2022-01-17 04:57:47', '2022-01-17 04:57:47');
 
 -- --------------------------------------------------------
 
@@ -397,19 +402,19 @@ ALTER TABLE `online_shops`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

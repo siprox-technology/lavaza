@@ -2548,6 +2548,38 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
         $('#ordersStatusInput').val('cancel');
     });
 
+    //retrive orders data
+
+    $('#getOrdersData').on('click', function () {
+        $.ajax({
+            url: '/admin/onlineShop/orders/getData',
+            type: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                /*                 request_name: 'change contact preferences',
+                                _token: $('#_token').val(),
+                                contact_pref: $('#contact_pref_options input[name="contactPref"]:checked').val() */
+                orders_status: 'pending'
+            },
+            beforeSend: function () {
+                // Show preloader
+                $('.loader').css('display', 'block');
+            },
+            success: function (response) {
+                $('.loader').css('display', 'none');
+                var result = JSON.parse(response);
+                var x = 0;
+                /*                 alert(response);
+                                $('#testResult').text(response); */
+
+            },
+        });
+    });
+
+    //self refresh orders page to display pending orders
+
 })(jQuery);
 
 kamaDatepicker('reservation_date', {

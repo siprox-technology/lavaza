@@ -1,0 +1,16 @@
+Challenges to solve
+
+   -The project owner wanted a tailor made shopping cart. he did not want to 
+   use pre made packages. One of his requirements was that both guest and registered 
+   users would be able to use their mobile number and not just email 
+   to order food. To solve the problem, I configured the Laravel application to be able to connect
+   to a text message API system so that when users order something or wanted to reset their password
+   they would be able to receive notifications on their phone as well as email. 
+
+   -One of the requirements of the project owner was a tailor made and easy to use
+   admin account page. he used to use a WordPress admin page and he said it was too complicated for him.
+   For solving this problem, I sat down with him
+   and managed to extract his exact expectations of admin functionalities translated
+   those requirements into an easy to use admin page that does not have any extra and confusing
+   functionalities. and at the same time satisfies all his expectations such as adding or removing 
+   a new menu item. or setting online shop on or off.

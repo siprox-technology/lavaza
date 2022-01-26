@@ -52,11 +52,12 @@ Lavaza restaurants website
                 -update menu items image**
 
             -Online orders managment page
-                -Admin set website online shop off and on*-
-                -Admin sees pending orders as they come--
-                -Admin can print pending orders--
-                -Admin cancels and remove a pending orders--
-                -Admin can see removed and canceled orders--
+                -Admin set website online shop off and on*-         
+                -Auto refresh on pending orders page--       
+                -Admin sees pending, processed and canceled orders--
+                -Admin update orders ststus to processed or canceled-- 
+                -Admin can print pending, processed and canceled orders--
+
                 -Admin see orders history
                     -per hour, day, week, month, year
                             
