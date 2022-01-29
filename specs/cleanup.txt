@@ -5,7 +5,7 @@
 -style 
    -test english to persian
    -menu items direction to persian in home page
-
+   -/admin/menu/items/create needs styling
 -performance
    -refactor test functions
 

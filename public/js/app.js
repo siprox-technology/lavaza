@@ -2549,8 +2549,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
     });
 
     //retrive orders data
-
-    $('#getOrdersData').on('click', function () {
+    if (top.location.pathname === '/admin/onlineShop/orders') {
         $.ajax({
             url: '/admin/onlineShop/orders/getData',
             type: 'post',
@@ -2569,14 +2568,52 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
             },
             success: function (response) {
                 $('.loader').css('display', 'none');
-                var result = JSON.parse(response);
-                var x = 0;
-                /*                 alert(response);
-                                $('#testResult').text(response); */
-
+                var orders = JSON.parse(response);
+                for (var i = 0; i < orders.length; i++) {
+                    $('#orderDetails').append(
+                        '<div class="col-7 col-lg-4 col-md-5 col-sm-6 p-3 border-warning rounded ">' +
+                        '<input type="checkbox" name="order-numbers[]" value="' + orders[i].id + '" id="ordersToProcess">' +
+                        '<p class="text-center mt-1 mb-0">' +
+                        'شماره سفارش' +
+                        '</p>' +
+                        '<p class="text-center text-warning">' + orders[i].id + '</p>' +
+                        '<p class="text-center mb-0">' +
+                        'مبلغ' +
+                        '</p>' +
+                        '<p class="text-center text-warning">' + orders[i].total_price.toLocaleString() + '</p>' +
+                        '<p class="text-center mb-0">' +
+                        'زمان سفارش' +
+                        '</p>' +
+                        '<p class="text-center text-warning mb-1">' + orders[i].created_at + '</p>' +
+                        '<div class="border mt-0 mb-2"></div>' +
+                        '<ul class="p-0 text-right list-unstyled menu" id="orderItemsDetails' + i + '">' +
+                        '</ul>' +
+                        '<div class="border mt-0 mb-2"></div>' +
+                        '<p class="text-right mb-1"><span class="text-dark"><b> ادرس : </b></span>' + orders[i].delivery_address +
+                        '</p>' +
+                        '<p class="text-right"><span class="text-dark">شماره<b> تماس : </b></span>' + orders[i].phone + '</p>' +
+                        '</div>');
+                    for (var j = 0; j < orders[i].order_items.length; j++) {
+                        $('#orderItemsDetails' + i).append(
+                            '<div class="menu-content mt-0">' +
+                            '<span class="p-0">' +
+                            orders[i].order_items[j].price +
+                            '</span>' +
+                            '<p class="p-0 mb-1">' + orders[i].order_items[j].name_fa + '<span class="p-0">X</span><span class="pr-0">' + orders[i].order_items[j].quantity + '</span></p>' +
+                            '</div>');
+                    }
+                    $('#orderItemsDetails' + i).append(
+                        '<div class="menu-content mt-0">' +
+                        '<span class="p-0">' +
+                        orders[i].delivery_price +
+                        '</span>' +
+                        '<p class="p-0 mb-1">هزینه حمل :  <span class="p-0">X</span><span class="pr-0">1</span></p>' +
+                        '</div>'
+                    );
+                }
             },
         });
-    });
+    }
 
     //self refresh orders page to display pending orders
 

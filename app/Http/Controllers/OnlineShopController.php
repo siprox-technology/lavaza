@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\OnlineShop;
 use App\Models\Order;
+use App\Models\Order_item;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
 use PDF;
@@ -47,13 +48,16 @@ class OnlineShopController extends Controller
     }
     public function OrdersIndex()
     {
-        $orders = Order::get()->where('status','=','pending');
+/*         $orders = Order::get()->where('status','=','pending');
+        $order_items = array();
         foreach($orders as $order)
         {
             $order->created_at = Jalalian::fromDateTime($order->created_at)->toString();
             $order->updated_at = Jalalian::fromDateTime($order->updated_at)->toString();
+            array_push($order_items,$order->order_items);
         }
-        return view('auth.admin.onlineShop.orders.index')->with(['orders'=>$orders]);
+        $items = array($orders,$order_items); */
+        return view('auth.admin.onlineShop.orders.index')/* ->with(['orders'=>$orders]) */;
     }
     public function getOrdersData(Request $request){
 
@@ -62,8 +66,10 @@ class OnlineShopController extends Controller
         {
             $order->created_at = Jalalian::fromDateTime($order->created_at)->toString();
             $order->updated_at = Jalalian::fromDateTime($order->updated_at)->toString();
+            $order->order_items; //wow------
+
         }
-      return json_encode($orders, JSON_UNESCAPED_UNICODE);
+        return json_encode($orders, JSON_UNESCAPED_UNICODE);
     }
 
 }

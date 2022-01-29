@@ -38,7 +38,7 @@
                                               {{-- delete user button --}}
                                               <form action="{{ route('admin.user.delete') }}" method="POST">
                                                   @csrf
-                                                  <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                                  <input type="hidden" name="user_email" value="{{ $user->email }}">
                                                   <button dusk="@if ($user->email == 'test@gmail.com')deleteUser_btn @endif" class="py-1 px-2 mx-1"
                                                       type="submit">حذف</button>
                                               </form>
