@@ -56,7 +56,10 @@
                             <div class="card-body">
                                 <ul class="list-unstyled">
                                     <li class="border-top border-gray">
-                                        <a href="{{route('onlineShop.orders.index')}}">سفارشات </a>
+                                        <a href="{{route('onlineShop.orders.index')}}">سفارشات ۲۴ ساعت گذشته</a>
+                                    </li>
+                                    <li class="border-top border-gray">
+                                        <a href="{{route('onlineShop.orders.history.index')}}">سابقه سفارشات</a>
                                     </li>
                                 </ul>
                             </div>

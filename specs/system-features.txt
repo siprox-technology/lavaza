@@ -53,13 +53,12 @@ Lavaza restaurants website
 
             -Online orders managment page
                 -Admin set website online shop off and on*-         
-                -Auto refresh on pending orders page--       
-                -Admin sees pending, processed and canceled orders--
-                -Admin update orders ststus to processed or canceled-- 
+                -refresh on orders page based on selected order type*-       
+                -Admin sees pending, processed and canceled orders*-
+                -Admin update orders ststus to processed or canceled*- 
                 -Admin can print pending, processed and canceled orders--
 
-                -Admin see orders history
-                    -per hour, day, week, month, year
+                -Admin see orders history based on selected date-*
                             
             -Admin add update and remove website's contents--
                 --

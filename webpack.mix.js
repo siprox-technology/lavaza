@@ -34,7 +34,6 @@ mix.combine([
     "resources/vendor/isotope-layout/isotope.pkgd.min.js",
     "resources/vendor/venobox/venobox.min.js",
     "resources/vendor/owl.carousel/owl.carousel.min.js",
-    "resources/vendor/persian-calendar/js/popper.min.js",
     "resources/vendor/persian-calendar/js/kamadatepicker.min.js",
     "resources/js/main.js",
 ], 'public/js/app.js');

@@ -269,16 +269,15 @@
         $('input:checkbox').not(this).prop('checked', this.checked);
     });
 
-    //set action type in admin orders page i.e. cancel or process
+    //set action value in admin orders page i.e. cancel or process
     $('#processBtn').hover(function () {
         $('#ordersStatusInput').val('process');
     });
     $('#cancelBtn').hover(function () {
         $('#ordersStatusInput').val('cancel');
     });
-
-    //retrive orders data
-    if (top.location.pathname === '/admin/onlineShop/orders') {
+    //get orders data based on order type
+    function getOrdersData(order_type, order_date_from = null, order_date_to = null) {
         $.ajax({
             url: '/admin/onlineShop/orders/getData',
             type: 'post',
@@ -286,41 +285,77 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {
-                /*                 request_name: 'change contact preferences',
-                                _token: $('#_token').val(),
-                                contact_pref: $('#contact_pref_options input[name="contactPref"]:checked').val() */
-                orders_status: 'pending'
+                orders_status: order_type,
+                order_date_from: order_date_from == null ? null : order_date_from,
+                order_date_to: order_date_to == null ? null : order_date_to
             },
             beforeSend: function () {
                 // Show preloader
-                $('.loader').css('display', 'block');
+                $('#getOrdersData i.refreshing').css('display', 'block');
+                $('#getOrdersData i.refreshed').css('display', 'none');
+
             },
             success: function (response) {
-                $('.loader').css('display', 'none');
+                $('#getOrdersData i.refreshed').css('display', 'block');
+                $('#getOrdersData i.refreshing').css('display', 'none');
+                $('#orderDetails').empty();
                 var orders = JSON.parse(response);
                 for (var i = 0; i < orders.length; i++) {
+                    var order_status = 'نامعلوم';
+                    switch (orders[i].status) {
+                        case 'pending':
+                            order_status = 'جدید';
+                            break;
+                        case 'processed':
+                            order_status = 'پردازش شده';
+                            break;
+                        case 'canceled':
+                            order_status = 'کنسل';
+                    }
                     $('#orderDetails').append(
-                        '<div class="col-7 col-lg-4 col-md-5 col-sm-6 p-3 border-warning rounded ">' +
+                        '<div class="col-10 col-lg-4 col-md-5 col-sm-6 p-3 border-warning rounded mr-1">' +
                         '<input type="checkbox" name="order-numbers[]" value="' + orders[i].id + '" id="ordersToProcess">' +
-                        '<p class="text-center mt-1 mb-0">' +
-                        'شماره سفارش' +
+                        '<div class="row justify-content-center">' +
+                        '<p class="text-center text-dark mr-2 mb-1">' + orders[i].id + '</p>' +
+                        '<p class="text-center mb-1"><b>' +
+                        ' : شماره سفارش' +
+                        '</b></p>' +
+                        '</div>' +
+                        '<div class="row justify-content-center">' +
+                        '<p class="text-center text-dark mb-1 mr-2">' + new Date(orders[i].created_at).toLocaleString('en-US', {
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            day: 'numeric',
+                            month: 'numeric',
+                            year: 'numeric',
+                            hour12: false
+                        }) + '</p>' +
+                        '<p class="text-center mb-1"><b>' +
+                        ' : زمان سفارش' +
+                        '</b></p>' +
+                        '</div>' +
+                        '<div class="row justify-content-center">' +
+                        '<p class="text-center text-dark mb-1 mr-2">' +
+                        order_status +
                         '</p>' +
-                        '<p class="text-center text-warning">' + orders[i].id + '</p>' +
-                        '<p class="text-center mb-0">' +
-                        'مبلغ' +
-                        '</p>' +
-                        '<p class="text-center text-warning">' + orders[i].total_price.toLocaleString() + '</p>' +
-                        '<p class="text-center mb-0">' +
-                        'زمان سفارش' +
-                        '</p>' +
-                        '<p class="text-center text-warning mb-1">' + orders[i].created_at + '</p>' +
+                        '<p class="text-center mb-1"><b>' +
+                        ' : وضعیت سفارش' +
+                        '</b></p>' +
+                        '</div>' +
                         '<div class="border mt-0 mb-2"></div>' +
                         '<ul class="p-0 text-right list-unstyled menu" id="orderItemsDetails' + i + '">' +
                         '</ul>' +
                         '<div class="border mt-0 mb-2"></div>' +
+                        '<div class="row justify-content-center">' +
+                        '<p class="text-center text-dark mb-1 mr-2">' + orders[i].total_price.toLocaleString() + '</p>' +
+                        '<p class="text-center mb-1"><b>' +
+                        ' : مبلغ کل' +
+                        '</b></p>' +
+                        '</div>' +
+                        '<div class="border mt-0 mb-2"></div>' +
                         '<p class="text-right mb-1"><span class="text-dark"><b> ادرس : </b></span>' + orders[i].delivery_address +
                         '</p>' +
-                        '<p class="text-right"><span class="text-dark">شماره<b> تماس : </b></span>' + orders[i].phone + '</p>' +
+                        '<p class="text-right"><span class="text-dark"><b> شماره تماس : </b></span>' + orders[i].phone + '</p>' +
                         '</div>');
                     for (var j = 0; j < orders[i].order_items.length; j++) {
                         $('#orderItemsDetails' + i).append(
@@ -328,27 +363,47 @@
                             '<span class="p-0">' +
                             orders[i].order_items[j].price +
                             '</span>' +
-                            '<p class="p-0 mb-1">' + orders[i].order_items[j].name_fa + '<span class="p-0">X</span><span class="pr-0">' + orders[i].order_items[j].quantity + '</span></p>' +
+                            '<p class="p-0 mb-1 text-dark" style="font-weight:400">' + orders[i].order_items[j].name_fa + '<span class="p-0 pl-2 text-warning" style="font-weight:400"> تعداد : </span><span class="pr-0 text-dark" style="font-weight:400">' + orders[i].order_items[j].quantity + '</span></p>' +
                             '</div>');
                     }
                     $('#orderItemsDetails' + i).append(
-                        '<div class="menu-content mt-0">' +
+                        '<div class="menu-content mt-3">' +
                         '<span class="p-0">' +
                         orders[i].delivery_price +
                         '</span>' +
-                        '<p class="p-0 mb-1">هزینه حمل :  <span class="p-0">X</span><span class="pr-0">1</span></p>' +
+                        '<p class="p-0 mb-1 text-dark" style="font-weight:400">هزینه حمل </p>' +
                         '</div>'
                     );
                 }
             },
         });
     }
-
-    //self refresh orders page to display pending orders
+    //retrive pending orders data
+    if (top.location.pathname === '/admin/onlineShop/orders/past24hours') {
+        getOrdersData('pending');
+    }
+    //retrive orders history based on date and order type
+    if (top.location.pathname === '/admin/onlineShop/orders/history') {
+        getOrdersData('all');
+    }
+    //refresh orders page to display orders based on selected order type
+    $('#getOrdersData').on('click', function () {
+        getOrdersData($('#orderStatus').val());
+    });
+    //refresh orders history page based on selected order type and date
+    $('#getOrdersHistoryData').on('click', function () {
+        getOrdersData($('#orderStatus').val(), $('#orders_history_date_from').val(), $('#orders_history_date_to').val());
+    });
 
 })(jQuery);
 
-kamaDatepicker('reservation_date', {
+kamaDatepicker('orders_history_date_from', {
+    buttonsColor: "red",
+    closeAfterSelect: true,
+    markToday: true,
+
+});
+kamaDatepicker('orders_history_date_to', {
     buttonsColor: "red",
     closeAfterSelect: true,
     markToday: true,

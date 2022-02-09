@@ -111,9 +111,9 @@ Route::post('/admin/onlineShop/update', [OnlineShopController::class, 'updateSta
 
 //admin/onlineShop/orders
 Route::post('/admin/onlineShop/orders/updateStatus', [OnlineShopController::class, 'updateOrdersStatus'])->name('onlineShop.orders.update');
-Route::get('/admin/onlineShop/orders', [OnlineShopController::class, 'OrdersIndex'])->name('onlineShop.orders.index');
+Route::get('/admin/onlineShop/orders/past24hours', [OnlineShopController::class, 'OrdersIndex'])->name('onlineShop.orders.index');
+Route::get('/admin/onlineShop/orders/history', [OnlineShopController::class, 'OrdersHistoryIndex'])->name('onlineShop.orders.history.index');
 Route::post('/admin/onlineShop/orders/getData', [OnlineShopController::class, 'getOrdersData'])->name('onlineShop.orders.getData');
 
-Route::get('/admin/onlineShop/orders/history', [OnlineShopController::class, 'orderHistoryIndex'])->name('onlineShop.orders.history.index');
 
 
