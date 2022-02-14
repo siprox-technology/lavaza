@@ -57,8 +57,7 @@ Lavaza restaurants website
                 -Admin sees pending, processed and canceled orders*-
                 -Admin update orders ststus to processed or canceled*- 
                 -Admin can print pending, processed and canceled orders--
-
-                -Admin see orders history based on selected date-*
+                -Admin see orders history based on selected date or last 24h-*
                             
             -Admin add update and remove website's contents--
                 --

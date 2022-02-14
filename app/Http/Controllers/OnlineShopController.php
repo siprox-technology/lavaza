@@ -7,6 +7,7 @@ use App\Models\Order_item;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
 
 class OnlineShopController extends Controller
 {
@@ -82,7 +83,6 @@ class OnlineShopController extends Controller
         'order_date_to'=>'nullable|max:10|regex:/^[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}$/',
         'orders_status'=>'required',Rule::in(['all', 'processed','pending','canceled'])
         ]);
-
         if($this->isAdminLoggedIn()){
             if($request->order_date_from && $request->order_date_to)
             {

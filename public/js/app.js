@@ -1700,7 +1700,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
                         '</b></p>' +
                         '</div>' +
                         '<div class="row justify-content-center">' +
-                        '<p class="text-center text-dark mb-1 mr-2">' + new Date(orders[i].created_at).toLocaleString('en-US', {
+                        '<p class="text-center text-dark mb-1 mr-2">' + new Date(orders[i].created_at).toLocaleString('en-UK', {
                             hour: 'numeric',
                             minute: 'numeric',
                             day: 'numeric',
@@ -1756,9 +1756,15 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
             },
         });
     }
-    //retrive pending orders data
+    //retrive orders data for past 24 hours
     if (top.location.pathname === '/admin/onlineShop/orders/past24hours') {
-        getOrdersData('pending');
+        var now = new Date().toLocaleDateString('fa-IR').replace(/([۰-۹])/g, token => String.fromCharCode(token.charCodeAt(0) - 1728));
+
+        var last24Hours = new Date();
+        last24Hours.setDate(last24Hours.getDate() - 1);
+        last24Hours = last24Hours.toLocaleDateString('fa-IR').replace(/([۰-۹])/g, token => String.fromCharCode(token.charCodeAt(0) - 1728))
+
+        getOrdersData('pending', last24Hours, now);
     }
     //retrive orders history based on date and order type
     if (top.location.pathname === '/admin/onlineShop/orders/history') {
