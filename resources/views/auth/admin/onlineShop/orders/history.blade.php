@@ -18,9 +18,9 @@
 
              </select>
              {{-- orders date from --}}
-             <input type="text" name="" id="orders_history_date_from">
+             <input type="text" name="" id="orders_history_date_from" autocomplete="off">
             {{-- orders date to --}}
-             <input type="text" name="" id="orders_history_date_to">
+             <input type="text" name="" id="orders_history_date_to" autocomplete="off">
 
              <button id="getOrdersHistoryData">
                 <i class="icofont-refresh refreshed" style="display: block"></i>
@@ -37,6 +37,7 @@
                {{-- orders --}}
                <div class="row justify-content-center px-1 px-sm-4 w-100 mx-auto" id="orderDetails">
                </div>
+
             </form>
        </section>
 

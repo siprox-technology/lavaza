@@ -1691,13 +1691,13 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
                             order_status = 'کنسل';
                     }
                     $('#orderDetails').append(
-                        '<div class="col-10 col-lg-4 col-md-5 col-sm-6 p-3 border-warning rounded mr-1">' +
-                        '<input type="checkbox" name="order-numbers[]" value="' + orders[i].id + '" id="ordersToProcess">' +
+                        '<div class="col-10 col-lg-2 col-md-3 col-sm-4 px-2 py-1 border-warning rounded mr-1 mt-1">' +
                         '<div class="row justify-content-center">' +
                         '<p class="text-center text-dark mr-2 mb-1">' + orders[i].id + '</p>' +
                         '<p class="text-center mb-1"><b>' +
                         ' : شماره سفارش' +
                         '</b></p>' +
+                        '<input type="checkbox" class="ml-3" style="margin-top:2px;" name="order-numbers[]" value="' + orders[i].id + '" id="ordersToProcess">' +
                         '</div>' +
                         '<div class="row justify-content-center">' +
                         '<p class="text-center text-dark mb-1 mr-2">' + new Date(orders[i].created_at).toLocaleString('en-UK', {
@@ -1723,7 +1723,6 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
                         '<div class="border mt-0 mb-2"></div>' +
                         '<ul class="p-0 text-right list-unstyled menu" id="orderItemsDetails' + i + '">' +
                         '</ul>' +
-                        '<div class="border mt-0 mb-2"></div>' +
                         '<div class="row justify-content-center">' +
                         '<p class="text-center text-dark mb-1 mr-2">' + orders[i].total_price.toLocaleString() + '</p>' +
                         '<p class="text-center mb-1"><b>' +
@@ -1741,11 +1740,11 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
                             '<span class="p-0">' +
                             orders[i].order_items[j].price +
                             '</span>' +
-                            '<p class="p-0 mb-1 text-dark" style="font-weight:400">' + orders[i].order_items[j].name_fa + '<span class="p-0 pl-2 text-warning" style="font-weight:400"> تعداد : </span><span class="pr-0 text-dark" style="font-weight:400">' + orders[i].order_items[j].quantity + '</span></p>' +
+                            '<p class="p-0 mb-1 text-dark" style="font-weight:400">' + orders[i].order_items[j].name_fa + '<span class="p-0 pl-2" style="font-weight:400"><b> تعداد : </b></span><span class="pr-0 text-dark" style="font-weight:400">' + orders[i].order_items[j].quantity + '</span></p>' +
                             '</div>');
                     }
                     $('#orderItemsDetails' + i).append(
-                        '<div class="menu-content mt-3">' +
+                        '<div class="menu-content mt-0">' +
                         '<span class="p-0">' +
                         orders[i].delivery_price +
                         '</span>' +
@@ -1758,13 +1757,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
     }
     //retrive orders data for past 24 hours
     if (top.location.pathname === '/admin/onlineShop/orders/past24hours') {
-        var now = new Date().toLocaleDateString('fa-IR').replace(/([۰-۹])/g, token => String.fromCharCode(token.charCodeAt(0) - 1728));
-
-        var last24Hours = new Date();
-        last24Hours.setDate(last24Hours.getDate() - 1);
-        last24Hours = last24Hours.toLocaleDateString('fa-IR').replace(/([۰-۹])/g, token => String.fromCharCode(token.charCodeAt(0) - 1728))
-
-        getOrdersData('pending', last24Hours, now);
+        getOrdersData('pending', 'last24h', 'now');
     }
     //retrive orders history based on date and order type
     if (top.location.pathname === '/admin/onlineShop/orders/history') {
@@ -1772,13 +1765,16 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
     }
     //refresh orders page to display orders based on selected order type
     $('#getOrdersData').on('click', function () {
-        getOrdersData($('#orderStatus').val());
+        getOrdersData($('#orderStatus').val(), 'last24h', 'now');
     });
     //refresh orders history page based on selected order type and date
     $('#getOrdersHistoryData').on('click', function () {
         getOrdersData($('#orderStatus').val(), $('#orders_history_date_from').val(), $('#orders_history_date_to').val());
     });
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 })(jQuery);
 
 kamaDatepicker('orders_history_date_from', {

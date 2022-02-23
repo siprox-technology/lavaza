@@ -79,23 +79,32 @@ class OnlineShopController extends Controller
     }
     public function getOrdersData(Request $request){
 
-        $this->validate($request, ['order_date_from'=>'nullable|max:10|regex:/^[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}$/',
-        'order_date_to'=>'nullable|max:10|regex:/^[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}$/',
+        $this->validate($request, ['order_date_from'=>'nullable|max:10',Rule::in(['last24h','regex:/^[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}$/']),
+        'order_date_to'=>'nullable|max:10',Rule::in(['now','regex:/^[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}$/']),
         'orders_status'=>'required',Rule::in(['all', 'processed','pending','canceled'])
         ]);
+
         if($this->isAdminLoggedIn()){
-            if($request->order_date_from && $request->order_date_to)
+
+            if($request->order_date_from  && $request->order_date_to)
             {
-                //convert to English date
-                $request->order_date_from = Jalalian::fromFormat('Y-m-d H:i:s',str_replace('/','-',$request->order_date_from) .' 00:00:00')->toCarbon()->toDateTimeString();
-                $request->order_date_to = Jalalian::fromFormat('Y-m-d H:i:s',str_replace('/','-',$request->order_date_to).' 23:59:00')->toCarbon()->toDateTimeString();
+                if($request->order_date_from =="last24h" && $request->order_date_to =='now')
+                {
+                    $request->order_date_from = Carbon::yesterday()->toDateTimeString();
+                    $request->order_date_to = Carbon::now()->toDateTimeString();
+                }
+                else
+                {
+                    //convert to English date
+                    $request->order_date_from = Jalalian::fromFormat('Y-m-d H:i:s',str_replace('/','-',$request->order_date_from) .' 00:00:00')->toCarbon()->toDateTimeString();
+                    $request->order_date_to = Jalalian::fromFormat('Y-m-d H:i:s',str_replace('/','-',$request->order_date_to).' 23:59:00')->toCarbon()->toDateTimeString();
+                }
             }
             if($request->orders_status =='all')
             {
                 $orders = ($request->order_date_from && $request->order_date_to) ?
-                Order::all()
-                ->where('created_at','>=',$request->order_date_from)
-                ->where('created_at','<=',$request->order_date_to)
+                Order::where('created_at','>=',$request->order_date_from)
+                ->where('created_at','<=',$request->order_date_to)->get()
                 :
                 Order::all();
             }
