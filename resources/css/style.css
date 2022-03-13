@@ -1937,7 +1937,6 @@ input:checked+.slider:before {
 
 /* orders to print */
 
-#orders-to-print p,
-span {
+#orders-to-print {
     font-size: 12px;
 }
