@@ -13822,3 +13822,10 @@ input:checked+.slider:before {
     font-size: 13px;
     font-weight: 400;
 }
+
+/* orders to print */
+
+#orders-to-print p,
+span {
+    font-size: 12px;
+}

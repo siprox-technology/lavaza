@@ -56,14 +56,17 @@ class OnlineShopController extends Controller
                 $order->save();
             }
             // if order status == processed return in a new tab a page to print processed orders
-            if($request['ordersStatus'] == 'processed')
+            if($request['ordersStatus'] == 'process')
             {
-                //
+                $orders = Order::whereIn('id',$request['order-numbers'])->get();
+                return view('auth.admin.onlineShop.orders.print')->with(['orders' => $orders]);
             }
-            //else
             return back();
         }
         return back();
+    }
+    public function printOrders(){
+
     }
     public function OrdersIndex()
     {
