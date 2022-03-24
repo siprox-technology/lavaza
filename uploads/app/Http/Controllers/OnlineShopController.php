@@ -78,7 +78,7 @@ class OnlineShopController extends Controller
         foreach($orders as $order)
         {
         //send order confirmation text to user
-        $cancelationText = ' سفارش شما به شماره '.$order->id.' به مبلغ '.number_format($order->total_price,0).' '.'تومان کنسل شد. مبلغ به حساب شما باز گردانده می شود. با تشکر رستوران لاوازا  ';
+        $cancelationText = ' سفارش شما به شماره '.$order->id.' با مبلغ '.number_format($order->total_price,0).' '.'تومان با کنسل شد. مبلغ به حساب شما باز گردانده می شود. با تشکر رستوران لاوازا  ';
         RayganSms::sendMessage($order->phone,$cancelationText);
         }
     }

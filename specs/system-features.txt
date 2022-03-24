@@ -56,7 +56,7 @@ Lavaza restaurants website
                 -refresh on orders page based on selected order type*-       
                 -Admin sees pending, processed and canceled orders*-
                 -Admin update orders ststus to processed or canceled*- 
-                -Admin can print pending, processed and canceled orders--
+                -Admin can print pending, processed and canceled orders*-
                 -Admin see orders history based on selected date or last 24h-*
                             
             -Admin add update and remove website's contents--
@@ -67,7 +67,7 @@ Lavaza restaurants website
             -send forget/reset passowrd code**
             -receive forget/reset password confirmation**
             -confirmation of order and payment**
-            -cancelation of order notification to email/phone--
+            -cancelation of order notification to phone*-
 
 
         J-get payment system

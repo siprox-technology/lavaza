@@ -6,6 +6,7 @@
    -test english to persian
    -menu items direction to persian in home page
    -/admin/menu/items/create needs styling
+   -remove or adjust auto predictions on forms
 -performance
    -refactor test functions
 
