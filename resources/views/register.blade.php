@@ -43,7 +43,7 @@
                                         placeholder="موبایل" value="{{ old('phone') }}">
                                     @error('phone')
                                         <div class="text-right text-danger mt-2">
-                                            09** *** **** لطفا شماره را به صورت صحیح وارد کنید
+                                            {{$message}}
                                         </div>
                                     @enderror
                                 </div>
@@ -53,7 +53,7 @@
                                         placeholder="رمز عبور">
                                     @error('password')
                                         <div class=" text-danger mt-2">
-                                            رمز عبور با رمز عبور مجدد یکسان نیست
+                                            {{$message}}
                                         </div>
                                     @enderror
                                 </div>

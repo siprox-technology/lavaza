@@ -1,10 +1,10 @@
 <?php
 
 namespace Tests\Feature;
-
+use Session; 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-
+use Illuminate\Http\Request;
 class ExampleTest extends TestCase
 {
     /**
@@ -14,7 +14,17 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->get('/');
+ 
+        $token = Session::token();
+        $response = $this->post
+        (route('register'), [
+            'name' => 'سروش مدرسی',
+            'email'=>'integralproject1988@gmail.com',
+            'phone'=>'09371373929',
+            'password'=>'1111',
+            'password_confirmation'=>'1111',
+            '_token' => csrf_token()
+        ]);
         $response->assertStatus(200);
     }
 }

@@ -92,7 +92,6 @@ class UserTest extends DuskTestCase
                 ->click('@Logout')->assertPathIs('/');
         });
     }
-
     //test login with correct credentials
     public function test_login_and_logout_with_correct_credentials()
     {
